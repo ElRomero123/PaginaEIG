@@ -26,7 +26,6 @@
           </Key>
           <Property Name="Id" Type="bigint" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="255" Nullable="false" />
-          <Property Name="LastName" Type="nvarchar" MaxLength="255" Nullable="false" />
           <Property Name="Profesion" Type="nvarchar" MaxLength="255" Nullable="false" />
           <Property Name="ProfesionDescription" Type="nvarchar" MaxLength="255" Nullable="false" />
           <Property Name="WebPage" Type="nvarchar" MaxLength="255" Nullable="false" />
@@ -43,7 +42,6 @@
           </Key>
           <Property Name="Id" Type="bigint" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="255" Nullable="false" />
-          <Property Name="LastName" Type="nvarchar" MaxLength="255" Nullable="false" />
           <Property Name="ProfesionDescription" Type="nvarchar" MaxLength="255" Nullable="false" />
           <Property Name="WebPage" Type="nvarchar" MaxLength="255" Nullable="false" />
           <Property Name="Email" Type="nvarchar" MaxLength="255" Nullable="false" />
@@ -162,7 +160,6 @@
           </Key>
           <Property Name="Id" Type="Int64" Nullable="false" />
           <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="LastName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Profesion" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="ProfesionDescription" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="WebPage" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
@@ -180,7 +177,6 @@
           </Key>
           <Property Name="Id" Type="Int64" Nullable="false" />
           <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="LastName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="ProfesionDescription" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="WebPage" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Email" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
@@ -303,7 +299,6 @@
               <MappingFragment StoreEntitySet="OtherPerson">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="LastName" ColumnName="LastName" />
                 <ScalarProperty Name="Profesion" ColumnName="Profesion" />
                 <ScalarProperty Name="ProfesionDescription" ColumnName="ProfesionDescription" />
                 <ScalarProperty Name="WebPage" ColumnName="WebPage" />
@@ -321,7 +316,6 @@
               <MappingFragment StoreEntitySet="Person">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="LastName" ColumnName="LastName" />
                 <ScalarProperty Name="ProfesionDescription" ColumnName="ProfesionDescription" />
                 <ScalarProperty Name="WebPage" ColumnName="WebPage" />
                 <ScalarProperty Name="Email" ColumnName="Email" />

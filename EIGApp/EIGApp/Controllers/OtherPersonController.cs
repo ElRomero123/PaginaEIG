@@ -13,7 +13,7 @@ namespace EIGApp.Controllers
         {
             var query = from OP in BD.OtherPersons
                         where (OP.Name == cadena)
-                        select new { OP.Name, OP.LastName, OP.Profesion, OP.ProfesionDescription, OP.WebPage, OP.Email, OP.Phone, OP.City, OP.Address, OP.Avatar };
+                        select new { OP.Name, OP.Profesion, OP.ProfesionDescription, OP.WebPage, OP.Email, OP.Phone, OP.City, OP.Address, OP.Avatar };
 
             var lista = query.ToArray();
 
@@ -24,7 +24,6 @@ namespace EIGApp.Controllers
                 M.OtherPerson temp = new M.OtherPerson
                 {
                     Name = lista[i].Name,
-                    LastName = lista[i].LastName,
                     Profesion = lista[i].Profesion,
                     ProfesionDescription = lista[i].ProfesionDescription,
                     WebPage = lista[i].WebPage,
