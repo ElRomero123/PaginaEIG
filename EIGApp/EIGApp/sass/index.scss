@@ -94,6 +94,66 @@ body
     
         #categories
         {
+            #c8
+            {
+                background: url('../img/menu/2N.png');
+            }
+
+            #c7
+            {
+                background: url('../img/menu/1N.png');
+            }
+
+            #c6
+            {
+                background: url('../img/menu/2N.png');
+            }
+
+            #c5
+            {
+                background: url('../img/menu/1N.png');
+            }
+            
+            #c4:hover
+            {
+                background: url('../img/menu/2R.png');
+            }
+
+            #c4
+            {
+                background: url('../img/menu/2N.png');
+            }
+
+            #c3:hover
+            {
+                background: url('../img/menu/1R.png');
+            }
+
+            #c3
+            {
+                background: url('../img/menu/1N.png');
+            }
+
+            #c2:hover
+            {
+                background: url('../img/menu/2R.png');
+            }
+
+            #c2
+            {
+                background: url('../img/menu/2N.png');
+            }
+
+            #c1:hover
+            {
+                background: url('../img/menu/1R.png');
+            }
+
+            #c1
+            {
+                background: url('../img/menu/1N.png');
+            }
+
             .category
             {
                 border-radius: 5px;
@@ -107,6 +167,19 @@ body
 
             text-align: center;
             margin: 10px auto 10px auto;
+        }
+
+        #bannerState
+        {
+            display: none;
+            border-radius: 5px;
+            background-color: yellow;
+            color: black;
+            font-size: 12px;
+            font-family: acephimere;
+            padding: 10px;
+            width: 100px;
+            height: 15px;
         }
 
         #search:hover

@@ -6,6 +6,8 @@ function search(opcion)
             $('#listResults').empty();
             $('#listResults').hide();
             $('#maps').hide();
+            $('#bannerState').css('display','block');
+            $('#bannerState').text('Buscando ...');
 
             var criterio = document.getElementById('searchBox').value;
 
@@ -27,6 +29,7 @@ function search(opcion)
                                 document.getElementById(i).style.background = 'url("' + data[i].Avatar + '")';
                             } 
             
+                            $('#bannerState').hide();
                             $('#listResults').css('display','inline-block');
                             $('#maps').css('display','inline-block');
                         }
