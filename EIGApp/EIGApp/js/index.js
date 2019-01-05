@@ -58,7 +58,6 @@ function search(opcion)
         break;
 
         case 2:
-        //alert("Busqueda de otros perfiles como peritos, abogados!");
         $.ajax
         (
             {
