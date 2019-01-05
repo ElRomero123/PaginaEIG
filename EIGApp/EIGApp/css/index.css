@@ -60,20 +60,20 @@ body div div #listResults .result #text {
   width: 200px;
 }
 /* line 20, ../sass/index.scss */
-body div div #listResults .result #text #tagName {
+body div div #listResults .result #text #pf1 {
   color: darkred;
   font-size: 17px;
 }
 /* line 26, ../sass/index.scss */
-body div div #listResults .result #text #tagDescription {
+body div div #listResults .result #text #pf2 {
   font-size: 12px;
 }
 /* line 31, ../sass/index.scss */
-body div div #listResults .result #text #tagAddress {
+body div div #listResults .result #text #pf3 {
   font-size: 10px;
 }
 /* line 36, ../sass/index.scss */
-body div div #listResults .result #text #tagPhone {
+body div div #listResults .result #text #pf4 {
   font-size: 10px;
 }
 /* line 41, ../sass/index.scss */
