@@ -1,0 +1,5 @@
+Credenciales Servidor BD
+
+Nombre servidor: eig.database.windows.net
+Nombre de usuario: EigUser
+Contraseña: EliteIntelligenceGroup123

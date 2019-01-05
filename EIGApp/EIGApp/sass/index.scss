@@ -1,0 +1,204 @@
+body
+{
+    div
+    {
+        div
+        {
+            #maps
+            {
+                width: 250px;
+                display: none;
+                vertical-align: middle;
+            }
+
+            #listResults
+            {
+                .result
+                {
+                    #text
+                    {
+                        #tagName
+                        {
+                            color: darkred;
+                            font-size: 17px;
+                        }
+    
+                        #tagDescription
+                        {
+                            font-size: 12px;
+                        }
+    
+                        #tagAddress 
+                        {
+                            font-size: 10px;
+                        }
+    
+                        #tagPhone
+                        {
+                            font-size: 10px;
+                        }
+    
+                        p
+                        {
+                            margin: 2px;
+                        }
+    
+                        color: black;
+                        background: white;
+                        font-family: acephimere;
+                        text-align: justify;
+                        margin: 0px;
+                        height: 70px;
+                        width: 200px;
+                    }
+    
+                    .avatar
+                    {
+                        margin: 10px;
+                        border-radius: 0px;
+                        height: 70px;
+                        width: 70px;
+                    }
+    
+                    div
+                    {
+                        display: inline-block;
+                    }
+    
+                    border-radius: 0px;
+                    color: red;
+                    background: white;
+                    margin: 3px;
+                    display: inline-block;
+                    width: 220px;
+                    height: 230px;
+                }
+    
+                display: none;
+                margin-top: 20px;
+                margin-bottom: 0px;
+                text-align: center;
+                overflow-y: scroll;
+                flex-direction: column;
+                padding: 0px;
+                height: 400px;
+                width: 250px;
+                vertical-align: middle;
+            }
+
+            margin: 10px auto;
+            padding: 0px;
+            text-align: center;
+            border-radius: 0px;
+        }
+    
+        #categories
+        {
+            .category
+            {
+                border-radius: 5px;
+                height: 90px;
+                width: 90px;
+                display: inline-block;
+                margin: 0px;
+                color: white;
+                background: white;
+            }
+
+            text-align: center;
+            margin: 10px auto 10px auto;
+        }
+
+        #search:hover
+        {
+            filter: invert(100%);
+        }
+
+        #search
+        {
+            vertical-align: middle;
+            transition: 0.15s;
+            background: url('../img/lupa.png');
+            outline: 0px;
+            border: 0px;
+            height: 50px;
+            width: 50px;
+        }
+
+        #searchBox:focus
+        {
+            height: 20px;
+            border: 2px solid red;
+        }
+
+        #searchBox
+        {
+            vertical-align: middle;
+            transition: 0.15s;
+            outline: 0px;
+            border: 2px solid black;
+            color: red;
+            font-family: arial;
+            font-size: 14px;
+            padding: 10px;
+            height: 10px;
+            width: 70%;
+        }
+
+        #searchTag
+        {
+            font-size: 40px;
+            font-family: acephimereThinItalic;
+            margin: auto;
+        }
+
+        text-align: center; 
+        color: white;
+        background-color: rgb(127,0,0);
+        border-radius: 10px;
+        padding: 10px;
+        margin: 110px auto 95px auto;
+        height: auto;
+        width: 90%;
+    }
+    
+    header
+    {
+        #headerLogo
+        {
+
+            background: url('../img/logo.png');
+            margin: 10px auto 10px auto;
+            text-align: center;
+            height: 60px;
+            width: 130px; 
+        }
+
+        background-color: darkgray;
+        height: 100px;
+        width: 100%;
+        top: 0px;
+        left: 0px;
+        position: fixed;
+    }
+
+    background: black;
+}
+
+@font-face
+{
+    font-family: acephimere;
+    src: url('../fonts/acephimere.otf');
+}
+
+@font-face
+{
+    font-family: acephimereThinItalic;
+    src: url('../fonts/acephimereThinItalic.otf');
+}
+
+@font-face
+{
+    font-family: acephimereThin;
+    src: url('../fonts/acephimereThin.otf');
+}

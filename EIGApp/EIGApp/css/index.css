@@ -1,0 +1,176 @@
+/* line 1, ../sass/index.scss */
+body {
+  background: black;
+}
+/* line 3, ../sass/index.scss */
+body div {
+  text-align: center;
+  color: white;
+  background-color: #7f0000;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 110px auto 95px auto;
+  height: auto;
+  width: 90%;
+}
+/* line 5, ../sass/index.scss */
+body div div {
+  margin: 10px auto;
+  padding: 0px;
+  text-align: center;
+  border-radius: 0px;
+}
+/* line 7, ../sass/index.scss */
+body div div #maps {
+  width: 250px;
+  display: none;
+  vertical-align: middle;
+}
+/* line 14, ../sass/index.scss */
+body div div #listResults {
+  display: none;
+  margin-top: 20px;
+  margin-bottom: 0px;
+  text-align: center;
+  overflow-y: scroll;
+  flex-direction: column;
+  padding: 0px;
+  height: 400px;
+  width: 250px;
+  vertical-align: middle;
+}
+/* line 16, ../sass/index.scss */
+body div div #listResults .result {
+  border-radius: 0px;
+  color: red;
+  background: white;
+  margin: 3px;
+  display: inline-block;
+  width: 220px;
+  height: 230px;
+}
+/* line 18, ../sass/index.scss */
+body div div #listResults .result #text {
+  color: black;
+  background: white;
+  font-family: acephimere;
+  text-align: justify;
+  margin: 0px;
+  height: 70px;
+  width: 200px;
+}
+/* line 20, ../sass/index.scss */
+body div div #listResults .result #text #tagName {
+  color: darkred;
+  font-size: 17px;
+}
+/* line 26, ../sass/index.scss */
+body div div #listResults .result #text #tagDescription {
+  font-size: 12px;
+}
+/* line 31, ../sass/index.scss */
+body div div #listResults .result #text #tagAddress {
+  font-size: 10px;
+}
+/* line 36, ../sass/index.scss */
+body div div #listResults .result #text #tagPhone {
+  font-size: 10px;
+}
+/* line 41, ../sass/index.scss */
+body div div #listResults .result #text p {
+  margin: 2px;
+}
+/* line 55, ../sass/index.scss */
+body div div #listResults .result .avatar {
+  margin: 10px;
+  border-radius: 0px;
+  height: 70px;
+  width: 70px;
+}
+/* line 63, ../sass/index.scss */
+body div div #listResults .result div {
+  display: inline-block;
+}
+/* line 95, ../sass/index.scss */
+body div #categories {
+  text-align: center;
+  margin: 10px auto 10px auto;
+}
+/* line 97, ../sass/index.scss */
+body div #categories .category {
+  border-radius: 5px;
+  height: 90px;
+  width: 90px;
+  display: inline-block;
+  margin: 0px;
+  color: white;
+  background: white;
+}
+/* line 112, ../sass/index.scss */
+body div #search:hover {
+  filter: invert(100%);
+}
+/* line 117, ../sass/index.scss */
+body div #search {
+  vertical-align: middle;
+  transition: 0.15s;
+  background: url("../img/lupa.png");
+  outline: 0px;
+  border: 0px;
+  height: 50px;
+  width: 50px;
+}
+/* line 128, ../sass/index.scss */
+body div #searchBox:focus {
+  height: 20px;
+  border: 2px solid red;
+}
+/* line 134, ../sass/index.scss */
+body div #searchBox {
+  vertical-align: middle;
+  transition: 0.15s;
+  outline: 0px;
+  border: 2px solid black;
+  color: red;
+  font-family: arial;
+  font-size: 14px;
+  padding: 10px;
+  height: 10px;
+  width: 70%;
+}
+/* line 148, ../sass/index.scss */
+body div #searchTag {
+  font-size: 40px;
+  font-family: acephimereThinItalic;
+  margin: auto;
+}
+/* line 165, ../sass/index.scss */
+body header {
+  background-color: darkgray;
+  height: 100px;
+  width: 100%;
+  top: 0px;
+  left: 0px;
+  position: fixed;
+}
+/* line 167, ../sass/index.scss */
+body header #headerLogo {
+  background: url("../img/logo.png");
+  margin: 10px auto 10px auto;
+  text-align: center;
+  height: 60px;
+  width: 130px;
+}
+
+@font-face {
+  font-family: acephimere;
+  src: url("../fonts/acephimere.otf");
+}
+@font-face {
+  font-family: acephimereThinItalic;
+  src: url("../fonts/acephimereThinItalic.otf");
+}
+@font-face {
+  font-family: acephimereThin;
+  src: url("../fonts/acephimereThin.otf");
+}
