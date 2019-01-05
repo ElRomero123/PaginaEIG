@@ -47,7 +47,7 @@ body div div #listResults .result {
   margin: 3px;
   display: inline-block;
   width: 220px;
-  height: 230px;
+  height: auto;
 }
 /* line 18, ../sass/index.scss */
 body div div #listResults .result #text {
@@ -56,7 +56,7 @@ body div div #listResults .result #text {
   font-family: acephimere;
   text-align: justify;
   margin: 0px;
-  height: 70px;
+  height: auto;
   width: 200px;
 }
 /* line 20, ../sass/index.scss */

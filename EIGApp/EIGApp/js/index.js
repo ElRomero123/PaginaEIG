@@ -148,7 +148,48 @@ function search(opcion)
         break;
 
         default:
-            alert("Búsqueda de promociones, descuentos, cursos!");
+        $.ajax
+        (
+            {
+                url: '../api/product/?cadena=' + criterio,
+                type: 'GET',
+                contentType: "application/json;charset=utf-8",
+
+                success:
+                function (data) 
+                {
+                    if(data.length > 0)
+                    {
+                        var cadena = "";
+                        
+                        for(var i = 0; i < data.length; i++)
+                        {
+                            cadena += "<div class='result'> <div class='avatar' id='" + i + "'></div> <div id='text'> <p id='pf1'>" + data[i].Name + "</p> <p id='pf2'>" + data[i].Type + "</p> <p id='pf2'>" + data[i].TypeDescription + "</p> <p id='pf3'>" + data[i].AttendantName + "</p> <p id='pf3'>" + data[i].AttendantPhone + "</p>  <p id='pf3'>" + data[i].AttendantEmail + "</p> <p id='pf4'>" + data[i].City + "</p> <p id='pf4'>" + data[i].Address + "</p> <p id='pf4'>" + data[i].Date + "</p> </div> </div>";  
+                        } 
+
+                        $('#listResults').append(cadena);
+
+                        for(var i = 0; i < data.length; i++)
+                        {
+                            document.getElementById(i).style.background = 'url("' + data[i].Avatar + '")';
+                        }
+
+                        $('#bannerState').css('background','green');
+                        $('#bannerState').css('color','white');
+                        $('#bannerState').text(i + ' resultado(s) encontrados!');
+                        $('#listResults').css('display','inline-block');
+                        $('#maps').css('display','inline-block');
+                    }
+
+                    else
+                    {
+                        $('#bannerState').css('background','red');
+                        $('#bannerState').css('color','white');
+                        $('#bannerState').text('Sin resultados!');
+                    }
+                }
+            }
+        );
     }    
 }
 
