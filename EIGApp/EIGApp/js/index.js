@@ -103,7 +103,48 @@ function search(opcion)
         break;
 
         case 3:
-            alert("Búsqueda de empresas de seguridad e investigación!");
+        $.ajax
+        (
+            {
+                url: '../api/business/?cadena=' + criterio,
+                type: 'GET',
+                contentType: "application/json;charset=utf-8",
+
+                success:
+                function (data) 
+                {
+                    if(data.length > 0)
+                    {
+                        var cadena = "";
+                        
+                        for(var i = 0; i < data.length; i++)
+                        {
+                            cadena += "<div class='result'> <div class='avatar' id='" + i + "'></div> <div id='text'> <p id='pf1'>" + data[i].Name + "</p> <p id='pf2'>" + data[i].Specialism + "</p> <p id='pf2'>" + data[i].SpecialismDescription + "</p> <p id='pf3'>" + data[i].WebPage + "</p> <p id='pf4'>" + data[i].Phone + "</p> <p id='pf4'>" + data[i].City + "</p> <p id='pf4'>" + data[i].Address + "</p> </div> </div>";  
+                        } 
+
+                        $('#listResults').append(cadena);
+
+                        for(var i = 0; i < data.length; i++)
+                        {
+                            document.getElementById(i).style.background = 'url("' + data[i].Avatar + '")';
+                        }
+
+                        $('#bannerState').css('background','green');
+                        $('#bannerState').css('color','white');
+                        $('#bannerState').text(i + ' resultado(s) encontrados!');
+                        $('#listResults').css('display','inline-block');
+                        $('#maps').css('display','inline-block');
+                    }
+
+                    else
+                    {
+                        $('#bannerState').css('background','red');
+                        $('#bannerState').css('color','white');
+                        $('#bannerState').text('Sin resultados!');
+                    }
+                }
+            }
+        );
         break;
 
         default:

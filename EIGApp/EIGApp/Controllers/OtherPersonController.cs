@@ -12,7 +12,7 @@ namespace EIGApp.Controllers
         public M.OtherPerson[] Get(string cadena)
         {
             var query = from OP in BD.OtherPersons
-                        where (OP.Name == cadena)
+                        where (OP.Name.Contains(cadena) || OP.Profesion.Contains(cadena) || OP.ProfesionDescription.Contains(cadena) || OP.City.Contains(cadena))
                         select new { OP.Name, OP.Profesion, OP.ProfesionDescription, OP.WebPage, OP.Email, OP.Phone, OP.City, OP.Address, OP.Avatar };
 
             var lista = query.ToArray();
