@@ -94,9 +94,19 @@ body
     
         #categories
         {
+            #c8:hover
+            {
+                background: url('../img/menu/1R.png');
+            }
+
             #c8
             {
-                background: url('../img/menu/2N.png');
+                background: url('../img/menu/1N.png');
+            }
+
+            #c7:hover
+            {
+                background: url('../img/menu/1R.png');
             }
 
             #c7
@@ -104,24 +114,34 @@ body
                 background: url('../img/menu/1N.png');
             }
 
+            #c6:hover
+            {
+                background: url('../img/menu/1R.png');
+            }
+
             #c6
             {
-                background: url('../img/menu/2N.png');
+                background: url('../img/menu/1N.png');
+            }
+
+            #c5:hover
+            {
+                background: url('../img/menu/1R.png');
             }
 
             #c5
             {
                 background: url('../img/menu/1N.png');
             }
-            
+
             #c4:hover
             {
-                background: url('../img/menu/2R.png');
+                background: url('../img/menu/1R.png');
             }
 
             #c4
             {
-                background: url('../img/menu/2N.png');
+                background: url('../img/menu/1N.png');
             }
 
             #c3:hover
@@ -136,12 +156,12 @@ body
 
             #c2:hover
             {
-                background: url('../img/menu/2R.png');
+                background: url('../img/menu/1R.png');
             }
 
             #c2
             {
-                background: url('../img/menu/2N.png');
+                background: url('../img/menu/1N.png');
             }
 
             #c1:hover
@@ -156,13 +176,13 @@ body
 
             .category
             {
+                transition: 0.15s;
                 border-radius: 5px;
                 height: 90px;
                 width: 90px;
                 display: inline-block;
                 margin: 0px;
                 color: white;
-                background: white;
             }
 
             text-align: center;
