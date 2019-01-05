@@ -1,48 +1,59 @@
 function search(opcion)
 {
+    $('#listResults').empty();;
+    $('#listResults').hide();
+    $('#maps').hide();
+    $('#bannerState').css('display','block');
+    $('#bannerState').css('background','yellow');
+    $('#bannerState').css('color','black');
+    $('#bannerState').text('Buscando ...');
+
+    var criterio = document.getElementById('searchBox').value;
+
     switch(opcion)
     {
         case 1:
-            $('#listResults').empty();
-            $('#listResults').hide();
-            $('#maps').hide();
-            $('#bannerState').css('display','block');
-            $('#bannerState').text('Buscando ...');
+        $.ajax
+        (
+            {
+                url: '../api/person/?cadena=' + criterio,
+                type: 'GET',
+                contentType: "application/json;charset=utf-8",
 
-            var criterio = document.getElementById('searchBox').value;
-
-            $.ajax
-            (
+                success:
+                function (data) 
                 {
-                    url: '../api/person/?cadena=' + criterio,
-                    type: 'GET',
-                    contentType: "application/json;charset=utf-8",
-
-                    success:
-                    function (data) 
+                    if(data.length > 0)
                     {
-                        if(data.length > 0)
+                        var cadena = "";
+                        for(var i = 0; i < data.length; i++)
                         {
-                            for(var i = 0; i < data.length; i++)
-                            {
-                                $('#listResults').append("<div class='result'> <div class='avatar' id='" + i + "'></div> <div id='text'> <p id='tagName'>" + data[i].Name + " " + data[i].LastName + "</p> <p id='tagDescription'>" + data[i].ProfesionDescription + "</p> <p id='tagAddress'>" + data[i].WebPage + "</p> <p id='tagPhone'>" + data[i].Email + "</p> <p id='tagPhone'>" + data[i].Phone + "</p> <p id='tagPhone'>" + data[i].City + "</p> <p id='tagPhone'>" + + data[i].Address + "</p> </div> </div>");
-                                document.getElementById(i).style.background = 'url("' + data[i].Avatar + '")';
-                            } 
-            
-                            $('#bannerState').hide();
-                            $('#listResults').css('display','inline-block');
-                            $('#maps').css('display','inline-block');
-                        }
-                    },
+                            cadena += "<div class='result'> <div class='avatar' id='" + i + "'></div> <div id='text'> <p id='tagName'>" + data[i].Name + " " + data[i].LastName + "</p> <p id='tagDescription'>" + data[i].ProfesionDescription + "</p> <p id='tagAddress'>" + data[i].WebPage + "</p> <p id='tagPhone'>" + data[i].Email + "</p> <p id='tagPhone'>" + data[i].Phone + "</p> <p id='tagPhone'>" + data[i].City + "</p> <p id='tagPhone'>" + + data[i].Address + "</p> </div> </div>";  
+                        } 
 
-                    error:
-                    function ()
+                        $('#listResults').append(cadena);
+
+                        for(var i = 0; i < data.length; i++)
+                        {
+                            document.getElementById(i).style.background = 'url("' + data[i].Avatar + '")';
+                        }
+
+                        $('#bannerState').css('background','green');
+                        $('#bannerState').css('color','white');
+                        $('#bannerState').text(i + ' resultado(s) encontrados!');
+                        $('#listResults').css('display','inline-block');
+                        $('#maps').css('display','inline-block');
+                    }
+
+                    else
                     {
-                        console.log('Error en la función GET');
+                        $('#bannerState').css('background','red');
+                        $('#bannerState').css('color','white');
+                        $('#bannerState').text('Sin resultados!');
                     }
                 }
-            );
-
+            }
+        );
         break;
 
         case 2:
