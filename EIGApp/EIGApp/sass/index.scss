@@ -6,6 +6,11 @@ body
         {
             #maps
             {
+                #mapa
+                {
+                    //
+                }
+
                 width: 250px;
                 display: none;
                 vertical-align: middle;
@@ -191,9 +196,9 @@ body
 
             .category
             {
+                border: 2px solid transparent;
                 transition: 0.25s;
                 border-radius: 0px;
-                border: 2px solid transparent;
                 height: 45px;
                 width: 45px;
                 display: inline-block;

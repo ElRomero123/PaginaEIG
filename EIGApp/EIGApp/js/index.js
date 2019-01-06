@@ -1,6 +1,6 @@
 function search(opcion)
 {
-    $('#listResults').empty();;
+    $('#listResults').empty();
     $('#listResults').hide();
     $('#maps').hide();
     $('#bannerState').css('display','block');
