@@ -6,7 +6,6 @@ body
         {
             #maps
             {
-                width: 250px;
                 display: none;
                 vertical-align: middle;
             }
@@ -69,26 +68,25 @@ body
                     color: red;
                     background: white;
                     margin: 3px;
-                    display: inline-block;
-                    width: 220px;
+                    display: flex;
+                    width: 300px;
                     height: auto;
                 }
     
+
                 display: none;
-                margin-top: 20px;
-                margin-bottom: 0px;
-                text-align: center;
-                overflow-y: scroll;
-                flex-direction: column;
-                padding: 0px;
-                height: 400px;
-                width: 250px;
+                margin: 20px auto;
                 vertical-align: middle;
+                overflow-y: scroll;
+                flex-direction: row;
+                padding: 0px;
+                height: 250px;
+                width: 90%;
+
             }
 
             margin: 10px auto;
             padding: 0px;
-            text-align: center;
             border-radius: 0px;
         }
     

@@ -17,39 +17,35 @@ body div {
 body div div {
   margin: 10px auto;
   padding: 0px;
-  text-align: center;
   border-radius: 0px;
 }
 /* line 7, ../sass/index.scss */
 body div div #maps {
-  width: 250px;
   display: none;
   vertical-align: middle;
 }
-/* line 14, ../sass/index.scss */
+/* line 13, ../sass/index.scss */
 body div div #listResults {
   display: none;
-  margin-top: 20px;
-  margin-bottom: 0px;
-  text-align: center;
-  overflow-y: scroll;
-  flex-direction: column;
-  padding: 0px;
-  height: 400px;
-  width: 250px;
+  margin: 20px auto;
   vertical-align: middle;
+  overflow-y: scroll;
+  flex-direction: row;
+  padding: 0px;
+  height: 250px;
+  width: 90%;
 }
-/* line 16, ../sass/index.scss */
+/* line 15, ../sass/index.scss */
 body div div #listResults .result {
   border-radius: 0px;
   color: red;
   background: white;
   margin: 3px;
-  display: inline-block;
-  width: 220px;
+  display: flex;
+  width: 300px;
   height: auto;
 }
-/* line 18, ../sass/index.scss */
+/* line 17, ../sass/index.scss */
 body div div #listResults .result #text {
   color: black;
   background: white;
@@ -59,120 +55,120 @@ body div div #listResults .result #text {
   height: auto;
   width: 200px;
 }
-/* line 20, ../sass/index.scss */
+/* line 19, ../sass/index.scss */
 body div div #listResults .result #text #pf1 {
   color: darkred;
   font-size: 17px;
 }
-/* line 26, ../sass/index.scss */
+/* line 25, ../sass/index.scss */
 body div div #listResults .result #text #pf2 {
   font-size: 12px;
 }
-/* line 31, ../sass/index.scss */
+/* line 30, ../sass/index.scss */
 body div div #listResults .result #text #pf3 {
   font-size: 10px;
 }
-/* line 36, ../sass/index.scss */
+/* line 35, ../sass/index.scss */
 body div div #listResults .result #text #pf4 {
   font-size: 10px;
 }
-/* line 41, ../sass/index.scss */
+/* line 40, ../sass/index.scss */
 body div div #listResults .result #text p {
   margin: 2px;
 }
-/* line 55, ../sass/index.scss */
+/* line 54, ../sass/index.scss */
 body div div #listResults .result .avatar {
   margin: 10px;
   border-radius: 0px;
   height: 70px;
   width: 70px;
 }
-/* line 63, ../sass/index.scss */
+/* line 62, ../sass/index.scss */
 body div div #listResults .result div {
   display: inline-block;
 }
-/* line 95, ../sass/index.scss */
+/* line 93, ../sass/index.scss */
 body div #categories {
   text-align: center;
   margin: 10px auto 10px auto;
 }
-/* line 97, ../sass/index.scss */
+/* line 95, ../sass/index.scss */
 body div #categories #c9:hover {
   background: url("../img/menu/9R.png");
 }
-/* line 102, ../sass/index.scss */
+/* line 100, ../sass/index.scss */
 body div #categories #c9 {
   background: url("../img/menu/9N.png");
 }
-/* line 107, ../sass/index.scss */
+/* line 105, ../sass/index.scss */
 body div #categories #c8:hover {
   background: url("../img/menu/8R.png");
 }
-/* line 112, ../sass/index.scss */
+/* line 110, ../sass/index.scss */
 body div #categories #c8 {
   background: url("../img/menu/8N.png");
 }
-/* line 117, ../sass/index.scss */
+/* line 115, ../sass/index.scss */
 body div #categories #c7:hover {
   background: url("../img/menu/1R.png");
 }
-/* line 122, ../sass/index.scss */
+/* line 120, ../sass/index.scss */
 body div #categories #c7 {
   background: url("../img/menu/1N.png");
 }
-/* line 127, ../sass/index.scss */
+/* line 125, ../sass/index.scss */
 body div #categories #c6:hover {
   background: url("../img/menu/1R.png");
 }
-/* line 132, ../sass/index.scss */
+/* line 130, ../sass/index.scss */
 body div #categories #c6 {
   background: url("../img/menu/1N.png");
 }
-/* line 137, ../sass/index.scss */
+/* line 135, ../sass/index.scss */
 body div #categories #c5:hover {
   background: url("../img/menu/1R.png");
 }
-/* line 142, ../sass/index.scss */
+/* line 140, ../sass/index.scss */
 body div #categories #c5 {
   background: url("../img/menu/1N.png");
 }
-/* line 147, ../sass/index.scss */
+/* line 145, ../sass/index.scss */
 body div #categories #c4:hover {
   background: url("../img/menu/1R.png");
 }
-/* line 152, ../sass/index.scss */
+/* line 150, ../sass/index.scss */
 body div #categories #c4 {
   background: url("../img/menu/1N.png");
 }
-/* line 157, ../sass/index.scss */
+/* line 155, ../sass/index.scss */
 body div #categories #c3:hover {
   background: url("../img/menu/3R.png");
 }
-/* line 162, ../sass/index.scss */
+/* line 160, ../sass/index.scss */
 body div #categories #c3 {
   background: url("../img/menu/3N.png");
 }
-/* line 167, ../sass/index.scss */
+/* line 165, ../sass/index.scss */
 body div #categories #c2:hover {
   background: url("../img/menu/2R.png");
 }
-/* line 172, ../sass/index.scss */
+/* line 170, ../sass/index.scss */
 body div #categories #c2 {
   background: url("../img/menu/2N.png");
 }
-/* line 177, ../sass/index.scss */
+/* line 175, ../sass/index.scss */
 body div #categories #c1:hover {
   background: url("../img/menu/1R.png");
 }
-/* line 182, ../sass/index.scss */
+/* line 180, ../sass/index.scss */
 body div #categories #c1 {
   background: url("../img/menu/1N.png");
 }
-/* line 187, ../sass/index.scss */
+/* line 185, ../sass/index.scss */
 body div #categories .category:hover {
   border: 2px solid darkgray;
 }
-/* line 192, ../sass/index.scss */
+/* line 190, ../sass/index.scss */
 body div #categories .category {
   border: 2px solid transparent;
   transition: 0.25s;
@@ -183,7 +179,7 @@ body div #categories .category {
   margin: 4px;
   color: white;
 }
-/* line 208, ../sass/index.scss */
+/* line 206, ../sass/index.scss */
 body div #bannerState {
   display: none;
   border-radius: 5px;
@@ -193,11 +189,11 @@ body div #bannerState {
   width: 200px;
   height: 15px;
 }
-/* line 219, ../sass/index.scss */
+/* line 217, ../sass/index.scss */
 body div #search:hover {
   filter: invert(100%);
 }
-/* line 224, ../sass/index.scss */
+/* line 222, ../sass/index.scss */
 body div #search {
   vertical-align: middle;
   transition: 0.15s;
@@ -207,12 +203,12 @@ body div #search {
   height: 50px;
   width: 50px;
 }
-/* line 235, ../sass/index.scss */
+/* line 233, ../sass/index.scss */
 body div #searchBox:focus {
   height: 20px;
   border: 2px solid red;
 }
-/* line 241, ../sass/index.scss */
+/* line 239, ../sass/index.scss */
 body div #searchBox {
   vertical-align: middle;
   transition: 0.15s;
@@ -225,21 +221,21 @@ body div #searchBox {
   height: 10px;
   width: 70%;
 }
-/* line 255, ../sass/index.scss */
+/* line 253, ../sass/index.scss */
 body div #categorySearch {
   font-size: 14px;
   font-family: acephimere;
 }
-/* line 261, ../sass/index.scss */
+/* line 259, ../sass/index.scss */
 body div #searchTag {
   font-size: 40px;
   font-family: acephimereThinItalic;
 }
-/* line 267, ../sass/index.scss */
+/* line 265, ../sass/index.scss */
 body div p {
   margin: auto;
 }
-/* line 282, ../sass/index.scss */
+/* line 280, ../sass/index.scss */
 body header {
   background-color: darkgray;
   height: 100px;
@@ -248,7 +244,7 @@ body header {
   left: 0px;
   position: fixed;
 }
-/* line 284, ../sass/index.scss */
+/* line 282, ../sass/index.scss */
 body header #headerLogo {
   background: url("../img/logo.png");
   margin: 10px auto 10px auto;

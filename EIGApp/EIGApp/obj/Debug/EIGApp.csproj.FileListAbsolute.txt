@@ -68,3 +68,4 @@ D:\Proyectos\PaginaEIG\EIGApp\EIGApp\obj\Debug\EIGApp.csproj.CoreCompileInputs.c
 D:\Proyectos\PaginaEIG\EIGApp\EIGApp\obj\Debug\EIGApp.csproj.CopyComplete
 D:\Proyectos\PaginaEIG\EIGApp\EIGApp\obj\Debug\EIGApp.dll
 D:\Proyectos\PaginaEIG\EIGApp\EIGApp\obj\Debug\EIGApp.pdb
+D:\Proyectos\PaginaEIG\EIGApp\EIGApp\obj\Debug\EIGApp.csprojAssemblyReference.cache
