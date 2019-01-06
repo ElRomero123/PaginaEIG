@@ -184,12 +184,18 @@ body
                 background: url('../img/menu/1N.png');
             }
 
+            .category:hover
+            {
+                height: 50px;
+                width: 50px;
+            }
+
             .category
             {
                 transition: 0.25s;
-                border-radius: 5px;
-                height: 90px;
-                width: 90px;
+                border-radius: 0px;
+                height: 45px;
+                width: 45px;
                 display: inline-block;
                 margin: 0px;
                 color: white;
