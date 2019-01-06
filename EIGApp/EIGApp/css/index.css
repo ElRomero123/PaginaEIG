@@ -98,11 +98,11 @@ body div #categories {
 }
 /* line 97, ../sass/index.scss */
 body div #categories #c8:hover {
-  background: url("../img/menu/1R.png");
+  background: url("../img/menu/8R.png");
 }
 /* line 102, ../sass/index.scss */
 body div #categories #c8 {
-  background: url("../img/menu/1N.png");
+  background: url("../img/menu/8N.png");
 }
 /* line 107, ../sass/index.scss */
 body div #categories #c7:hover {
@@ -138,19 +138,19 @@ body div #categories #c4 {
 }
 /* line 147, ../sass/index.scss */
 body div #categories #c3:hover {
-  background: url("../img/menu/1R.png");
+  background: url("../img/menu/3R.png");
 }
 /* line 152, ../sass/index.scss */
 body div #categories #c3 {
-  background: url("../img/menu/1N.png");
+  background: url("../img/menu/3N.png");
 }
 /* line 157, ../sass/index.scss */
 body div #categories #c2:hover {
-  background: url("../img/menu/1R.png");
+  background: url("../img/menu/2R.png");
 }
 /* line 162, ../sass/index.scss */
 body div #categories #c2 {
-  background: url("../img/menu/1N.png");
+  background: url("../img/menu/2N.png");
 }
 /* line 167, ../sass/index.scss */
 body div #categories #c1:hover {
@@ -162,7 +162,7 @@ body div #categories #c1 {
 }
 /* line 177, ../sass/index.scss */
 body div #categories .category {
-  transition: 0.15s;
+  transition: 0.25s;
   border-radius: 5px;
   height: 90px;
   width: 90px;
