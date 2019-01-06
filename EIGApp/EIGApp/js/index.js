@@ -2,7 +2,7 @@ function search(opcion)
 {
     $('#listResults').empty();
     $('#listResults').hide();
-    $('#maps').hide();
+    $('#maps').empty();
     $('#bannerState').css('display','block');
     $('#bannerState').css('background','yellow');
     $('#bannerState').css('color','black');
