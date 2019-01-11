@@ -14,28 +14,29 @@
 
         <div> 
             <p id='searchTag'>Búsqueda</p> 
-            <input id='searchBox' onkeypress="searchByEnter(event)" >
-            <button id='search' onclick="search()"></button>
-
+            <p id='categorySearch'>Búsqueda de detective privado</p>
+            <input id='searchBox' onkeypress="searchByEnter(event, 1)" >
+            <button id='search' onclick="search(1)"></button>
             
             <div id='categories'>
-                <div class='category' onclick="to(1)"></div>
-                <div class='category' onclick='to(2)'></div>
-                <div class='category' onclick='to(3)'></div>
-                <div class='category' onclick='to(4)'></div>
-                <div class='category' onclick='to(5)'></div>
-                <div class='category' onclick='to(6)'></div>
-                <div class='category' onclick='to(7)'></div>
-                <div class='category' onclick='to(8)'></div>
+                <div id='c1' class='category' onclick="to(1)"></div>
+                <div id='c2' class='category' onclick='to(2)'></div>
+                <div id='c3' class='category' onclick='to(3)'></div>
+                <div id='c4' class='category' onclick='to(4)'></div>
+                <div id='c5' class='category' onclick='to(5)'></div>
+                <div id='c6' class='category' onclick='to(6)'></div>
+                <div id='c7' class='category' onclick='to(7)'></div>
+                <div id='c8' class='category' onclick='to(8)'></div>
             </div>
 
+            <div id='bannerState'> </div>
+
             <div>
-                <div id='listResults'>
+                <div id='listResults'>     
                 </div>
-                    
+
                 <div id='maps'>
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1983.052539923606!2d-75.59331759598534!3d6.249882579683135!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e4428ef4e52dddb%3A0x722fd6c39270ac72!2sMedell%C3%ADn%2C+Antioquia!5e0!3m2!1ses-419!2sco!4v1546614803555" width="100%" height="500" frameborder="0" style="border:0" allowfullscreen></iframe>
-                </div>     
+                </div> 
             </div>    
         </div>
             

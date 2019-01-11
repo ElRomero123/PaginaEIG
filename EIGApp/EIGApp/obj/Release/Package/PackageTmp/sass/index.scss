@@ -6,7 +6,6 @@ body
         {
             #maps
             {
-                width: 250px;
                 display: none;
                 vertical-align: middle;
             }
@@ -17,23 +16,23 @@ body
                 {
                     #text
                     {
-                        #tagName
+                        #pf1
                         {
                             color: darkred;
                             font-size: 17px;
                         }
     
-                        #tagDescription
+                        #pf2
                         {
                             font-size: 12px;
                         }
     
-                        #tagAddress 
+                        #pf3
                         {
                             font-size: 10px;
                         }
     
-                        #tagPhone
+                        #pf4
                         {
                             font-size: 10px;
                         }
@@ -47,8 +46,8 @@ body
                         background: white;
                         font-family: acephimere;
                         text-align: justify;
-                        margin: 0px;
-                        height: 70px;
+                        margin: 6px;
+                        height: auto;
                         width: 200px;
                     }
     
@@ -69,45 +68,149 @@ body
                     color: red;
                     background: white;
                     margin: 3px;
-                    display: inline-block;
-                    width: 220px;
-                    height: 180px;
+                    display: flex;
+                    width: 300px;
+                    height: auto;
                 }
     
                 display: none;
-    
-                margin-top: 20px;
-                margin-bottom: 0px;
-                text-align: center;
-                overflow-y: scroll;
-                flex-direction: column;
-                padding: 0px;
-                height: 400px;
-                width: 250px;
+                margin: 20px auto;
                 vertical-align: middle;
+                overflow-y: scroll;
+                flex-direction: row;
+                padding: 0px;
+                height: auto;
+                width: 90%;
+
             }
 
             margin: 10px auto;
             padding: 0px;
-            text-align: center;
             border-radius: 0px;
         }
     
         #categories
         {
+            #c9:hover
+            {
+                background: url('../img/menu/9R.png');
+            }
+
+            #c9
+            {
+                background: url('../img/menu/9N.png');
+            }
+
+            #c8:hover
+            {
+                background: url('../img/menu/8R.png');
+            }
+
+            #c8
+            {
+                background: url('../img/menu/8N.png');
+            }
+
+            #c7:hover
+            {
+                background: url('../img/menu/1R.png');
+            }
+
+            #c7
+            {
+                background: url('../img/menu/1N.png');
+            }
+
+            #c6:hover
+            {
+                background: url('../img/menu/1R.png');
+            }
+
+            #c6
+            {
+                background: url('../img/menu/1N.png');
+            }
+
+            #c5:hover
+            {
+                background: url('../img/menu/1R.png');
+            }
+
+            #c5
+            {
+                background: url('../img/menu/1N.png');
+            }
+
+            #c4:hover
+            {
+                background: url('../img/menu/1R.png');
+            }
+
+            #c4
+            {
+                background: url('../img/menu/1N.png');
+            }
+
+            #c3:hover
+            {
+                background: url('../img/menu/3R.png');
+            }
+
+            #c3
+            {
+                background: url('../img/menu/3N.png');
+            }
+
+            #c2:hover
+            {
+                background: url('../img/menu/2R.png');
+            }
+
+            #c2
+            {
+                background: url('../img/menu/2N.png');
+            }
+
+            #c1:hover
+            {
+                background: url('../img/menu/1R.png');
+            }
+
+            #c1
+            {
+                background: url('../img/menu/1N.png');
+            }
+
+            .category:hover
+            {
+                border: 2px solid darkgray;
+            }
+
             .category
             {
-                border-radius: 5px;
-                height: 90px;
-                width: 90px;
+                border: 2px solid transparent;
+                transition: 0.25s;
+                border-radius: 0px;
+                height: 45px;
+                width: 45px;
                 display: inline-block;
-                margin: 0px;
+                margin: 4px;
                 color: white;
-                background: white;
             }
 
             text-align: center;
             margin: 10px auto 10px auto;
+        }
+
+        #bannerState
+        {
+            display: none;
+            border-radius: 5px;
+            font-size: 12px;
+            font-family: acephimere;
+            padding: 10px;
+            width: 200px;
+            height: 15px;
         }
 
         #search:hover
@@ -146,16 +249,26 @@ body
             width: 70%;
         }
 
+        #categorySearch
+        {
+            font-size: 14px;
+            font-family: acephimere;
+        }
+
         #searchTag
         {
             font-size: 40px;
             font-family: acephimereThinItalic;
+        }
+
+        p
+        {
             margin: auto;
         }
 
         text-align: center; 
         color: white;
-        background-color: rgb(62,63,33);
+        background-color: rgb(127,0,0);
         border-radius: 10px;
         padding: 10px;
         margin: 110px auto 95px auto;
