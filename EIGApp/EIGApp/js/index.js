@@ -211,7 +211,7 @@ function to(num)
     switch(num)
     {
         case 1:
-        location.href = 'index.html';
+        location.href = 'menu.html';
         break;
         case 2:
         location.href = 'menu2.html';

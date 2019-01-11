@@ -113,42 +113,42 @@ body
 
             #c7:hover
             {
-                background: url('../img/menu/1R.png');
+                background: url('../img/menu/7R.png');
             }
 
             #c7
             {
-                background: url('../img/menu/1N.png');
+                background: url('../img/menu/7N.png');
             }
 
             #c6:hover
             {
-                background: url('../img/menu/1R.png');
+                background: url('../img/menu/4R.png');
             }
 
             #c6
             {
-                background: url('../img/menu/1N.png');
+                background: url('../img/menu/4N.png');
             }
 
             #c5:hover
             {
-                background: url('../img/menu/1R.png');
+                background: url('../img/menu/4R.png');
             }
 
             #c5
             {
-                background: url('../img/menu/1N.png');
+                background: url('../img/menu/4N.png');
             }
 
             #c4:hover
             {
-                background: url('../img/menu/1R.png');
+                background: url('../img/menu/4R.png');
             }
 
             #c4
             {
-                background: url('../img/menu/1N.png');
+                background: url('../img/menu/4N.png');
             }
 
             #c3:hover
@@ -183,7 +183,7 @@ body
 
             .category:hover
             {
-                border: 2px solid darkgray;
+                border: 2px solid black;
             }
 
             .category
@@ -249,6 +249,106 @@ body
             width: 70%;
         }
 
+        div
+        {
+            div
+            {
+                #register:hover
+                {
+                    border: 2px solid orangered;
+                    background-color: white;
+                    color: orangered;
+                }
+
+                #register
+                {
+                    background-color: orangered;
+                }
+
+                #send:hover
+                {
+                    border: 2px solid darkgreen;
+                    background-color: white;
+                    color: darkgreen;
+                }
+
+                #send
+                {
+                    background-color: darkgreen;
+                }
+
+                button
+                {
+                    outline: 0px;
+                    transition: 0.2s;
+                    border: 2px solid transparent;
+                    color: white;
+                    font-size: 12px;
+                    font-family: acephimere;
+                    margin: 5px;
+                    height: 40px;
+                }
+
+                margin: 10px auto;
+            }
+    
+            #boxPassword:focus
+            {
+                height: 20px;
+                border: 2px solid orangered;
+            }
+    
+            #boxPassword
+            {
+                transition: 0.15s;
+                outline: 0px;
+                border: 2px solid black;
+                color: orangered;
+                font-family: arial;
+                font-size: 14px;
+                padding: 10px;
+                height: 10px;
+                width: 35%;
+                margin: 5px;
+            }
+    
+            #tagPassword
+            {
+                font-size: 13px;
+                font-family: acephimere;
+                margin: 6px;
+            }
+    
+            #boxUsername:focus
+            {
+                height: 20px;
+                border: 2px solid darkgreen;
+            }
+    
+            #boxUsername
+            {
+                transition: 0.15s;
+                outline: 0px;
+                border: 2px solid black;
+                color: darkgreen;
+                font-family: arial;
+                font-size: 14px;
+                padding: 10px;
+                height: 10px;
+                width: 35%;
+                margin: 5px;
+            }
+    
+            #tagUsername
+            {
+                font-size: 13px;
+                font-family: acephimere;
+                margin: 6px;
+            }
+
+            margin: 40px auto 6px auto;
+        }
+        
         #categorySearch
         {
             font-size: 14px;
