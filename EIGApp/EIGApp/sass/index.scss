@@ -257,6 +257,7 @@ body
 
         #boxPassword
         {
+            transition: 0.15s;
             outline: 0px;
             border: 2px solid black;
             color: orangered;
@@ -264,25 +265,42 @@ body
             font-size: 14px;
             padding: 10px;
             height: 10px;
-            width: 50%;
+            width: 35%;
+            margin: 10px;
+        }
+
+        #tagPassword
+        {
+            font-size: 13px;
+            font-family: acephimere;
+            margin: 12px;
         }
 
         #boxUsername:focus
         {
             height: 20px;
-            border: 2px solid red;
+            border: 2px solid darkgreen;
         }
 
         #boxUsername
         {
+            transition: 0.15s;
             outline: 0px;
             border: 2px solid black;
-            color: red;
+            color: darkgreen;
             font-family: arial;
             font-size: 14px;
             padding: 10px;
             height: 10px;
-            width: 50%;
+            width: 35%;
+            margin: 20px;
+        }
+
+        #tagUsername
+        {
+            font-size: 13px;
+            font-family: acephimere;
+            margin: 12px;
         }
 
         #categorySearch
