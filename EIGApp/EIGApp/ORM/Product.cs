@@ -14,6 +14,13 @@ namespace EIGApp.ORM
     
     public partial class Product
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Product()
+        {
+            this.ScoreProducts = new HashSet<ScoreProduct>();
+            this.VisitProducts = new HashSet<VisitProduct>();
+        }
+    
         public long Id { get; set; }
         public string Name { get; set; }
         public string Type { get; set; }
@@ -26,8 +33,12 @@ namespace EIGApp.ORM
         public string Address { get; set; }
         public string Date { get; set; }
         public string Avatar { get; set; }
-        public long IdPerson { get; set; }
+        public long IdUser { get; set; }
     
-        public virtual Person Person { get; set; }
+        public virtual User User { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ScoreProduct> ScoreProducts { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<VisitProduct> VisitProducts { get; set; }
     }
 }

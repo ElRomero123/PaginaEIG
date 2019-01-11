@@ -29,6 +29,14 @@ namespace EIGApp.ORM
         public virtual DbSet<OtherPerson> OtherPersons { get; set; }
         public virtual DbSet<Person> People { get; set; }
         public virtual DbSet<Product> Products { get; set; }
-        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
+        public virtual DbSet<ScoreBusiness> ScoreBusinesses { get; set; }
+        public virtual DbSet<ScoreOtherPerson> ScoreOtherPersons { get; set; }
+        public virtual DbSet<ScorePerson> ScorePersons { get; set; }
+        public virtual DbSet<ScoreProduct> ScoreProducts { get; set; }
+        public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<VisitBusiness> VisitBusinesses { get; set; }
+        public virtual DbSet<VisitOtherPerson> VisitOtherPersons { get; set; }
+        public virtual DbSet<VisitPerson> VisitPersons { get; set; }
+        public virtual DbSet<VisitProduct> VisitProducts { get; set; }
     }
 }

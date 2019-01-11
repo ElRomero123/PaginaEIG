@@ -14,6 +14,13 @@ namespace EIGApp.ORM
     
     public partial class Business
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Business()
+        {
+            this.ScoreBusinesses = new HashSet<ScoreBusiness>();
+            this.VisitBusinesses = new HashSet<VisitBusiness>();
+        }
+    
         public long Id { get; set; }
         public string Name { get; set; }
         public string Specialism { get; set; }
@@ -23,8 +30,12 @@ namespace EIGApp.ORM
         public string City { get; set; }
         public string Address { get; set; }
         public string Avatar { get; set; }
-        public long IdPerson { get; set; }
+        public long IdUser { get; set; }
     
-        public virtual Person Person { get; set; }
+        public virtual User User { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ScoreBusiness> ScoreBusinesses { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<VisitBusiness> VisitBusinesses { get; set; }
     }
 }

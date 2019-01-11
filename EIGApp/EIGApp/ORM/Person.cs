@@ -17,9 +17,8 @@ namespace EIGApp.ORM
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Person()
         {
-            this.Businesses = new HashSet<Business>();
-            this.OtherPersons = new HashSet<OtherPerson>();
-            this.Products = new HashSet<Product>();
+            this.ScorePersons = new HashSet<ScorePerson>();
+            this.VisitPersons = new HashSet<VisitPerson>();
         }
     
         public long Id { get; set; }
@@ -31,12 +30,12 @@ namespace EIGApp.ORM
         public string City { get; set; }
         public string Address { get; set; }
         public string Avatar { get; set; }
+        public long IdUser { get; set; }
     
+        public virtual User User { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Business> Businesses { get; set; }
+        public virtual ICollection<ScorePerson> ScorePersons { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<OtherPerson> OtherPersons { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Product> Products { get; set; }
+        public virtual ICollection<VisitPerson> VisitPersons { get; set; }
     }
 }

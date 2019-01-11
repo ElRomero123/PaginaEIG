@@ -2,28 +2,40 @@ function option(num)
 {
     switch(num)
     {
-        case 1: alert('Opción 1: Validar usuario');
-        validate(user, password);
+        case 1:
+        validate();
         break;
-        case 2: alert('Opción 2: Crear usuario nuevo');
-        location.href = 'register.html';
-        break;
+        default: location.href = 'register.html';
     }
 }
 
-function validate(username, password)
+function validate()
 {
+    var username = document.getElementById('boxUsername').value;
+    var password = document.getElementById('boxPassword').value;
+
     $.ajax
     (
         {
-            url: '../api/person/?user=' + username + '&password=' + password,
+            url: '../api/user/?username=' + username + '&password=' + password,
             type: 'GET',
             contentType: "application/json;charset=utf-8",
 
             success:
             function (data) 
             {
-                
+                if(data.Name != null)
+                {
+                    localStorage.setItem('Name', data.Name);
+                    localStorage.setItem('Phone', data.Phone);
+                    localStorage.setItem('Email', data.Email);
+                    location.href = 'menu.html';    
+                }
+
+                else
+                {
+                    alert('No se pudo iniciar sesión');
+                }
             }
         }
     );

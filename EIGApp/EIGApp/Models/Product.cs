@@ -14,5 +14,6 @@
         public string Address { get; set; }
         public string Date { get; set; }
         public string Avatar { get; set; }
+        public long IdUser { get; set; }
     }
 }

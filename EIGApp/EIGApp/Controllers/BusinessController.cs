@@ -12,8 +12,8 @@ namespace EIGApp.Controllers
         public M.Business[] Get(string cadena)
         {
             var query = from B in BD.Businesses
-                        where (B.Name == cadena)
-                        select new { B.Name, B.Specialism, B.SpecialismDescription, B.WebPage, B.Phone, B.City, B.Address };
+                        where (B.Name.Contains(cadena) || B.Specialism.Contains(cadena) || B.SpecialismDescription.Contains(cadena) || B.City.Contains(cadena))
+                        select new {B.Name, B.Specialism, B.SpecialismDescription, B.WebPage, B.Phone, B.City, B.Address, B.Avatar};
 
             var lista = query.ToArray();
 
@@ -29,7 +29,8 @@ namespace EIGApp.Controllers
                     WebPage = lista[i].WebPage,
                     Phone = lista[i].Phone,
                     City = lista[i].City,
-                    Address = lista[i].Address
+                    Address = lista[i].Address,
+                    Avatar = lista[i].Avatar
                 };
 
                 arrayBusinesses[i] = temp;

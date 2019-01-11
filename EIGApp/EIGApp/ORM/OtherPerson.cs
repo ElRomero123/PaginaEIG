@@ -14,6 +14,13 @@ namespace EIGApp.ORM
     
     public partial class OtherPerson
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public OtherPerson()
+        {
+            this.ScoreOtherPersons = new HashSet<ScoreOtherPerson>();
+            this.VisitOtherPersons = new HashSet<VisitOtherPerson>();
+        }
+    
         public long Id { get; set; }
         public string Name { get; set; }
         public string Profesion { get; set; }
@@ -24,8 +31,12 @@ namespace EIGApp.ORM
         public string City { get; set; }
         public string Address { get; set; }
         public string Avatar { get; set; }
-        public long IdPerson { get; set; }
+        public long IdUser { get; set; }
     
-        public virtual Person Person { get; set; }
+        public virtual User User { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ScoreOtherPerson> ScoreOtherPersons { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<VisitOtherPerson> VisitOtherPersons { get; set; }
     }
 }
