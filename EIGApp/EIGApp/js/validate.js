@@ -6,6 +6,7 @@ function option(num)
         validate(user, password);
         break;
         case 2: alert('Opción 2: Crear usuario nuevo');
+        location.href = 'register.html';
         break;
     }
 }

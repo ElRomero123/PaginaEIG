@@ -111,6 +111,7 @@
     <Content Include="img\menu\9R.png" />
     <Content Include="img\t.png" />
     <Content Include="img\y.png" />
+    <Content Include="register.html" />
     <Content Include="menu.html" />
     <Content Include="menu5.html" />
     <Content Include="menu7.html" />
