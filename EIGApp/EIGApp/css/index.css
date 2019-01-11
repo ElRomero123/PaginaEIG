@@ -221,13 +221,17 @@ body div #searchBox {
   height: 10px;
   width: 70%;
 }
-/* line 252, ../sass/index.scss */
-body div #boxPassword:focus {
+/* line 254, ../sass/index.scss */
+body div div div {
+  margin: 30px;
+}
+/* line 259, ../sass/index.scss */
+body div div #boxPassword:focus {
   height: 20px;
   border: 2px solid orangered;
 }
-/* line 258, ../sass/index.scss */
-body div #boxPassword {
+/* line 265, ../sass/index.scss */
+body div div #boxPassword {
   transition: 0.15s;
   outline: 0px;
   border: 2px solid black;
@@ -239,19 +243,19 @@ body div #boxPassword {
   width: 35%;
   margin: 10px;
 }
-/* line 272, ../sass/index.scss */
-body div #tagPassword {
+/* line 279, ../sass/index.scss */
+body div div #tagPassword {
   font-size: 13px;
   font-family: acephimere;
   margin: 12px;
 }
-/* line 279, ../sass/index.scss */
-body div #boxUsername:focus {
+/* line 286, ../sass/index.scss */
+body div div #boxUsername:focus {
   height: 20px;
   border: 2px solid darkgreen;
 }
-/* line 285, ../sass/index.scss */
-body div #boxUsername {
+/* line 292, ../sass/index.scss */
+body div div #boxUsername {
   transition: 0.15s;
   outline: 0px;
   border: 2px solid black;
@@ -263,27 +267,27 @@ body div #boxUsername {
   width: 35%;
   margin: 20px;
 }
-/* line 299, ../sass/index.scss */
-body div #tagUsername {
+/* line 306, ../sass/index.scss */
+body div div #tagUsername {
   font-size: 13px;
   font-family: acephimere;
   margin: 12px;
 }
-/* line 306, ../sass/index.scss */
+/* line 314, ../sass/index.scss */
 body div #categorySearch {
   font-size: 14px;
   font-family: acephimere;
 }
-/* line 312, ../sass/index.scss */
+/* line 320, ../sass/index.scss */
 body div #searchTag {
   font-size: 40px;
   font-family: acephimereThinItalic;
 }
-/* line 318, ../sass/index.scss */
+/* line 326, ../sass/index.scss */
 body div p {
   margin: auto;
 }
-/* line 333, ../sass/index.scss */
+/* line 341, ../sass/index.scss */
 body header {
   background-color: darkgray;
   height: 100px;
@@ -292,7 +296,7 @@ body header {
   left: 0px;
   position: fixed;
 }
-/* line 335, ../sass/index.scss */
+/* line 343, ../sass/index.scss */
 body header #headerLogo {
   background: url("../img/logo.png");
   margin: 10px auto 10px auto;

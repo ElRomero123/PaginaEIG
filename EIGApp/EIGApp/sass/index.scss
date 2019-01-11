@@ -249,60 +249,68 @@ body
             width: 70%;
         }
 
-        #boxPassword:focus
+        div
         {
-            height: 20px;
-            border: 2px solid orangered;
+            div
+            {
+                margin: 30px;
+            }
+    
+            #boxPassword:focus
+            {
+                height: 20px;
+                border: 2px solid orangered;
+            }
+    
+            #boxPassword
+            {
+                transition: 0.15s;
+                outline: 0px;
+                border: 2px solid black;
+                color: orangered;
+                font-family: arial;
+                font-size: 14px;
+                padding: 10px;
+                height: 10px;
+                width: 35%;
+                margin: 10px;
+            }
+    
+            #tagPassword
+            {
+                font-size: 13px;
+                font-family: acephimere;
+                margin: 12px;
+            }
+    
+            #boxUsername:focus
+            {
+                height: 20px;
+                border: 2px solid darkgreen;
+            }
+    
+            #boxUsername
+            {
+                transition: 0.15s;
+                outline: 0px;
+                border: 2px solid black;
+                color: darkgreen;
+                font-family: arial;
+                font-size: 14px;
+                padding: 10px;
+                height: 10px;
+                width: 35%;
+                margin: 20px;
+            }
+    
+            #tagUsername
+            {
+                font-size: 13px;
+                font-family: acephimere;
+                margin: 12px;
+            }
         }
-
-        #boxPassword
-        {
-            transition: 0.15s;
-            outline: 0px;
-            border: 2px solid black;
-            color: orangered;
-            font-family: arial;
-            font-size: 14px;
-            padding: 10px;
-            height: 10px;
-            width: 35%;
-            margin: 10px;
-        }
-
-        #tagPassword
-        {
-            font-size: 13px;
-            font-family: acephimere;
-            margin: 12px;
-        }
-
-        #boxUsername:focus
-        {
-            height: 20px;
-            border: 2px solid darkgreen;
-        }
-
-        #boxUsername
-        {
-            transition: 0.15s;
-            outline: 0px;
-            border: 2px solid black;
-            color: darkgreen;
-            font-family: arial;
-            font-size: 14px;
-            padding: 10px;
-            height: 10px;
-            width: 35%;
-            margin: 20px;
-        }
-
-        #tagUsername
-        {
-            font-size: 13px;
-            font-family: acephimere;
-            margin: 12px;
-        }
-
+        
         #categorySearch
         {
             font-size: 14px;
