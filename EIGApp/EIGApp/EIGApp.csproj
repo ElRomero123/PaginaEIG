@@ -101,12 +101,17 @@
     <Content Include="img\menu\2R.png" />
     <Content Include="img\menu\3N.png" />
     <Content Include="img\menu\3R.png" />
+    <Content Include="img\menu\4N.png" />
+    <Content Include="img\menu\4R.png" />
+    <Content Include="img\menu\7N.png" />
+    <Content Include="img\menu\7R.png" />
     <Content Include="img\menu\8N.png" />
     <Content Include="img\menu\8R.png" />
     <Content Include="img\menu\9N.png" />
     <Content Include="img\menu\9R.png" />
     <Content Include="img\t.png" />
     <Content Include="img\y.png" />
+    <Content Include="menu.html" />
     <Content Include="menu5.html" />
     <Content Include="menu7.html" />
     <Content Include="menu8.html" />
