@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href='css/index.css'>
+        <title>Buscador</title>
+    </head>
+
+    <body>
+        <header>
+            <div id='headerLogo'></div>
+        </header>
+
+        <div> 
+            <p id='searchTag'>Búsqueda</p> 
+            <p id='categorySearch'>Búsqueda de detective privado</p>
+            <input id='searchBox' onkeypress="searchByEnter(event, 1)" >
+            <button id='search' onclick="search(1)"></button>
+            
+            <div id='categories'>
+                <div id='c1' class='category' onclick="to(1)"></div>
+                <div id='c2' class='category' onclick='to(2)'></div>
+                <div id='c3' class='category' onclick='to(3)'></div>
+                <div id='c4' class='category' onclick='to(4)'></div>
+                <div id='c5' class='category' onclick='to(5)'></div>
+                <div id='c6' class='category' onclick='to(6)'></div>
+                <div id='c7' class='category' onclick='to(7)'></div>
+                <div id='c8' class='category' onclick='to(8)'></div>
+            </div>
+
+            <div id='bannerState'> </div>
+
+            <div>
+                <div id='listResults'>     
+                </div>
+
+                <div id='maps'>
+                </div> 
+            </div>    
+        </div>
+            
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src='JS/index.js'></script>
+    </body>
+</html>
