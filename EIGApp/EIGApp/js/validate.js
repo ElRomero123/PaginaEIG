@@ -22,10 +22,7 @@ function validate(username, password)
             success:
             function (data) 
             {
-                if(data.length > 0)
-                {
-                    
-                }
+                
             }
         }
     );
