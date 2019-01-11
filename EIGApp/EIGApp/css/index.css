@@ -221,16 +221,51 @@ body div #searchBox {
   height: 10px;
   width: 70%;
 }
+/* line 252, ../sass/index.scss */
+body div div {
+  margin: 40px auto;
+}
 /* line 254, ../sass/index.scss */
 body div div div {
-  margin: 30px;
+  margin: 10px auto;
 }
-/* line 259, ../sass/index.scss */
+/* line 256, ../sass/index.scss */
+body div div div #register:hover {
+  border: 2px solid orangered;
+  background-color: white;
+  color: orangered;
+}
+/* line 263, ../sass/index.scss */
+body div div div #register {
+  background-color: orangered;
+}
+/* line 268, ../sass/index.scss */
+body div div div #send:hover {
+  border: 2px solid darkgreen;
+  background-color: white;
+  color: darkgreen;
+}
+/* line 275, ../sass/index.scss */
+body div div div #send {
+  background-color: darkgreen;
+}
+/* line 280, ../sass/index.scss */
+body div div div button {
+  outline: 0px;
+  transition: 0.2s;
+  border: 2px solid transparent;
+  color: white;
+  font-size: 12px;
+  font-family: acephimere;
+  margin: 5px;
+  height: 40px;
+}
+/* line 295, ../sass/index.scss */
 body div div #boxPassword:focus {
   height: 20px;
   border: 2px solid orangered;
 }
-/* line 265, ../sass/index.scss */
+/* line 301, ../sass/index.scss */
 body div div #boxPassword {
   transition: 0.15s;
   outline: 0px;
@@ -241,20 +276,20 @@ body div div #boxPassword {
   padding: 10px;
   height: 10px;
   width: 35%;
-  margin: 10px;
+  margin: 5px;
 }
-/* line 279, ../sass/index.scss */
+/* line 315, ../sass/index.scss */
 body div div #tagPassword {
   font-size: 13px;
   font-family: acephimere;
-  margin: 12px;
+  margin: 6px;
 }
-/* line 286, ../sass/index.scss */
+/* line 322, ../sass/index.scss */
 body div div #boxUsername:focus {
   height: 20px;
   border: 2px solid darkgreen;
 }
-/* line 292, ../sass/index.scss */
+/* line 328, ../sass/index.scss */
 body div div #boxUsername {
   transition: 0.15s;
   outline: 0px;
@@ -265,29 +300,29 @@ body div div #boxUsername {
   padding: 10px;
   height: 10px;
   width: 35%;
-  margin: 20px;
+  margin: 5px;
 }
-/* line 306, ../sass/index.scss */
+/* line 342, ../sass/index.scss */
 body div div #tagUsername {
   font-size: 13px;
   font-family: acephimere;
-  margin: 12px;
+  margin: 6px;
 }
-/* line 314, ../sass/index.scss */
+/* line 352, ../sass/index.scss */
 body div #categorySearch {
   font-size: 14px;
   font-family: acephimere;
 }
-/* line 320, ../sass/index.scss */
+/* line 358, ../sass/index.scss */
 body div #searchTag {
   font-size: 40px;
   font-family: acephimereThinItalic;
 }
-/* line 326, ../sass/index.scss */
+/* line 364, ../sass/index.scss */
 body div p {
   margin: auto;
 }
-/* line 341, ../sass/index.scss */
+/* line 379, ../sass/index.scss */
 body header {
   background-color: darkgray;
   height: 100px;
@@ -296,7 +331,7 @@ body header {
   left: 0px;
   position: fixed;
 }
-/* line 343, ../sass/index.scss */
+/* line 381, ../sass/index.scss */
 body header #headerLogo {
   background: url("../img/logo.png");
   margin: 10px auto 10px auto;
