@@ -12,6 +12,11 @@ function createUser()
             address: $('#campoAddress').val()
         };
 
+        $('#register').css('background','yellow');
+        $('#register').css('border','2px solid yellow');
+        $('#register').css('color','black');
+        $('#register').text('Agregando usuario ...');
+
         $.ajax
         (
             {
@@ -25,12 +30,15 @@ function createUser()
                 {
                     if (data)
                     {
-                        alert("Se agregó la información correctamente!");
+                        location.href = 'menu.html';    
                     }
 
                     else
                     {
-                        alert("NO se pudo agregar la información!");
+                        $('#register').css('background','red');
+                        $('#register').css('border','2px solid red');
+                        $('#register').css('color','white');
+                        $('#register').text('NO se pudo agregar la información!');
                     }
                 }
             }
@@ -39,6 +47,9 @@ function createUser()
 
     else
     {
-        alert("Las contraseñas no coinciden!");
+        $('#register').css('background','orangered');
+        $('#register').css('border','2px solid orangered');
+        $('#register').css('color','black');
+        $('#register').text('Las contraseñas no coinciden!');
     }
 }
