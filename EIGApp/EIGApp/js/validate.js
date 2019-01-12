@@ -14,6 +14,11 @@ function validate()
     var username = document.getElementById('boxUsername').value;
     var password = document.getElementById('boxPassword').value;
 
+    $('#send').css('background','orangered');
+    $('#send').css('border','2px solid orangered');
+    $('#send').css('color','white');
+    $('#send').text('Validando ...');
+
     $.ajax
     (
         {
@@ -34,7 +39,10 @@ function validate()
 
                 else
                 {
-                    alert('No se pudo iniciar sesión');
+
+                    $('#send').css('background','red');
+                    $('#send').css('border','2px solid red');
+                    $('#send').text('Usuario invalido!');
                 }
             }
         }
