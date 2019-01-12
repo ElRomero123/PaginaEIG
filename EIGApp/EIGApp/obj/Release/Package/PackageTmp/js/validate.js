@@ -1,3 +1,16 @@
+window.onload = checkSesion;
+
+function checkSesion()
+{
+    var name     = localStorage.getItem('Name');
+    var username = localStorage.getItem('Username');
+    
+    if(name != null)
+    {
+        location.href = 'menu.html';
+    }
+}
+
 function option(num)
 {
     switch(num)

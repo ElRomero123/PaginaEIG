@@ -9,7 +9,7 @@ body div {
   background-color: #7f0000;
   border-radius: 10px;
   padding: 10px;
-  margin: 170px auto 95px auto;
+  margin: 230px auto 95px auto;
   height: auto;
   width: 90%;
 }
@@ -308,19 +308,35 @@ body header div {
   background: gray;
 }
 /* line 350, ../sass/index.scss */
+body header div #close:hover {
+  color: black;
+  background: white;
+}
+/* line 356, ../sass/index.scss */
+body header div #close {
+  transition: 0.2s;
+  outline: 0px;
+  border: 0px;
+  color: white;
+  background: black;
+  font-size: 10px;
+  font-family: acephimere;
+  padding: 10px;
+}
+/* line 368, ../sass/index.scss */
 body header div #infoUsername {
   font-size: 12px;
 }
-/* line 355, ../sass/index.scss */
+/* line 373, ../sass/index.scss */
 body header div #infoName {
   font-size: 16px;
 }
-/* line 360, ../sass/index.scss */
+/* line 378, ../sass/index.scss */
 body header div p {
   display: flex;
   font-family: acephimere;
 }
-/* line 370, ../sass/index.scss */
+/* line 388, ../sass/index.scss */
 body header #headerLogo {
   background: url("../img/logo.png");
   margin: 10px auto 10px auto;
