@@ -19,8 +19,8 @@ function initUser()
 
 function close()
 {
-    location.href = 'index.html';
     localStorage.clear();
+    location.href = 'index.html';
 }
 
 function search(opcion)
