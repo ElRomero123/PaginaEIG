@@ -30,7 +30,7 @@ function createUser()
                 {
                     if (data)
                     {
-                        location.href = 'menu.html';    
+                        location.href = 'index.html';    
                     }
 
                     else
