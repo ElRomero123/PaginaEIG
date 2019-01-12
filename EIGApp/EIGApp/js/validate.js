@@ -1,4 +1,4 @@
-windows.onload = checkSesion;
+window.onload = checkSesion;
 
 function checkSesion()
 {
