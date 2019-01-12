@@ -31,9 +31,8 @@ function validate()
             {
                 if(data.Name != null)
                 {
+                    localStorage.setItem('Username', data.Username);
                     localStorage.setItem('Name', data.Name);
-                    localStorage.setItem('Phone', data.Phone);
-                    localStorage.setItem('Email', data.Email);
                     location.href = 'menu.html';    
                 }
 

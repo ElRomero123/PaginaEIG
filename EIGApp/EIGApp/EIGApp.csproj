@@ -43,6 +43,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper, Version=4.2.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.4.2.1\lib\net45\AutoMapper.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -103,6 +106,8 @@
     <Content Include="img\menu\3R.png" />
     <Content Include="img\menu\4N.png" />
     <Content Include="img\menu\4R.png" />
+    <Content Include="img\menu\6N.png" />
+    <Content Include="img\menu\6R.png" />
     <Content Include="img\menu\7N.png" />
     <Content Include="img\menu\7R.png" />
     <Content Include="img\menu\8N.png" />
@@ -209,7 +214,6 @@
   <ItemGroup>
     <Content Include="config.rb" />
     <Content Include="fonts\acephimere.otf" />
-    <Content Include="fonts\acephimereThin.otf" />
     <Content Include="fonts\acephimereThinItalic.otf" />
     <EntityDeploy Include="ORM\BD.edmx">
       <Generator>EntityModelCodeGenerator</Generator>

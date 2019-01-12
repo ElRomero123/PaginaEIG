@@ -17,24 +17,31 @@
             <p id='categorySearch'>Unase a nuestra plataforma EIG, un paso mas en tu crecimiento!</p>
 
             <div>
-                <p id='tagUsername'>Nombre de usuario/Username</p>
-                <input type='text' id='boxUsername'>
+                <p>Nombre de usuario/Username (25 caracteres)</p>
+                <input type='text' maxlength="25" id='campoUsername'>
 
-                <p id='tagUsername'>Dirección</p>
-                <input type='text' id='boxUsername'>
+                <p>Contraseña/Password (25 caracteres)</p>
+                <input type='password' maxlength="25" id='campoPassword'>
 
-                <p id='tagUsername'>Email</p>
-                <input type='text' id='boxUsername'>
+                <p>Repetir Contraseña (25 caracteres)</p>
+                <input type='password' maxlength="25" id='campoPasswordAgain'>
 
-                <p id='tagUsername'>Otros</p>
-                <input type='text' id='boxUsername'>
+                <p>Nombre (150 caracteres)</p>
+                <input type='text' maxlength="150" id='campoName'>
 
-                <p id='tagPassword'>Contraseña/Password</p>
-                <input type='password' id='boxPassword'>
-            </div>    
+                <p>Email (150 caracteres)</p>
+                <input type='text' maxlength="150" id='campoEmail'>
+
+                <p>Dirección/Address (100 caracteres)</p>
+                <input type='text' maxlength="100" id='campoAddress'>
+
+                <div>
+                    <button id='register' onclick='createUser()'>Envío y acepto el acuerdo</button>
+                </div>
+            </div>
         </div>
     
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <script src='JS/validate.js'></script>
+        <script src='JS/index.js'></script>
     </body>
 </html>

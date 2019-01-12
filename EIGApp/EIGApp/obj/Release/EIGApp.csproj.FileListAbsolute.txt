@@ -69,3 +69,5 @@ D:\Proyectos\PaginaEIG\EIGApp\EIGApp\obj\Release\EIGApp.csproj.CoreCompileInputs
 D:\Proyectos\PaginaEIG\EIGApp\EIGApp\obj\Release\EIGApp.csproj.CopyComplete
 D:\Proyectos\PaginaEIG\EIGApp\EIGApp\obj\Release\EIGApp.dll
 D:\Proyectos\PaginaEIG\EIGApp\EIGApp\obj\Release\EIGApp.pdb
+D:\Proyectos\PaginaEIG\EIGApp\EIGApp\bin\AutoMapper.dll
+D:\Proyectos\PaginaEIG\EIGApp\EIGApp\bin\AutoMapper.xml

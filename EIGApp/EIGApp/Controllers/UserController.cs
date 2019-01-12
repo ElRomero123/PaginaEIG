@@ -40,6 +40,31 @@ namespace EIGApp.Controllers
             return temp;
         }
 
+        public bool Post(M.User usuario)
+        {
+            bool state;
+            string password = SHA256Encrypt(usuario.Password);
+            usuario.Password = password;
+
+            try
+            {
+                #pragma warning disable CS0618
+                AutoMapper.Mapper.CreateMap<M.User, O.User>();
+                #pragma warning restore CS0618
+                O.User BDUser = AutoMapper.Mapper.Map<O.User>(usuario);
+                BD.Users.Add(BDUser);
+                BD.SaveChanges();
+                state = true;
+            }
+
+            catch
+            {
+                state = false;
+            }
+
+            return state;
+        }
+
         private string SHA256Encrypt(string input)
         {
             SHA256CryptoServiceProvider provider = new SHA256CryptoServiceProvider();

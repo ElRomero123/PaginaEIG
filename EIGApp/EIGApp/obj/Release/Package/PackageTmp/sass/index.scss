@@ -123,22 +123,22 @@ body
 
             #c6:hover
             {
-                background: url('../img/menu/4R.png');
+                background: url('../img/menu/6R.png');
             }
 
             #c6
             {
-                background: url('../img/menu/4N.png');
+                background: url('../img/menu/6N.png');
             }
 
             #c5:hover
             {
-                background: url('../img/menu/4R.png');
+                background: url('../img/menu/5R.png');
             }
 
             #c5
             {
-                background: url('../img/menu/4N.png');
+                background: url('../img/menu/5N.png');
             }
 
             #c4:hover
@@ -181,18 +181,12 @@ body
                 background: url('../img/menu/1N.png');
             }
 
-            .category:hover
-            {
-                border: 2px solid black;
-            }
-
             .category
             {
-                border: 2px solid transparent;
                 transition: 0.25s;
                 border-radius: 0px;
-                height: 45px;
-                width: 45px;
+                height: 90px;
+                width: 90px;
                 display: inline-block;
                 margin: 4px;
                 color: white;
@@ -291,14 +285,14 @@ body
 
                 margin: 10px auto;
             }
-    
-            #boxPassword:focus
+
+            input:focus
             {
                 height: 20px;
                 border: 2px solid orangered;
             }
-    
-            #boxPassword
+
+            input
             {
                 transition: 0.15s;
                 outline: 0px;
@@ -311,41 +305,14 @@ body
                 width: 35%;
                 margin: 5px;
             }
-    
-            #tagPassword
-            {
-                font-size: 13px;
-                font-family: acephimere;
-                margin: 6px;
-            }
-    
-            #boxUsername:focus
-            {
-                height: 20px;
-                border: 2px solid darkgreen;
-            }
-    
-            #boxUsername
-            {
-                transition: 0.15s;
-                outline: 0px;
-                border: 2px solid black;
-                color: darkgreen;
-                font-family: arial;
-                font-size: 14px;
-                padding: 10px;
-                height: 10px;
-                width: 35%;
-                margin: 5px;
-            }
-    
-            #tagUsername
-            {
-                font-size: 13px;
-                font-family: acephimere;
-                margin: 6px;
-            }
 
+            p
+            {
+                font-size: 13px;
+                font-family: acephimere;
+                margin: 6px;
+            }
+        
             margin: 40px auto 6px auto;
         }
         
@@ -409,10 +376,4 @@ body
 {
     font-family: acephimereThinItalic;
     src: url('../fonts/acephimereThinItalic.otf');
-}
-
-@font-face
-{
-    font-family: acephimereThin;
-    src: url('../fonts/acephimereThin.otf');
 }
