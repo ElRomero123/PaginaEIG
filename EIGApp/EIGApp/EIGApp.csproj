@@ -95,7 +95,6 @@
     <Content Include="Global.asax" />
     <Content Include="img\f.png" />
     <Content Include="img\g.png" />
-    <Content Include="img\load.jpg" />
     <Content Include="img\logo.png" />
     <Content Include="img\lupa.png" />
     <Content Include="img\menu\1N.png" />
@@ -106,6 +105,8 @@
     <Content Include="img\menu\3R.png" />
     <Content Include="img\menu\4N.png" />
     <Content Include="img\menu\4R.png" />
+    <Content Include="img\menu\5N.png" />
+    <Content Include="img\menu\5R.png" />
     <Content Include="img\menu\6N.png" />
     <Content Include="img\menu\6R.png" />
     <Content Include="img\menu\7N.png" />
@@ -116,6 +117,7 @@
     <Content Include="img\menu\9R.png" />
     <Content Include="img\t.png" />
     <Content Include="img\y.png" />
+    <Content Include="js\register.js" />
     <Content Include="js\validate.js" />
     <Content Include="ORM\BD.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>

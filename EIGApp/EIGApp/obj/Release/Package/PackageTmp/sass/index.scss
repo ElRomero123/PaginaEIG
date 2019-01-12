@@ -338,13 +338,35 @@ body
         background-color: rgb(127,0,0);
         border-radius: 10px;
         padding: 10px;
-        margin: 110px auto 95px auto;
+        margin: 170px auto 95px auto;
         height: auto;
         width: 90%;
     }
     
     header
     {
+        div
+        {
+            #infoUsername
+            {
+                font-size: 12px;
+            }
+
+            #infoName
+            {
+                font-size: 16px;
+            }
+
+            p
+            {
+                display: flex;
+                font-family: acephimere;
+            }
+
+            margin: 5px auto;
+            background: gray;
+        }
+
         #headerLogo
         {
 
@@ -356,7 +378,7 @@ body
         }
 
         background-color: darkgray;
-        height: 100px;
+        height: auto;
         width: 100%;
         top: 0px;
         left: 0px;
