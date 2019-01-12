@@ -17,16 +17,24 @@ namespace EIGApp.Controllers
                         where (U.Username.Equals(username))
                         select new {U.Username, U.Password, U.Name};
 
-            var lista = query.ToArray()[0];
-
             M.User temp = new M.User();
 
-            string hashPassword = SHA256Encrypt(password);
+            try
+            {
+                var lista = query.ToArray()[0];
 
-            if (lista.Password.Equals(hashPassword))
-            { 
-                temp.Username = lista.Username;
-                temp.Name = lista.Name;
+                string hashPassword = SHA256Encrypt(password);
+
+                if (lista.Password.Equals(hashPassword))
+                {
+                    temp.Username = lista.Username;
+                    temp.Name = lista.Name;
+                }
+            }
+
+            catch
+            {
+
             }
             
             return temp;

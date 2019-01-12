@@ -261,12 +261,12 @@ body div div div button {
   height: 40px;
 }
 /* line 295, ../sass/index.scss */
-body div div #boxPassword:focus {
+body div div input:focus {
   height: 20px;
   border: 2px solid orangered;
 }
 /* line 301, ../sass/index.scss */
-body div div #boxPassword {
+body div div input {
   transition: 0.15s;
   outline: 0px;
   border: 2px solid black;
@@ -279,50 +279,26 @@ body div div #boxPassword {
   margin: 5px;
 }
 /* line 315, ../sass/index.scss */
-body div div #tagPassword {
+body div div p {
   font-size: 13px;
   font-family: acephimere;
   margin: 6px;
 }
-/* line 322, ../sass/index.scss */
-body div div #boxUsername:focus {
-  height: 20px;
-  border: 2px solid darkgreen;
-}
-/* line 328, ../sass/index.scss */
-body div div #boxUsername {
-  transition: 0.15s;
-  outline: 0px;
-  border: 2px solid black;
-  color: darkgreen;
-  font-family: arial;
-  font-size: 14px;
-  padding: 10px;
-  height: 10px;
-  width: 35%;
-  margin: 5px;
-}
-/* line 342, ../sass/index.scss */
-body div div #tagUsername {
-  font-size: 13px;
-  font-family: acephimere;
-  margin: 6px;
-}
-/* line 352, ../sass/index.scss */
+/* line 325, ../sass/index.scss */
 body div #categorySearch {
   font-size: 14px;
   font-family: acephimere;
 }
-/* line 358, ../sass/index.scss */
+/* line 331, ../sass/index.scss */
 body div #searchTag {
   font-size: 40px;
   font-family: acephimereThinItalic;
 }
-/* line 364, ../sass/index.scss */
+/* line 337, ../sass/index.scss */
 body div p {
   margin: auto;
 }
-/* line 379, ../sass/index.scss */
+/* line 352, ../sass/index.scss */
 body header {
   background-color: darkgray;
   height: 100px;
@@ -331,7 +307,7 @@ body header {
   left: 0px;
   position: fixed;
 }
-/* line 381, ../sass/index.scss */
+/* line 354, ../sass/index.scss */
 body header #headerLogo {
   background: url("../img/logo.png");
   margin: 10px auto 10px auto;
@@ -347,8 +323,4 @@ body header #headerLogo {
 @font-face {
   font-family: acephimereThinItalic;
   src: url("../fonts/acephimereThinItalic.otf");
-}
-@font-face {
-  font-family: acephimereThin;
-  src: url("../fonts/acephimereThin.otf");
 }
