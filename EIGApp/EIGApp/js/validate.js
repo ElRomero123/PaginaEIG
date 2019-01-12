@@ -3,7 +3,18 @@ function option(num)
     switch(num)
     {
         case 1:
-        validate();
+        if(navigator.onLine)
+        {
+            validate();
+        }
+
+        else
+        {
+            $('#send').css('background','red');
+            $('#send').css('border','2px solid red');
+            $('#send').text('NO está conectado a internet!');
+        }
+        
         break;
         default: location.href = 'register.html';
     }
