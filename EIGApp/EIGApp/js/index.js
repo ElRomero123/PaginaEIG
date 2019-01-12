@@ -17,6 +17,12 @@ function initUser()
     }
 }
 
+function close()
+{
+    location.href = 'index.html';
+    localStorage.clear();
+}
+
 function search(opcion)
 {
     if(navigator.onLine)
