@@ -13,27 +13,41 @@
             <div>
                 <p id='infoName'></p>
                 <p id='infoUsername'></p>
+                <button id='close' onclick='cerrarSesion()'>Cerrar Sesión</button>
             </div>
         </header>
 
-        <div> 
-            <p id='searchTag'>Búsqueda</p> 
-            <p id='categorySearch'>EIG Servicios directos</p>
-            <input id='searchBox' onkeypress="searchByEnter(event)" >
-            <button id='search' onclick="search()"></button>
-            <div id='bannerState'> </div>
+        <div>
+            <p id='searchTag'>EIG Servicios directos</p>
+            <p id='categorySearch'>Puedes contarnos tu propio caso, nosotros te ayudaremos!</p>
 
             <div id='categories'>
                 <div id='c9' class='category' onclick="to(1)"></div>
             </div>
 
             <div>
-                <div id='listResults'>
+                <p>Nombre de usuario/Username (25 caracteres)</p>
+                <input type='text' maxlength="25" id='campoUsername'>
+
+                <p>Contraseña/Password (25 caracteres)</p>
+                <input type='password' maxlength="25" id='campoPassword'>
+
+                <p>Repetir Contraseña (25 caracteres)</p>
+                <input type='password' maxlength="25" id='campoPasswordAgain'>
+
+                <p>Nombre (150 caracteres)</p>
+                <input type='text' maxlength="150" id='campoName'>
+
+                <p>Email (150 caracteres)</p>
+                <input type='text' maxlength="150" id='campoEmail'>
+
+                <p>Dirección/Address (100 caracteres)</p>
+                <input type='text' maxlength="100" id='campoAddress'>
+
+                <div>
+                    <button id='register' onclick='createUser()'>Envío y acepto el acuerdo</button>
                 </div>
-                    
-                <div id='maps'>
-                </div>     
-            </div>    
+            </div>
         </div>
             
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
