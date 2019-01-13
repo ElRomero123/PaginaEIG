@@ -241,6 +241,32 @@ function searchByEnter(e,opcion)
     }
 }
 
+function createCase()
+{
+    var user =
+    {
+        username: $('#campoCase').val(),
+        password: $('#campoDescription').val(),
+        idUser: localStorage.getItem('User')
+    };
+
+    $.ajax
+    (
+        {
+            url: '../api/user',
+            type: 'POST',
+            data: JSON.stringify(user),
+            contentType: "application/json;charset=utf-8",
+
+            success:
+            function (data)
+            {
+    
+            }
+        }
+    );
+}
+
 function to(num)
 {
     switch(num)
