@@ -1,0 +1,12 @@
+﻿namespace EIGApp.Models
+{
+    public class JobApplication
+    {
+        public long Id { get; set; }
+        public string Name { get; set; }
+        public string DocumentNumber { get; set; }
+        public string DescriptionApplication { get; set; }
+        public int Age { get; set; }
+        public long IdUser { get; set; }
+    }
+}

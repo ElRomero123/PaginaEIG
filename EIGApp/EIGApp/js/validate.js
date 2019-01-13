@@ -57,6 +57,7 @@ function validate()
                 {
                     localStorage.setItem('Username', data.Username);
                     localStorage.setItem('Name', data.Name);
+                    localStorage.setItem('User', data.Id);
                     location.href = 'menu.html';    
                 }
 

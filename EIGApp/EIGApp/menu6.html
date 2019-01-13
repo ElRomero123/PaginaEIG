@@ -26,26 +26,20 @@
             </div>
             
             <div>
-                <p>Nombre de usuario/Username (25 caracteres)</p>
-                <input type='text' maxlength="25" id='campoUsername'>
+                <p>Nombre (25 caracteres)</p>
+                <input type='text' maxlength="25" id='campoName'>
 
-                <p>Contraseña/Password (25 caracteres)</p>
-                <input type='password' maxlength="25" id='campoPassword'>
+                <p>Número de documento (25 caracteres)</p>
+                <input type='number' maxlength="25" id='campoDocumentNumber'>
 
-                <p>Repetir Contraseña (25 caracteres)</p>
-                <input type='password' maxlength="25" id='campoPasswordAgain'>
+                <p>Descripción de la Aplicación ¿Por que quiere aplicar? (200 caracteres)</p>
+                <input type='text' maxlength="200" id='campoDescriptionApplication'>
 
-                <p>Nombre (150 caracteres)</p>
-                <input type='text' maxlength="150" id='campoName'>
-
-                <p>Email (150 caracteres)</p>
-                <input type='text' maxlength="150" id='campoEmail'>
-
-                <p>Dirección/Address (100 caracteres)</p>
-                <input type='text' maxlength="100" id='campoAddress'>
+                <p>Edad (3 caracteres)</p>
+                <input type='text' maxlength="3" id='campoAge'>
 
                 <div>
-                    <button id='register' onclick='createUser()'>Envío y acepto el acuerdo</button>
+                    <button id='register' onclick='createJobApplication()'>Enviar solicitud</button>
                 </div>
             </div>
         </div>

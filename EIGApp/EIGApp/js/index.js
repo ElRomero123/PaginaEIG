@@ -243,28 +243,114 @@ function searchByEnter(e,opcion)
 
 function createCase()
 {
-    var user =
+    if(navigator.onLine)
     {
-        username: $('#campoCase').val(),
-        password: $('#campoDescription').val(),
-        idUser: localStorage.getItem('User')
-    };
-
-    $.ajax
-    (
-        {
-            url: '../api/user',
-            type: 'POST',
-            data: JSON.stringify(user),
-            contentType: "application/json;charset=utf-8",
-
-            success:
-            function (data)
-            {
+        $('#register').css('background','yellow');
+        $('#register').css('border','2 px solid yellow');
+        $('#register').css('color','black');
+        $('#register').text('Enviando caso ...');
     
+        var caso =
+        {
+            username: $('#campoCase').val(),
+            password: $('#campoDescription').val(),
+            idUser:   localStorage.getItem('User')
+        };
+    
+        $.ajax
+        (
+            {
+                url: '../api/case',
+                type: 'POST',
+                data: JSON.stringify(caso),
+                contentType: "application/json;charset=utf-8",
+    
+                success:
+                function (data)
+                {
+                    if(data)
+                    {
+                        $('#register').css('background','darkgreen');
+                        $('#register').css('border','2 px solid darkgreen');
+                        $('#register').css('color','white');
+                        $('#register').text('Se envío tu caso!');
+                    }
+    
+                    else
+                    {
+                        $('#register').css('background','red');
+                        $('#register').css('border','2 px solid red');
+                        $('#register').css('color','white');
+                        $('#register').text('No se pudo envíar tu caso!');
+                    }
+                }
             }
-        }
-    );
+        );
+    }
+
+    else
+    {
+        $('#register').css('background','red');
+        $('#register').css('border','2 px solid red');
+        $('#register').text('No estás conectado a Internet!');
+    }
+}
+
+function createJobApplication()
+{
+    $('#register').css('background','yellow');
+    $('#register').css('border','2 px solid yellow');
+    $('#register').css('color','black');
+    $('#register').text('Enviando tu solicitud ...');
+
+    if(navigator.onLine)
+    {
+        var jobApplication =
+        {
+            name:                   $('#campoName').val(),
+            documentNumber:         $('#campoDocumentNumber').val(),
+            descriptionApplication: $('#campoDescriptionApplication').val(),
+            age:                    $('#campoAge').val(),
+            idUser:                 localStorage.getItem('User')
+        };
+    
+        $.ajax
+        (
+            {
+                url: '../api/jobApplication',
+                type: 'POST',
+                data: JSON.stringify(jobApplication),
+                contentType: "application/json;charset=utf-8",
+    
+                success:
+                function (data)
+                {
+                    if(data)
+                    {
+                        $('#register').css('background','darkgreen');
+                        $('#register').css('border','2 px solid darkgreen');
+                        $('#register').css('color','white');
+                        $('#register').text('Solicitud enviada!');
+                    }
+    
+                    else
+                    {
+                        $('#register').css('background','red');
+                        $('#register').css('border','2 px solid red');
+                        $('#register').css('color','white');
+                        $('#register').text('Error al enviar!');
+                    }
+                }
+            }
+        );
+    }
+
+    else
+    {
+        $('#register').css('background','red');
+        $('#register').css('border','2 px solid red');
+        $('#register').text('No estás conectado a Internet!');
+    }
 }
 
 function to(num)

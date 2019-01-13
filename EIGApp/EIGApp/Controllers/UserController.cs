@@ -15,7 +15,7 @@ namespace EIGApp.Controllers
         {
             var query = from U in BD.Users
                         where (U.Username.Equals(username))
-                        select new {U.Username, U.Password, U.Name};
+                        select new {U.Id, U.Username, U.Password, U.Name};
 
             M.User temp = new M.User();
 
@@ -27,8 +27,9 @@ namespace EIGApp.Controllers
 
                 if (lista.Password.Equals(hashPassword))
                 {
+                    temp.Id       = lista.Id;
                     temp.Username = lista.Username;
-                    temp.Name = lista.Name;
+                    temp.Name     = lista.Name;
                 }
             }
 
