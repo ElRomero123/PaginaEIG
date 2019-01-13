@@ -17,7 +17,7 @@ function initUser()
     }
 }
 
-function close()
+function cerrarSesion()
 {
     localStorage.clear();
     location.href = 'index.html';
