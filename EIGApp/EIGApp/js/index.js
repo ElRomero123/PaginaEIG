@@ -252,9 +252,9 @@ function createCase()
     
         var caso =
         {
-            username: $('#campoCase').val(),
-            password: $('#campoDescription').val(),
-            idUser:   localStorage.getItem('User')
+            name:            $('#campoCase').val(),
+            descriptionCase: $('#campoDescription').val(),
+            idUser:          localStorage.getItem('User')
         };
     
         $.ajax
