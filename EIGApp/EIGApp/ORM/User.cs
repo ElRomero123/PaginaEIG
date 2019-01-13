@@ -18,6 +18,8 @@ namespace EIGApp.ORM
         public User()
         {
             this.Businesses = new HashSet<Business>();
+            this.Cases = new HashSet<Case>();
+            this.JobApplications = new HashSet<JobApplication>();
             this.OtherPersons = new HashSet<OtherPerson>();
             this.People = new HashSet<Person>();
             this.Products = new HashSet<Product>();
@@ -33,6 +35,10 @@ namespace EIGApp.ORM
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Business> Businesses { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Case> Cases { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<JobApplication> JobApplications { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<OtherPerson> OtherPersons { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
