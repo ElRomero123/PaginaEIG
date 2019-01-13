@@ -1,4 +1,5 @@
 window.onload = initUser;
+var fichero, fileReference;
 
 function initUser()
 {
@@ -15,6 +16,8 @@ function initUser()
     {
         location.href = 'index.html';
     }
+
+    fichero = document.getElementById('entrada');
 }
 
 function cerrarSesion()
@@ -351,6 +354,44 @@ function createJobApplication()
         $('#register').css('border','2 px solid red');
         $('#register').text('No estás conectado a Internet!');
     }
+}
+
+function upload()
+{
+    var config = 
+    {
+        apiKey: "AIzaSyA4F7aYKhXv5zEWabtUYABA-4lJJdAgyW4",
+        authDomain: "eliteintelligencegroup-719d3.firebaseapp.com",
+        databaseURL: "https://eliteintelligencegroup-719d3.firebaseio.com",
+        projectId: "eliteintelligencegroup-719d3",
+        storageBucket: "eliteintelligencegroup-719d3.appspot.com",
+        messagingSenderId: "567347907651"
+    };
+
+    firebase.initializeApp(config);
+
+    fileReference = firebase.storage().ref();
+
+    var fileToUpload = fichero.files[0];
+    var uploadTask = fileReference.child('/avatar/' + fileToUpload.name).put(fileToUpload);
+
+    uploadTask.on('state_changed', 
+    
+        function(snapshot)
+        {
+            //Se va mostrando el progreso de la subida
+        },
+
+        function(error)
+        {
+
+        },
+        function()
+        {
+            var downloadURL = uploadTask.snapshot.downloadURL;
+            alert("Se subió la imagen con url " + downloadURL);
+        }
+    );
 }
 
 function to(num)

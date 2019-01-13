@@ -35,10 +35,19 @@
                 <div>
                     <button id='register' onclick='createCase()'>Enviar caso</button>
                 </div>
+
+                <p>Una vez creado el caso, puede subir archivos sobre este! (Formatos PDF, JPG, PNG, BMP)</p>
+
+                <div>
+                    <input type='file' id='entrada' text='Ruta'>
+                    <button id='register' onclick='upload()'>Explorar</button>
+                </div>
             </div>
         </div>
-            
+
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/5.7.3/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/5.7.3/firebase-storage.js"></script>
         <script src='JS/index.js'></script>
     </body>
 </html>

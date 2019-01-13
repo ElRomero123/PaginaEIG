@@ -63,7 +63,6 @@ function validate()
 
                 else
                 {
-
                     $('#send').css('background','red');
                     $('#send').css('border','2px solid red');
                     $('#send').text('Usuario invalido!');
