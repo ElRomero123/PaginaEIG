@@ -2,7 +2,6 @@ window.onload = initUser;
 
 function initUser()
 {
-    /*
     var name     = localStorage.getItem('Name');
     var username = localStorage.getItem('Username');
     
@@ -16,7 +15,6 @@ function initUser()
     {
         location.href = 'index.html';
     }
-    */
 }
 
 function cerrarSesion()
