@@ -13,7 +13,7 @@ namespace EIGApp.Controllers
         {
             var query = from P in BD.People
                         where (P.Name.Contains(cadena) || P.ProfesionDescription.Contains(cadena) || P.City.Contains(cadena))
-                        select new { P.Name, P.ProfesionDescription, P.WebPage, P.Email, P.Phone, P.City, P.Address, P.Avatar };
+                        select new { P.Name, P.ProfesionDescription, P.Email, P.Phone, P.City, P.Address, P.Avatar };
 
             var lista = query.ToArray();
 
@@ -25,7 +25,6 @@ namespace EIGApp.Controllers
                 {
                     Name = lista[i].Name,
                     ProfesionDescription = lista[i].ProfesionDescription,
-                    WebPage = lista[i].WebPage,
                     Email = lista[i].Email,
                     Phone = lista[i].Phone,
                     City = lista[i].City,

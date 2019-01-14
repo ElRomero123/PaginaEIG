@@ -13,7 +13,7 @@ namespace EIGApp.Controllers
         {
             var query = from OP in BD.OtherPersons
                         where (OP.Name.Contains(cadena) || OP.Profesion.Contains(cadena) || OP.ProfesionDescription.Contains(cadena) || OP.City.Contains(cadena))
-                        select new { OP.Name, OP.Profesion, OP.ProfesionDescription, OP.WebPage, OP.Email, OP.Phone, OP.City, OP.Address, OP.Avatar };
+                        select new { OP.Name, OP.Profesion, OP.ProfesionDescription, OP.Email, OP.Phone, OP.City, OP.Address, OP.Avatar };
 
             var lista = query.ToArray();
 
@@ -26,7 +26,6 @@ namespace EIGApp.Controllers
                     Name = lista[i].Name,
                     Profesion = lista[i].Profesion,
                     ProfesionDescription = lista[i].ProfesionDescription,
-                    WebPage = lista[i].WebPage,
                     Email = lista[i].Email,
                     Phone = lista[i].Phone,
                     City = lista[i].City,

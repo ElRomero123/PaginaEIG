@@ -68,12 +68,12 @@
     <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="Profesion" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="ProfesionDescription" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="WebPage" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="Email" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="Phone" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="City" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="Address" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="Avatar" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Approved" Type="Boolean" Nullable="false" />
     <Property Name="IdUser" Type="Int64" Nullable="false" />
     <NavigationProperty Name="User" Relationship="Self.FK_OtherPerson_User" FromRole="OtherPerson" ToRole="User" />
     <NavigationProperty Name="ScoreOtherPersons" Relationship="Self.FK_ScoreOtherPerson_OtherPerson" FromRole="OtherPerson" ToRole="ScoreOtherPerson" />
@@ -86,12 +86,12 @@
     <Property Name="Id" Type="Int64" Nullable="false" />
     <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="ProfesionDescription" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="WebPage" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="Email" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="Phone" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="City" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="Address" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="Avatar" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Approved" Type="Boolean" Nullable="false" />
     <Property Name="IdUser" Type="Int64" Nullable="false" />
     <NavigationProperty Name="User" Relationship="Self.FK_Person_User" FromRole="Person" ToRole="User" />
     <NavigationProperty Name="ScorePersons" Relationship="Self.FK_ScorePerson_Person" FromRole="Person" ToRole="ScorePerson" />
@@ -164,16 +164,6 @@
     <Property Name="IdUser" Type="Int64" Nullable="false" />
     <NavigationProperty Name="User" Relationship="Self.FK_Suggestion_User" FromRole="Suggestion" ToRole="User" />
   </EntityType>
-  <EntityType Name="sysdiagram">
-    <Key>
-      <PropertyRef Name="diagram_id" />
-    </Key>
-    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="principal_id" Type="Int32" Nullable="false" />
-    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="version" Type="Int32" />
-    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
-  </EntityType>
   <EntityType Name="User">
     <Key>
       <PropertyRef Name="Id" />
@@ -184,6 +174,7 @@
     <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="Email" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="Phone" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="TienePerfil" Type="Boolean" Nullable="false" />
     <Property Name="Address" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
     <NavigationProperty Name="Businesses" Relationship="Self.FK_Business_User" FromRole="User" ToRole="Business" />
     <NavigationProperty Name="Cases" Relationship="Self.FK_Case_User" FromRole="User" ToRole="Case" />
@@ -481,7 +472,6 @@
     <EntitySet Name="ScorePersons" EntityType="Self.ScorePerson" />
     <EntitySet Name="ScoreProducts" EntityType="Self.ScoreProduct" />
     <EntitySet Name="Suggestions" EntityType="Self.Suggestion" />
-    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
     <EntitySet Name="Users" EntityType="Self.User" />
     <EntitySet Name="VisitBusinesses" EntityType="Self.VisitBusiness" />
     <EntitySet Name="VisitOtherPersons" EntityType="Self.VisitOtherPerson" />

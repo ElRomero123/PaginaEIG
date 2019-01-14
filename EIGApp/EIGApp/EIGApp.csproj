@@ -217,9 +217,6 @@
     <Compile Include="ORM\Suggestion.cs">
       <DependentUpon>BD.tt</DependentUpon>
     </Compile>
-    <Compile Include="ORM\sysdiagram.cs">
-      <DependentUpon>BD.tt</DependentUpon>
-    </Compile>
     <Compile Include="ORM\User.cs">
       <DependentUpon>BD.tt</DependentUpon>
     </Compile>

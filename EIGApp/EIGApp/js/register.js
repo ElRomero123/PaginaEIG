@@ -1,67 +1,98 @@
+function validate()
+{
+    var check = false;
+
+    $.ajax
+    (
+        {
+            url: '../api/user/?username=' + $('#campoUsername').val(),
+            type: 'GET',
+            contentType: "application/json;charset=utf-8",
+
+            success:
+            function (data) 
+            {
+                check = data;
+            }
+        }
+    );
+
+    return check;
+}
+
 function createUser()
 {
     if($('#campoPassword').val() == $('#campoPasswordAgain').val())
     {
         if(navigator.onLine)
         {
-            var usuario =
+            if(validate())
             {
-                username: $('#campoUsername').val(),
-                password: $('#campoPassword').val(),
-                name: $('#campoName').val(),
-                email: $('#campoEmail').val(),
-                phone: $('#campoAddress').val(),
-                address: $('#campoAddress').val()
-            };
-    
-            $('#register').css('background','yellow');
-            $('#register').css('border','2px solid yellow');
-            $('#register').css('color','black');
-            $('#register').text('Agregando usuario ...');
-    
-            $.ajax
-            (
+                var usuario =
                 {
-                    url: '../api/user',
-                    type: 'POST',
-                    data: JSON.stringify(usuario),
-                    contentType: "application/json;charset=utf-8",
+                    username: $('#campoUsername').val(),
+                    password: $('#campoPassword').val(),
+                    name: $('#campoName').val(),
+                    email: $('#campoEmail').val(),
+                    phone: $('#campoAddress').val(),
+                    tienePerfil: false,
+                    address: $('#campoAddress').val()
+                };
         
-                    success:
-                    function (data)
+                $('#register').css('background','yellow');
+                $('#register').css('border','2px solid yellow');
+                $('#register').css('color','black');
+                $('#register').text('Agregando usuario ...');
+        
+                $.ajax
+                (
                     {
-                        if (data)
+                        url: '../api/user',
+                        type: 'POST',
+                        data: JSON.stringify(usuario),
+                        contentType: "application/json;charset=utf-8",
+            
+                        success:
+                        function (data)
                         {
-                            location.href = 'index.html';    
-                        }
-    
-                        else
-                        {
-                            $('#register').css('background','red');
-                            $('#register').css('border','2px solid red');
-                            $('#register').css('color','white');
-                            $('#register').text('NO se pudo agregar la información!');
+                            if (data)
+                            {
+                                location.href = 'index.html';    
+                            }
+        
+                            else
+                            {
+                                $('#register').css('background','red');
+                                $('#register').css('border','2px solid red');
+                                $('#register').css('color','white');
+                                $('#register').text('Error en el registro!');
+                            }
                         }
                     }
-                }
-            );
+                );
+            }
+
+            else
+            {
+                $('#register').css('background','red');
+                $('#register').css('border','2px solid red');
+                $('#register').text('USERNAME ya existente!');
+            }
         }
 
         else
         {
-            $('#register').css('background','orangered');
-            $('#register').css('border','2px solid orangered');
-            $('#register').css('color','black');
+            $('#register').css('background','red');
+            $('#register').css('border','2px solid red');
             $('#register').text('NO está conectado a Internet!');
         }
     }
 
     else
     {
-        $('#register').css('background','orangered');
-        $('#register').css('border','2px solid orangered');
-        $('#register').css('color','black');
-        $('#register').text('Las contraseñas no coinciden!');
+        $('#register').css('background','red');
+        $('#register').css('border','2px solid red');
+        $('#register').text('Las contraseñas son diferentes!');
     }
 }
 

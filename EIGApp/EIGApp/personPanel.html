@@ -26,26 +26,33 @@
             </div>
 
             <div>
-                <p>Nombre de usuario/Username (25 caracteres)</p>
-                <input type='text' maxlength="25" id='campoUsername'>
+                <p>Nombre completo (50 caracteres)</p>
+                <input type='text' maxlength='50' id='campoFullName'>
 
-                <p>Contraseña/Password (25 caracteres)</p>
-                <input type='password' maxlength="25" id='campoPassword'>
+                <p>Describa a lo que usted se dedica brevemente (100 caracteres)</p>
+                <input type='text' maxlength="100" id='campoProfesionDescription'>
 
-                <p>Repetir Contraseña (25 caracteres)</p>
-                <input type='password' maxlength="25" id='campoPasswordAgain'>
+                <p>Correo electrónico/Email (80 caracteres)</p>
+                <input type='text' maxlength="80" id='campoEmail'>
 
-                <p>Nombre (150 caracteres)</p>
-                <input type='text' maxlength="150" id='campoName'>
+                <p>Número telefónico Celular/Fijo</p>
+                <input type='number' max='9999999999999999999999999' id='campoPhone'>
 
-                <p>Email (150 caracteres)</p>
-                <input type='text' maxlength="150" id='campoEmail'>
+                <p>Escriba el domicilio de su trabajo en formato [Ciudad, Estado, País] (200 caracteres)</p>
+                <input type='text' maxlength='200' id='campoCity'>
 
-                <p>Dirección/Address (100 caracteres)</p>
-                <input type='text' maxlength="100" id='campoAddress'>
+                <p>Escriba la dirección de su residencia en formato claro (100 caracteres)</p>
+                <input type='text' maxlength='100' id='campoAddress'>
+
+                <p>Anexar una foto de perfil de usuario (Debe ser 90x90 PX)</p>
+                <div>
+                    <input type='file' id='fileBrowser'>
+                </div>
+            
+                <p>Sus datos y su foto de perfil serán revisados, se le enviará un E-mail si su aprobación es satisfactoria!</p>
 
                 <div>
-                    <button id='createPerson' class='register' onclick='create(1)'>Envío y acepto el acuerdo</button>
+                    <button id='createPerson' class='register' onclick='create(1)'>Crear perfil profesional</button>
                 </div>
             </div>
         </div>
