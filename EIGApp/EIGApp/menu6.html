@@ -26,23 +26,25 @@
             </div>
             
             <div>
+                <p><b>Paso 1:</b> Datos básicos sobre el aspirante.</p>
+
                 <p>Nombre (25 caracteres)</p>
                 <input type='text' maxlength="25" id='campoName'>
 
                 <p>Número de documento (25 caracteres)</p>
-                <input type='number' maxlength="25" id='campoDocumentNumber'>
+                <input type='number' max='99999999999999' id='campoDocumentNumber'>
 
                 <p>Descripción de la Aplicación ¿Por que quiere aplicar? (200 caracteres)</p>
                 <input type='text' maxlength="200" id='campoDescriptionApplication'>
 
                 <p>Edad (3 caracteres)</p>
-                <input type='text' maxlength="3" id='campoAge'>
+                <input type='number' max='200' id='campoAge'>
 
                 <div>
-                    <button id='register' onclick='createJobApplication()'>Enviar solicitud</button>
+                    <button id='register' class='register' onclick='createJobApplication()'>Enviar solicitud</button>
                 </div>
 
-                <p><b>Paso 2: </b> Anexar archivos sobre el caso (Formatos pdf, jpg, png, bmp, doc, txt, docx).</p>
+                <p><b>Paso 2: </b> Anexar archivos sobre el aspirante como HV o carta de recomendación (Formatos pdf, jpg, png, bmp, doc, txt, docx).</p>
 
                 <div>
                     <input type='file' id='fileBrowser'>

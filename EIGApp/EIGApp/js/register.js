@@ -64,3 +64,8 @@ function createUser()
         $('#register').text('Las contraseñas no coinciden!');
     }
 }
+
+function toMenu()
+{
+    location.href = 'index.html';
+}
