@@ -23,6 +23,7 @@ namespace EIGApp.ORM
             this.OtherPersons = new HashSet<OtherPerson>();
             this.People = new HashSet<Person>();
             this.Products = new HashSet<Product>();
+            this.Suggestions = new HashSet<Suggestion>();
         }
     
         public long Id { get; set; }
@@ -45,5 +46,7 @@ namespace EIGApp.ORM
         public virtual ICollection<Person> People { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Product> Products { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Suggestion> Suggestions { get; set; }
     }
 }

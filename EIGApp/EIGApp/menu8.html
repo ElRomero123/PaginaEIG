@@ -13,30 +13,31 @@
             <div>
                 <p id='infoName'></p>
                 <p id='infoUsername'></p>
+                <button id='close' onclick='cerrarSesion()'>Cerrar Sesión</button>
             </div>
         </header>
 
-        <div> 
-            <p id='searchTag'>Búsqueda</p> 
-            <p id='categorySearch'>Ayuda y comentarios</p>
-            <input id='searchBox' onkeypress="searchByEnter(event)" >
-            <button id='search' onclick="search()"></button>
-            <div id='bannerState'> </div>
+        <div>
+            <p id='searchTag'>Ayuda y comentarios</p>
+            <p id='categorySearch'>Aquí puedes hablar sobre tu experiencia en la mejor plataforma para investigadores!</p>
 
             <div id='categories'>
                 <div id='c9' class='category' onclick="to(1)"></div>
             </div>
-
+            
             <div>
-                <div id='listResults'>
+                <p>Título del problema(30 caracteres)</p>
+                <input type='text' maxlength='25' id='campoName'>
+
+                <p>Descripción del problema(200 caracteres)</p>
+                <input type='text'  maxlength='200' id='campoDocumentNumber'>
+
+                <div>
+                    <button id='register' class='register' onclick='createSuggestion()'>Enviar solicitud</button>
                 </div>
-                    
-                <div id='maps'>
-                </div>     
-            </div>    
+            </div>
         </div>
             
-        
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src='JS/index.js'></script>
     </body>

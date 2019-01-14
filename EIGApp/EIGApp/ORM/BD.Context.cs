@@ -37,6 +37,8 @@ namespace EIGApp.ORM
         public virtual DbSet<ScoreOtherPerson> ScoreOtherPersons { get; set; }
         public virtual DbSet<ScorePerson> ScorePersons { get; set; }
         public virtual DbSet<ScoreProduct> ScoreProducts { get; set; }
+        public virtual DbSet<Suggestion> Suggestions { get; set; }
+        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<VisitBusiness> VisitBusinesses { get; set; }
         public virtual DbSet<VisitOtherPerson> VisitOtherPersons { get; set; }
