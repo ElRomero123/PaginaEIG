@@ -358,40 +358,60 @@ function createJobApplication()
 
 function upload()
 {
-    var config = 
+    $('#register').css('background','yellow');
+    $('#register').css('border','2 px solid yellow');
+    $('#register').css('color','black');
+    $('#register').text('Subiendo archivo ...');
+
+    if(navigator.onLine)
     {
-        apiKey: "AIzaSyA4F7aYKhXv5zEWabtUYABA-4lJJdAgyW4",
-        authDomain: "eliteintelligencegroup-719d3.firebaseapp.com",
-        databaseURL: "https://eliteintelligencegroup-719d3.firebaseio.com",
-        projectId: "eliteintelligencegroup-719d3",
-        storageBucket: "eliteintelligencegroup-719d3.appspot.com",
-        messagingSenderId: "567347907651"
-    };
-
-    firebase.initializeApp(config);
-
-    fileReference = firebase.storage().ref();
-
-    var fileToUpload = fichero.files[0];
-    var uploadTask = fileReference.child('/avatar/' + 'uuid').put(fileToUpload);
-
-    uploadTask.on('state_changed', 
+        var config = 
+        {
+            apiKey: "AIzaSyA4F7aYKhXv5zEWabtUYABA-4lJJdAgyW4",
+            authDomain: "eliteintelligencegroup-719d3.firebaseapp.com",
+            databaseURL: "https://eliteintelligencegroup-719d3.firebaseio.com",
+            projectId: "eliteintelligencegroup-719d3",
+            storageBucket: "eliteintelligencegroup-719d3.appspot.com",
+            messagingSenderId: "567347907651"
+        };
     
-        function(snapshot)
-        {
-            //Se va mostrando el progreso de la subida
-        },
+        firebase.initializeApp(config);
+    
+        fileReference = firebase.storage().ref();
+    
+        var fileToUpload = fichero.files[0];
+        var uploadTask = fileReference.child('/avatar/' + fileToUpload.name).put(fileToUpload);
+    
+        uploadTask.on('state_changed', 
+        
+            function(snapshot)
+            {
+                //Se va mostrando el progreso de la subida
+            },
+    
+            function(error)
+            {
+                alert('Hubo un error');
+            },
+            function()
+            {
+                $('#register').css('background','darkgreen');
+                $('#register').css('border','2 px solid darkgreen');
+                $('#register').css('color','white');
+                $('#register').text('Archivo subido!');
 
-        function(error)
-        {
-            alert('Hubo un error');
-        },
-        function()
-        {
-            URLDescarga = uploadTask.snapshot.downloadURL;
-            alert('Se subió la imagen con url: ' + URLDescarga);
-        }
-    );
+                URLDescarga = uploadTask.snapshot.downloadURL;
+                alert('Se subió la imagen con url: ' + URLDescarga);
+            }
+        );
+    }
+
+    else
+    {
+        $('#register').css('background','red');
+        $('#register').css('border','2 px solid red');
+        $('#register').text('No estás conectado a Internet!');
+    }
 }
 
 function to(num)
