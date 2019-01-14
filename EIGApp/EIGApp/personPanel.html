@@ -10,14 +10,19 @@
     <body>
         <header>
             <div id='headerLogo'></div>
+            <div>
+                <p id='infoName'></p>
+                <p id='infoUsername'></p>
+                <button id='close' onclick='cerrarSesion()'>Cerrar Sesión</button>
+            </div>
         </header>
 
         <div>
-            <p id='searchTag'>Registrarse en la Aplicación</p>
-            <p id='categorySearch'>Unase a nuestra plataforma EIG, un paso mas en tu crecimiento!</p>
+            <p id='searchTag'>Afiliación a la Plataforma</p>
+            <p id='categorySearch'>Afíliese como detective privado en Elite Intelligence Group.</p>
 
             <div id='categories'>
-                <div id='c9' class='category' onclick="toMenu()"></div>
+                <div id='c9' class='category' onclick="to(1)"></div>
             </div>
 
             <div>
@@ -40,12 +45,12 @@
                 <input type='text' maxlength="100" id='campoAddress'>
 
                 <div>
-                    <button id='register' class='register' onclick='createUser()'>Envío y acepto el acuerdo</button>
+                    <button id='createPerson' class='register' onclick='create(1)'>Envío y acepto el acuerdo</button>
                 </div>
             </div>
         </div>
     
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <script src='JS/register.js'></script>
+        <script src='JS/panel.js'></script>
     </body>
 </html>

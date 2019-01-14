@@ -473,11 +473,9 @@ function optionCreate(num)
     switch(num)
     {
         case 1:
-        alert('Crear persona funciona');
         location.href = 'personPanel.html';
         break;
         case 2:
-        alert('Crear otra persona funciona');
         location.href = 'otherPersonPanel.html';
         break;
         case 3:
