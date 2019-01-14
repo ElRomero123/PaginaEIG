@@ -91,6 +91,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="businessPanel.html" />
     <Content Include="css\index.css" />
     <Content Include="Global.asax" />
     <Content Include="img\f.png" />
@@ -117,6 +118,7 @@
     <Content Include="img\menu\9R.png" />
     <Content Include="img\t.png" />
     <Content Include="img\y.png" />
+    <Content Include="js\panel.js" />
     <Content Include="js\register.js" />
     <Content Include="js\validate.js" />
     <Content Include="ORM\BD.Context.tt">
@@ -129,6 +131,9 @@
       <DependentUpon>BD.edmx</DependentUpon>
       <LastGenOutput>BD.cs</LastGenOutput>
     </Content>
+    <Content Include="otherPersonPanel.html" />
+    <Content Include="personPanel.html" />
+    <Content Include="productPanel.html" />
     <Content Include="register.html" />
     <Content Include="menu.html" />
     <Content Include="menu5.html" />
