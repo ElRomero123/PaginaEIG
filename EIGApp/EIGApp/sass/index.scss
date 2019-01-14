@@ -247,14 +247,14 @@ body
         {
             div
             {
-                #register:hover
+                .register:hover
                 {
                     border: 2px solid orangered;
                     background-color: white;
                     color: orangered;
                 }
 
-                #register
+                .register
                 {
                     background-color: orangered;
                 }

@@ -225,13 +225,13 @@ body div div div {
   margin: 10px auto;
 }
 /* line 250, ../sass/index.scss */
-body div div div #register:hover {
+body div div div .register:hover {
   border: 2px solid orangered;
   background-color: white;
   color: orangered;
 }
 /* line 257, ../sass/index.scss */
-body div div div #register {
+body div div div .register {
   background-color: orangered;
 }
 /* line 262, ../sass/index.scss */

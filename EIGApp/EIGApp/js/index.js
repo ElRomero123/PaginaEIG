@@ -358,10 +358,10 @@ function createJobApplication()
 
 function upload()
 {
-    $('#register').css('background','yellow');
-    $('#register').css('border','2 px solid yellow');
-    $('#register').css('color','black');
-    $('#register').text('Subiendo archivo ...');
+    $('#submit').css('background','yellow');
+    $('#submit').css('border','2 px solid yellow');
+    $('#submit').css('color','black');
+    $('#submit').text('Subiendo archivo ...');
 
     if(navigator.onLine)
     {
@@ -395,22 +395,22 @@ function upload()
             },
             function()
             {
-                $('#register').css('background','darkgreen');
-                $('#register').css('border','2 px solid darkgreen');
-                $('#register').css('color','white');
-                $('#register').text('Archivo subido!');
+                $('#submit').css('background','darkgreen');
+                $('#submit').css('border','2 px solid darkgreen');
+                $('#submit').css('color','white');
+                $('#submit').text('Archivo subido!');
 
-                URLDescarga = uploadTask.snapshot.downloadURL;
-                alert('Se subió la imagen con url: ' + URLDescarga);
+                //URLDescarga = uploadTask.snapshot.downloadURL;
+                //alert('Se subió la imagen con url: ' + URLDescarga);
             }
         );
     }
 
     else
     {
-        $('#register').css('background','red');
-        $('#register').css('border','2 px solid red');
-        $('#register').text('No estás conectado a Internet!');
+        $('#submit').css('background','red');
+        $('#submit').css('border','2 px solid red');
+        $('#submit').text('No estás conectado a Internet!');
     }
 }
 
