@@ -26,6 +26,8 @@
             </div>
 
             <div>
+                <p><b>Paso 1:</b> Datos básicos sobre el caso.</p>
+
                 <p>Título del caso (25 caracteres)</p>
                 <input type='text' maxlength="25" id='campoCase'>
 
@@ -36,13 +38,15 @@
                     <button id='register' onclick='createCase()'>Enviar caso</button>
                 </div>
 
-                <p>Una vez creado el caso, puede subir archivos sobre este! (Formatos PDF, JPG, PNG, BMP)</p>
+                <p><b>Paso 2: </b> Anexar archivos sobre el caso (Formatos pdf, jpg, png, bmp, doc, txt, docx).</p>
 
                 <div>
-                    <button id='register' onclick='upload()'>Explorar</button>
+                    <button id='register' onclick='upload()'>Enviar archivo</button>
                 </div>
 
-                <input type='file' id='entrada' text='Ruta'>
+                <div>
+                    <input type='file' id='fileBrowser'>
+                </div>
             </div>
         </div>
 

@@ -17,7 +17,7 @@ function initUser()
         location.href = 'index.html';
     }
 
-    fichero = document.getElementById('entrada');
+    fichero = document.getElementById('fileBrowser');
 }
 
 function cerrarSesion()
@@ -373,7 +373,7 @@ function upload()
     fileReference = firebase.storage().ref();
 
     var fileToUpload = fichero.files[0];
-    var uploadTask = fileReference.child('/avatar/' + fileToUpload.name).put(fileToUpload);
+    var uploadTask = fileReference.child('/avatar/' + 'uuid').put(fileToUpload);
 
     uploadTask.on('state_changed', 
     
@@ -384,12 +384,12 @@ function upload()
 
         function(error)
         {
-
+            alert('Hubo un error');
         },
         function()
         {
-            var downloadURL = uploadTask.snapshot.downloadURL;
-            alert("Se subió la imagen con url " + downloadURL);
+            URLDescarga = uploadTask.snapshot.downloadURL;
+            alert('Se subió la imagen con url: ' + URLDescarga);
         }
     );
 }
