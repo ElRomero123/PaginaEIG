@@ -1,7 +1,7 @@
 function validate()
 {
     var check = false;
-
+    
     $.ajax
     (
         {

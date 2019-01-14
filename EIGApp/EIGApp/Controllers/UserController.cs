@@ -44,15 +44,14 @@ namespace EIGApp.Controllers
 
         public bool Get(string username)
         {
-            bool check = false;
+            int size = 0;
 
             var query = from U in BD.Users
                         where (U.Username.Equals(username))
                         select new { U.Id };
 
-            check = (query.ToArray().Length > 0);
-           
-            return check;
+            size = query.ToArray().Length;
+            return size == 0;
         }
 
         public bool Post(M.User usuario)
