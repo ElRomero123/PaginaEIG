@@ -380,7 +380,7 @@ function upload()
         fileReference = firebase.storage().ref();
     
         var fileToUpload = fichero.files[0];
-        var uploadTask = fileReference.child('/avatar/' + fileToUpload.name).put(fileToUpload);
+        var uploadTask = fileReference.child('avatar/' + fileToUpload.name).put(fileToUpload);
     
         uploadTask.on('state_changed', 
         
@@ -400,8 +400,7 @@ function upload()
                 $('#submit').css('color','white');
                 $('#submit').text('Archivo subido!');
 
-                //URLDescarga = uploadTask.snapshot.downloadURL;
-                //alert('Se subió la imagen con url: ' + URLDescarga);
+                alert(uploadTask.snapshot.downloadURL);
             }
         );
     }
