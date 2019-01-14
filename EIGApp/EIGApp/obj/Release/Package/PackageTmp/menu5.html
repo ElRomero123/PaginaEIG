@@ -11,32 +11,48 @@
         <header>
             <div id='headerLogo'></div>
             <div>
-                <p id='infoName'>Name Name Name Name</p>
-                <p id='infoUsername'>Username@123</p>
+                <p id='infoName'></p>
+                <p id='infoUsername'></p>
+                <button id='close' onclick='cerrarSesion()'>Cerrar Sesión</button>
             </div>
         </header>
 
-        <div> 
-            <p id='searchTag'>Búsqueda</p> 
-            <p id='categorySearch'>EIG Servicios directos</p>
-            <input id='searchBox' onkeypress="searchByEnter(event)" >
-            <button id='search' onclick="search()"></button>
-            <div id='bannerState'> </div>
+        <div>
+            <p id='searchTag'>EIG Servicios directos</p>
+            <p id='categorySearch'>Puedes contarnos tu propio caso, nosotros te ayudaremos!</p>
 
             <div id='categories'>
                 <div id='c9' class='category' onclick="to(1)"></div>
             </div>
 
             <div>
-                <div id='listResults'>
+                <p><b>Paso 1:</b> Datos básicos sobre el caso.</p>
+
+                <p>Título del caso (25 caracteres)</p>
+                <input type='text' maxlength="25" id='campoCase'>
+
+                <p>Descripción del caso (100 caracteres)</p>
+                <input type='text' maxlength="100" id='campoDescription'>
+
+                <div>
+                    <button id='register' class='register' onclick='createCase()'>Enviar caso</button>
                 </div>
-                    
-                <div id='maps'>
-                </div>     
-            </div>    
+
+                <p><b>Paso 2: </b> Anexar archivos sobre el caso (Formatos pdf, jpg, png, bmp, doc, txt, docx).</p>
+
+                <div>
+                    <input type='file' id='fileBrowser'>
+                </div>
+
+                <div>
+                    <button class='register' id='submit' onclick='upload()'>Enviar archivo</button>
+                </div>
+            </div>
         </div>
-            
+
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/5.7.3/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/5.7.3/firebase-storage.js"></script>
         <script src='JS/index.js'></script>
     </body>
 </html>

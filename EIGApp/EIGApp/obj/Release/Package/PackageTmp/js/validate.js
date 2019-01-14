@@ -57,12 +57,12 @@ function validate()
                 {
                     localStorage.setItem('Username', data.Username);
                     localStorage.setItem('Name', data.Name);
+                    localStorage.setItem('User', data.Id);
                     location.href = 'menu.html';    
                 }
 
                 else
                 {
-
                     $('#send').css('background','red');
                     $('#send').css('border','2px solid red');
                     $('#send').text('Usuario invalido!');

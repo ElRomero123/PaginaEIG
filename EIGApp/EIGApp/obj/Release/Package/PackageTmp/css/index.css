@@ -225,13 +225,13 @@ body div div div {
   margin: 10px auto;
 }
 /* line 250, ../sass/index.scss */
-body div div div #register:hover {
+body div div div .register:hover {
   border: 2px solid orangered;
   background-color: white;
   color: orangered;
 }
 /* line 257, ../sass/index.scss */
-body div div div #register {
+body div div div .register {
   background-color: orangered;
 }
 /* line 262, ../sass/index.scss */
@@ -245,6 +245,17 @@ body div div div #send {
   background-color: darkgreen;
 }
 /* line 274, ../sass/index.scss */
+body div div div #fileBrowser {
+  outline: 0px;
+  color: white;
+  border: 2px solid brown;
+  font-size: 12px;
+  font-family: acephimere;
+  margin: 5px auto;
+  height: 20px;
+  width: 70%;
+}
+/* line 286, ../sass/index.scss */
 body div div div button {
   outline: 0px;
   transition: 0.2s;
@@ -255,12 +266,12 @@ body div div div button {
   margin: 5px;
   height: 40px;
 }
-/* line 289, ../sass/index.scss */
+/* line 301, ../sass/index.scss */
 body div div input:focus {
   height: 20px;
   border: 2px solid orangered;
 }
-/* line 295, ../sass/index.scss */
+/* line 307, ../sass/index.scss */
 body div div input {
   transition: 0.15s;
   outline: 0px;
@@ -273,27 +284,27 @@ body div div input {
   width: 35%;
   margin: 5px;
 }
-/* line 309, ../sass/index.scss */
+/* line 321, ../sass/index.scss */
 body div div p {
   font-size: 13px;
   font-family: acephimere;
   margin: 6px;
 }
-/* line 319, ../sass/index.scss */
+/* line 331, ../sass/index.scss */
 body div #categorySearch {
   font-size: 14px;
   font-family: acephimere;
 }
-/* line 325, ../sass/index.scss */
+/* line 337, ../sass/index.scss */
 body div #searchTag {
   font-size: 40px;
   font-family: acephimereThinItalic;
 }
-/* line 331, ../sass/index.scss */
+/* line 343, ../sass/index.scss */
 body div p {
   margin: auto;
 }
-/* line 346, ../sass/index.scss */
+/* line 358, ../sass/index.scss */
 body header {
   background-color: darkgray;
   height: auto;
@@ -302,17 +313,17 @@ body header {
   left: 0px;
   position: fixed;
 }
-/* line 348, ../sass/index.scss */
+/* line 360, ../sass/index.scss */
 body header div {
   margin: 5px auto;
   background: gray;
 }
-/* line 350, ../sass/index.scss */
+/* line 362, ../sass/index.scss */
 body header div #close:hover {
   color: black;
   background: white;
 }
-/* line 356, ../sass/index.scss */
+/* line 368, ../sass/index.scss */
 body header div #close {
   transition: 0.2s;
   outline: 0px;
@@ -323,20 +334,20 @@ body header div #close {
   font-family: acephimere;
   padding: 10px;
 }
-/* line 368, ../sass/index.scss */
+/* line 380, ../sass/index.scss */
 body header div #infoUsername {
   font-size: 12px;
 }
-/* line 373, ../sass/index.scss */
+/* line 385, ../sass/index.scss */
 body header div #infoName {
   font-size: 16px;
 }
-/* line 378, ../sass/index.scss */
+/* line 390, ../sass/index.scss */
 body header div p {
   display: flex;
   font-family: acephimere;
 }
-/* line 388, ../sass/index.scss */
+/* line 400, ../sass/index.scss */
 body header #headerLogo {
   background: url("../img/logo.png");
   margin: 10px auto 10px auto;

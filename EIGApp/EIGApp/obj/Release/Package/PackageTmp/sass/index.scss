@@ -247,14 +247,14 @@ body
         {
             div
             {
-                #register:hover
+                .register:hover
                 {
                     border: 2px solid orangered;
                     background-color: white;
                     color: orangered;
                 }
 
-                #register
+                .register
                 {
                     background-color: orangered;
                 }
@@ -269,6 +269,18 @@ body
                 #send
                 {
                     background-color: darkgreen;
+                }
+
+                #fileBrowser
+                {
+                    outline: 0px;
+                    color: white;
+                    border: 2px solid brown;
+                    font-size: 12px;
+                    font-family: acephimere;
+                    margin: 5px auto;
+                    height: 20px;
+                    width: 70%;
                 }
 
                 button
@@ -305,7 +317,7 @@ body
                 width: 35%;
                 margin: 5px;
             }
-
+        
             p
             {
                 font-size: 13px;

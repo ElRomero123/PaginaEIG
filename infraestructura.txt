@@ -1,0 +1,6 @@
+INFRAESTRUCTURA
+
+CloudFare
+Firebase
+Azure
+Go Daddy
