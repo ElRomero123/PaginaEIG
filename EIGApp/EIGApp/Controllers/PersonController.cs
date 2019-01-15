@@ -61,5 +61,25 @@ namespace EIGApp.Controllers
 
             return id;
         }
+
+        public bool Post(long idPerson, string downloadURL)
+        {
+            bool state = false;
+
+            try
+            {
+                O.Person persona = BD.People.FirstOrDefault(x => x.Id == idPerson);
+                persona.Avatar = downloadURL;
+                BD.SaveChanges();
+                state = true;
+            }
+
+            catch
+            {
+                state = false;
+            }
+
+            return state;
+        }
     }
 }

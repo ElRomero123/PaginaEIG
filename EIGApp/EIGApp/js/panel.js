@@ -41,14 +41,15 @@ function create(num)
 {
     switch(num)
     {
-        case 1: alert('Crear persona funciona');
-        uploadAvatar(createPerson());
+        case 1: //alert('Crear persona funciona');
+        loadAvatar(createPerson());
+        putAvatar();
         break;
         default: alert('Crear otro tipo funciona');
     }
 }
 
-function uploadAvatar(num)
+function loadAvatar(num)
 {
     var config = 
     {
@@ -121,5 +122,28 @@ function createPerson()
         }
     );
 
+    localStorage.setItem('IdRegistro', id);
     return 'P' + id;
+}
+
+function putAvatar()
+{
+    $.ajax
+    (
+        {
+            url: '../api/person/?idPerson=' + localStorage.getItem('IdRegistro') + '&downloadURL=' + localStorage.getItem('Descarga'),
+            type: 'POST',
+            contentType: "application/json;charset=utf-8",
+            success:
+            function (data)
+            {
+                if(data)
+                {
+                    alert("La imagen ha sido publicada exitosamente");
+                    storage.removeItem('IdRegistro');
+                    storage.removeItem('Descarga');
+                }
+            }
+        }
+    );
 }
