@@ -139,7 +139,7 @@ function putAvatar()
             {
                 if(data)
                 {
-                    alert("La imagen ha sido publicada exitosamente");
+                    alert("El perfil ha sido subido correctamente");
                     storage.removeItem('IdRegistro');
                     storage.removeItem('Descarga');
                 }
