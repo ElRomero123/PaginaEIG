@@ -123,8 +123,3 @@ function createPerson()
 
     return 'P' + id;
 }
-
-function uploadPerson()
-{
-
-}
