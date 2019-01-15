@@ -42,7 +42,48 @@ function create(num)
     switch(num)
     {
         case 1: alert('Crear persona funciona');
+        createPerson();
         break;
         default: alert('Crear otro tipo funciona');
     }
+}
+
+function createPerson()
+{
+    var config = 
+    {
+        apiKey: "AIzaSyA4F7aYKhXv5zEWabtUYABA-4lJJdAgyW4",
+        authDomain: "eliteintelligencegroup-719d3.firebaseapp.com",
+        databaseURL: "https://eliteintelligencegroup-719d3.firebaseio.com",
+        projectId: "eliteintelligencegroup-719d3",
+        storageBucket: "eliteintelligencegroup-719d3.appspot.com",
+        messagingSenderId: "567347907651"
+    };
+    
+    firebase.initializeApp(config);
+        
+    var campoAvatarPerson = document.getElementById('campoAvatarPerson');
+    var storageRef = firebase.storage().ref();
+    
+    var AvatarPerson = campoAvatarPerson.files[0];
+    var uploadTask = storageRef.child('images/' + AvatarPerson.name).put(AvatarPerson);
+    
+    uploadTask.on('state_changed', 
+        function(snapshot)
+        {
+    
+        },
+        function(error)
+        {
+    
+        },
+        function()
+        {
+            uploadTask.snapshot.ref.getDownloadURL().then(function(downloadURL) {
+            localStorage.setItem('Descarga', downloadURL);
+            });
+
+            alert(localStorage.getItem('Descarga'));
+        }
+    );
 }

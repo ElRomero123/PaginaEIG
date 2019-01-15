@@ -399,8 +399,6 @@ function upload()
                 $('#submit').css('border','2 px solid darkgreen');
                 $('#submit').css('color','white');
                 $('#submit').text('Archivo subido!');
-
-                alert(uploadTask.snapshot.downloadURL);
             }
         );
     }
