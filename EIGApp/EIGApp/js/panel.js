@@ -15,6 +15,9 @@ function initUser()
     {
         location.href = 'index.html';
     }
+
+    var stateHide = document.getElementById('stateHide');
+    stateHide.addEventListener('change', putAvatar(), false);
 }
 
 function cerrarSesion()
@@ -42,8 +45,8 @@ function create(num)
     switch(num)
     {
         case 1:
-        alert("Crear persona funciona");
         createPerson();
+        loadAvatar(localStorage.getItem('IdPerson'));
         
         break;
         default: alert('Crear otro tipo funciona');
@@ -52,8 +55,6 @@ function create(num)
 
 function createPerson()
 {
-    var id = 0;
-
     var persona =
     {
         name: $('#campoFullName').val(),
@@ -78,18 +79,15 @@ function createPerson()
             success:
             function (data)
             {
-                id = data;
+                localStorage.setItem('IdPerson', data);
             }
         }
     );
-
-    localStorage.setItem('IdRegistro', id);
-    alert(id);
-    loadAvatar(id);
 }
 
 function loadAvatar(num)
 {
+    
     var config = 
     {
         apiKey: "AIzaSyA4F7aYKhXv5zEWabtUYABA-4lJJdAgyW4",
@@ -106,7 +104,9 @@ function loadAvatar(num)
     var storageRef = firebase.storage().ref();
     
     var AvatarPerson = campoAvatarPerson.files[0];
-    var uploadTask = storageRef.child('avatar/' + num).put(AvatarPerson);
+
+    alert(num);
+    var uploadTask = storageRef.child('avatar/' + 'P' + num).put(AvatarPerson);
     
     uploadTask.on('state_changed', 
         function(snapshot)
@@ -122,14 +122,19 @@ function loadAvatar(num)
             uploadTask.snapshot.ref.getDownloadURL().then(function(downloadURL) {
             localStorage.setItem('Descarga', downloadURL);
             alert('Perfil profesional creado!');
+            location.reload();
+            $('#stateHide').text("Yes");
+            putAvatar();
             });
         }
     );
 }
 
-/*
+
 function putAvatar()
 {
+    alert("Ahora sí se puede poner el avatar");
+
     $.ajax
     (
         {
@@ -149,4 +154,3 @@ function putAvatar()
         }
     );
 }
-*/
