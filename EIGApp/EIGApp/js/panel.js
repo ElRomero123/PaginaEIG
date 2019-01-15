@@ -43,7 +43,7 @@ function create(num)
     {
         case 1: //alert('Crear persona funciona');
         loadAvatar(createPerson());
-        //putAvatar();
+        putAvatar();
         break;
         default: alert('Crear otro tipo funciona');
     }
@@ -128,8 +128,7 @@ function createPerson()
 
 function putAvatar()
 {
-    alert("Put Avatar funciona");
-    
+    //alert("Put Avatar funciona");
     $.ajax
     (
         {
