@@ -43,7 +43,6 @@ function create(num)
     {
         case 1: alert('Crear persona funciona');
         uploadAvatar(createPerson());
-        alert(localStorage.getItem('Descarga'));
         break;
         default: alert('Crear otro tipo funciona');
     }
@@ -67,7 +66,7 @@ function uploadAvatar(num)
     var storageRef = firebase.storage().ref();
     
     var AvatarPerson = campoAvatarPerson.files[0];
-    var uploadTask = storageRef.child('images/' + num).put(AvatarPerson);
+    var uploadTask = storageRef.child('avatar/' + num).put(AvatarPerson);
     
     uploadTask.on('state_changed', 
         function(snapshot)
@@ -123,4 +122,9 @@ function createPerson()
     );
 
     return 'P' + id;
+}
+
+function uploadPerson()
+{
+
 }
