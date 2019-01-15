@@ -42,50 +42,12 @@ function create(num)
     switch(num)
     {
         case 1:
-        loadAvatar(createPerson());
+        alert("Crear persona funciona");
+        createPerson();
         
         break;
         default: alert('Crear otro tipo funciona');
     }
-}
-
-function loadAvatar(num)
-{
-    var config = 
-    {
-        apiKey: "AIzaSyA4F7aYKhXv5zEWabtUYABA-4lJJdAgyW4",
-        authDomain: "eliteintelligencegroup-719d3.firebaseapp.com",
-        databaseURL: "https://eliteintelligencegroup-719d3.firebaseio.com",
-        projectId: "eliteintelligencegroup-719d3",
-        storageBucket: "eliteintelligencegroup-719d3.appspot.com",
-        messagingSenderId: "567347907651"
-    };
-    
-    firebase.initializeApp(config);
-        
-    var campoAvatarPerson = document.getElementById('fileBrowser');
-    var storageRef = firebase.storage().ref();
-    
-    var AvatarPerson = campoAvatarPerson.files[0];
-    var uploadTask = storageRef.child('avatar/' + 'P' + num).put(AvatarPerson);
-    
-    uploadTask.on('state_changed', 
-        function(snapshot)
-        {
-    
-        },
-        function(error)
-        {
-    
-        },
-        function()
-        {
-            uploadTask.snapshot.ref.getDownloadURL().then(function(downloadURL) {
-            localStorage.setItem('Descarga', downloadURL);
-            alert('Perfil profesional creado!');
-            });
-        }
-    );
 }
 
 function createPerson()
@@ -122,7 +84,47 @@ function createPerson()
     );
 
     localStorage.setItem('IdRegistro', id);
-    return id;
+    alert(id);
+    loadAvatar(id);
+}
+
+function loadAvatar(num)
+{
+    var config = 
+    {
+        apiKey: "AIzaSyA4F7aYKhXv5zEWabtUYABA-4lJJdAgyW4",
+        authDomain: "eliteintelligencegroup-719d3.firebaseapp.com",
+        databaseURL: "https://eliteintelligencegroup-719d3.firebaseio.com",
+        projectId: "eliteintelligencegroup-719d3",
+        storageBucket: "eliteintelligencegroup-719d3.appspot.com",
+        messagingSenderId: "567347907651"
+    };
+    
+    firebase.initializeApp(config);
+        
+    var campoAvatarPerson = document.getElementById('fileBrowser');
+    var storageRef = firebase.storage().ref();
+    
+    var AvatarPerson = campoAvatarPerson.files[0];
+    var uploadTask = storageRef.child('avatar/' + num).put(AvatarPerson);
+    
+    uploadTask.on('state_changed', 
+        function(snapshot)
+        {
+    
+        },
+        function(error)
+        {
+    
+        },
+        function()
+        {
+            uploadTask.snapshot.ref.getDownloadURL().then(function(downloadURL) {
+            localStorage.setItem('Descarga', downloadURL);
+            alert('Perfil profesional creado!');
+            });
+        }
+    );
 }
 
 /*
