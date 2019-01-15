@@ -42,13 +42,13 @@ function create(num)
     switch(num)
     {
         case 1: alert('Crear persona funciona');
-        createPerson();
+        uploadAvatar(createPerson());
         break;
         default: alert('Crear otro tipo funciona');
     }
 }
 
-function createPerson()
+function uploadAvatar(num)
 {
     var config = 
     {
@@ -66,7 +66,7 @@ function createPerson()
     var storageRef = firebase.storage().ref();
     
     var AvatarPerson = campoAvatarPerson.files[0];
-    var uploadTask = storageRef.child('images/' + AvatarPerson.name).put(AvatarPerson);
+    var uploadTask = storageRef.child('images/' + num).put(AvatarPerson);
     
     uploadTask.on('state_changed', 
         function(snapshot)
@@ -86,4 +86,9 @@ function createPerson()
             alert(localStorage.getItem('Descarga'));
         }
     );
+}
+
+function createPerson()
+{
+    return 3;
 }
