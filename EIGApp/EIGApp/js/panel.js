@@ -43,6 +43,7 @@ function create(num)
     {
         case 1: alert('Crear persona funciona');
         uploadAvatar(createPerson());
+        alert(localStorage.getItem('Descarga'));
         break;
         default: alert('Crear otro tipo funciona');
     }
@@ -62,7 +63,7 @@ function uploadAvatar(num)
     
     firebase.initializeApp(config);
         
-    var campoAvatarPerson = document.getElementById('campoAvatarPerson');
+    var campoAvatarPerson = document.getElementById('fileBrowser');
     var storageRef = firebase.storage().ref();
     
     var AvatarPerson = campoAvatarPerson.files[0];
@@ -82,13 +83,44 @@ function uploadAvatar(num)
             uploadTask.snapshot.ref.getDownloadURL().then(function(downloadURL) {
             localStorage.setItem('Descarga', downloadURL);
             });
-
-            alert(localStorage.getItem('Descarga'));
         }
     );
 }
 
 function createPerson()
 {
-    return 3;
+    var id = 0;
+
+    var persona =
+    {
+        name: $('#campoFullName').val(),
+        profesionDescription: $('#campoProfesionDescription').val(),
+        email: $('#campoEmail').val(),
+        phone: $('#campoPhone').val(),
+        city: $('#campoCity').val(),
+        address: $('#campoAddress').val(),
+        avatar: '',
+        approved: false,
+        idUser: localStorage.getItem('User')
+    };
+    
+    $.ajax
+    (
+        {
+            url: '../api/person',
+            type: 'POST',
+            data: JSON.stringify(persona),
+            contentType: "application/json;charset=utf-8",
+
+            success:
+            function (data)
+            {
+                alert(data);
+                id = data;
+
+            }
+        }
+    );
+
+    return 'P' + id;
 }

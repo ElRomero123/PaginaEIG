@@ -37,5 +37,29 @@ namespace EIGApp.Controllers
 
             return arrayPeople;
         }
+
+        public long Post(M.Person persona)
+        {
+            long id = 0;
+
+            try
+            {
+                #pragma warning disable CS0618
+                AutoMapper.Mapper.CreateMap<M.Person, O.Person>();
+                #pragma warning restore CS0618
+                O.Person BDPerson = AutoMapper.Mapper.Map<O.Person>(persona);
+                BD.People.Add(BDPerson);
+                BD.SaveChanges();
+
+                id = BDPerson.Id;
+            }
+
+            catch
+            {
+                id = 0;
+            }
+
+            return id;
+        }
     }
 }
