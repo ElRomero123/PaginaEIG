@@ -41,9 +41,9 @@ function create(num)
 {
     switch(num)
     {
-        case 1: //alert('Crear persona funciona');
+        case 1:
         loadAvatar(createPerson());
-        putAvatar();
+        
         break;
         default: alert('Crear otro tipo funciona');
     }
@@ -67,7 +67,7 @@ function loadAvatar(num)
     var storageRef = firebase.storage().ref();
     
     var AvatarPerson = campoAvatarPerson.files[0];
-    var uploadTask = storageRef.child('avatar/' + num).put(AvatarPerson);
+    var uploadTask = storageRef.child('avatar/' + 'P' + num).put(AvatarPerson);
     
     uploadTask.on('state_changed', 
         function(snapshot)
@@ -82,6 +82,7 @@ function loadAvatar(num)
         {
             uploadTask.snapshot.ref.getDownloadURL().then(function(downloadURL) {
             localStorage.setItem('Descarga', downloadURL);
+            alert('Perfil profesional creado!');
             });
         }
     );
@@ -115,20 +116,18 @@ function createPerson()
             success:
             function (data)
             {
-                alert(data);
                 id = data;
-
             }
         }
     );
 
     localStorage.setItem('IdRegistro', id);
-    return 'P' + id;
+    return id;
 }
 
+/*
 function putAvatar()
 {
-    //alert("Put Avatar funciona");
     $.ajax
     (
         {
@@ -148,3 +147,4 @@ function putAvatar()
         }
     );
 }
+*/
