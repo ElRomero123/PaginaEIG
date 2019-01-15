@@ -15,9 +15,6 @@ function initUser()
     {
         location.href = 'index.html';
     }
-
-    var stateHide = document.getElementById('stateHide');
-    stateHide.addEventListener('change', putAvatar(), false);
 }
 
 function cerrarSesion()
@@ -45,12 +42,52 @@ function create(num)
     switch(num)
     {
         case 1:
+        loadAvatar();
         createPerson();
-        loadAvatar(localStorage.getItem('IdPerson'));
-        
+
         break;
         default: alert('Crear otro tipo funciona');
     }
+}
+
+function loadAvatar()
+{    
+    var config = 
+    {
+        apiKey: "AIzaSyA4F7aYKhXv5zEWabtUYABA-4lJJdAgyW4",
+        authDomain: "eliteintelligencegroup-719d3.firebaseapp.com",
+        databaseURL: "https://eliteintelligencegroup-719d3.firebaseio.com",
+        projectId: "eliteintelligencegroup-719d3",
+        storageBucket: "eliteintelligencegroup-719d3.appspot.com",
+        messagingSenderId: "567347907651"
+    };
+    
+    firebase.initializeApp(config);
+        
+    var campoAvatarPerson = document.getElementById('fileBrowser');
+    var storageRef        = firebase.storage().ref();
+    
+    var AvatarPerson = campoAvatarPerson.files[0];
+
+    var uploadTask = storageRef.child('avatar/' + AvatarPerson.name).put(AvatarPerson);
+    
+    uploadTask.on('state_changed', 
+        function(snapshot)
+        {
+    
+        },
+        function(error)
+        {
+    
+        },
+        function()
+        {
+            uploadTask.snapshot.ref.getDownloadURL().then(function(downloadURL) {
+                
+                localStorage.setItem('Descarga', downloadURL);
+            });
+        }
+    );
 }
 
 function createPerson()
@@ -63,7 +100,7 @@ function createPerson()
         phone: $('#campoPhone').val(),
         city: $('#campoCity').val(),
         address: $('#campoAddress').val(),
-        avatar: '',
+        avatar: localStorage.getItem('Descarga'),
         approved: false,
         idUser: localStorage.getItem('User')
     };
@@ -79,76 +116,11 @@ function createPerson()
             success:
             function (data)
             {
-                localStorage.setItem('IdPerson', data);
-            }
-        }
-    );
-}
-
-function loadAvatar(num)
-{
-    
-    var config = 
-    {
-        apiKey: "AIzaSyA4F7aYKhXv5zEWabtUYABA-4lJJdAgyW4",
-        authDomain: "eliteintelligencegroup-719d3.firebaseapp.com",
-        databaseURL: "https://eliteintelligencegroup-719d3.firebaseio.com",
-        projectId: "eliteintelligencegroup-719d3",
-        storageBucket: "eliteintelligencegroup-719d3.appspot.com",
-        messagingSenderId: "567347907651"
-    };
-    
-    firebase.initializeApp(config);
-        
-    var campoAvatarPerson = document.getElementById('fileBrowser');
-    var storageRef = firebase.storage().ref();
-    
-    var AvatarPerson = campoAvatarPerson.files[0];
-
-    alert(num);
-    var uploadTask = storageRef.child('avatar/' + 'P' + num).put(AvatarPerson);
-    
-    uploadTask.on('state_changed', 
-        function(snapshot)
-        {
-    
-        },
-        function(error)
-        {
-    
-        },
-        function()
-        {
-            uploadTask.snapshot.ref.getDownloadURL().then(function(downloadURL) {
-            localStorage.setItem('Descarga', downloadURL);
-            alert('Perfil profesional creado!');
-            location.reload();
-            $('#stateHide').text("Yes");
-            putAvatar();
-            });
-        }
-    );
-}
-
-
-function putAvatar()
-{
-    alert("Ahora sí se puede poner el avatar");
-
-    $.ajax
-    (
-        {
-            url: '../api/person/?idPerson=' + localStorage.getItem('IdRegistro') + '&downloadURL=' + localStorage.getItem('Descarga'),
-            type: 'POST',
-            contentType: "application/json;charset=utf-8",
-            success:
-            function (data)
-            {
                 if(data)
                 {
-                    alert("El perfil ha sido subido correctamente");
-                    storage.removeItem('IdRegistro');
-                    storage.removeItem('Descarga');
+                    alert('Perfil registrado con éxito');
+                    localStorage.removeItem('Descarga');
+                    location.reload();
                 }
             }
         }
