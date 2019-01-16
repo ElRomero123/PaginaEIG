@@ -9,7 +9,7 @@ body div {
   background-color: #7f0000;
   border-radius: 10px;
   padding: 10px;
-  margin: 200px auto 95px auto;
+  margin: 220px auto 95px auto;
   height: auto;
   width: 90%;
 }
@@ -332,22 +332,23 @@ body header div #close {
   background: black;
   font-size: 10px;
   font-family: acephimere;
+  margin: 7px;
   padding: 10px;
 }
-/* line 380, ../sass/index.scss */
+/* line 381, ../sass/index.scss */
 body header div #infoUsername {
   font-size: 12px;
 }
-/* line 385, ../sass/index.scss */
+/* line 386, ../sass/index.scss */
 body header div #infoName {
   font-size: 16px;
 }
-/* line 390, ../sass/index.scss */
+/* line 391, ../sass/index.scss */
 body header div p {
   display: flex;
   font-family: acephimere;
 }
-/* line 400, ../sass/index.scss */
+/* line 401, ../sass/index.scss */
 body header #headerLogo {
   background: url("../img/logo.png");
   margin: 10px auto 10px auto;

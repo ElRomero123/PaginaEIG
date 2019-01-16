@@ -44,7 +44,6 @@ function create(num)
         case 1:
         loadAvatar();
         createPerson();
-
         break;
         default: alert('Crear otro tipo funciona');
     }
@@ -71,19 +70,21 @@ function loadAvatar()
 
     var uploadTask = storageRef.child('avatar/' + AvatarPerson.name).put(AvatarPerson);
     
-    uploadTask.on('state_changed', 
+    uploadTask.on
+    (   
+        'state_changed',
         function(snapshot)
         {
-    
+
         },
         function(error)
         {
-    
+            alert('Hubo un error la subida del avatar!');
         },
         function()
         {
-            uploadTask.snapshot.ref.getDownloadURL().then(function(downloadURL) {
-                
+            uploadTask.snapshot.ref.getDownloadURL().then(function(downloadURL) 
+            {    
                 localStorage.setItem('Descarga', downloadURL);
             });
         }
@@ -119,7 +120,7 @@ function createPerson()
                 if(data)
                 {
                     alert('Perfil registrado con éxito');
-                    localStorage.removeItem('Descarga');
+                    //localStorage.removeItem('Descarga');
                     location.reload();
                 }
             }
