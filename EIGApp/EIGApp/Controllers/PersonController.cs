@@ -62,7 +62,7 @@ namespace EIGApp.Controllers
             return id;
         }
 
-        /*
+
         public bool Post(long idPerson, string downloadURL)
         {
             bool state = false;
@@ -82,6 +82,5 @@ namespace EIGApp.Controllers
 
             return state;
         }
-        */
     }
 }

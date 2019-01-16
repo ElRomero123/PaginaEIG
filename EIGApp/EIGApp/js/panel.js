@@ -42,13 +42,45 @@ function create(num)
     switch(num)
     {
         case 1:
-        loadAvatar();
+        createPerson();
         break;
         default: alert('Crear otro tipo funciona');
     }
 }
 
-function loadAvatar()
+function createPerson()
+{
+    var persona =
+    {
+        name: $('#campoFullName').val(),
+        profesionDescription: $('#campoProfesionDescription').val(),
+        email: $('#campoEmail').val(),
+        phone: $('#campoPhone').val(),
+        city: $('#campoCity').val(),
+        address: $('#campoAddress').val(),
+        avatar: '',
+        approved: false,
+        idUser: localStorage.getItem('User')
+    };
+    
+    $.ajax
+    (
+        {
+            url: '../api/person',
+            type: 'POST',
+            data: JSON.stringify(persona),
+            contentType: "application/json;charset=utf-8",
+
+            success:
+            function (data)
+            {
+                loadAvatar(data);
+            }
+        }
+    );
+}
+
+function loadAvatar(num)
 {    
     var config = 
     {
@@ -67,7 +99,7 @@ function loadAvatar()
     
     var AvatarPerson = campoAvatarPerson.files[0];
 
-    var uploadTask = storageRef.child('avatar/' + AvatarPerson.name).put(AvatarPerson);
+    var uploadTask = storageRef.child('avatar/' + 'P' + num).put(AvatarPerson);
     
     uploadTask.on
     (   
@@ -84,34 +116,20 @@ function loadAvatar()
         {
             uploadTask.snapshot.ref.getDownloadURL().then(function(downloadURL) 
             {    
-                localStorage.setItem('Descarga', downloadURL);
-                createPerson();
+                putAvatar(num, downloadURL);
             });
         }
     );
 }
 
-function createPerson()
+function putAvatar(num, downloadURL)
 {
-    var persona =
-    {
-        name: $('#campoFullName').val(),
-        profesionDescription: $('#campoProfesionDescription').val(),
-        email: $('#campoEmail').val(),
-        phone: $('#campoPhone').val(),
-        city: $('#campoCity').val(),
-        address: $('#campoAddress').val(),
-        avatar: localStorage.getItem('Descarga'),
-        approved: false,
-        idUser: localStorage.getItem('User')
-    };
-    
+    /*
     $.ajax
     (
         {
-            url: '../api/person',
+            url: '../api/person/?idPerson=' + num + '&downloadURL=' + downloadURL,
             type: 'POST',
-            data: JSON.stringify(persona),
             contentType: "application/json;charset=utf-8",
 
             success:
@@ -119,11 +137,11 @@ function createPerson()
             {
                 if(data)
                 {
-                    //alert('Perfil registrado con éxito');
-                    //localStorage.removeItem('Descarga');
+                    alert("El perfil ha sido ingresado!");
                     location.reload();
                 }
             }
         }
     );
+    */
 }
