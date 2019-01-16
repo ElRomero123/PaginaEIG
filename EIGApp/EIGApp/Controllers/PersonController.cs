@@ -63,14 +63,14 @@ namespace EIGApp.Controllers
         }
 
 
-        public bool Post(long idPerson, string downloadURL)
+        public bool Post(M.ParametrosPutAvatar parametrosPutAvatar)
         {
             bool state = false;
 
             try
             {
-                O.Person persona = BD.People.FirstOrDefault(x => x.Id == idPerson);
-                persona.Avatar = downloadURL;
+                O.Person persona = BD.People.FirstOrDefault(x => x.Id == parametrosPutAvatar.IdPerson);
+                persona.Avatar = parametrosPutAvatar.DownloadURL;
                 BD.SaveChanges();
                 state = true;
             }

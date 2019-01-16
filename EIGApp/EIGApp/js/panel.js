@@ -124,12 +124,18 @@ function loadAvatar(num)
 
 function putAvatar(num, downloadURL)
 {
-    /*
+    var parametrosPutAvatar =
+    {
+        idPerson: num,
+        downloadURL: downloadURL
+    };
+
     $.ajax
     (
         {
-            url: '../api/person/?idPerson=' + num + '&downloadURL=' + downloadURL,
+            url: '../api/person',
             type: 'POST',
+            data: JSON.stringify(parametrosPutAvatar),
             contentType: "application/json;charset=utf-8",
 
             success:
@@ -143,5 +149,4 @@ function putAvatar(num, downloadURL)
             }
         }
     );
-    */
 }
