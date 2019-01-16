@@ -43,7 +43,6 @@ function create(num)
     {
         case 1:
         loadAvatar();
-        createPerson();
         break;
         default: alert('Crear otro tipo funciona');
     }
@@ -86,6 +85,7 @@ function loadAvatar()
             uploadTask.snapshot.ref.getDownloadURL().then(function(downloadURL) 
             {    
                 localStorage.setItem('Descarga', downloadURL);
+                createPerson();
             });
         }
     );
@@ -119,7 +119,7 @@ function createPerson()
             {
                 if(data)
                 {
-                    alert('Perfil registrado con éxito');
+                    //alert('Perfil registrado con éxito');
                     //localStorage.removeItem('Descarga');
                     location.reload();
                 }
