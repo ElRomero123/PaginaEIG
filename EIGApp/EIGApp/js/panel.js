@@ -262,7 +262,6 @@ function putAvatar(num, downloadURL, opcion)
 }
 
 document.getElementById("fileBrowser").onchange = 
-
 function(e) 
 {
     let reader = new FileReader();
