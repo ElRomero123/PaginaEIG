@@ -164,6 +164,7 @@
     <Compile Include="Models\Case.cs" />
     <Compile Include="Models\JobApplication.cs" />
     <Compile Include="Models\OtherPerson.cs" />
+    <Compile Include="Models\ParametrosPutAvatar.cs" />
     <Compile Include="Models\Person.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\Suggestion.cs" />

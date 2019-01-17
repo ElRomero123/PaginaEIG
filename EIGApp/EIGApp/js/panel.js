@@ -133,7 +133,7 @@ function putAvatar(num, downloadURL)
     $.ajax
     (
         {
-            url: '../api/person',
+            url: '../api/parametros',
             type: 'POST',
             data: JSON.stringify(parametrosPutAvatar),
             contentType: "application/json;charset=utf-8",
