@@ -1,11 +1,8 @@
 window.onload = checkSesion;
 
 function checkSesion()
-{
-    var name     = localStorage.getItem('Name');
-    var username = localStorage.getItem('Username');
-    
-    if(name != null)
+{   
+    if(localStorage.getItem('Name') != null)
     {
         location.href = 'menu.html';
     }
@@ -55,9 +52,10 @@ function validate()
             {
                 if(data.Name != null)
                 {
+                    localStorage.setItem('User', data.Id);
                     localStorage.setItem('Username', data.Username);
                     localStorage.setItem('Name', data.Name);
-                    localStorage.setItem('User', data.Id);
+                    localStorage.setItem('TienePerfil', data.TienePerfil);
                     location.href = 'menu.html';    
                 }
 

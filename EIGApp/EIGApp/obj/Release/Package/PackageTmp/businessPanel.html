@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href='css/index.css'>
+        <title>Buscador</title>
+    </head>
+
+    <body>
+        <header>
+            <div id='headerLogo'></div>
+        </header>
+
+        <div>
+            <p id='searchTag'>Registrarse en la Aplicación</p>
+            <p id='categorySearch'>Unase a nuestra plataforma EIG, un paso mas en tu crecimiento!</p>
+
+            <div id='categories'>
+                <div id='c9' class='category' onclick="toMenu()"></div>
+            </div>
+
+            <div>
+                <p>Nombre de usuario/Username (25 caracteres)</p>
+                <input type='text' maxlength="25" id='campoUsername'>
+
+                <p>Contraseña/Password (25 caracteres)</p>
+                <input type='password' maxlength="25" id='campoPassword'>
+
+                <p>Repetir Contraseña (25 caracteres)</p>
+                <input type='password' maxlength="25" id='campoPasswordAgain'>
+
+                <p>Nombre (150 caracteres)</p>
+                <input type='text' maxlength="150" id='campoName'>
+
+                <p>Email (150 caracteres)</p>
+                <input type='text' maxlength="150" id='campoEmail'>
+
+                <p>Dirección/Address (100 caracteres)</p>
+                <input type='text' maxlength="100" id='campoAddress'>
+
+                <div>
+                    <button id='register' class='register' onclick='createUser()'>Envío y acepto el acuerdo</button>
+                </div>
+            </div>
+        </div>
+    
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src='JS/register.js'></script>
+    </body>
+</html>

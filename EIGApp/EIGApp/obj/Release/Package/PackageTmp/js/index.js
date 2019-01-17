@@ -399,8 +399,6 @@ function upload()
                 $('#submit').css('border','2 px solid darkgreen');
                 $('#submit').css('color','white');
                 $('#submit').text('Archivo subido!');
-
-                alert(uploadTask.snapshot.downloadURL);
             }
         );
     }
@@ -465,6 +463,26 @@ function createSuggestion()
         $('#register').css('background','red');
         $('#register').css('border','2 px solid red');
         $('#register').text('No estás conectado a Internet!');
+    }
+}
+
+function optionCreate(num)
+{
+    switch(num)
+    {
+        case 1:
+        location.href = 'personPanel.html';
+        break;
+        case 2:
+        location.href = 'otherPersonPanel.html';
+        break;
+        case 3:
+        alert('Crear negocio funciona');
+        location.href = 'businessPanel.html';
+        break;
+        default:
+        alert('Crear promoción/curso funciona');
+        location.href = 'productPanel.html';
     }
 }
 

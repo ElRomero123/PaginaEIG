@@ -1,5 +1,44 @@
 function createUser()
 {
+    if($('#campoUsername').val().length >= 8 && $('#campoName').val().length >= 8)
+    {
+        $.ajax
+        (
+            {
+                url: '../api/user/?username=' + $('#campoUsername').val(),
+                type: 'GET',
+                contentType: "application/json;charset=utf-8",
+    
+                success:
+                function (data) 
+                {
+                    if(data)
+                    {
+                        
+                        validate();
+                    }
+    
+                    else
+                    {
+                        $('#register').css('background','red');
+                        $('#register').css('border','2px solid red');
+                        $('#register').text('USERNAME ya existente!');
+                    }
+                }
+            }
+        );
+    }
+
+    else
+    {
+        $('#register').css('background','red');
+        $('#register').css('border','2px solid red');
+        $('#register').text('<Username> y <Nombre Completo> deben tener por lo menos 8 caracteres!');
+    }
+}
+
+function validate()
+{
     if($('#campoPassword').val() == $('#campoPasswordAgain').val())
     {
         if(navigator.onLine)
@@ -11,6 +50,7 @@ function createUser()
                 name: $('#campoName').val(),
                 email: $('#campoEmail').val(),
                 phone: $('#campoAddress').val(),
+                tienePerfil: false,
                 address: $('#campoAddress').val()
             };
     
@@ -40,7 +80,7 @@ function createUser()
                             $('#register').css('background','red');
                             $('#register').css('border','2px solid red');
                             $('#register').css('color','white');
-                            $('#register').text('NO se pudo agregar la información!');
+                            $('#register').text('Error en el registro!');
                         }
                     }
                 }
@@ -49,21 +89,20 @@ function createUser()
 
         else
         {
-            $('#register').css('background','orangered');
-            $('#register').css('border','2px solid orangered');
-            $('#register').css('color','black');
+            $('#register').css('background','red');
+            $('#register').css('border','2px solid red');
             $('#register').text('NO está conectado a Internet!');
         }
     }
 
     else
     {
-        $('#register').css('background','orangered');
-        $('#register').css('border','2px solid orangered');
-        $('#register').css('color','black');
-        $('#register').text('Las contraseñas no coinciden!');
+        $('#register').css('background','red');
+        $('#register').css('border','2px solid red');
+        $('#register').text('Las contraseñas son diferentes!');
     }
 }
+
 
 function toMenu()
 {
