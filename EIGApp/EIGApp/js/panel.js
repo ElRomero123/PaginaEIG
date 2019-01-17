@@ -1,4 +1,5 @@
 window.onload = initUser;
+var fileBrowser;
 
 function initUser()
 {
@@ -15,6 +16,9 @@ function initUser()
     {
         location.href = 'index.html';
     }
+
+    //fileBrowser = document.getElementById('fileBrowser');
+    //fileBrowser.addEventListener('change', mostrar, false);
 }
 
 function cerrarSesion()
@@ -62,22 +66,37 @@ function createPerson()
         approved: false,
         idUser: localStorage.getItem('User')
     };
-    
-    $.ajax
-    (
-        {
-            url: '../api/person',
-            type: 'POST',
-            data: JSON.stringify(persona),
-            contentType: "application/json;charset=utf-8",
 
-            success:
-            function (data)
+    if(name.length >= 8 && profesionDescription >= 20 && email >= 10 && phone >= 5 && city >= 10 && address >= 10)
+    {
+        $('#createPerson').css('background','yellow');
+        $('#createPerson').css('border','2px solid yellow');
+        $('#createPerson').css('color','black');
+        $('#createPerson').text('Creando perfil de usuario...');
+
+        $.ajax
+        (
             {
-                loadAvatar(data);
+                url: '../api/person',
+                type: 'POST',
+                data: JSON.stringify(persona),
+                contentType: "application/json;charset=utf-8",
+
+                success:
+                function (data)
+                {
+                    loadAvatar(data);
+                }
             }
-        }
-    );
+        );
+    }
+
+    else
+    {
+        $('#createPerson').css('background','red');
+        $('#createPerson').css('border','2px solid red');
+        $('#createPerson').text('Caracteres y digitos insuficientes!');
+    }
 }
 
 function loadAvatar(num)
@@ -149,4 +168,28 @@ function putAvatar(num, downloadURL)
             }
         }
     );
+}
+
+document.getElementById("fileBrowser").onchange = 
+
+function(e) 
+{
+    let reader = new FileReader();
+  
+    reader.readAsDataURL(e.target.files[0]);
+    
+    console.log(e.target.files[0]);
+    reader.onload = function()
+    {
+      let preview = document.getElementById('preview'),
+      image = document.createElement('img');
+
+      image.src = reader.result;
+
+      image.id = 1;
+      var imagen = $('#1');
+
+      preview.innerHTML = '';
+      preview.append(image);
+    };
 }

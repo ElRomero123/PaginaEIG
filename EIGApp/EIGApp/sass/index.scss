@@ -271,6 +271,13 @@ body
                     background-color: darkgreen;
                 }
 
+                #preview
+                {
+                    overflow: hidden;
+                    height: 70px;
+                    width: 70px;
+                }
+
                 #fileBrowser
                 {
                     outline: 0px;
