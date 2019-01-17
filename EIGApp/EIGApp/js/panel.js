@@ -67,7 +67,7 @@ function createPerson()
         idUser: localStorage.getItem('User')
     };
 
-    if(name.length >= 8 && profesionDescription >= 20 && email >= 10 && phone >= 5 && city >= 10 && address >= 10)
+    if(persona.name.length >= 8 && persona.profesionDescription.length >= 20 && persona.email.length > 10 && persona.phone.length > 5 && persona.city.length > 10 && persona.address.length > 8)
     {
         $('#createPerson').css('background','yellow');
         $('#createPerson').css('border','2px solid yellow');
@@ -112,33 +112,45 @@ function loadAvatar(num)
     };
     
     firebase.initializeApp(config);
-        
+    
+    
     var campoAvatarPerson = document.getElementById('fileBrowser');
     var storageRef        = firebase.storage().ref();
     
     var AvatarPerson = campoAvatarPerson.files[0];
 
-    var uploadTask = storageRef.child('avatar/' + 'P' + num).put(AvatarPerson);
+    if(AvatarPerson != null)
+    {
+        var uploadTask = storageRef.child('avatar/' + 'P' + num).put(AvatarPerson);
     
-    uploadTask.on
-    (   
-        'state_changed',
-        function(snapshot)
-        {
+        uploadTask.on
+        (   
+            'state_changed',
+            function(snapshot)
+            {
+    
+            },
+            function(error)
+            {
+                alert('Hubo un error la subida del avatar!');
+            },
+            function()
+            {
+                uploadTask.snapshot.ref.getDownloadURL().then(function(downloadURL) 
+                {    
+                    putAvatar(num, downloadURL);
+                });
+            }
+        );
+    }
 
-        },
-        function(error)
-        {
-            alert('Hubo un error la subida del avatar!');
-        },
-        function()
-        {
-            uploadTask.snapshot.ref.getDownloadURL().then(function(downloadURL) 
-            {    
-                putAvatar(num, downloadURL);
-            });
-        }
-    );
+    else
+    {
+        $('#createPerson').css('background','red');
+        $('#createPerson').css('border','2px solid red');
+        $('#createPerson').text('NO existe foto de usuario!');
+        location.reload();
+    }
 }
 
 function putAvatar(num, downloadURL)
@@ -162,7 +174,6 @@ function putAvatar(num, downloadURL)
             {
                 if(data)
                 {
-                    alert("El perfil ha sido ingresado!");
                     location.reload();
                 }
             }
