@@ -47,6 +47,7 @@ function create(num)
     {
         case 1:
         createPerson();
+       
         break;
         default: alert('Crear otro tipo funciona');
     }
@@ -67,7 +68,7 @@ function createPerson()
         idUser: localStorage.getItem('User')
     };
 
-    if(persona.name.length >= 8 && persona.profesionDescription.length >= 20 && persona.email.length > 10 && persona.phone.length > 5 && persona.city.length > 10 && persona.address.length > 8)
+    if(persona.name != null && persona.profesionDescription != null && persona.email != null && persona.phone != null && persona.city != null && persona.address != null)
     {
         $('#createPerson').css('background','yellow');
         $('#createPerson').css('border','2px solid yellow');
@@ -174,7 +175,13 @@ function putAvatar(num, downloadURL)
             {
                 if(data)
                 {
-                    location.reload();
+                    
+                    $('#createPerson').css('background','darkgreen');
+                    $('#createPerson').css('border','2px solid darkgreen');
+                    $('#createPerson').css('color','white');
+                    $('#createPerson').text('Perfil ingresado con éxito!');
+
+                    setTimeout(function(){ location.reload(); }, 2500);
                 }
             }
         }
