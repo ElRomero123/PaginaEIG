@@ -47,9 +47,12 @@
                 <p>Escriba la dirección del domicilio en formato claro (100 caracteres)</p>
                 <input type='text' maxlength='100' id='campoAddress'>
 
-                <p>Anexar una foto de perfil de usuario (Debe ser 90x90 PX)</p>
+                <p>Foto de perfil(Debe ser tamaño 70px X 70px en formato jpg o png)</p>
+                
                 <div>
-                    <input type='file' id='fileBrowser'>
+                    <input type='file' id='fileBrowser' accept=".jpg,.png">
+                    <p>PREVISUALIZACIÓN: Cuando te busquen, así te verán.</p>
+                    <div id='preview'></div>
                 </div>
             
                 <p>Sus datos y su foto de perfil serán revisados, se le enviará un E-mail si su aprobación es satisfactoria!</p>
@@ -60,6 +63,8 @@
             </div>
         </div>
     
+        <script src="https://www.gstatic.com/firebasejs/5.7.3/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/5.7.3/firebase-storage.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src='JS/panel.js'></script>
     </body>

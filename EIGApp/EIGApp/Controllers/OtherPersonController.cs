@@ -38,5 +38,29 @@ namespace EIGApp.Controllers
 
             return arrayOtherPersons;
         }
+
+        public long Post(M.OtherPerson otraPersona)
+        {
+            long id = 0;
+
+            try
+            {
+                #pragma warning disable CS0618
+                AutoMapper.Mapper.CreateMap<M.OtherPerson, O.OtherPerson>();
+                #pragma warning restore CS0618
+                O.OtherPerson BDOtherPerson = AutoMapper.Mapper.Map<O.OtherPerson>(otraPersona);
+                BD.OtherPersons.Add(BDOtherPerson);
+                BD.SaveChanges();
+
+                id = BDOtherPerson.Id;
+            }
+
+            catch
+            {
+                id = 0;
+            }
+
+            return id;
+        }
     }
 }

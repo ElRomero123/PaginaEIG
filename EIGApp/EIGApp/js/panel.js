@@ -16,9 +16,6 @@ function initUser()
     {
         location.href = 'index.html';
     }
-
-    //fileBrowser = document.getElementById('fileBrowser');
-    //fileBrowser.addEventListener('change', mostrar, false);
 }
 
 function cerrarSesion()
@@ -47,9 +44,9 @@ function create(num)
     {
         case 1:
         createPerson();
-       
+        case 2:
+        createOtherPerson();
         break;
-        default: alert('Crear otro tipo funciona');
     }
 }
 
@@ -86,7 +83,7 @@ function createPerson()
                 success:
                 function (data)
                 {
-                    loadAvatar(data);
+                    loadAvatar(data, 1);
                 }
             }
         );
@@ -100,7 +97,55 @@ function createPerson()
     }
 }
 
-function loadAvatar(num)
+function createOtherPerson()
+{
+    var otraPersona =
+    {
+        name:                 $('#campoFullName').val(),
+        profesion:            $('#campoProfesion').val(),
+        profesionDescription: $('#campoProfesionDescription').val(),
+        email:                $('#campoEmail').val(),
+        phone:                $('#campoPhone').val(),
+        city:                 $('#campoCity').val(),
+        address:              $('#campoAddress').val(),
+        avatar:               '',
+        approved:             false,
+        idUser:               localStorage.getItem('User')
+    };
+
+    if(otraPersona.name != null)
+    {
+        $('#createOtherPerson').css('background','yellow');
+        $('#createOtherPerson').css('border','2px solid yellow');
+        $('#createOtherPerson').css('color','black');
+        $('#createOtherPerson').text('Creando perfil de usuario...');
+
+        $.ajax
+        (
+            {
+                url: '../api/otherPerson',
+                type: 'POST',
+                data: JSON.stringify(otraPersona),
+                contentType: "application/json;charset=utf-8",
+
+                success:
+                function (data)
+                {
+                    loadAvatar(data, 2);
+                }
+            }
+        );
+    }
+
+    else
+    {
+        $('#createOtherPerson').css('background','red');
+        $('#createOtherPerson').css('border','2px solid red');
+        $('#createOtherPerson').text('Caracteres y digitos insuficientes!');
+    }
+}
+
+function loadAvatar(num, opcion)
 {    
     var config = 
     {
@@ -113,8 +158,7 @@ function loadAvatar(num)
     };
     
     firebase.initializeApp(config);
-    
-    
+
     var campoAvatarPerson = document.getElementById('fileBrowser');
     var storageRef        = firebase.storage().ref();
     
@@ -122,7 +166,15 @@ function loadAvatar(num)
 
     if(AvatarPerson != null)
     {
-        var uploadTask = storageRef.child('avatar/' + 'P' + num).put(AvatarPerson);
+        switch(opcion)
+        {
+            case 1:
+            var uploadTask = storageRef.child('avatar/' + 'P' + num).put(AvatarPerson);
+            break;
+            case 2:
+            var uploadTask = storageRef.child('avatar/' + 'OP' + num).put(AvatarPerson);
+            break;
+        }
     
         uploadTask.on
         (   
@@ -139,7 +191,7 @@ function loadAvatar(num)
             {
                 uploadTask.snapshot.ref.getDownloadURL().then(function(downloadURL) 
                 {    
-                    putAvatar(num, downloadURL);
+                    putAvatar(num, downloadURL, opcion);
                 });
             }
         );
@@ -147,14 +199,25 @@ function loadAvatar(num)
 
     else
     {
-        $('#createPerson').css('background','red');
-        $('#createPerson').css('border','2px solid red');
-        $('#createPerson').text('NO existe foto de usuario!');
+        switch(opcion)
+        {
+            case 1:
+                $('#createPerson').css('background','red');
+                $('#createPerson').css('border','2px solid red');
+                $('#createPerson').text('NO existe foto de usuario!');
+            break;
+            case 2:
+                $('#createOtherPerson').css('background','red');
+                $('#createOtherPerson').css('border','2px solid red');
+                $('#createOtherPerson').text('NO existe foto de usuario!');
+            break;
+        }
+        
         location.reload();
     }
 }
 
-function putAvatar(num, downloadURL)
+function putAvatar(num, downloadURL, opcion)
 {
     var parametrosPutAvatar =
     {
@@ -175,12 +238,22 @@ function putAvatar(num, downloadURL)
             {
                 if(data)
                 {
+                    switch(opcion)
+                    {
+                        case 1:
+                        $('#createPerson').css('background','darkgreen');
+                        $('#createPerson').css('border','2px solid darkgreen');
+                        $('#createPerson').css('color','white');
+                        $('#createPerson').text('Perfil ingresado con éxito!');
+                        break;
+                        case 2:
+                        $('#createOtherPerson').css('background','darkgreen');
+                        $('#createOtherPerson').css('border','2px solid darkgreen');
+                        $('#createOtherPerson').css('color','white');
+                        $('#createOtherPerson').text('Perfil ingresado con éxito!');
+                        break;
+                    }
                     
-                    $('#createPerson').css('background','darkgreen');
-                    $('#createPerson').css('border','2px solid darkgreen');
-                    $('#createPerson').css('color','white');
-                    $('#createPerson').text('Perfil ingresado con éxito!');
-
                     setTimeout(function(){ location.reload(); }, 2500);
                 }
             }
