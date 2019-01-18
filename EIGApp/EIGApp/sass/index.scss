@@ -7,9 +7,24 @@ body
         {
             .costosEmpresa
             {
-                .p2
+                vertical-align: middle;
+                margin: 3px;
+                display: inline-block;
+                width: 200px;
+                height: 135px;
+                background-color: blue;
+            }
+
+            .costosEmpresa
+            {
+                .p3
                 {
                     font-size: 15px;
+                }
+
+                .p2
+                {
+                    font-size: 18px;
                 }
 
                 .p1
@@ -17,31 +32,33 @@ body
                     font-size: 50px;
                 }
 
+                p
+                {
+                    font-family: acephimereThinItalic;
+                }
+
+                
                 vertical-align: middle;
                 margin: 3px;
                 display: inline-block;
                 width: 200px;
-                height: 200px;
+                height: 135px;
                 background-color: blue;
             }
 
-            .tagYear
+            .p2
             {
-                .p2
-                {
-                    font-size: 15px;
-                }
+                font-size: 20px;
+            }
 
-                .p1
-                {
-                    font-size: 61px;
-                }
-  
-                margin: 3px;
-                display: inline-block;
-                width: 200px;
-                height: 200px;
-                background-color:blueviolet;
+            .p1
+            {
+                font-size: 60px;
+            }
+
+            p
+            {
+                font-family: acephimereThinItalic;
             }
 
             display: inline-block;
