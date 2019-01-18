@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href='css/index.css'>
+        <title>Buscador</title>
+    </head>
+
+    <body>
+        <header>
+            <div id='headerLogo'></div>
+            <div>
+                <p id='infoName'></p>
+                <p id='infoUsername'></p>
+                <button id='close' onclick='cerrarSesion()'>Cerrar Sesión</button>
+            </div>
+        </header>
+
+        <div>
+            <p id='searchTag'>Afiliación a la Plataforma</p>
+            <p id='categorySearch'>Afíliese como detective privado en EIG(Elite Intelligence Group). ES GRATIS!</p>
+
+            <div id='categories'>
+                <div id='c9' class='category' onclick="to(4)"></div>
+            </div>
+
+            <div>
+                <p>Tipo de producto</p>
+                <input disabled type='text' maxlength='50' id='campoFullName' >
+
+                <p>Cantidad</p>
+                <input disabled type='text' maxlength="100" id='campoProfesionDescription'>
+
+                <p>Fecha de compra</p>
+                <input disabled type='text' maxlength="80" id='campoEmail'>
+
+                <p>Tiempo de cubrimiento</p>
+                <input disabled type='text' maxlength="80" id='campoEmail'>
+
+                <div>
+                    <button id='createPerson' class='register' onclick='create(1)'>Confirmar</button>
+                </div>    
+            </div>
+        </div>
+    
+        <script src="https://www.gstatic.com/firebasejs/5.7.3/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/5.7.3/firebase-storage.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <!--<script src='JS/panel.js'></script>-->
+    </body>
+</html>
