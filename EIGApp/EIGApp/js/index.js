@@ -480,7 +480,6 @@ function optionCreate(num)
         location.href = 'businessPanel.html';
         break;
         default:
-        alert('Crear promoción/curso funciona');
         location.href = 'productPanel.html';
     }
 }

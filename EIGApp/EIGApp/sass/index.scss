@@ -5,44 +5,43 @@ body
 
         .costosYear
         {
-            .costosEmpresa
+            .costosEmpresa:hover
             {
-                vertical-align: middle;
-                margin: 3px;
-                display: inline-block;
-                width: 200px;
-                height: 135px;
-                background-color: blue;
+                height: 120px;
+                width: 205px;
+                background-color: darkmagenta;
             }
 
             .costosEmpresa
             {
                 .p3
                 {
-                    font-size: 15px;
+                    font-size: 12px;
                 }
 
                 .p2
                 {
-                    font-size: 18px;
+                    font-family: acephimereThin;
+                    font-size: 20px;
                 }
 
                 .p1
                 {
-                    font-size: 50px;
+                    font-size: 40px;
                 }
 
                 p
                 {
-                    font-family: acephimereThinItalic;
+                    font-family: acephimere;
                 }
 
-                
+                cursor: pointer;
+                transition: 0.2s;
                 vertical-align: middle;
                 margin: 3px;
                 display: inline-block;
                 width: 200px;
-                height: 135px;
+                height: 115px;
                 background-color: blue;
             }
 
@@ -495,6 +494,12 @@ body
 {
     font-family: acephimere;
     src: url('../fonts/acephimere.otf');
+}
+
+@font-face
+{
+    font-family: acephimereThin;
+    src: url('../fonts/acephimereThin.otf');
 }
 
 @font-face

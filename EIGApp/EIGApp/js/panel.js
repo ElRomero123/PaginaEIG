@@ -44,9 +44,8 @@ function create(num)
     {
         case 1:
         createPerson();
-        case 2:
+        default:
         createOtherPerson();
-        break;
     }
 }
 
@@ -282,4 +281,14 @@ function(e)
       preview.innerHTML = '';
       preview.append(image);
     };
+}
+
+function to(num)
+{
+    switch(num)
+    {
+        case 1: location.href = 'menu3.html';
+        break;
+        case 2: location.href = 'menu4.html';
+    }
 }
