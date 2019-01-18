@@ -34,6 +34,8 @@ function to(num)
         break;
         case 3: location.href = 'menu3.html';
         break;
+        case 4: location.href = 'menu3.html';
+        break;
         default: location.href = 'menu4.html';
     }
 }
@@ -281,14 +283,4 @@ function(e)
       preview.innerHTML = '';
       preview.append(image);
     };
-}
-
-function to(num)
-{
-    switch(num)
-    {
-        case 1: location.href = 'menu3.html';
-        break;
-        case 2: location.href = 'menu4.html';
-    }
 }
