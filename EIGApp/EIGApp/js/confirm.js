@@ -42,3 +42,33 @@ function cerrarSesion()
     localStorage.clear();
     location.href = 'index.html';
 }
+
+function addPackage()
+{
+    $.ajax
+    (
+        {
+            url: '../api/user',
+            type: 'POST',
+            data: JSON.stringify(usuario),
+            contentType: "application/json;charset=utf-8",
+
+            success:
+            function (data)
+            {
+                if (data)
+                {
+                    location.href = 'index.html';    
+                }
+
+                else
+                {
+                    $('#register').css('background','red');
+                    $('#register').css('border','2px solid red');
+                    $('#register').css('color','white');
+                    $('#register').text('Error en el registro!');
+                }
+            }
+        }
+    );
+}
