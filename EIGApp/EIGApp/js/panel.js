@@ -292,16 +292,20 @@ function confirm(num)
         case 1:
         location.href = 'confirm.html';
         localStorage.setItem('Linea', 'Para empresas');
+        localStorage.setItem('Producto', 'Producto 1');
         localStorage.setItem('Cantidad', '30');
         localStorage.setItem('FechaCompra', 'HOY');
         localStorage.setItem('Cubrimiento', '3 años');
         localStorage.setItem('Precio', '$400.000');
+        localStorage.setItem('Llamado', '1');
         default:
         location.href = 'confirm.html';
         localStorage.setItem('Linea', 'Para instructores');
+        localStorage.setItem('Producto', 'Producto 2');
         localStorage.setItem('Cantidad', '30');
         localStorage.setItem('FechaCompra', 'HOY');
         localStorage.setItem('Cubrimiento', '3 años');
         localStorage.setItem('Precio', '$500.000');
+        localStorage.setItem('Llamado', '2');
     }
 }
