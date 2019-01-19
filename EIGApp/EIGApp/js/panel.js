@@ -296,6 +296,8 @@ function confirm(num)
         localStorage.setItem('Cubrimiento', '3 años');
         localStorage.setItem('Precio', '$400.000');
         localStorage.setItem('Llamado', '1');
+        break;
+        
         default:
         location.href = 'confirm.html';
         localStorage.setItem('Linea', 'Para instructores');
