@@ -57,12 +57,12 @@ function addPackage()
 
     var paquete =
     {
-        linea: $('#campoUsername').val(),
-        producto: $('#campoPassword').val(),
-        cantidad: $('#campoName').val(),
-        FechaCompra: $('#campoEmail').val(),
-        tiempoCubrimiento: $('#campoAddress').val(),
-        precio: false,
+        linea: $('#campoLinea').val(),
+        producto: $('#campoProducto').val(),
+        cantidad: $('#campoCantidad').val(),
+        fechaCompra: $('#campoFechaCompra').val(),
+        tiempoCubrimiento: $('#campoCubrimiento').val(),
+        precio: $('#campoPrecio').val(),
         idUser: localStorage.getItem('User')
     };
 
