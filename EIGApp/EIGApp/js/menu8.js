@@ -17,32 +17,30 @@ function initUser()
     }
 }
 
-function createJobApplication()
+function createSuggestion()
 {
-    alert('Aplicación laboral funciona!');
+    alert('Crear sugerencia funciona!');
     /*
     $('#register').css('background','yellow');
     $('#register').css('border','2 px solid yellow');
     $('#register').css('color','black');
-    $('#register').text('Enviando tu solicitud ...');
+    $('#register').text('Enviando tu sugerencia ...');
 
     if(navigator.onLine)
     {
-        var jobApplication =
+        var suggestion =
         {
-            name:                   $('#campoName').val(),
-            documentNumber:         $('#campoDocumentNumber').val(),
-            descriptionApplication: $('#campoDescriptionApplication').val(),
-            age:                    $('#campoAge').val(),
-            idUser:                 localStorage.getItem('User')
+            name:        $('#campoName').val(),
+            description: $('#campoDocumentNumber').val(),
+            idUser:      localStorage.getItem('User')
         };
     
         $.ajax
         (
             {
-                url: '../api/jobApplication',
+                url: '../api/suggestion',
                 type: 'POST',
-                data: JSON.stringify(jobApplication),
+                data: JSON.stringify(suggestion),
                 contentType: "application/json;charset=utf-8",
     
                 success:
@@ -53,7 +51,7 @@ function createJobApplication()
                         $('#register').css('background','darkgreen');
                         $('#register').css('border','2 px solid darkgreen');
                         $('#register').css('color','white');
-                        $('#register').text('Solicitud enviada!');
+                        $('#register').text('Sugerencia enviada!');
                     }
     
                     else
@@ -61,7 +59,7 @@ function createJobApplication()
                         $('#register').css('background','red');
                         $('#register').css('border','2 px solid red');
                         $('#register').css('color','white');
-                        $('#register').text('Error al enviar!');
+                        $('#register').text('Error en el envío!');
                     }
                 }
             }
