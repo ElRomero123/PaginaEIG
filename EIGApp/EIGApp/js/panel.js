@@ -34,8 +34,6 @@ function to(num)
         break;
         case 3: location.href = 'menu3.html';
         break;
-        case 4: location.href = 'menu3.html';
-        break;
         default: location.href = 'menu4.html';
     }
 }
