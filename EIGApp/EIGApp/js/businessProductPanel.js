@@ -10,12 +10,12 @@ function initUser()
         $('#infoName').text(name);
         $('#infoUsername').text(username);
 
-        $('#campoLinea').text(localStorage.getItem('Linea'));
-        $('#campoProducto').text(localStorage.getItem('Producto'));
-        $('#campoCantidad').text(localStorage.getItem('Cantidad'));
-        $('#campoFechaCompra').text(localStorage.getItem('FechaCompra'));
-        $('#campoCubrimiento').text(localStorage.getItem('Cubrimiento'));
-        $('#campoPrecio').text(localStorage.getItem('Precio'));
+        $('#campoLinea').val(localStorage.getItem('Linea'));
+        $('#campoProducto').val(localStorage.getItem('Producto'));
+        $('#campoCantidad').val(localStorage.getItem('Cantidad'));
+        $('#campoFechaCompra').val(localStorage.getItem('FechaCompra'));
+        $('#campoCubrimiento').val(localStorage.getItem('Cubrimiento'));
+        $('#campoPrecio').val(localStorage.getItem('Precio'));
     }
 
     else
@@ -35,4 +35,10 @@ function back()
     {
         location.href = 'productPanel.html';
     }
+}
+
+function cerrarSesion()
+{
+    localStorage.clear();
+    location.href = 'index.html';
 }

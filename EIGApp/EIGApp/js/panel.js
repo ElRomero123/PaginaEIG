@@ -283,29 +283,29 @@ function(e)
     };
 }
 
-function confirm(num)
+function confirm(num, producto, cantidad, cubrimiento, precio)
 {
     switch(num)
     {
         case 1:
         location.href = 'confirm.html';
-        localStorage.setItem('Linea', 'Para empresas');
-        localStorage.setItem('Producto', 'Producto 1');
-        localStorage.setItem('Cantidad', '30');
+        localStorage.setItem('Linea', 'Empresas de seguridad');
+        localStorage.setItem('Producto', producto);
+        localStorage.setItem('Cantidad', cantidad);
         localStorage.setItem('FechaCompra', 'HOY');
-        localStorage.setItem('Cubrimiento', '3 años');
-        localStorage.setItem('Precio', '$400.000');
+        localStorage.setItem('Cubrimiento', cubrimiento);
+        localStorage.setItem('Precio', precio);
         localStorage.setItem('Llamado', '1');
         break;
         
         default:
         location.href = 'confirm.html';
-        localStorage.setItem('Linea', 'Para instructores');
-        localStorage.setItem('Producto', 'Producto 2');
-        localStorage.setItem('Cantidad', '30');
+        localStorage.setItem('Linea', 'Cursos, productos y eventos');
+        localStorage.setItem('Producto', producto);
+        localStorage.setItem('Cantidad', cantidad);
         localStorage.setItem('FechaCompra', 'HOY');
-        localStorage.setItem('Cubrimiento', '3 años');
-        localStorage.setItem('Precio', '$500.000');
+        localStorage.setItem('Cubrimiento', cubrimiento);
+        localStorage.setItem('Precio', precio);
         localStorage.setItem('Llamado', '2');
     }
 }
