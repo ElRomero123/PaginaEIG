@@ -119,10 +119,11 @@
     <Content Include="img\menu\9R.png" />
     <Content Include="img\t.png" />
     <Content Include="img\y.png" />
-    <Content Include="js\businessProductPanel.js" />
+    <Content Include="js\confirm.js" />
     <Content Include="js\panel.js" />
     <Content Include="js\register.js" />
     <Content Include="js\validate.js" />
+    <Content Include="managePackage.html" />
     <Content Include="ORM\BD.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>BD.edmx</DependentUpon>
@@ -155,6 +156,7 @@
     <Compile Include="Controllers\CaseController.cs" />
     <Compile Include="Controllers\JobApplicationController.cs" />
     <Compile Include="Controllers\OtherPersonController.cs" />
+    <Compile Include="Controllers\PackageController.cs" />
     <Compile Include="Controllers\ParametrosController.cs" />
     <Compile Include="Controllers\PersonController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
@@ -167,6 +169,7 @@
     <Compile Include="Models\Case.cs" />
     <Compile Include="Models\JobApplication.cs" />
     <Compile Include="Models\OtherPerson.cs" />
+    <Compile Include="Models\Package.cs" />
     <Compile Include="Models\ParametrosPutAvatar.cs" />
     <Compile Include="Models\Person.cs" />
     <Compile Include="Models\Product.cs" />
@@ -203,6 +206,9 @@
       <DependentUpon>BD.tt</DependentUpon>
     </Compile>
     <Compile Include="ORM\OtherPerson.cs">
+      <DependentUpon>BD.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ORM\Package.cs">
       <DependentUpon>BD.tt</DependentUpon>
     </Compile>
     <Compile Include="ORM\Person.cs">
@@ -247,6 +253,7 @@
     <Content Include="config.rb" />
     <Content Include="fonts\acephimere.otf" />
     <Content Include="fonts\acephimereThinItalic.otf" />
+    <Content Include="fonts\acephimereThin.otf" />
     <EntityDeploy Include="ORM\BD.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>BD.Designer.cs</LastGenOutput>

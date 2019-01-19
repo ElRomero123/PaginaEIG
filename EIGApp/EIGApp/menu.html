@@ -9,22 +9,22 @@
 
     <body>
         <header>
-            <div id='headerLogo'></div>
+            <div class='headerLogo'></div>
             <div>
                 <p id='infoName'></p>
                 <p id='infoUsername'></p>
-                <button id='close' onclick='cerrarSesion()'>Cerrar Sesión</button>
-                <button id='close' onclick='optionCreate(1)'>Afiliarse como investigador</button>
+                <button class='close' onclick='to(9)'>Cerrar Sesión</button>
+                <button class='close' onclick='to(10)'>Afiliarse como investigador</button>
             </div>
         </header>
 
         <div> 
-            <p id='searchTag'>Búsqueda</p> 
-            <p id='categorySearch'>Búsqueda de detective privado</p>
-            <input id='searchBox' onkeypress="searchByEnter(event, 1)" >
-            <button id='search' onclick="search(1)"></button>
+            <p class='searchTag'>Búsqueda</p> 
+            <p class='categorySearch'>Búsqueda de detective privado</p>
+            <input class='searchBox' onkeypress='searchByEnter(event)' >
+            <button class='search' onclick="search()"></button>
             
-            <div id='categories'>
+            <div class='categories'>
                 <div id='c1' class='category' onclick="to(1)"></div>
                 <div id='c2' class='category' onclick='to(2)'></div>
                 <div id='c3' class='category' onclick='to(3)'></div>
@@ -47,6 +47,6 @@
         </div>
             
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <script src='JS/index.js'></script>
+        <script src='js/menu.js'></script>
     </body>
 </html>
