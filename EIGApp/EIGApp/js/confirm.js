@@ -45,6 +45,11 @@ function cerrarSesion()
 
 function addPackage()
 {
+    $('#register').css('background','yellow');
+    $('#register').css('border','2px solid yellow');
+    $('#register').css('color','black');
+    $('#register').text('Confirmando compra...');
+
     $.ajax
     (
         {
@@ -58,7 +63,7 @@ function addPackage()
             {
                 if (data)
                 {
-                    location.href = 'index.html';    
+                    
                 }
 
                 else
