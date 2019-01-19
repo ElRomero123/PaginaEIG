@@ -477,11 +477,9 @@ function optionCreate(num)
         location.href = 'otherPersonPanel.html';
         break;
         case 3:
-        alert('Crear negocio funciona');
         location.href = 'businessPanel.html';
         break;
         default:
-        alert('Crear promoción/curso funciona');
         location.href = 'productPanel.html';
     }
 }

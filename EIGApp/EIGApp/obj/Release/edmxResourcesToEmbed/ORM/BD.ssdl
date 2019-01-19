@@ -4,7 +4,7 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="bigint" Nullable="false" />
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Name" Type="nvarchar" MaxLength="255" Nullable="false" />
     <Property Name="Specialism" Type="nvarchar" MaxLength="255" Nullable="false" />
     <Property Name="SpecialismDescription" Type="nvarchar" MaxLength="255" Nullable="false" />
@@ -55,7 +55,7 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="bigint" Nullable="false" />
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Name" Type="nvarchar" MaxLength="255" Nullable="false" />
     <Property Name="Profesion" Type="nvarchar" MaxLength="255" Nullable="false" />
     <Property Name="ProfesionDescription" Type="nvarchar" MaxLength="255" Nullable="false" />
@@ -64,7 +64,7 @@
     <Property Name="City" Type="nvarchar" MaxLength="255" Nullable="false" />
     <Property Name="Address" Type="nvarchar" MaxLength="255" Nullable="false" />
     <Property Name="Avatar" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Approved" Type="bit" Nullable="false" />
+    <Property Name="Active" Type="bit" Nullable="false" />
     <Property Name="IdUser" Type="bigint" Nullable="false" />
   </EntityType>
   <EntityType Name="Person">
@@ -79,14 +79,14 @@
     <Property Name="City" Type="nvarchar" MaxLength="255" Nullable="false" />
     <Property Name="Address" Type="nvarchar" MaxLength="255" Nullable="false" />
     <Property Name="Avatar" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Approved" Type="bit" Nullable="false" />
+    <Property Name="Active" Type="bit" Nullable="false" />
     <Property Name="IdUser" Type="bigint" Nullable="false" />
   </EntityType>
   <EntityType Name="Product">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="bigint" Nullable="false" />
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Name" Type="nvarchar" MaxLength="255" Nullable="false" />
     <Property Name="Type" Type="nvarchar" MaxLength="255" Nullable="false" />
     <Property Name="TypeDescription" Type="nvarchar" MaxLength="255" Nullable="false" />

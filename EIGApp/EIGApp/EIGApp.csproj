@@ -92,6 +92,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="businessPanel.html" />
+    <Content Include="confirm.html" />
     <Content Include="css\index.css" />
     <Content Include="Global.asax" />
     <Content Include="img\f.png" />
@@ -118,6 +119,7 @@
     <Content Include="img\menu\9R.png" />
     <Content Include="img\t.png" />
     <Content Include="img\y.png" />
+    <Content Include="js\businessProductPanel.js" />
     <Content Include="js\panel.js" />
     <Content Include="js\register.js" />
     <Content Include="js\validate.js" />

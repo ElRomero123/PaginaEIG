@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href='css/index.css'>
+        <title>Buscador</title>
+    </head>
+
+    <body>
+        <header>
+            <div id='headerLogo'></div>
+            <div>
+                <p id='infoName'></p>
+                <p id='infoUsername'></p>
+                <button id='close' onclick='cerrarSesion()'>Cerrar Sesión</button>
+            </div>
+        </header>
+
+        <div>
+            <p id='searchTag'>Confirmación de compra</p>
+            <p id='categorySearch'>Por favor verifique los datos antes de confirmar su compra!</p>
+
+            <div id='categories'>
+                <div id='c9' class='category' onclick='back()'></div>
+            </div>
+
+            <div>
+                <p>Linea</p>
+                <input disabled type='text' maxlength='50' id='campoLinea'>
+
+                <p>Producto</p>
+                <input disabled type='text' maxlength='50' id='campoProducto'>
+
+                <p>Cantidad</p>
+                <input disabled type='text' maxlength='100' id='campoCantidad'>
+
+                <p>Fecha de compra</p>
+                <input disabled type='text' maxlength='80' id='campoFechaCompra'>
+
+                <p>Tiempo de cubrimiento</p>
+                <input disabled type='text' maxlength='80' id='campoCubrimiento'>
+
+                <p>Precio</p>
+                <input disabled type='text' maxlength='80' id='campoPrecio'>
+
+                <div>
+                    <button id='createPerson' class='register' onclick='create(1)'>Confirmar</button>
+                </div>    
+            </div>
+        </div>
+    
+        <script src="https://www.gstatic.com/firebasejs/5.7.3/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/5.7.3/firebase-storage.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src='js/businessProductPanel.js'></script>
+    </body>
+</html>

@@ -69,7 +69,7 @@
           <ScalarProperty Name="City" ColumnName="City" />
           <ScalarProperty Name="Address" ColumnName="Address" />
           <ScalarProperty Name="Avatar" ColumnName="Avatar" />
-          <ScalarProperty Name="Approved" ColumnName="Approved" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
           <ScalarProperty Name="IdUser" ColumnName="IdUser" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -85,7 +85,7 @@
           <ScalarProperty Name="City" ColumnName="City" />
           <ScalarProperty Name="Address" ColumnName="Address" />
           <ScalarProperty Name="Avatar" ColumnName="Avatar" />
-          <ScalarProperty Name="Approved" ColumnName="Approved" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
           <ScalarProperty Name="IdUser" ColumnName="IdUser" />
         </MappingFragment>
       </EntityTypeMapping>
