@@ -55,12 +55,23 @@ function addPackage()
     $('#addPackage').css('color','black');
     $('#addPackage').text('Confirmando compra...');
 
+    var paquete =
+    {
+        linea: $('#campoUsername').val(),
+        producto: $('#campoPassword').val(),
+        cantidad: $('#campoName').val(),
+        FechaCompra: $('#campoEmail').val(),
+        tiempoCubrimiento: $('#campoAddress').val(),
+        precio: false,
+        idUser: localStorage.getItem('User')
+    };
+
     $.ajax
     (
         {
             url: '../api/user',
             type: 'POST',
-            data: JSON.stringify(usuario),
+            data: JSON.stringify(paquete),
             contentType: "application/json;charset=utf-8",
 
             success:
