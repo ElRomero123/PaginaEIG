@@ -284,3 +284,8 @@ function(e)
       preview.append(image);
     };
 }
+
+function confirm()
+{
+    
+}
