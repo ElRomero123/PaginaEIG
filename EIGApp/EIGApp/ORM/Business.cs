@@ -30,9 +30,9 @@ namespace EIGApp.ORM
         public string City { get; set; }
         public string Address { get; set; }
         public string Avatar { get; set; }
-        public long IdUser { get; set; }
+        public long IdPackage { get; set; }
     
-        public virtual User User { get; set; }
+        public virtual Package Package { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ScoreBusiness> ScoreBusinesses { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

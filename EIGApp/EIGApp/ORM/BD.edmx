@@ -18,7 +18,7 @@
           <Property Name="City" Type="nvarchar" MaxLength="255" Nullable="false" />
           <Property Name="Address" Type="nvarchar" MaxLength="255" Nullable="false" />
           <Property Name="Avatar" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="IdUser" Type="bigint" Nullable="false" />
+          <Property Name="IdPackage" Type="bigint" Nullable="false" />
         </EntityType>
         <EntityType Name="Case">
           <Key>
@@ -72,6 +72,19 @@
           <Property Name="Active" Type="bit" Nullable="false" />
           <Property Name="IdUser" Type="bigint" Nullable="false" />
         </EntityType>
+        <EntityType Name="Package">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Linea" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="Producto" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="Cantidad" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="FechaCompra" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="TiempoCubrimiento" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="Precio" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="IdUser" Type="bigint" Nullable="false" />
+        </EntityType>
         <EntityType Name="Person">
           <Key>
             <PropertyRef Name="Id" />
@@ -103,7 +116,7 @@
           <Property Name="Address" Type="nvarchar" MaxLength="255" Nullable="false" />
           <Property Name="Date" Type="nvarchar" MaxLength="255" Nullable="false" />
           <Property Name="Avatar" Type="nvarchar" MaxLength="255" Nullable="false" />
-          <Property Name="IdUser" Type="bigint" Nullable="false" />
+          <Property Name="IdPackage" Type="bigint" Nullable="false" />
         </EntityType>
         <EntityType Name="ScoreBusiness">
           <Key>
@@ -191,17 +204,17 @@
           <Property Name="Date" Type="nvarchar" MaxLength="255" Nullable="false" />
           <Property Name="IdProduct" Type="bigint" Nullable="false" />
         </EntityType>
-        <Association Name="FK_Business_User">
-          <End Role="User" Type="Self.User" Multiplicity="1">
+        <Association Name="FK_Business_Package">
+          <End Role="Package" Type="Self.Package" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
           <End Role="Business" Type="Self.Business" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="User">
+            <Principal Role="Package">
               <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="Business">
-              <PropertyRef Name="IdUser" />
+              <PropertyRef Name="IdPackage" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -275,6 +288,20 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Package_User">
+          <End Role="User" Type="Self.User" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Package" Type="Self.Package" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Package">
+              <PropertyRef Name="IdUser" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Person_User">
           <End Role="User" Type="Self.User" Multiplicity="1">
             <OnDelete Action="Cascade" />
@@ -289,17 +316,17 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Product_User">
-          <End Role="User" Type="Self.User" Multiplicity="1">
+        <Association Name="FK_Product_Package">
+          <End Role="Package" Type="Self.Package" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
           <End Role="Product" Type="Self.Product" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="User">
+            <Principal Role="Package">
               <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="Product">
-              <PropertyRef Name="IdUser" />
+              <PropertyRef Name="IdPackage" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -436,6 +463,7 @@
           <EntitySet Name="FileJobApplication" EntityType="Self.FileJobApplication" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="JobApplication" EntityType="Self.JobApplication" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="OtherPerson" EntityType="Self.OtherPerson" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Package" EntityType="Self.Package" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Person" EntityType="Self.Person" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ScoreBusiness" EntityType="Self.ScoreBusiness" Schema="dbo" store:Type="Tables" />
@@ -448,8 +476,8 @@
           <EntitySet Name="VisitOtherPerson" EntityType="Self.VisitOtherPerson" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="VisitPerson" EntityType="Self.VisitPerson" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="VisitProduct" EntityType="Self.VisitProduct" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK_Business_User" Association="Self.FK_Business_User">
-            <End Role="User" EntitySet="User" />
+          <AssociationSet Name="FK_Business_Package" Association="Self.FK_Business_Package">
+            <End Role="Package" EntitySet="Package" />
             <End Role="Business" EntitySet="Business" />
           </AssociationSet>
           <AssociationSet Name="FK_Case_User" Association="Self.FK_Case_User">
@@ -472,12 +500,16 @@
             <End Role="User" EntitySet="User" />
             <End Role="OtherPerson" EntitySet="OtherPerson" />
           </AssociationSet>
+          <AssociationSet Name="FK_Package_User" Association="Self.FK_Package_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="Package" EntitySet="Package" />
+          </AssociationSet>
           <AssociationSet Name="FK_Person_User" Association="Self.FK_Person_User">
             <End Role="User" EntitySet="User" />
             <End Role="Person" EntitySet="Person" />
           </AssociationSet>
-          <AssociationSet Name="FK_Product_User" Association="Self.FK_Product_User">
-            <End Role="User" EntitySet="User" />
+          <AssociationSet Name="FK_Product_Package" Association="Self.FK_Product_Package">
+            <End Role="Package" EntitySet="Package" />
             <End Role="Product" EntitySet="Product" />
           </AssociationSet>
           <AssociationSet Name="FK_ScoreBusiness_Business" Association="Self.FK_ScoreBusiness_Business">
@@ -535,8 +567,8 @@
           <Property Name="City" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Address" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Avatar" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="IdUser" Type="Int64" Nullable="false" />
-          <NavigationProperty Name="User" Relationship="Self.FK_Business_User" FromRole="Business" ToRole="User" />
+          <Property Name="IdPackage" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="Package" Relationship="Self.FK_Business_Package" FromRole="Business" ToRole="Package" />
           <NavigationProperty Name="ScoreBusinesses" Relationship="Self.FK_ScoreBusiness_Business" FromRole="Business" ToRole="ScoreBusiness" />
           <NavigationProperty Name="VisitBusinesses" Relationship="Self.FK_VisitBusiness_Business" FromRole="Business" ToRole="VisitBusiness" />
         </EntityType>
@@ -601,6 +633,22 @@
           <NavigationProperty Name="ScoreOtherPersons" Relationship="Self.FK_ScoreOtherPerson_OtherPerson" FromRole="OtherPerson" ToRole="ScoreOtherPerson" />
           <NavigationProperty Name="VisitOtherPersons" Relationship="Self.FK_VisitOtherPerson_OtherPerson" FromRole="OtherPerson" ToRole="VisitOtherPerson" />
         </EntityType>
+        <EntityType Name="Package">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Linea" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Producto" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Cantidad" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="FechaCompra" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TiempoCubrimiento" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Precio" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IdUser" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="Businesses" Relationship="Self.FK_Business_Package" FromRole="Package" ToRole="Business" />
+          <NavigationProperty Name="User" Relationship="Self.FK_Package_User" FromRole="Package" ToRole="User" />
+          <NavigationProperty Name="Products" Relationship="Self.FK_Product_Package" FromRole="Package" ToRole="Product" />
+        </EntityType>
         <EntityType Name="Person">
           <Key>
             <PropertyRef Name="Id" />
@@ -635,8 +683,8 @@
           <Property Name="Address" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Date" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Avatar" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="IdUser" Type="Int64" Nullable="false" />
-          <NavigationProperty Name="User" Relationship="Self.FK_Product_User" FromRole="Product" ToRole="User" />
+          <Property Name="IdPackage" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="Package" Relationship="Self.FK_Product_Package" FromRole="Product" ToRole="Package" />
           <NavigationProperty Name="ScoreProducts" Relationship="Self.FK_ScoreProduct_Product" FromRole="Product" ToRole="ScoreProduct" />
           <NavigationProperty Name="VisitProducts" Relationship="Self.FK_VisitProduct_Product" FromRole="Product" ToRole="VisitProduct" />
         </EntityType>
@@ -698,12 +746,11 @@
           <Property Name="Phone" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="TienePerfil" Type="Boolean" Nullable="false" />
           <Property Name="Address" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Businesses" Relationship="Self.FK_Business_User" FromRole="User" ToRole="Business" />
           <NavigationProperty Name="Cases" Relationship="Self.FK_Case_User" FromRole="User" ToRole="Case" />
           <NavigationProperty Name="JobApplications" Relationship="Self.FK_JobApplication_User" FromRole="User" ToRole="JobApplication" />
           <NavigationProperty Name="OtherPersons" Relationship="Self.FK_OtherPerson_User" FromRole="User" ToRole="OtherPerson" />
+          <NavigationProperty Name="Packages" Relationship="Self.FK_Package_User" FromRole="User" ToRole="Package" />
           <NavigationProperty Name="People" Relationship="Self.FK_Person_User" FromRole="User" ToRole="Person" />
-          <NavigationProperty Name="Products" Relationship="Self.FK_Product_User" FromRole="User" ToRole="Product" />
           <NavigationProperty Name="Suggestions" Relationship="Self.FK_Suggestion_User" FromRole="User" ToRole="Suggestion" />
         </EntityType>
         <EntityType Name="VisitBusiness">
@@ -742,17 +789,17 @@
           <Property Name="IdProduct" Type="Int64" Nullable="false" />
           <NavigationProperty Name="Product" Relationship="Self.FK_VisitProduct_Product" FromRole="VisitProduct" ToRole="Product" />
         </EntityType>
-        <Association Name="FK_Business_User">
-          <End Role="User" Type="Self.User" Multiplicity="1">
+        <Association Name="FK_Business_Package">
+          <End Role="Package" Type="Self.Package" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
           <End Role="Business" Type="Self.Business" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="User">
+            <Principal Role="Package">
               <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="Business">
-              <PropertyRef Name="IdUser" />
+              <PropertyRef Name="IdPackage" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -882,6 +929,34 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Package_User">
+          <End Role="User" Type="Self.User" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Package" Type="Self.Package" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Package">
+              <PropertyRef Name="IdUser" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_Package">
+          <End Role="Package" Type="Self.Package" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Package">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="IdPackage" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Person_User">
           <End Role="User" Type="Self.User" Multiplicity="1">
             <OnDelete Action="Cascade" />
@@ -921,20 +996,6 @@
             </Principal>
             <Dependent Role="VisitPerson">
               <PropertyRef Name="IdPerson" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Product_User">
-          <End Role="User" Type="Self.User" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Role="Product" Type="Self.Product" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="User">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Product">
-              <PropertyRef Name="IdUser" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -987,6 +1048,7 @@
           <EntitySet Name="FileJobApplications" EntityType="Self.FileJobApplication" />
           <EntitySet Name="JobApplications" EntityType="Self.JobApplication" />
           <EntitySet Name="OtherPersons" EntityType="Self.OtherPerson" />
+          <EntitySet Name="Packages" EntityType="Self.Package" />
           <EntitySet Name="People" EntityType="Self.Person" />
           <EntitySet Name="Products" EntityType="Self.Product" />
           <EntitySet Name="ScoreBusinesses" EntityType="Self.ScoreBusiness" />
@@ -999,8 +1061,8 @@
           <EntitySet Name="VisitOtherPersons" EntityType="Self.VisitOtherPerson" />
           <EntitySet Name="VisitPersons" EntityType="Self.VisitPerson" />
           <EntitySet Name="VisitProducts" EntityType="Self.VisitProduct" />
-          <AssociationSet Name="FK_Business_User" Association="Self.FK_Business_User">
-            <End Role="User" EntitySet="Users" />
+          <AssociationSet Name="FK_Business_Package" Association="Self.FK_Business_Package">
+            <End Role="Package" EntitySet="Packages" />
             <End Role="Business" EntitySet="Businesses" />
           </AssociationSet>
           <AssociationSet Name="FK_ScoreBusiness_Business" Association="Self.FK_ScoreBusiness_Business">
@@ -1039,6 +1101,14 @@
             <End Role="OtherPerson" EntitySet="OtherPersons" />
             <End Role="VisitOtherPerson" EntitySet="VisitOtherPersons" />
           </AssociationSet>
+          <AssociationSet Name="FK_Package_User" Association="Self.FK_Package_User">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Package" EntitySet="Packages" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_Package" Association="Self.FK_Product_Package">
+            <End Role="Package" EntitySet="Packages" />
+            <End Role="Product" EntitySet="Products" />
+          </AssociationSet>
           <AssociationSet Name="FK_Person_User" Association="Self.FK_Person_User">
             <End Role="User" EntitySet="Users" />
             <End Role="Person" EntitySet="People" />
@@ -1050,10 +1120,6 @@
           <AssociationSet Name="FK_VisitPerson_Person" Association="Self.FK_VisitPerson_Person">
             <End Role="Person" EntitySet="People" />
             <End Role="VisitPerson" EntitySet="VisitPersons" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Product_User" Association="Self.FK_Product_User">
-            <End Role="User" EntitySet="Users" />
-            <End Role="Product" EntitySet="Products" />
           </AssociationSet>
           <AssociationSet Name="FK_ScoreProduct_Product" Association="Self.FK_ScoreProduct_Product">
             <End Role="Product" EntitySet="Products" />
@@ -1086,7 +1152,7 @@
                 <ScalarProperty Name="City" ColumnName="City" />
                 <ScalarProperty Name="Address" ColumnName="Address" />
                 <ScalarProperty Name="Avatar" ColumnName="Avatar" />
-                <ScalarProperty Name="IdUser" ColumnName="IdUser" />
+                <ScalarProperty Name="IdPackage" ColumnName="IdPackage" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1147,6 +1213,20 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Packages">
+            <EntityTypeMapping TypeName="bdEIGModel.Package">
+              <MappingFragment StoreEntitySet="Package">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Linea" ColumnName="Linea" />
+                <ScalarProperty Name="Producto" ColumnName="Producto" />
+                <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+                <ScalarProperty Name="FechaCompra" ColumnName="FechaCompra" />
+                <ScalarProperty Name="TiempoCubrimiento" ColumnName="TiempoCubrimiento" />
+                <ScalarProperty Name="Precio" ColumnName="Precio" />
+                <ScalarProperty Name="IdUser" ColumnName="IdUser" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="People">
             <EntityTypeMapping TypeName="bdEIGModel.Person">
               <MappingFragment StoreEntitySet="Person">
@@ -1178,7 +1258,7 @@
                 <ScalarProperty Name="Address" ColumnName="Address" />
                 <ScalarProperty Name="Date" ColumnName="Date" />
                 <ScalarProperty Name="Avatar" ColumnName="Avatar" />
-                <ScalarProperty Name="IdUser" ColumnName="IdUser" />
+                <ScalarProperty Name="IdPackage" ColumnName="IdPackage" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
