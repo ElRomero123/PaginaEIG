@@ -285,7 +285,23 @@ function(e)
     };
 }
 
-function confirm()
+function confirm(num)
 {
-    
+    switch(num)
+    {
+        case 1:
+        location.href = 'confirm.html';
+        localStorage.setItem('Linea', 'Para empresas');
+        localStorage.setItem('Cantidad', '30');
+        localStorage.setItem('FechaCompra', 'HOY');
+        localStorage.setItem('Cubrimiento', '3 años');
+        localStorage.setItem('Precio', '$400.000');
+        default:
+        location.href = 'confirm.html';
+        localStorage.setItem('Linea', 'Para instructores');
+        localStorage.setItem('Cantidad', '30');
+        localStorage.setItem('FechaCompra', 'HOY');
+        localStorage.setItem('Cubrimiento', '3 años');
+        localStorage.setItem('Precio', '$500.000');
+    }
 }
