@@ -72,7 +72,7 @@ function validate()
                     {
                         if (data)
                         {
-                            location.href = 'index.html';    
+                            location.href = 'managePackage.html';    
                         }
     
                         else

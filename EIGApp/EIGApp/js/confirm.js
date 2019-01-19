@@ -43,12 +43,17 @@ function cerrarSesion()
     location.href = 'index.html';
 }
 
+function toMenu()
+{
+    location.href = 'menu.html';
+}
+
 function addPackage()
 {
-    $('#register').css('background','yellow');
-    $('#register').css('border','2px solid yellow');
-    $('#register').css('color','black');
-    $('#register').text('Confirmando compra...');
+    $('#addPackage').css('background','yellow');
+    $('#addPackage').css('border','2px solid yellow');
+    $('#addPackage').css('color','black');
+    $('#addPackage').text('Confirmando compra...');
 
     $.ajax
     (
@@ -63,15 +68,15 @@ function addPackage()
             {
                 if (data)
                 {
-                    
+                    location.href = 'managePackage.html';
                 }
 
                 else
                 {
-                    $('#register').css('background','red');
-                    $('#register').css('border','2px solid red');
-                    $('#register').css('color','white');
-                    $('#register').text('Error en el registro!');
+                    $('#addPackage').css('background','red');
+                    $('#addPackage').css('border','2px solid red');
+                    $('#addPackage').css('color','white');
+                    $('#addPackage').text('Problema en la confirmación!');
                 }
             }
         }
