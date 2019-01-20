@@ -74,6 +74,11 @@ body
 
             #listResults
             {
+                .result:hover
+                {
+                    filter: invert(15%);
+                }
+
                 .result
                 {
                     #text
@@ -126,6 +131,7 @@ body
                         display: inline-block;
                     }
     
+                    transition: 0.2s;
                     border-radius: 0px;
                     color: red;
                     background: white;
