@@ -31,7 +31,7 @@ function loadPackages()
         $('#bannerState').css('color','black');
         $('#bannerState').text('Cargando ...');
 
-        var idUser = document.getElementById('User');
+        var idUser = localStorage.getItem('User');
 
         $.ajax
         (
@@ -64,7 +64,7 @@ function loadPackages()
                     {
                         $('#bannerState').css('background','red');
                         $('#bannerState').css('color','white');
-                        $('#bannerState').text('Sin resultados!');
+                        $('#bannerState').text('Aún NO tienes paquetes!');
                     }
                 }
             }
