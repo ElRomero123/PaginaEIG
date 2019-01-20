@@ -62,5 +62,25 @@ namespace EIGApp.Controllers
 
             return id;
         }
+
+        public bool Post(M.ParametrosPutAvatar parametrosPutAvatar)
+        {
+            bool state = false;
+
+            try
+            {
+                O.OtherPerson otraPersona = BD.OtherPersons.FirstOrDefault(x => x.Id == parametrosPutAvatar.Id);
+                otraPersona.Avatar = parametrosPutAvatar.DownloadURL;
+                BD.SaveChanges();
+                state = true;
+            }
+
+            catch
+            {
+                state = false;
+            }
+
+            return state;
+        }
     }
 }

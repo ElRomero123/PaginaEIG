@@ -2,7 +2,7 @@
 {
     public class ParametrosPutAvatar
     {
-        public long IdPerson { get; set; }
+        public long Id { get; set; }
         public string DownloadURL { get; set; }
     }
 }
