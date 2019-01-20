@@ -35,7 +35,6 @@ function confirm(cantidad, cubrimiento, precio)
     localStorage.setItem('Linea', 'Afiliación');
     localStorage.setItem('Producto', 'Empresas de seguridad');
     localStorage.setItem('Cantidad', cantidad);
-    localStorage.setItem('FechaCompra', 'HOY');
     localStorage.setItem('Cubrimiento', cubrimiento);
     localStorage.setItem('Precio', precio);
     localStorage.setItem('Llamado', '1');
