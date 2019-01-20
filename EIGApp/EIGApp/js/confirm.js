@@ -47,15 +47,25 @@ function back()
     }
 }
 
-function cerrarSesion()
+function to(num)
 {
-    localStorage.clear();
-    location.href = 'index.html';
-}
-
-function toMenu()
-{
-    location.href = 'menu.html';
+    switch(num)
+    {
+        case 1:
+        localStorage.clear();
+        location.href = 'index.html';
+        break;
+        default:
+        var llamado = localStorage.getItem('Llamado');
+        if(llamado == 1)
+        {
+            location.href = 'businessPanel.html';
+        }
+        else
+        {
+            location.href = 'productPanel.html';
+        }
+    }
 }
 
 function addPackage()
