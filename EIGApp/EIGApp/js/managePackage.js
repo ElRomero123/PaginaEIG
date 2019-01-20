@@ -78,3 +78,28 @@ function loadPackages()
         $('#bannerState').text('No estás conectado a internet!');
     }
 }
+
+function to(num)
+{
+    switch(num)
+    {
+        case 1:
+        localStorage.clear();
+        location.href = 'index.html';
+        break;
+        default:
+        var llamado = localStorage.getItem('Llamado');
+        switch(llamado)
+        {
+            case 1:
+            location.href = 'menu3.html';
+            break;
+            case 2:
+            location.href = 'menu4.html';
+            default:
+            $('#bannerState').css('background','red');
+            $('#bannerState').css('color','white');
+            $('#bannerState').text('Tu paquete ya ha sido adquirido!');
+        }
+    }
+}
