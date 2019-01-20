@@ -132,10 +132,9 @@
     <Content Include="js\menu6.js" />
     <Content Include="js\menu8.js" />
     <Content Include="js\otherPersonPanel.js" />
-    <Content Include="js\panel.js" />
     <Content Include="js\personPanel.js" />
+    <Content Include="js\productPanel.js" />
     <Content Include="js\register.js" />
-    <Content Include="js\validate.js" />
     <Content Include="managePackage.html" />
     <Content Include="ORM\BD.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>

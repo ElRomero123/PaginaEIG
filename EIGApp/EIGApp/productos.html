@@ -14,20 +14,21 @@
                 <p id='infoName'></p>
                 <p id='infoUsername'></p>
                 <button class='close' onclick='to(1)'>Cerrar Sesión</button>
-                <button class='close' onclick='to(2)'>Crear un curso/promoción</button>
+                <button class='close' onclick='to(2)'>Afiliar su curso/promoción/evento</button>
             </div>
         </header>
 
         <div> 
             <p class='searchTag'>Búsqueda</p> 
-            <p class='categorySearch'>Cursos, productos y eventos</p>
-            <input class='searchBox' onkeypress='searchByEnter(event)'>
+            <p class='categorySearch'>Cursos/Promociones/Eventos</p>
+            <input class='searchBox' onkeypress='searchByEnter(event)' >
             <button class='search' onclick='search()'></button>
-            <div id='bannerState'> </div>
-
+           
             <div class='categories'>
                 <div id='c9' class='category' onclick="to(3)"></div>
             </div>
+
+            <div id='bannerState'> </div>
 
             <div>
                 <div id='listResults'>
@@ -38,7 +39,6 @@
             </div>    
         </div>
             
-        
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src='js/menu4.js'></script>
     </body>

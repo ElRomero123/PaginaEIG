@@ -106,7 +106,7 @@ function to(num)
         location.href = 'menu3.html';
         break;
         case 4:
-        location.href = 'menu4.html';
+        location.href = 'productos.html';
         break;
         case 5:
         location.href = 'menu5.html';
