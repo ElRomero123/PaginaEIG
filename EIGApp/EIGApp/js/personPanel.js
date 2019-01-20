@@ -32,49 +32,59 @@ function to(num)
 
 function createPerson()
 {
-    if(validate())
+    if(validateText())
     {
-        var persona =
+        if(validateAvatar())
         {
-            name: $('#campoFullName').val(),
-            profesionDescription: $('#campoProfesionDescription').val(),
-            email: $('#campoEmail').val(),
-            phone: $('#campoPhone').val(),
-            city: $('#campoCity').val(),
-            address: $('#campoAddress').val(),
-            avatar: '',
-            approved: false,
-            idUser: localStorage.getItem('User')
-        };
-    
-
-        $('#createPerson').css('background','yellow');
-        $('#createPerson').css('border','2px solid yellow');
-        $('#createPerson').css('color','black');
-        $('#createPerson').text('Creando perfil de usuario...');
-
-        $.ajax
-        (
+            var persona =
             {
-                url: '../api/person',
-                type: 'POST',
-                data: JSON.stringify(persona),
-                contentType: "application/json;charset=utf-8",
-
-                success:
-                function (data)
+                name: $('#campoFullName').val(),
+                profesionDescription: $('#campoProfesionDescription').val(),
+                email: $('#campoEmail').val(),
+                phone: $('#campoPhone').val(),
+                city: $('#campoCity').val(),
+                address: $('#campoAddress').val(),
+                avatar: '',
+                approved: false,
+                idUser: localStorage.getItem('User')
+            };
+        
+    
+            $('#createPerson').css('background','yellow');
+            $('#createPerson').css('border','2px solid yellow');
+            $('#createPerson').css('color','black');
+            $('#createPerson').text('Creando perfil de usuario...');
+    
+            $.ajax
+            (
                 {
-                    loadAvatar(data);
+                    url: '../api/person',
+                    type: 'POST',
+                    data: JSON.stringify(persona),
+                    contentType: "application/json;charset=utf-8",
+    
+                    success:
+                    function (data)
+                    {
+                        loadAvatar(data);
+                    }
                 }
-            }
-        );
+            );
+        }
+    
+        else
+        {
+            $('#createPerson').css('background','red');
+            $('#createPerson').css('border','2px solid red');
+            $('#createPerson').text('NO existe foto de usuario!');
+        }
     }
 
     else
     {
         $('#createPerson').css('background','red');
         $('#createPerson').css('border','2px solid red');
-        $('#createPerson').text('NO existe foto de usuario!');
+        $('#createPerson').text('Entradas invalidas!');
     }
 }
 
@@ -184,14 +194,6 @@ function validateText()
     var c4 = $('#campoPhone').val().length >= 8;
     var c5 = $('#campoCity').val().length >= 8;
     var c6 = $('#campoAddress').val().length >= 8;
-
-
-        $('#createPerson').css('background','red');
-        $('#createPerson').css('border','2px solid red');
-        $('#createPerson').text('Caracteres y digitos insuficientes!');
-
-    var campoAvatarPerson = document.getElementById('fileBrowser');
-    var AvatarPerson = campoAvatarPerson.files[0];
 
     return c1 && c2 && c3 && c4 && c5 && c6;
 }

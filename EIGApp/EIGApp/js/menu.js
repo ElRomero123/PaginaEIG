@@ -29,7 +29,7 @@ function search()
         $('#bannerState').css('color','black');
         $('#bannerState').text('Buscando ...');
     
-        var criterio = document.getElementById('searchBox').value;
+        var criterio = document.getElementById('criterio').value;
 
         $.ajax
         (
