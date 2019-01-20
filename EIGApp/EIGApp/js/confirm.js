@@ -68,7 +68,9 @@ function addPackage()
         fechaCompra: '',
         tiempoCubrimiento: $('#campoCubrimiento').val(),
         precio: $('#campoPrecio').val(),
+        kind: localStorage.getItem('Llamado'),
         idUser: localStorage.getItem('User')
+
     };
 
     $.ajax
