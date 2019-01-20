@@ -148,6 +148,7 @@
     </Content>
     <Content Include="otherPersonPanel.html" />
     <Content Include="personPanel.html" />
+    <Content Include="productos.html" />
     <Content Include="productPanel.html" />
     <Content Include="register.html" />
     <Content Include="menu.html" />
@@ -155,7 +156,6 @@
     <Content Include="menu7.html" />
     <Content Include="menu8.html" />
     <Content Include="menu6.html" />
-    <Content Include="menu4.html" />
     <Content Include="menu3.html" />
     <Content Include="menu2.html" />
     <Content Include="index.html" />
