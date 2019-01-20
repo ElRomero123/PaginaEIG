@@ -1,4 +1,5 @@
 window.onload = initUser;
+var llamado;
 
 function initUser()
 {
@@ -17,6 +18,7 @@ function initUser()
         location.href = 'index.html';
     }
 
+    llamado = localStorage.getItem('Llamado');
     loadPackages();
 }
 
@@ -88,18 +90,26 @@ function to(num)
         location.href = 'index.html';
         break;
         default:
-        var llamado = localStorage.getItem('Llamado');
+        
+        //alert(llamado);
+    
         switch(llamado)
         {
             case 1:
-            location.href = 'menu3.html';
+            alert("Primera llamado");
+            //location.href = 'menu3.html';
             break;
             case 2:
-            location.href = 'menu4.html';
+            alert("Segundo llamado");
+            //location.href = 'productos.html';
+            break;
             default:
+            /*
             $('#bannerState').css('background','red');
             $('#bannerState').css('color','white');
             $('#bannerState').text('Tu paquete ya ha sido adquirido!');
+            */
+           alert("Tercer llamado");
         }
     }
 }
