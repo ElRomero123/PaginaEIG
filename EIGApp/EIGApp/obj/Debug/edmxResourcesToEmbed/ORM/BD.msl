@@ -84,6 +84,7 @@
           <ScalarProperty Name="FechaCompra" ColumnName="FechaCompra" />
           <ScalarProperty Name="TiempoCubrimiento" ColumnName="TiempoCubrimiento" />
           <ScalarProperty Name="Precio" ColumnName="Precio" />
+          <ScalarProperty Name="Kind" ColumnName="Kind" />
           <ScalarProperty Name="IdUser" ColumnName="IdUser" />
         </MappingFragment>
       </EntityTypeMapping>

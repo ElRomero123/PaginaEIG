@@ -78,6 +78,7 @@
     <Property Name="FechaCompra" Type="nvarchar" MaxLength="255" Nullable="false" />
     <Property Name="TiempoCubrimiento" Type="nvarchar" MaxLength="255" Nullable="false" />
     <Property Name="Precio" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="Kind" Type="bit" Nullable="false" />
     <Property Name="IdUser" Type="bigint" Nullable="false" />
   </EntityType>
   <EntityType Name="Person">
