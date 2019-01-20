@@ -28,6 +28,7 @@ namespace EIGApp.ORM
         public string FechaCompra { get; set; }
         public string TiempoCubrimiento { get; set; }
         public string Precio { get; set; }
+        public bool Kind { get; set; }
         public long IdUser { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

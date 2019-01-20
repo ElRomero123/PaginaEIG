@@ -13,7 +13,7 @@ namespace EIGApp.Controllers
         {
             var query = from P in BD.Packages
                         where (P.IdUser.Equals(idUser))
-                        select new { P.Linea, P.Producto, P.Cantidad, P.FechaCompra, P.TiempoCubrimiento, P.Precio };
+                        select new { P.Linea, P.Producto, P.Cantidad, P.FechaCompra, P.TiempoCubrimiento, P.Precio, P.Kind };
 
             var lista = query.ToArray();
 
@@ -28,7 +28,8 @@ namespace EIGApp.Controllers
                     Cantidad = lista[i].Cantidad,
                     FechaCompra = lista[i].FechaCompra,
                     TiempoCubrimiento = lista[i].TiempoCubrimiento,
-                    Precio = lista[i].Precio
+                    Precio = lista[i].Precio,
+                    Kind = lista[i].Kind
                 };
 
                 arrayPackage[i] = temp;

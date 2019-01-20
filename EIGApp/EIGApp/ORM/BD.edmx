@@ -83,6 +83,7 @@
           <Property Name="FechaCompra" Type="nvarchar" MaxLength="255" Nullable="false" />
           <Property Name="TiempoCubrimiento" Type="nvarchar" MaxLength="255" Nullable="false" />
           <Property Name="Precio" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="Kind" Type="bit" Nullable="false" />
           <Property Name="IdUser" Type="bigint" Nullable="false" />
         </EntityType>
         <EntityType Name="Person">
@@ -644,6 +645,7 @@
           <Property Name="FechaCompra" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="TiempoCubrimiento" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Precio" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Kind" Type="Boolean" Nullable="false" />
           <Property Name="IdUser" Type="Int64" Nullable="false" />
           <NavigationProperty Name="Businesses" Relationship="Self.FK_Business_Package" FromRole="Package" ToRole="Business" />
           <NavigationProperty Name="User" Relationship="Self.FK_Package_User" FromRole="Package" ToRole="User" />
@@ -1223,6 +1225,7 @@
                 <ScalarProperty Name="FechaCompra" ColumnName="FechaCompra" />
                 <ScalarProperty Name="TiempoCubrimiento" ColumnName="TiempoCubrimiento" />
                 <ScalarProperty Name="Precio" ColumnName="Precio" />
+                <ScalarProperty Name="Kind" ColumnName="Kind" />
                 <ScalarProperty Name="IdUser" ColumnName="IdUser" />
               </MappingFragment>
             </EntityTypeMapping>
