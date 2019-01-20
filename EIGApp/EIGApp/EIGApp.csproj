@@ -157,7 +157,8 @@
     <Compile Include="Controllers\JobApplicationController.cs" />
     <Compile Include="Controllers\OtherPersonController.cs" />
     <Compile Include="Controllers\PackageController.cs" />
-    <Compile Include="Controllers\ParametrosController.cs" />
+    <Compile Include="Controllers\ParametroOtherPersonController.cs" />
+    <Compile Include="Controllers\ParametroPersonController.cs" />
     <Compile Include="Controllers\PersonController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\SuggestionController.cs" />

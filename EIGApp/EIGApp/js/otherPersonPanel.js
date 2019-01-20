@@ -26,7 +26,7 @@ function to(num)
         location.href = 'index.html';
         break;
         default: 
-        location.href = 'menu.html';
+        location.href = 'menu2.html';
     }
 }
 
@@ -141,7 +141,7 @@ function putAvatar(num, downloadURL)
     $.ajax
     (
         {
-            url: '../api/otherPerson',
+            url: '../api/parametroOtherPerson',
             type: 'POST',
             data: JSON.stringify(parametrosPutAvatar),
             contentType: "application/json;charset=utf-8",

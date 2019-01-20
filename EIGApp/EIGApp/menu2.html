@@ -21,20 +21,23 @@
         <div> 
             <p class='searchTag'>Búsqueda</p> 
             <p class='categorySearch'>Otros Perfiles Profesionales</p>
-            <input class='searchBox' onkeypress="searchByEnter(event)" >
+            <input class='searchBox' id='criterio' onkeypress="searchByEnter(event)" >
             <button class='search' onclick="search()"></button>
-            <div id='bannerState'> </div>
-
+            
             <div class='categories'>
                 <div id='c9' class='category' onclick="to(3)"></div>
             </div>
+
+            <div id='bannerState'> </div>
 
             <div>
                 <div id='listResults'>
                 </div>
                     
+                <!--
                 <div id='maps'>
-                </div>     
+                </div>    
+                --> 
             </div>    
         </div>
             

@@ -9,20 +9,20 @@
 
     <body>
         <header>
-            <div id='headerLogo'></div>
+            <div class='headerLogo'></div>
             <div>
                 <p id='infoName'></p>
                 <p id='infoUsername'></p>
-                <button id='close' onclick='cerrarSesion()'>Cerrar Sesión</button>
+                <button class='close' onclick='to(1)'>Cerrar Sesión</button>
             </div>
         </header>
 
         <div>
-            <p id='searchTag'>EIG para negocios</p>
-            <p id='categorySearch'>Publicite su empresa de seguridad con EIG!</p>
+            <p class='searchTag'>EIG para negocios</p>
+            <p class='categorySearch'>Publicite su empresa de seguridad con EIG!</p>
 
-            <div id='categories'>
-                <div id='c9' class='category' onclick="to(3)"></div>
+            <div class='categories'>
+                <div id='c9' class='category' onclick="to(2)"></div>
             </div>
 
             <div class='costosYear'>
@@ -51,6 +51,6 @@
         </div>
     
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <script src='JS/panel.js'></script>
+        <script src='js/businessPanel.js'></script>
     </body>
 </html>
