@@ -104,7 +104,7 @@ function to(num)
         location.href = 'productPanel.html';
         break;
         case 3:
-        location.href = 'businessPanel.html';
+        location.href = 'managePackage.html';
         localStorage.setItem('Llamado', 2);
         break;
         default:
