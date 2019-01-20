@@ -29,29 +29,14 @@ function to(num)
     }
 }
 
-function confirm(num, producto, cantidad, cubrimiento, precio)
+function confirm(producto, cantidad, cubrimiento, precio)
 {
-    switch(num)
-    {
-        case 1:
-        location.href = 'confirm.html';
-        localStorage.setItem('Linea', 'Empresas de seguridad');
-        localStorage.setItem('Producto', producto);
-        localStorage.setItem('Cantidad', cantidad);
-        localStorage.setItem('FechaCompra', 'HOY');
-        localStorage.setItem('Cubrimiento', cubrimiento);
-        localStorage.setItem('Precio', precio);
-        localStorage.setItem('Llamado', '1');
-        break;
-        
-        default:
-        location.href = 'confirm.html';
-        localStorage.setItem('Linea', 'Cursos, productos y eventos');
-        localStorage.setItem('Producto', producto);
-        localStorage.setItem('Cantidad', cantidad);
-        localStorage.setItem('FechaCompra', 'HOY');
-        localStorage.setItem('Cubrimiento', cubrimiento);
-        localStorage.setItem('Precio', precio);
-        localStorage.setItem('Llamado', '2');
-    }
+    location.href = 'confirm.html';
+    localStorage.setItem('Linea', 'Empresas de seguridad');
+    localStorage.setItem('Producto', producto);
+    localStorage.setItem('Cantidad', cantidad);
+    localStorage.setItem('FechaCompra', 'HOY');
+    localStorage.setItem('Cubrimiento', cubrimiento);
+    localStorage.setItem('Precio', precio);
+    localStorage.setItem('Llamado', '1');
 }
