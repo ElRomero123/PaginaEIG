@@ -75,7 +75,7 @@ function addPackage()
     $.ajax
     (
         {
-            url: '../api/user',
+            url: '../api/package',
             type: 'POST',
             data: JSON.stringify(paquete),
             contentType: "application/json;charset=utf-8",

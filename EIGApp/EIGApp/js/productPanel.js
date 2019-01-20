@@ -25,7 +25,7 @@ function to(num)
         localStorage.clear();
         location.href = 'index.html';
         break;
-        default: location.href = 'menu4.html';
+        default: location.href = 'productos.html';
     }
 }
 
