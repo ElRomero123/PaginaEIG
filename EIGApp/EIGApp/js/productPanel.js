@@ -25,18 +25,18 @@ function to(num)
         localStorage.clear();
         location.href = 'index.html';
         break;
-        default: location.href = 'menu3.html';
+        default: location.href = 'menu4.html';
     }
 }
 
 function confirm(cantidad, cubrimiento, precio)
 {
     location.href = 'confirm.html';
-    localStorage.setItem('Linea', 'Afiliación');
-    localStorage.setItem('Producto', 'Empresas de seguridad');
+    localStorage.setItem('Linea', 'Curso/Promoción/Evento');
+    localStorage.setItem('Producto', 'Afiliación');
     localStorage.setItem('Cantidad', cantidad);
     localStorage.setItem('FechaCompra', 'HOY');
     localStorage.setItem('Cubrimiento', cubrimiento);
     localStorage.setItem('Precio', precio);
-    localStorage.setItem('Llamado', '1');
+    localStorage.setItem('Llamado', '2');
 }
