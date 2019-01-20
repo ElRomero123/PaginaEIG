@@ -33,20 +33,6 @@ function initUser()
     }
 }
 
-function back()
-{
-    var llamado = localStorage.getItem('Llamado');
-
-    if(llamado == 1)
-    {
-        location.href = 'businessPanel.html';
-    }
-    else
-    {
-        location.href = 'productPanel.html';
-    }
-}
-
 function to(num)
 {
     switch(num)
