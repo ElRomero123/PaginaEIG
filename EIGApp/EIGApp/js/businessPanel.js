@@ -32,7 +32,7 @@ function to(num)
 function confirm(cantidad, cubrimiento, precio)
 {
     location.href = 'confirm.html';
-    localStorage.setItem('Linea', 'Empresas de seguridad/investigación');
+    localStorage.setItem('Linea', 'Empresas de seguridad');
     localStorage.setItem('Producto', 'Paquete de Afiliación');
     localStorage.setItem('Cantidad', cantidad);
     localStorage.setItem('Cubrimiento', cubrimiento);
