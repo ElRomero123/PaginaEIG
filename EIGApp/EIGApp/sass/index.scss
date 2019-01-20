@@ -131,11 +131,12 @@ body
                         display: inline-block;
                     }
     
+                    cursor: pointer;
                     transition: 0.2s;
                     border-radius: 0px;
                     color: red;
                     background: white;
-                    margin: 3px;
+                    margin: auto;
                     display: flex;
                     width: 300px;
                     height: auto;
@@ -146,10 +147,9 @@ body
                 vertical-align: middle;
                 overflow-y: scroll;
                 flex-direction: row;
-                padding: 0px;
+                padding: 3px;
                 height: auto;
                 width: 90%;
-
             }
 
             margin: 10px auto;

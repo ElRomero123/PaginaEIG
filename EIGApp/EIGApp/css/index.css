@@ -81,7 +81,7 @@ body div div #listResults {
   vertical-align: middle;
   overflow-y: scroll;
   flex-direction: row;
-  padding: 0px;
+  padding: 3px;
   height: auto;
   width: 90%;
 }
@@ -91,11 +91,12 @@ body div div #listResults .result:hover {
 }
 /* line 82, ../sass/index.scss */
 body div div #listResults .result {
+  cursor: pointer;
   transition: 0.2s;
   border-radius: 0px;
   color: red;
   background: white;
-  margin: 3px;
+  margin: auto;
   display: flex;
   width: 300px;
   height: auto;
