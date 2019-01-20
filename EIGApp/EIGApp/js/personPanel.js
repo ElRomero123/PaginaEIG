@@ -47,36 +47,27 @@ function createPerson()
             idUser: localStorage.getItem('User')
         };
     
-        if(persona.name != null && persona.profesionDescription != null && persona.email != null && persona.phone != null && persona.city != null && persona.address != null)
-        {
-            $('#createPerson').css('background','yellow');
-            $('#createPerson').css('border','2px solid yellow');
-            $('#createPerson').css('color','black');
-            $('#createPerson').text('Creando perfil de usuario...');
-    
-            $.ajax
-            (
+
+        $('#createPerson').css('background','yellow');
+        $('#createPerson').css('border','2px solid yellow');
+        $('#createPerson').css('color','black');
+        $('#createPerson').text('Creando perfil de usuario...');
+
+        $.ajax
+        (
+            {
+                url: '../api/person',
+                type: 'POST',
+                data: JSON.stringify(persona),
+                contentType: "application/json;charset=utf-8",
+
+                success:
+                function (data)
                 {
-                    url: '../api/person',
-                    type: 'POST',
-                    data: JSON.stringify(persona),
-                    contentType: "application/json;charset=utf-8",
-    
-                    success:
-                    function (data)
-                    {
-                        loadAvatar(data);
-                    }
+                    loadAvatar(data);
                 }
-            );
-        }
-    
-        else
-        {
-            $('#createPerson').css('background','red');
-            $('#createPerson').css('border','2px solid red');
-            $('#createPerson').text('Caracteres y digitos insuficientes!');
-        }
+            }
+        );
     }
 
     else
@@ -185,7 +176,27 @@ function(e)
     };
 }
 
-function validate()
+function validateText()
+{
+    var c1 = $('#campoFullName').val().length >= 8;
+    var c2 = $('#campoProfesionDescription').val().length >= 8;
+    var c3 = $('#campoEmail').val().length >= 8;
+    var c4 = $('#campoPhone').val().length >= 8;
+    var c5 = $('#campoCity').val().length >= 8;
+    var c6 = $('#campoAddress').val().length >= 8;
+
+
+        $('#createPerson').css('background','red');
+        $('#createPerson').css('border','2px solid red');
+        $('#createPerson').text('Caracteres y digitos insuficientes!');
+
+    var campoAvatarPerson = document.getElementById('fileBrowser');
+    var AvatarPerson = campoAvatarPerson.files[0];
+
+    return c1 && c2 && c3 && c4 && c5 && c6;
+}
+
+function validateAvatar()
 {
     var campoAvatarPerson = document.getElementById('fileBrowser');
     var AvatarPerson = campoAvatarPerson.files[0];
