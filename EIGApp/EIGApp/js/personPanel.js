@@ -32,48 +32,58 @@ function to(num)
 
 function createPerson()
 {
-    var persona =
+    if(validate())
     {
-        name: $('#campoFullName').val(),
-        profesionDescription: $('#campoProfesionDescription').val(),
-        email: $('#campoEmail').val(),
-        phone: $('#campoPhone').val(),
-        city: $('#campoCity').val(),
-        address: $('#campoAddress').val(),
-        avatar: '',
-        approved: false,
-        idUser: localStorage.getItem('User')
-    };
-
-    if(persona.name != null && persona.profesionDescription != null && persona.email != null && persona.phone != null && persona.city != null && persona.address != null)
-    {
-        $('#createPerson').css('background','yellow');
-        $('#createPerson').css('border','2px solid yellow');
-        $('#createPerson').css('color','black');
-        $('#createPerson').text('Creando perfil de usuario...');
-
-        $.ajax
-        (
-            {
-                url: '../api/person',
-                type: 'POST',
-                data: JSON.stringify(persona),
-                contentType: "application/json;charset=utf-8",
-
-                success:
-                function (data)
+        var persona =
+        {
+            name: $('#campoFullName').val(),
+            profesionDescription: $('#campoProfesionDescription').val(),
+            email: $('#campoEmail').val(),
+            phone: $('#campoPhone').val(),
+            city: $('#campoCity').val(),
+            address: $('#campoAddress').val(),
+            avatar: '',
+            approved: false,
+            idUser: localStorage.getItem('User')
+        };
+    
+        if(persona.name != null && persona.profesionDescription != null && persona.email != null && persona.phone != null && persona.city != null && persona.address != null)
+        {
+            $('#createPerson').css('background','yellow');
+            $('#createPerson').css('border','2px solid yellow');
+            $('#createPerson').css('color','black');
+            $('#createPerson').text('Creando perfil de usuario...');
+    
+            $.ajax
+            (
                 {
-                    loadAvatar(data);
+                    url: '../api/person',
+                    type: 'POST',
+                    data: JSON.stringify(persona),
+                    contentType: "application/json;charset=utf-8",
+    
+                    success:
+                    function (data)
+                    {
+                        loadAvatar(data);
+                    }
                 }
-            }
-        );
+            );
+        }
+    
+        else
+        {
+            $('#createPerson').css('background','red');
+            $('#createPerson').css('border','2px solid red');
+            $('#createPerson').text('Caracteres y digitos insuficientes!');
+        }
     }
 
     else
     {
         $('#createPerson').css('background','red');
         $('#createPerson').css('border','2px solid red');
-        $('#createPerson').text('Caracteres y digitos insuficientes!');
+        $('#createPerson').text('NO existe foto de usuario!');
     }
 }
 
@@ -96,39 +106,27 @@ function loadAvatar(num)
     
     var AvatarPerson = campoAvatarPerson.files[0];
 
-    if(AvatarPerson != null)
-    {
-        var uploadTask = storageRef.child('avatar/' + 'P' + num).put(AvatarPerson);
+    var uploadTask = storageRef.child('avatar/' + 'P' + num).put(AvatarPerson);
 
-        uploadTask.on
-        (   
-            'state_changed',
-            function(snapshot)
-            {
-    
-            },
-            function(error)
-            {
-                
-            },
-            function()
-            {
-                uploadTask.snapshot.ref.getDownloadURL().then(function(downloadURL) 
-                {    
-                    putAvatar(num, downloadURL);
-                });
-            }
-        );
-    }
+    uploadTask.on
+    (   
+        'state_changed',
+        function(snapshot)
+        {
 
-    else
-    {
-        $('#createPerson').css('background','red');
-        $('#createPerson').css('border','2px solid red');
-        $('#createPerson').text('NO existe foto de usuario!');
-
-        setTimeout(recargar, 2500);
-    }
+        },
+        function(error)
+        {
+            
+        },
+        function()
+        {
+            uploadTask.snapshot.ref.getDownloadURL().then(function(downloadURL) 
+            {    
+                putAvatar(num, downloadURL);
+            });
+        }
+    );
 }
 
 function putAvatar(num, downloadURL)
@@ -185,6 +183,14 @@ function(e)
         preview.innerHTML = '';
         preview.append(image);
     };
+}
+
+function validate()
+{
+    var campoAvatarPerson = document.getElementById('fileBrowser');
+    var AvatarPerson = campoAvatarPerson.files[0];
+
+    return AvatarPerson != null;
 }
 
 function recargar()
