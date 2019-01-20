@@ -40,8 +40,6 @@ namespace EIGApp.Controllers
         public bool Post(M.Package paquete)
         {
             bool state;
-            System.DateTime thisDay = System.DateTime.Today;
-
 
             try
             {
@@ -49,7 +47,7 @@ namespace EIGApp.Controllers
                 AutoMapper.Mapper.CreateMap<M.Package, O.Package>();
                 #pragma warning restore CS0618
                 O.Package BDPackage = AutoMapper.Mapper.Map<O.Package>(paquete);
-                BDPackage.FechaCompra = thisDay.ToString("g");
+                BDPackage.FechaCompra = System.DateTime.Now.ToString("g");
                 BD.Packages.Add(BDPackage);
                 BD.SaveChanges();
                 state = true;
