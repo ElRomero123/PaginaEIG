@@ -12,7 +12,7 @@ namespace EIGApp.Controllers
         public M.Package[] Get(long idUser)
         {
             var query = from P in BD.Packages
-                        where (P.Id == idUser)
+                        where (P.IdUser.Equals(idUser))
                         select new { P.Linea, P.Producto, P.Cantidad, P.FechaCompra, P.TiempoCubrimiento, P.Precio };
 
             var lista = query.ToArray();

@@ -51,14 +51,14 @@ function loadPackages()
 
                         for(var i = 0; i < data.length; i++)
                         {
-                            cadena += "<div id=" + i + "class='result'> <div id='text'> <p id='pf1'>" + data[i].Linea + "</p> <p id='pf2'>" + data[i].Producto + "</p> <p id='pf3'>" + data[i].Cantidad + "</p> <p id='pf4'>" + data[i].FechaCompra + "</p> <p id='pf4'>" + data[i].TiempoCubrimiento + "</p> <p id='pf4'>" + data[i].Precio + "</p> </div> </div>";  
+                            cadena += "<div id='" + i + "' class='result'> <div id='text'> <p id='pf1'>" + data[i].Linea + "</p> <p id='pf2'>" + data[i].Producto + "</p> <p id='pf3'>" + data[i].Cantidad + "</p> <p id='pf4'>" + data[i].FechaCompra + "</p> <p id='pf4'>" + data[i].TiempoCubrimiento + "</p> <p id='pf4'>" + data[i].Precio + "</p> </div> </div>";  
                         }
                         
                         $('#listResults').append(cadena);
 
                         $('#bannerState').css('background','green');
                         $('#bannerState').css('color','white');
-                        $('#bannerState').text(i + ' investigador(es) encontrados!');
+                        $('#bannerState').text('Tienes ' + i + ' paquete(s)!');
                         $('#listResults').css('display','flex');
                     }
 
