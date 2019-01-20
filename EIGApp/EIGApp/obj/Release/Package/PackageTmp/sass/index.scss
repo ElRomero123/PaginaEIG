@@ -151,7 +151,7 @@ body
             border-radius: 0px;
         }
     
-        #categories
+        .categories
         {
             #c9:hover
             {
@@ -269,12 +269,12 @@ body
             height: 15px;
         }
 
-        #search:hover
+        .search:hover
         {
             filter: invert(100%);
         }
 
-        #search
+        .search
         {
             vertical-align: middle;
             transition: 0.15s;
@@ -285,13 +285,13 @@ body
             width: 50px;
         }
 
-        #searchBox:focus
+        .searchBox:focus
         {
             height: 20px;
             border: 2px solid red;
         }
 
-        #searchBox
+        .searchBox
         {
             vertical-align: middle;
             transition: 0.15s;
@@ -397,13 +397,13 @@ body
             margin: 40px auto 6px auto;
         }
         
-        #categorySearch
+        .categorySearch
         {
             font-size: 14px;
             font-family: acephimere;
         }
 
-        #searchTag
+        .searchTag
         {
             font-size: 40px;
             font-family: acephimereThinItalic;
@@ -428,13 +428,13 @@ body
     {
         div
         {
-            #close:hover
+            .close:hover
             {
                 color: black;
                 background: white;
             }
 
-            #close
+            .close
             {
                 transition: 0.2s;
                 outline: 0px;
@@ -467,7 +467,7 @@ body
             background: gray;
         }
 
-        #headerLogo
+        .headerLogo
         {
 
             background: url('../img/logo.png');

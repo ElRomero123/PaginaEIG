@@ -9,42 +9,42 @@
 
     <body>
         <header>
-            <div id='headerLogo'></div>
+            <div class='headerLogo'></div>
             <div>
                 <p id='infoName'></p>
                 <p id='infoUsername'></p>
-                <button id='close' onclick='cerrarSesion()'>Cerrar Sesión</button>
+                <button class='close' onclick='to(1)'>Cerrar Sesión</button>
             </div>
         </header>
 
         <div>
-            <p id='searchTag'>Afiliación a la Plataforma</p>
-            <p id='categorySearch'>Afíliese como detective privado en EIG(Elite Intelligence Group). ES GRATIS!</p>
+            <p class='searchTag'>Afiliación a la Plataforma</p>
+            <p class='categorySearch'>Afíliese como detective privado en EIG(Elite Intelligence Group). ES GRATIS!</p>
 
-            <div id='categories'>
-                <div id='c9' class='category' onclick="to(1)"></div>
+            <div class='categories'>
+                <div id='c9' class='category' onclick="to(2)"></div>
             </div>
 
             <div>
-                <p>Nombre completo (50 caracteres)</p>
+                <p>Nombre completo (8 a 50 caracteres)</p>
                 <input type='text' maxlength='50' id='campoFullName'>
 
-                <p>Describa a lo que usted se dedica brevemente (100 caracteres)</p>
+                <p>Describa a lo que usted se dedica brevemente (20 a 100 caracteres)</p>
                 <input type='text' maxlength="100" id='campoProfesionDescription'>
 
-                <p>Correo electrónico/Email (80 caracteres)</p>
+                <p>Correo electrónico/Email (8 a 80 caracteres)</p>
                 <input type='text' maxlength="80" id='campoEmail'>
 
-                <p>Número telefónico Celular/Fijo</p>
+                <p>Número telefónico Celular/Fijo (Mínimo 5 digitos)</p>
                 <input type='number' max='9999999999999999999999999' id='campoPhone'>
 
-                <p>Escriba el domicilio de su trabajo en formato [Ciudad, Estado, País] (200 caracteres)</p>
+                <p>Escriba el domicilio de su trabajo en formato [Ciudad, Estado, País] (10 a 200 caracteres)</p>
                 <input type='text' maxlength='200' id='campoCity'>
 
-                <p>Escriba la dirección de su residencia en formato claro (100 caracteres)</p>
+                <p>Escriba la dirección de su residencia en formato claro (5 a 100 caracteres)</p>
                 <input type='text' maxlength='100' id='campoAddress'>
 
-                <p>Foto de perfil(Debe ser tamaño 70px X 70px en formato jpg o png)</p>
+                <p>Obten una imágen y súbela a la plataforma</p>
             
                 <div>
                     <input type='file' id='fileBrowser' accept=".jpg,.png">
@@ -55,15 +55,14 @@
                 <p>Sus datos y su foto de perfil serán revisados, se le enviará un E-mail si su aprobación es satisfactoria!</p>
 
                 <div>
-                    <button id='createPerson' class='register' onclick='create(1)'>Crear perfil profesional</button>
-                </div>
-                
+                    <button id='createPerson' class='register' onclick='createPerson()'>Crear perfil profesional</button>
+                </div> 
             </div>
         </div>
     
         <script src="https://www.gstatic.com/firebasejs/5.7.3/firebase-app.js"></script>
         <script src="https://www.gstatic.com/firebasejs/5.7.3/firebase-storage.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <script src='JS/panel.js'></script>
+        <script src='js/personPanel.js'></script>
     </body>
 </html>

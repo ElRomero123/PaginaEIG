@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href='css/index.css'>
+        <title>Buscador</title>
+    </head>
+
+    <body>
+        <header>
+            <div id='headerLogo'></div>
+            <div>
+                <p id='infoName'></p>
+                <p id='infoUsername'></p>
+                <button id='close' onclick='cerrarSesion()'>Cerrar Sesión</button>
+                <button id='close' onclick='toMenu()'>Menú principal</button>
+            </div>
+        </header>
+
+        <div> 
+            <p id='searchTag'>Mis paquetes</p> 
+            <p id='categorySearch'>Aquí están tus paquetes adquiridos</p>
+            
+            <div id='bannerState'> </div>
+
+            <div>
+                <div id='listResults'>
+                </div> 
+            </div>    
+        </div>
+            
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src='JS/managePackage.js'></script>
+    </body>
+</html>

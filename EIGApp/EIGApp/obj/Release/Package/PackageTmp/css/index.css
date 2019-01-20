@@ -138,84 +138,84 @@ body div div #listResults .result div {
   display: inline-block;
 }
 /* line 154, ../sass/index.scss */
-body div #categories {
+body div .categories {
   text-align: center;
   margin: 10px auto 10px auto;
 }
 /* line 156, ../sass/index.scss */
-body div #categories #c9:hover {
+body div .categories #c9:hover {
   background: url("../img/menu/9R.png");
 }
 /* line 161, ../sass/index.scss */
-body div #categories #c9 {
+body div .categories #c9 {
   background: url("../img/menu/9N.png");
 }
 /* line 166, ../sass/index.scss */
-body div #categories #c8:hover {
+body div .categories #c8:hover {
   background: url("../img/menu/8R.png");
 }
 /* line 171, ../sass/index.scss */
-body div #categories #c8 {
+body div .categories #c8 {
   background: url("../img/menu/8N.png");
 }
 /* line 176, ../sass/index.scss */
-body div #categories #c7:hover {
+body div .categories #c7:hover {
   background: url("../img/menu/7R.png");
 }
 /* line 181, ../sass/index.scss */
-body div #categories #c7 {
+body div .categories #c7 {
   background: url("../img/menu/7N.png");
 }
 /* line 186, ../sass/index.scss */
-body div #categories #c6:hover {
+body div .categories #c6:hover {
   background: url("../img/menu/6R.png");
 }
 /* line 191, ../sass/index.scss */
-body div #categories #c6 {
+body div .categories #c6 {
   background: url("../img/menu/6N.png");
 }
 /* line 196, ../sass/index.scss */
-body div #categories #c5:hover {
+body div .categories #c5:hover {
   background: url("../img/menu/5R.png");
 }
 /* line 201, ../sass/index.scss */
-body div #categories #c5 {
+body div .categories #c5 {
   background: url("../img/menu/5N.png");
 }
 /* line 206, ../sass/index.scss */
-body div #categories #c4:hover {
+body div .categories #c4:hover {
   background: url("../img/menu/4R.png");
 }
 /* line 211, ../sass/index.scss */
-body div #categories #c4 {
+body div .categories #c4 {
   background: url("../img/menu/4N.png");
 }
 /* line 216, ../sass/index.scss */
-body div #categories #c3:hover {
+body div .categories #c3:hover {
   background: url("../img/menu/3R.png");
 }
 /* line 221, ../sass/index.scss */
-body div #categories #c3 {
+body div .categories #c3 {
   background: url("../img/menu/3N.png");
 }
 /* line 226, ../sass/index.scss */
-body div #categories #c2:hover {
+body div .categories #c2:hover {
   background: url("../img/menu/2R.png");
 }
 /* line 231, ../sass/index.scss */
-body div #categories #c2 {
+body div .categories #c2 {
   background: url("../img/menu/2N.png");
 }
 /* line 236, ../sass/index.scss */
-body div #categories #c1:hover {
+body div .categories #c1:hover {
   background: url("../img/menu/1R.png");
 }
 /* line 241, ../sass/index.scss */
-body div #categories #c1 {
+body div .categories #c1 {
   background: url("../img/menu/1N.png");
 }
 /* line 246, ../sass/index.scss */
-body div #categories .category {
+body div .categories .category {
   transition: 0.25s;
   border-radius: 0px;
   height: 90px;
@@ -235,11 +235,11 @@ body div #bannerState {
   height: 15px;
 }
 /* line 272, ../sass/index.scss */
-body div #search:hover {
+body div .search:hover {
   filter: invert(100%);
 }
 /* line 277, ../sass/index.scss */
-body div #search {
+body div .search {
   vertical-align: middle;
   transition: 0.15s;
   background: url("../img/lupa.png");
@@ -249,12 +249,12 @@ body div #search {
   width: 50px;
 }
 /* line 288, ../sass/index.scss */
-body div #searchBox:focus {
+body div .searchBox:focus {
   height: 20px;
   border: 2px solid red;
 }
 /* line 294, ../sass/index.scss */
-body div #searchBox {
+body div .searchBox {
   vertical-align: middle;
   transition: 0.15s;
   outline: 0px;
@@ -347,12 +347,12 @@ body div div p {
   margin: 6px;
 }
 /* line 400, ../sass/index.scss */
-body div #categorySearch {
+body div .categorySearch {
   font-size: 14px;
   font-family: acephimere;
 }
 /* line 406, ../sass/index.scss */
-body div #searchTag {
+body div .searchTag {
   font-size: 40px;
   font-family: acephimereThinItalic;
 }
@@ -375,12 +375,12 @@ body header div {
   background: gray;
 }
 /* line 431, ../sass/index.scss */
-body header div #close:hover {
+body header div .close:hover {
   color: black;
   background: white;
 }
 /* line 437, ../sass/index.scss */
-body header div #close {
+body header div .close {
   transition: 0.2s;
   outline: 0px;
   border: 0px;
@@ -405,7 +405,7 @@ body header div p {
   font-family: acephimere;
 }
 /* line 470, ../sass/index.scss */
-body header #headerLogo {
+body header .headerLogo {
   background: url("../img/logo.png");
   margin: 10px auto 10px auto;
   text-align: center;

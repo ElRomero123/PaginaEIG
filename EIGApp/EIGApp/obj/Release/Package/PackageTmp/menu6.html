@@ -9,24 +9,24 @@
 
     <body>
         <header>
-            <div id='headerLogo'></div>
+            <div class='headerLogo'></div>
             <div>
                 <p id='infoName'></p>
                 <p id='infoUsername'></p>
-                <button id='close' onclick='cerrarSesion()'>Cerrar Sesión</button>
+                <button class='close' onclick='to(1)'>Cerrar Sesión</button>
             </div>
         </header>
 
         <div>
-            <p id='searchTag'>Trabaja con nosotros</p>
-            <p id='categorySearch'>Anexa toda la información correspondiente, para iniciar un proceso de selección!</p>
+            <p class='searchTag'>Trabaja con nosotros</p>
+            <p class='categorySearch'>Anexa toda la información correspondiente, para iniciar un proceso de selección!</p>
 
-            <div id='categories'>
-                <div id='c9' class='category' onclick="to(1)"></div>
+            <div class='categories'>
+                <div id='c9' class='category' onclick="to(2)"></div>
             </div>
             
             <div>
-                <p><b>Paso 1:</b> Datos básicos sobre el aspirante.</p>
+                <p>Datos básicos sobre el aspirante.</p>
 
                 <p>Nombre (25 caracteres)</p>
                 <input type='text' maxlength="25" id='campoName'>
@@ -41,24 +41,12 @@
                 <input type='number' max='200' id='campoAge'>
 
                 <div>
-                    <button id='register' class='register' onclick='createJobApplication()'>Enviar solicitud</button>
-                </div>
-
-                <p><b>Paso 2: </b> Anexar archivos sobre el aspirante como HV o carta de recomendación (Formatos pdf, jpg, png, bmp, doc, txt, docx).</p>
-
-                <div>
-                    <input type='file' id='fileBrowser'>
-                </div>
-
-                <div>
-                    <button class='register' id='submit' onclick='upload()'>Enviar archivo</button>
+                    <button class='register' onclick='createJobApplication()'>Enviar solicitud</button>
                 </div>
             </div>
         </div>
             
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/5.7.3/firebase-app.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/5.7.3/firebase-storage.js"></script>
-        <script src='JS/index.js'></script>
+        <script src='js/menu6.js'></script>
     </body>
 </html>

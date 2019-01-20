@@ -9,20 +9,20 @@
 
     <body>
         <header>
-            <div id='headerLogo'></div>
+            <div class='headerLogo'></div>
             <div>
                 <p id='infoName'></p>
                 <p id='infoUsername'></p>
-                <button id='close' onclick='cerrarSesion()'>Cerrar Sesión</button>
+                <button class='close' onclick='to(1)'>Cerrar Sesión</button>
             </div>
         </header>
 
         <div>
-            <p id='searchTag'>EIG Servicios directos</p>
-            <p id='categorySearch'>Puedes contarnos tu propio caso, nosotros te ayudaremos!</p>
+            <p class='searchTag'>EIG Servicios directos</p>
+            <p class='categorySearch'>Puedes contarnos tu propio caso, nosotros te ayudaremos!</p>
 
-            <div id='categories'>
-                <div id='c9' class='category' onclick="to(1)"></div>
+            <div class='categories'>
+                <div id='c9' class='category' onclick="to(2)"></div>
             </div>
 
             <div>
@@ -51,8 +51,6 @@
         </div>
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/5.7.3/firebase-app.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/5.7.3/firebase-storage.js"></script>
-        <script src='JS/index.js'></script>
+        <script src='js/menu5.js'></script>
     </body>
 </html>

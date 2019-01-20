@@ -13,7 +13,7 @@
           <ScalarProperty Name="City" ColumnName="City" />
           <ScalarProperty Name="Address" ColumnName="Address" />
           <ScalarProperty Name="Avatar" ColumnName="Avatar" />
-          <ScalarProperty Name="IdUser" ColumnName="IdUser" />
+          <ScalarProperty Name="IdPackage" ColumnName="IdPackage" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -74,6 +74,20 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Packages">
+      <EntityTypeMapping TypeName="bdEIGModel.Package">
+        <MappingFragment StoreEntitySet="Package">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Linea" ColumnName="Linea" />
+          <ScalarProperty Name="Producto" ColumnName="Producto" />
+          <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+          <ScalarProperty Name="FechaCompra" ColumnName="FechaCompra" />
+          <ScalarProperty Name="TiempoCubrimiento" ColumnName="TiempoCubrimiento" />
+          <ScalarProperty Name="Precio" ColumnName="Precio" />
+          <ScalarProperty Name="IdUser" ColumnName="IdUser" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="People">
       <EntityTypeMapping TypeName="bdEIGModel.Person">
         <MappingFragment StoreEntitySet="Person">
@@ -105,7 +119,7 @@
           <ScalarProperty Name="Address" ColumnName="Address" />
           <ScalarProperty Name="Date" ColumnName="Date" />
           <ScalarProperty Name="Avatar" ColumnName="Avatar" />
-          <ScalarProperty Name="IdUser" ColumnName="IdUser" />
+          <ScalarProperty Name="IdPackage" ColumnName="IdPackage" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

@@ -13,7 +13,7 @@
     <Property Name="City" Type="nvarchar" MaxLength="255" Nullable="false" />
     <Property Name="Address" Type="nvarchar" MaxLength="255" Nullable="false" />
     <Property Name="Avatar" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="IdUser" Type="bigint" Nullable="false" />
+    <Property Name="IdPackage" Type="bigint" Nullable="false" />
   </EntityType>
   <EntityType Name="Case">
     <Key>
@@ -67,6 +67,19 @@
     <Property Name="Active" Type="bit" Nullable="false" />
     <Property Name="IdUser" Type="bigint" Nullable="false" />
   </EntityType>
+  <EntityType Name="Package">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Linea" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="Producto" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="Cantidad" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="FechaCompra" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="TiempoCubrimiento" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="Precio" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="IdUser" Type="bigint" Nullable="false" />
+  </EntityType>
   <EntityType Name="Person">
     <Key>
       <PropertyRef Name="Id" />
@@ -98,7 +111,7 @@
     <Property Name="Address" Type="nvarchar" MaxLength="255" Nullable="false" />
     <Property Name="Date" Type="nvarchar" MaxLength="255" Nullable="false" />
     <Property Name="Avatar" Type="nvarchar" MaxLength="255" Nullable="false" />
-    <Property Name="IdUser" Type="bigint" Nullable="false" />
+    <Property Name="IdPackage" Type="bigint" Nullable="false" />
   </EntityType>
   <EntityType Name="ScoreBusiness">
     <Key>
@@ -186,17 +199,17 @@
     <Property Name="Date" Type="nvarchar" MaxLength="255" Nullable="false" />
     <Property Name="IdProduct" Type="bigint" Nullable="false" />
   </EntityType>
-  <Association Name="FK_Business_User">
-    <End Role="User" Type="Self.User" Multiplicity="1">
+  <Association Name="FK_Business_Package">
+    <End Role="Package" Type="Self.Package" Multiplicity="1">
       <OnDelete Action="Cascade" />
     </End>
     <End Role="Business" Type="Self.Business" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="User">
+      <Principal Role="Package">
         <PropertyRef Name="Id" />
       </Principal>
       <Dependent Role="Business">
-        <PropertyRef Name="IdUser" />
+        <PropertyRef Name="IdPackage" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -270,6 +283,20 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_Package_User">
+    <End Role="User" Type="Self.User" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Package" Type="Self.Package" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Package">
+        <PropertyRef Name="IdUser" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_Person_User">
     <End Role="User" Type="Self.User" Multiplicity="1">
       <OnDelete Action="Cascade" />
@@ -284,17 +311,17 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Product_User">
-    <End Role="User" Type="Self.User" Multiplicity="1">
+  <Association Name="FK_Product_Package">
+    <End Role="Package" Type="Self.Package" Multiplicity="1">
       <OnDelete Action="Cascade" />
     </End>
     <End Role="Product" Type="Self.Product" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="User">
+      <Principal Role="Package">
         <PropertyRef Name="Id" />
       </Principal>
       <Dependent Role="Product">
-        <PropertyRef Name="IdUser" />
+        <PropertyRef Name="IdPackage" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -431,6 +458,7 @@
     <EntitySet Name="FileJobApplication" EntityType="Self.FileJobApplication" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="JobApplication" EntityType="Self.JobApplication" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="OtherPerson" EntityType="Self.OtherPerson" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Package" EntityType="Self.Package" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Person" EntityType="Self.Person" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ScoreBusiness" EntityType="Self.ScoreBusiness" Schema="dbo" store:Type="Tables" />
@@ -443,8 +471,8 @@
     <EntitySet Name="VisitOtherPerson" EntityType="Self.VisitOtherPerson" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="VisitPerson" EntityType="Self.VisitPerson" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="VisitProduct" EntityType="Self.VisitProduct" Schema="dbo" store:Type="Tables" />
-    <AssociationSet Name="FK_Business_User" Association="Self.FK_Business_User">
-      <End Role="User" EntitySet="User" />
+    <AssociationSet Name="FK_Business_Package" Association="Self.FK_Business_Package">
+      <End Role="Package" EntitySet="Package" />
       <End Role="Business" EntitySet="Business" />
     </AssociationSet>
     <AssociationSet Name="FK_Case_User" Association="Self.FK_Case_User">
@@ -467,12 +495,16 @@
       <End Role="User" EntitySet="User" />
       <End Role="OtherPerson" EntitySet="OtherPerson" />
     </AssociationSet>
+    <AssociationSet Name="FK_Package_User" Association="Self.FK_Package_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="Package" EntitySet="Package" />
+    </AssociationSet>
     <AssociationSet Name="FK_Person_User" Association="Self.FK_Person_User">
       <End Role="User" EntitySet="User" />
       <End Role="Person" EntitySet="Person" />
     </AssociationSet>
-    <AssociationSet Name="FK_Product_User" Association="Self.FK_Product_User">
-      <End Role="User" EntitySet="User" />
+    <AssociationSet Name="FK_Product_Package" Association="Self.FK_Product_Package">
+      <End Role="Package" EntitySet="Package" />
       <End Role="Product" EntitySet="Product" />
     </AssociationSet>
     <AssociationSet Name="FK_ScoreBusiness_Business" Association="Self.FK_ScoreBusiness_Business">
