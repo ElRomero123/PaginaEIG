@@ -103,6 +103,10 @@ function to(num)
         case 2:
         location.href = 'productPanel.html';
         break;
+        case 3:
+        location.href = 'businessPanel.html';
+        localStorage.setItem('Llamado', 2);
+        break;
         default:
         location.href = 'menu.html';
     }
