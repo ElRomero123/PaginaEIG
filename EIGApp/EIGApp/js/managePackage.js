@@ -89,27 +89,10 @@ function to(num)
         localStorage.clear();
         location.href = 'index.html';
         break;
+        case 2:
+        location.href = 'menu3.html';
+        break;
         default:
-        
-        //alert(llamado);
-    
-        switch(llamado)
-        {
-            case 1:
-            alert("Primera llamado");
-            //location.href = 'menu3.html';
-            break;
-            case 2:
-            alert("Segundo llamado");
-            //location.href = 'productos.html';
-            break;
-            default:
-            /*
-            $('#bannerState').css('background','red');
-            $('#bannerState').css('color','white');
-            $('#bannerState').text('Tu paquete ya ha sido adquirido!');
-            */
-           alert("Tercer llamado");
-        }
+        location.href = 'productos.html';
     }
 }
