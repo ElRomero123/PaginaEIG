@@ -96,6 +96,7 @@
     <Content Include="addProduct.html" />
     <Content Include="addProductC.html" />
     <Content Include="businessPanel.html" />
+    <Content Include="businessPanelC.html" />
     <Content Include="confirm.html" />
     <Content Include="css\index.css" />
     <Content Include="error.html" />
@@ -130,6 +131,7 @@
     <Content Include="js\addProduct.js" />
     <Content Include="js\addProductC.js" />
     <Content Include="js\businessPanel.js" />
+    <Content Include="js\businessPanelC.js" />
     <Content Include="js\confirm.js" />
     <Content Include="js\error.js" />
     <Content Include="js\managePackage.js" />
@@ -146,6 +148,7 @@
     <Content Include="js\personPanel.js" />
     <Content Include="js\personPanelC.js" />
     <Content Include="js\productPanel.js" />
+    <Content Include="js\productPanelC.js" />
     <Content Include="js\register.js" />
     <Content Include="managePackage.html" />
     <Content Include="ORM\BD.Context.tt">
@@ -164,6 +167,7 @@
     <Content Include="personPanelC.html" />
     <Content Include="productos.html" />
     <Content Include="productPanel.html" />
+    <Content Include="productPanelC.html" />
     <Content Include="register.html" />
     <Content Include="menu.html" />
     <Content Include="menu5.html" />
