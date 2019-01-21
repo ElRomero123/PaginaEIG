@@ -99,14 +99,5 @@ function toCreate(e)
 {
     var kindP = document.getElementById("k" + e.id);
     localStorage.setItem('IdPackage', e.id);
-
-    if(kindP.innerHTML)
-    {
-
-    }
-
-    else
-    {
-        location.href = 'addBusiness.html';
-    } 
+    localStorage.setItem('Kind', kindP.innerHTML);
 }

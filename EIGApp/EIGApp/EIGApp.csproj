@@ -91,6 +91,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="addBusiness.html" />
+    <Content Include="addProduct.html" />
     <Content Include="businessPanel.html" />
     <Content Include="confirm.html" />
     <Content Include="css\index.css" />
@@ -120,6 +122,7 @@
     <Content Include="img\menu\9R.png" />
     <Content Include="img\t.png" />
     <Content Include="img\y.png" />
+    <Content Include="js\addBusiness.js" />
     <Content Include="js\businessPanel.js" />
     <Content Include="js\confirm.js" />
     <Content Include="js\error.js" />
