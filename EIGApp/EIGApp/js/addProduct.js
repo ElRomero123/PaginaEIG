@@ -53,6 +53,8 @@ function createProduct()
                 address: $('#campoAddress').val(),
                 date: $('#campoDate').val(),
                 avatar: '',
+                ciprin: 0,
+                active: 0,
                 idPackage: localStorage.getItem('IdPackage')
             };
         

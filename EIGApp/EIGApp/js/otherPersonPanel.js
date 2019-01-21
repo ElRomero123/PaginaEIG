@@ -49,6 +49,8 @@ function createOtherPerson()
                 city:                 $('#campoCity').val(),
                 address:              $('#campoAddress').val(),
                 avatar:               '',
+                ciprin:               0,
+                active:               0,
                 approved:             false,
                 idUser:               localStorage.getItem('User')
             };

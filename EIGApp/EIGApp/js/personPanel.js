@@ -48,11 +48,11 @@ function createPerson()
                 city: $('#campoCity').val(),
                 address: $('#campoAddress').val(),
                 avatar: '',
-                approved: false,
+                ciprin: 0,
+                active: 0,
                 idUser: localStorage.getItem('User')
             };
         
-    
             $('#createPerson').css('background','yellow');
             $('#createPerson').css('border','2px solid yellow');
             $('#createPerson').css('color','black');
