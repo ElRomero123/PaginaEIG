@@ -176,6 +176,7 @@
     <Compile Include="Controllers\ParametroBusinessController.cs" />
     <Compile Include="Controllers\ParametroOtherPersonController.cs" />
     <Compile Include="Controllers\ParametroPersonController.cs" />
+    <Compile Include="Controllers\ParametroProductController.cs" />
     <Compile Include="Controllers\PersonController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\SuggestionController.cs" />

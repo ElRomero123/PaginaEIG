@@ -1,4 +1,5 @@
 window.onload = initUser;
+var AvatarBusiness;
 
 function initUser()
 {
@@ -33,6 +34,8 @@ function to(num)
 
 function createBusiness()
 {
+    AvatarBusiness = document.getElementById('avatarBusiness').files[0];
+
     if(validateText())
     {
         if(validateAvatar())
@@ -76,7 +79,7 @@ function createBusiness()
         {
             $('#createBusiness').css('background','red');
             $('#createBusiness').css('border','2px solid red');
-            $('#createBusiness').text('NO existe FOTO de LOGO!');
+            $('#createBusiness').text('No has seleccionado una FOTO!');
         }
     }
 
@@ -103,7 +106,6 @@ function validateText()
 
 function validateAvatar()
 {
-    var AvatarBusiness = document.getElementById('fileBrowser').files[0];
     return AvatarBusiness != null;
 }
 
@@ -122,7 +124,6 @@ function loadAvatar(num)
     firebase.initializeApp(config);
 
     var storageRef     = firebase.storage().ref();
-    var AvatarBusiness = document.getElementById('fileBrowser').files[0];
     var uploadTask = storageRef.child('avatar/' + 'B' + num).put(AvatarBusiness);
 
     uploadTask.on

@@ -1,4 +1,5 @@
 window.onload = initUser;
+var AvatarProduct;
 
 function initUser()
 {
@@ -31,36 +32,41 @@ function to(num)
     }
 }
 
-function createBusiness()
+function createProduct()
 {
+    AvatarProduct = document.getElementById('avatarProduct').files[0];
+
     if(validateText())
     {
         if(validateAvatar())
         {
-            var negocio =
+            var producto =
             {
                 name: $('#campoName').val(),
-                specialism: $('#campoSpecialism').val(),
-                specialismDescription: $('#campoSpecialismDescription').val(),
-                webPage: $('#campoWebPage').val(),
-                phone: $('#campoPhone').val(),
+                type: $('#campoType').val(),
+                typeDescription: $('#campoTypeDescription').val(),
+                attendantName: $('#campoAttendantName').val(),
+                attendantWebPage: $('#campoAttendantWebPage').val(),
+                attendantEmail: $('#campoAttendantEmail').val(),
+                attendantPhone: $('#campoAttendantPhone').val(),
                 city: $('#campoCity').val(),
                 address: $('#campoAddress').val(),
+                date: $('#campoDate').val(),
                 avatar: '',
                 idPackage: localStorage.getItem('IdPackage')
             };
         
-            $('#createBusiness').css('background','yellow');
-            $('#createBusiness').css('border','2px solid yellow');
-            $('#createBusiness').css('color','black');
-            $('#createBusiness').text('Agregando negocio ...');
+            $('#createProduct').css('background','yellow');
+            $('#createProduct').css('border','2px solid yellow');
+            $('#createProduct').css('color','black');
+            $('#createProduct').text('Agregando producto ...');
     
             $.ajax
             (
                 {
-                    url: '../api/business',
+                    url: '../api/product',
                     type: 'POST',
-                    data: JSON.stringify(negocio),
+                    data: JSON.stringify(producto),
                     contentType: "application/json;charset=utf-8",
     
                     success:
@@ -74,37 +80,39 @@ function createBusiness()
     
         else
         {
-            $('#createBusiness').css('background','red');
-            $('#createBusiness').css('border','2px solid red');
-            $('#createBusiness').text('NO existe FOTO de LOGO!');
+            $('#createProduct').css('background','red');
+            $('#createProduct').css('border','2px solid red');
+            $('#createProduct').text('No has seleccionado una FOTO!');
         }
     }
 
     else
     {
-        $('#createBusiness').css('background','red');
-        $('#createBusiness').css('border','2px solid red');
-        $('#createBusiness').text('Entradas invalidas!');
+        $('#createProduct').css('background','red');
+        $('#createProduct').css('border','2px solid red');
+        $('#createProduct').text('Entradas invalidas!');
     }
 }
 
 function validateText()
 {
     var c1 = $('#campoName').val().length >= 8;
-    var c2 = $('#campoSpecialism').val().length >= 8;
-    var c3 = $('#campoSpecialismDescription').val().length >= 8;
-    var c4 = $('#campoWebPage').val().length >= 8;
-    var c5 = $('#campoPhone').val().length >= 8;
-    var c6 = $('#campoCity').val().length >= 8;
-    var c7 = $('#campoAddress').val().length >= 8;
+    var c2 = $('#campoType').val().length >= 8;
+    var c3 = $('#campoTypeDescription').val().length >= 8;
+    var c4 = $('#campoAttendantName').val().length >= 8;
+    var c5 = $('#campoAttendantWebPage').val().length >= 8;
+    var c6 = $('#campoAttendantEmail').val().length >= 8;
+    var c7 = $('#campoAttendantPhone').val().length >= 8;
+    var c8 = $('#campoCity').val().length >= 8;
+    var c9 = $('#campoAddress').val().length >= 8;
+    var c10 = $('#campoDate').val().length >= 8;
 
-    return c1 && c2 && c3 && c4 && c5 && c6 && c7;
+    return c1 && c2 && c3 && c4 && c5 && c6 && c7 && c8 && c9 && c10;
 }
 
 function validateAvatar()
 {
-    var AvatarBusiness = document.getElementById('fileBrowser').files[0];
-    return AvatarBusiness != null;
+    return AvatarProduct != null;
 }
 
 function loadAvatar(num)
@@ -122,8 +130,7 @@ function loadAvatar(num)
     firebase.initializeApp(config);
 
     var storageRef     = firebase.storage().ref();
-    var AvatarBusiness = document.getElementById('fileBrowser').files[0];
-    var uploadTask = storageRef.child('avatar/' + 'B' + num).put(AvatarBusiness);
+    var uploadTask = storageRef.child('avatar/' + 'PR' + num).put(AvatarProduct);
 
     uploadTask.on
     (   
@@ -157,7 +164,7 @@ function putAvatar(num, downloadURL)
     $.ajax
     (
         {
-            url: '../api/parametroBusiness',
+            url: '../api/parametroProduct',
             type: 'POST',
             data: JSON.stringify(parametrosPutAvatar),
             contentType: "application/json;charset=utf-8",
@@ -167,10 +174,10 @@ function putAvatar(num, downloadURL)
             {
                 if(data)
                 {
-                    $('#createBusiness').css('background','darkgreen');
-                    $('#createBusiness').css('border','2px solid darkgreen');
-                    $('#createBusiness').css('color','white');
-                    $('#createBusiness').text('Perfil ingresado con éxito!');    
+                    $('#createProduct').css('background','darkgreen');
+                    $('#createProduct').css('border','2px solid darkgreen');
+                    $('#createProduct').css('color','white');
+                    $('#createProduct').text('Producto agregado!');    
                     setTimeout(recargar, 2500);
                 }
             }
@@ -178,7 +185,7 @@ function putAvatar(num, downloadURL)
     );
 }
 
-document.getElementById("fileBrowser").onchange = 
+document.getElementById('avatarProduct').onchange = 
 function(e) 
 {
     let reader = new FileReader();  
@@ -188,12 +195,8 @@ function(e)
     {
         let preview = document.getElementById('preview'),
         image = document.createElement('img');
-
         image.src = reader.result;
-
         image.id = 1;
-        var imagen = $('#1');
-
         preview.innerHTML = '';
         preview.append(image);
     };
