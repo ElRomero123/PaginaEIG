@@ -42,13 +42,19 @@ function to(num)
         break;
         default:
         var llamado = localStorage.getItem('Llamado');
-        if(llamado == 1)
+        switch(llamado)
         {
+            case 1:
             location.href = 'businessPanel.html';
-        }
-        else
-        {
+            break;
+            case 2:
             location.href = 'productPanel.html';
+            break;
+            case 3:
+            location.href = 'businessPanelC.html';
+            break;
+            default:
+            location.href = 'productPanelC.html';
         }
     }
 }
@@ -70,7 +76,6 @@ function addPackage()
         precio: $('#campoPrecio').val(),
         kind: localStorage.getItem('Llamado'),
         idUser: localStorage.getItem('User')
-
     };
 
     $.ajax
