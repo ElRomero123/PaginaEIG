@@ -51,7 +51,7 @@ function loadPackages()
 
                         for(var i = 0; i < data.length; i++)
                         {
-                            cadena += "<div id='" + i + "' class='result' onclick='toCreate(this)'> <div id='text'> <p id='pf1'>" + data[i].Linea + "</p> <p id='pf2'>" + data[i].Producto + "</p> <p id='pf3'>" + data[i].Cantidad + "</p> <p id='pf4'>" + data[i].FechaCompra + "</p> <p id='pf4'>" + data[i].TiempoCubrimiento + "</p> <p id='pf4'>" + data[i].Precio + "</p> <p hidden id='pf4'>" + data[i].Kind + "</p> </div> </div>";  
+                            cadena += "<div id='" + data[i].Id + "' class='result' onclick='toCreate(this)'> <div id='text'> <p id='pf1'>" + data[i].Linea + "</p> <p id='pf2'>" + data[i].Producto + "</p> <p id='pf3'>" + data[i].Cantidad + "</p> <p id='pf4'>" + data[i].FechaCompra + "</p> <p id='pf4'>" + data[i].TiempoCubrimiento + "</p> <p id='pf4'>" + data[i].Precio + "</p> <p hidden id='pf4'>" + data[i].Kind + "</p> </div> </div>";  
                         }
                         
                         $('#listResults').append(cadena);
@@ -99,5 +99,6 @@ function to(num)
 
 function toCreate(e)
 {
-    alert(e.id);
+    localStorage.setItem('IdPackage', e.id);
+    location.href = 'addBusiness.html';
 }
