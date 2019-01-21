@@ -31,11 +31,11 @@ function to(num)
 
 function confirm(cantidad, cubrimiento, precio)
 {
-    location.href = 'confirm.html';
+    location.href = 'confirmC.html';
     localStorage.setItem('Linea', 'Empresas de seguridad');
-    localStorage.setItem('Producto', 'Paquete de Afiliación');
+    localStorage.setItem('Producto', 'Paquete de Afiliación - CIPRIN');
     localStorage.setItem('Cantidad', cantidad);
     localStorage.setItem('Cubrimiento', cubrimiento);
     localStorage.setItem('Precio', precio);
-    localStorage.setItem('Llamado', 3);
+    localStorage.setItem('Llamado', 1);
 }
