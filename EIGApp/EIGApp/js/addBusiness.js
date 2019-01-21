@@ -171,7 +171,7 @@ function putAvatar(num, downloadURL)
                     $('#createBusiness').css('background','darkgreen');
                     $('#createBusiness').css('border','2px solid darkgreen');
                     $('#createBusiness').css('color','white');
-                    $('#createBusiness').text('Perfil ingresado con éxito!');    
+                    $('#createBusiness').text('Negocio agregado!');    
                     setTimeout(recargar, 2500);
                 }
             }
