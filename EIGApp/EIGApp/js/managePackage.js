@@ -1,5 +1,4 @@
 window.onload = initUser;
-var llamado;
 
 function initUser()
 {
@@ -18,7 +17,6 @@ function initUser()
         location.href = 'index.html';
     }
 
-    llamado = localStorage.getItem('Llamado');
     loadPackages();
 }
 
