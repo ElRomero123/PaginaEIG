@@ -12,8 +12,8 @@ namespace EIGApp.Controllers
         public M.Product[] Get(string cadena)
         {
             var query = from P in BD.Products
-                        where(P.Name.Contains(cadena) || P.Type.Contains(cadena) || P.TypeDescription.Contains(cadena) || P.AttendantName.Contains(cadena) || P.City.Contains(cadena) || P.Date.Contains(cadena))
-                        select new { P.Name, P.Type, P.TypeDescription, P.AttendantName, P.AttendantPhone, P.AttendantEmail, P.City, P.Address, P.Date, P.Avatar };
+                        where(P.Name.Contains(cadena) || P.TypeDescription.Contains(cadena) || P.AttendantName.Contains(cadena) || P.Date.Contains(cadena))
+                        select new {P.Name, P.Type, P.TypeDescription, P.AttendantName, P.AttendantWebPage, P.AttendantEmail, P.AttendantPhone, P.City, P.Address, P.Date, P.Avatar, P.Ciprin, P.Active};
 
             var lista = query.ToArray();
 
@@ -27,16 +27,18 @@ namespace EIGApp.Controllers
                     Type = lista[i].Type,
                     TypeDescription = lista[i].TypeDescription,
                     AttendantName = lista[i].AttendantName,
-                    AttendantPhone = lista[i].AttendantPhone,
+                    AttendantWebPage = lista[i].AttendantWebPage,
                     AttendantEmail = lista[i].AttendantEmail,
+                    AttendantPhone = lista[i].AttendantPhone,
                     City = lista[i].City,
                     Address = lista[i].Address,
                     Date = lista[i].Date,
-                    Avatar = lista[i].Avatar
+                    Avatar = lista[i].Avatar,
+                    Ciprin = lista[i].Ciprin,
+                    Active = lista[i].Active
                 };
 
                 arrayProducts[i] = temp;
-
             }
 
             return arrayProducts;
@@ -67,3 +69,4 @@ namespace EIGApp.Controllers
         }
     }
 }
+ 

@@ -14,6 +14,8 @@
         public string Address { get; set; }
         public string Date { get; set; }
         public string Avatar { get; set; }
+        public int Ciprin { get; set; }
+        public int Active { get; set; }
         public long IdPackage { get; set; }
     }
 }

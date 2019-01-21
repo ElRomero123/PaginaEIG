@@ -140,16 +140,6 @@
     <Content Include="js\productPanel.js" />
     <Content Include="js\register.js" />
     <Content Include="managePackage.html" />
-    <Content Include="ORM\BD.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>BD.edmx</DependentUpon>
-      <LastGenOutput>BD.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="ORM\BD.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>BD.edmx</DependentUpon>
-      <LastGenOutput>BD.cs</LastGenOutput>
-    </Content>
     <Content Include="otherPersonPanel.html" />
     <Content Include="personPanel.html" />
     <Content Include="productos.html" />
@@ -194,78 +184,6 @@
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\Suggestion.cs" />
     <Compile Include="Models\User.cs" />
-    <Compile Include="ORM\BD.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BD.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ORM\BD.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BD.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ORM\BD.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BD.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="ORM\Business.cs">
-      <DependentUpon>BD.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ORM\Case.cs">
-      <DependentUpon>BD.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ORM\FileCase.cs">
-      <DependentUpon>BD.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ORM\FileJobApplication.cs">
-      <DependentUpon>BD.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ORM\JobApplication.cs">
-      <DependentUpon>BD.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ORM\OtherPerson.cs">
-      <DependentUpon>BD.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ORM\Package.cs">
-      <DependentUpon>BD.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ORM\Person.cs">
-      <DependentUpon>BD.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ORM\Product.cs">
-      <DependentUpon>BD.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ORM\ScoreBusiness.cs">
-      <DependentUpon>BD.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ORM\ScoreOtherPerson.cs">
-      <DependentUpon>BD.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ORM\ScorePerson.cs">
-      <DependentUpon>BD.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ORM\ScoreProduct.cs">
-      <DependentUpon>BD.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ORM\Suggestion.cs">
-      <DependentUpon>BD.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ORM\User.cs">
-      <DependentUpon>BD.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ORM\VisitBusiness.cs">
-      <DependentUpon>BD.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ORM\VisitOtherPerson.cs">
-      <DependentUpon>BD.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ORM\VisitPerson.cs">
-      <DependentUpon>BD.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ORM\VisitProduct.cs">
-      <DependentUpon>BD.tt</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -273,13 +191,6 @@
     <Content Include="fonts\acephimere.otf" />
     <Content Include="fonts\acephimereThinItalic.otf" />
     <Content Include="fonts\acephimereThin.otf" />
-    <EntityDeploy Include="ORM\BD.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>BD.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="ORM\BD.edmx.diagram">
-      <DependentUpon>BD.edmx</DependentUpon>
-    </Content>
     <None Include="packages.config" />
     <Content Include="sass\index.scss" />
     <None Include="Properties\PublishProfiles\eliteintelligence - FTP.pubxml" />

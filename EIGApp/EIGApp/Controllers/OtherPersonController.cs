@@ -12,8 +12,8 @@ namespace EIGApp.Controllers
         public M.OtherPerson[] Get(string cadena)
         {
             var query = from OP in BD.OtherPersons
-                        where (OP.Name.Contains(cadena) || OP.Profesion.Contains(cadena) || OP.ProfesionDescription.Contains(cadena) || OP.City.Contains(cadena))
-                        select new { OP.Name, OP.Profesion, OP.ProfesionDescription, OP.Email, OP.Phone, OP.City, OP.Address, OP.Avatar };
+                        where (OP.Name.Contains(cadena) || OP.Profesion.Contains(cadena) || OP.ProfesionDescription.Contains(cadena))
+                        select new {OP.Name, OP.Profesion, OP.ProfesionDescription, OP.Email, OP.Phone, OP.City, OP.Address, OP.Avatar, OP.Ciprin, OP.Active};
 
             var lista = query.ToArray();
 
@@ -30,7 +30,9 @@ namespace EIGApp.Controllers
                     Phone = lista[i].Phone,
                     City = lista[i].City,
                     Address = lista[i].Address,
-                    Avatar = lista[i].Avatar
+                    Avatar = lista[i].Avatar,
+                    Ciprin = lista[i].Ciprin,
+                    Active = lista[i].Active
                 };
 
                 arrayOtherPersons[i] = temp;

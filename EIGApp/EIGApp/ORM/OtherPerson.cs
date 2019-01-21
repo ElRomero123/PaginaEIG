@@ -30,7 +30,8 @@ namespace EIGApp.ORM
         public string City { get; set; }
         public string Address { get; set; }
         public string Avatar { get; set; }
-        public bool Active { get; set; }
+        public int Ciprin { get; set; }
+        public int Active { get; set; }
         public long IdUser { get; set; }
     
         public virtual User User { get; set; }
