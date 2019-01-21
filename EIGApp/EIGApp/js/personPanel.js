@@ -1,4 +1,5 @@
 window.onload = initUser;
+var PersonAvatar;
 
 function initUser()
 {
@@ -32,6 +33,8 @@ function to(num)
 
 function createPerson()
 {
+    PersonAvatar = document.getElementById('fileBrowser').files[0];
+
     if(validateText())
     {
         if(validateAvatar())
@@ -53,7 +56,7 @@ function createPerson()
             $('#createPerson').css('background','yellow');
             $('#createPerson').css('border','2px solid yellow');
             $('#createPerson').css('color','black');
-            $('#createPerson').text('Creando perfil de usuario...');
+            $('#createPerson').text('Agregando persona ...');
     
             $.ajax
             (
@@ -76,7 +79,7 @@ function createPerson()
         {
             $('#createPerson').css('background','red');
             $('#createPerson').css('border','2px solid red');
-            $('#createPerson').text('NO existe foto de usuario!');
+            $('#createPerson').text('No has seleccionado una FOTO!');
         }
     }
 
@@ -102,12 +105,8 @@ function loadAvatar(num)
     
     firebase.initializeApp(config);
 
-    var campoAvatarPerson = document.getElementById('fileBrowser');
-    var storageRef        = firebase.storage().ref();
-    
-    var AvatarPerson = campoAvatarPerson.files[0];
-
-    var uploadTask = storageRef.child('avatar/' + 'P' + num).put(AvatarPerson);
+    var storageRef = firebase.storage().ref();
+    var uploadTask = storageRef.child('avatar/' + 'P' + num).put(PersonAvatar);
 
     uploadTask.on
     (   
@@ -154,8 +153,7 @@ function putAvatar(num, downloadURL)
                     $('#createPerson').css('background','darkgreen');
                     $('#createPerson').css('border','2px solid darkgreen');
                     $('#createPerson').css('color','white');
-                    $('#createPerson').text('Perfil ingresado con éxito!');
-                    
+                    $('#createPerson').text('Persona agregada!');
                     setTimeout(recargar, 2500);
                 }
             }
@@ -163,7 +161,7 @@ function putAvatar(num, downloadURL)
     );
 }
 
-document.getElementById("fileBrowser").onchange = 
+document.getElementById('personAvatar').onchange = 
 function(e) 
 {
     let reader = new FileReader();
@@ -198,10 +196,7 @@ function validateText()
 
 function validateAvatar()
 {
-    var campoAvatarPerson = document.getElementById('fileBrowser');
-    var AvatarPerson = campoAvatarPerson.files[0];
-
-    return AvatarPerson != null;
+    return PersonAvatar != null;
 }
 
 function recargar()
