@@ -25,7 +25,7 @@ function to(num)
         localStorage.clear();
         location.href = 'index.html';
         break;
-        default: location.href = 'menu3.html';
+        default: location.href = 'menu7.html';
     }
 }
 
@@ -37,5 +37,5 @@ function confirm(cantidad, cubrimiento, precio)
     localStorage.setItem('Cantidad', cantidad);
     localStorage.setItem('Cubrimiento', cubrimiento);
     localStorage.setItem('Precio', precio);
-    localStorage.setItem('Llamado', 1);
+    localStorage.setItem('Llamado', 3);
 }
