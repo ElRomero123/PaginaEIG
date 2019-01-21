@@ -4,26 +4,26 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="48b3250c5e2040599889e58c60dabed4" Name="Diagram1">
-        <EntityTypeShape EntityType="bdEIGModel.Business" Width="1.5" PointX="5.25" PointY="14" IsExpanded="true" />
+      <Diagram DiagramId="240914b43bdc44b2abe14d540facce20" Name="Diagram1">
+        <EntityTypeShape EntityType="bdEIGModel.Business" Width="1.5" PointX="5.25" PointY="13.75" IsExpanded="true" />
         <EntityTypeShape EntityType="bdEIGModel.Case" Width="1.5" PointX="3" PointY="2.25" IsExpanded="true" />
         <EntityTypeShape EntityType="bdEIGModel.FileCase" Width="1.5" PointX="5.25" PointY="2.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="bdEIGModel.FileJobApplication" Width="1.5" PointX="5.25" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="bdEIGModel.FileJobApplication" Width="1.5" PointX="5.25" PointY="5.625" IsExpanded="true" />
         <EntityTypeShape EntityType="bdEIGModel.JobApplication" Width="1.5" PointX="3" PointY="5.125" IsExpanded="true" />
         <EntityTypeShape EntityType="bdEIGModel.OtherPerson" Width="1.5" PointX="3" PointY="8.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="bdEIGModel.Package" Width="1.5" PointX="3" PointY="16.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="bdEIGModel.Package" Width="1.5" PointX="3" PointY="16.625" IsExpanded="true" />
         <EntityTypeShape EntityType="bdEIGModel.Person" Width="1.5" PointX="3" PointY="24.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="bdEIGModel.Product" Width="1.5" PointX="5.25" PointY="18.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="bdEIGModel.ScoreBusiness" Width="1.5" PointX="7.5" PointY="13.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="bdEIGModel.Product" Width="1.5" PointX="5.25" PointY="18.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="bdEIGModel.ScoreBusiness" Width="1.5" PointX="7.5" PointY="13.625" IsExpanded="true" />
         <EntityTypeShape EntityType="bdEIGModel.ScoreOtherPerson" Width="1.5" PointX="5.25" PointY="8.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="bdEIGModel.ScorePerson" Width="1.5" PointX="5.25" PointY="23.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="bdEIGModel.ScoreProduct" Width="1.5" PointX="7.5" PointY="18.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="bdEIGModel.Suggestion" Width="1.5" PointX="3" PointY="28.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="bdEIGModel.User" Width="1.5" PointX="0.75" PointY="14.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="bdEIGModel.ScorePerson" Width="1.5" PointX="5.25" PointY="23.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="bdEIGModel.ScoreProduct" Width="1.5" PointX="7.5" PointY="18.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="bdEIGModel.Suggestion" Width="1.5" PointX="3" PointY="29" IsExpanded="true" />
+        <EntityTypeShape EntityType="bdEIGModel.User" Width="1.5" PointX="0.75" PointY="14.75" IsExpanded="true" />
         <EntityTypeShape EntityType="bdEIGModel.VisitBusiness" Width="1.5" PointX="7.5" PointY="16.125" IsExpanded="true" />
         <EntityTypeShape EntityType="bdEIGModel.VisitOtherPerson" Width="1.5" PointX="5.25" PointY="11" IsExpanded="true" />
-        <EntityTypeShape EntityType="bdEIGModel.VisitPerson" Width="1.5" PointX="5.25" PointY="26.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="bdEIGModel.VisitProduct" Width="1.5" PointX="7.5" PointY="21.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="bdEIGModel.VisitPerson" Width="1.5" PointX="5.25" PointY="26.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="bdEIGModel.VisitProduct" Width="1.5" PointX="7.5" PointY="21.25" IsExpanded="true" />
         <AssociationConnector Association="bdEIGModel.FK_Business_Package" ManuallyRouted="false" />
         <AssociationConnector Association="bdEIGModel.FK_ScoreBusiness_Business" ManuallyRouted="false" />
         <AssociationConnector Association="bdEIGModel.FK_VisitBusiness_Business" ManuallyRouted="false" />

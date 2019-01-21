@@ -13,6 +13,8 @@
     <Property Name="City" Type="nvarchar" MaxLength="255" Nullable="false" />
     <Property Name="Address" Type="nvarchar" MaxLength="255" Nullable="false" />
     <Property Name="Avatar" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Ciprin" Type="int" Nullable="false" />
+    <Property Name="Active" Type="int" Nullable="false" />
     <Property Name="IdPackage" Type="bigint" Nullable="false" />
   </EntityType>
   <EntityType Name="Case">
@@ -64,7 +66,8 @@
     <Property Name="City" Type="nvarchar" MaxLength="255" Nullable="false" />
     <Property Name="Address" Type="nvarchar" MaxLength="255" Nullable="false" />
     <Property Name="Avatar" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Active" Type="bit" Nullable="false" />
+    <Property Name="Ciprin" Type="int" Nullable="false" />
+    <Property Name="Active" Type="int" Nullable="false" />
     <Property Name="IdUser" Type="bigint" Nullable="false" />
   </EntityType>
   <EntityType Name="Package">
@@ -78,6 +81,7 @@
     <Property Name="FechaCompra" Type="nvarchar" MaxLength="255" Nullable="false" />
     <Property Name="TiempoCubrimiento" Type="nvarchar" MaxLength="255" Nullable="false" />
     <Property Name="Precio" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="Kind" Type="int" Nullable="false" />
     <Property Name="IdUser" Type="bigint" Nullable="false" />
   </EntityType>
   <EntityType Name="Person">
@@ -92,7 +96,8 @@
     <Property Name="City" Type="nvarchar" MaxLength="255" Nullable="false" />
     <Property Name="Address" Type="nvarchar" MaxLength="255" Nullable="false" />
     <Property Name="Avatar" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Active" Type="bit" Nullable="false" />
+    <Property Name="Ciprin" Type="int" Nullable="false" />
+    <Property Name="Active" Type="int" Nullable="false" />
     <Property Name="IdUser" Type="bigint" Nullable="false" />
   </EntityType>
   <EntityType Name="Product">
@@ -110,7 +115,9 @@
     <Property Name="City" Type="nvarchar" MaxLength="255" Nullable="false" />
     <Property Name="Address" Type="nvarchar" MaxLength="255" Nullable="false" />
     <Property Name="Date" Type="nvarchar" MaxLength="255" Nullable="false" />
-    <Property Name="Avatar" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="Avatar" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Ciprin" Type="int" Nullable="false" />
+    <Property Name="Active" Type="int" Nullable="false" />
     <Property Name="IdPackage" Type="bigint" Nullable="false" />
   </EntityType>
   <EntityType Name="ScoreBusiness">

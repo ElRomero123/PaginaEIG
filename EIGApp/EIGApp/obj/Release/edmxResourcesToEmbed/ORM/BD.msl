@@ -13,6 +13,8 @@
           <ScalarProperty Name="City" ColumnName="City" />
           <ScalarProperty Name="Address" ColumnName="Address" />
           <ScalarProperty Name="Avatar" ColumnName="Avatar" />
+          <ScalarProperty Name="Ciprin" ColumnName="Ciprin" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
           <ScalarProperty Name="IdPackage" ColumnName="IdPackage" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -69,6 +71,7 @@
           <ScalarProperty Name="City" ColumnName="City" />
           <ScalarProperty Name="Address" ColumnName="Address" />
           <ScalarProperty Name="Avatar" ColumnName="Avatar" />
+          <ScalarProperty Name="Ciprin" ColumnName="Ciprin" />
           <ScalarProperty Name="Active" ColumnName="Active" />
           <ScalarProperty Name="IdUser" ColumnName="IdUser" />
         </MappingFragment>
@@ -84,6 +87,7 @@
           <ScalarProperty Name="FechaCompra" ColumnName="FechaCompra" />
           <ScalarProperty Name="TiempoCubrimiento" ColumnName="TiempoCubrimiento" />
           <ScalarProperty Name="Precio" ColumnName="Precio" />
+          <ScalarProperty Name="Kind" ColumnName="Kind" />
           <ScalarProperty Name="IdUser" ColumnName="IdUser" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -99,6 +103,7 @@
           <ScalarProperty Name="City" ColumnName="City" />
           <ScalarProperty Name="Address" ColumnName="Address" />
           <ScalarProperty Name="Avatar" ColumnName="Avatar" />
+          <ScalarProperty Name="Ciprin" ColumnName="Ciprin" />
           <ScalarProperty Name="Active" ColumnName="Active" />
           <ScalarProperty Name="IdUser" ColumnName="IdUser" />
         </MappingFragment>
@@ -119,6 +124,8 @@
           <ScalarProperty Name="Address" ColumnName="Address" />
           <ScalarProperty Name="Date" ColumnName="Date" />
           <ScalarProperty Name="Avatar" ColumnName="Avatar" />
+          <ScalarProperty Name="Ciprin" ColumnName="Ciprin" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
           <ScalarProperty Name="IdPackage" ColumnName="IdPackage" />
         </MappingFragment>
       </EntityTypeMapping>

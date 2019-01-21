@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href='css/index.css'>
+        <link rel='icon' href='img/title.ico'>
+        <title>Agregar negocio</title>
+    </head>
+
+    <body>
+        <header>
+            <div class='headerLogo'></div>
+            <div>
+                <p id='infoName'></p>
+                <p id='infoUsername'></p>
+                <button class='close' onclick='to(1)'>Cerrar Sesión</button>
+            </div>
+        </header>
+
+        <div>
+            <p class='searchTag'>Agregar empresa</p>
+            <p class='categorySearch'>Agregar una empresa para el plan seleccionado!</p>
+
+            <div class='categories'>
+                <div id='c9' class='category' onclick="to(2)"></div>
+            </div>
+
+            <div>
+                <p>Nombre/Sucursal del negocio</p>
+                <input type='text' maxlength='50' id='campoName'>
+
+                <p>Especialidad del negocio</p>
+                <input type='text' maxlength="100" id='campoSpecialism'>
+
+                <p>Describa la especialidad del negocio</p>
+                <input type='text' maxlength="80" id='campoSpecialismDescription'>
+
+                <p>Página Web</p>
+                <input type='text' maxlength="80" id='campoWebPage'>
+
+                <p>Número telefónico</p>
+                <input type='number' id='campoPhone'>
+
+                <p>Ciudad</p>
+                <input type='text' maxlength='200' id='campoCity'>
+
+                <p>Dirección</p>
+                <input type='text' maxlength='100' id='campoAddress'>
+            
+                <p>Foto para LOGO de identificación de la empresa!</p>
+                
+                <div>
+                    <input type='file' id='businessAvatar' class='fileBrowser' accept=".jpg,.png">
+                    <p>PREVISUALIZACIÓN: Cuando busquen tu empresa, así te verán.</p>
+                    <div id='preview'></div>
+                </div>
+            
+                <p>Los campos y la FOTO de LOGO serán revisados, se enviará una notificación a su Email!</p>
+
+                <div>
+                    <button id='createBusiness' class='register' onclick='createBusiness()'>Agregar</button>
+                </div> 
+            </div>
+        </div>
+    
+        <script src="https://www.gstatic.com/firebasejs/5.7.3/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/5.7.3/firebase-storage.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src='js/addBusiness.js'></script>
+    </body>
+</html>

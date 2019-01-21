@@ -1,0 +1,80 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href='css/index.css'>
+        <link rel='icon' href='img/title.ico'>
+        <title>Agregar producto</title>
+    </head>
+
+    <body>
+        <header>
+            <div class='headerLogo'></div>
+            <div>
+                <p id='infoName'></p>
+                <p id='infoUsername'></p>
+                <button class='close' onclick='to(1)'>Cerrar Sesión</button>
+            </div>
+        </header>
+
+        <div>
+            <p class='searchTag'>Agregar producto</p>
+            <p class='categorySearch'>Agregar un curso/promoción/evento para el plan seleccionado!</p>
+
+            <div class='categories'>
+                <div id='c9' class='category' onclick="to(2)"></div>
+            </div>
+
+            <div>
+                <p>Nombre del producto</p>
+                <input type='text' maxlength='50' id='campoName'>
+
+                <p>Tipo de producto</p>
+                <input type='text' maxlength="100" id='campoType'>
+
+                <p>Describa el tipo del producto</p>
+                <input type='text' maxlength="80" id='campoTypeDescription'>
+
+                <p>Nombre del responsable</p>
+                <input type='text' maxlength='200' id='campoAttendantName'>
+
+                <p>Página web del responsable</p>
+                <input type='text' maxlength='200' id='campoAttendantWebPage'>
+
+                <p>E-mail del responsable</p>
+                <input type='text' maxlength='100' id='campoAttendantEmail'>
+
+                <p>Número telefónico del responsable</p>
+                <input type='number' id='campoAttendantPhone'>
+
+                <p>Ciudad del Evento/Curso</p>
+                <input type='text' maxlength='100' id='campoCity'>
+
+                <p>Dirección del Evento/Curso</p>
+                <input type='text' maxlength='100' id='campoAddress'>
+
+                <p>Fecha del Evento/Curso</p>
+                <input type='text' maxlength='100' id='campoDate'>
+
+                <p>Foto representativa del Evento/Promoción/Curso</p>
+                <div>
+                    <input type='file' id='productAvatar' class='fileBrowser' accept=".jpg,.png">
+                    <p>PREVISUALIZACIÓN: Cuando busquen tu producto, así lo verán.</p>
+                    <div id='preview'></div>
+                </div>
+            
+                <p>Los campos y la FOTO del producto serán revisados, se enviará una notificación a su E-MAIL!</p>
+
+                <div>
+                    <button id='createProduct' class='register' onclick='createProduct()'>Agregar</button>
+                </div> 
+            </div>
+        </div>
+    
+        <script src="https://www.gstatic.com/firebasejs/5.7.3/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/5.7.3/firebase-storage.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src='js/addProduct.js'></script>
+    </body>
+</html>

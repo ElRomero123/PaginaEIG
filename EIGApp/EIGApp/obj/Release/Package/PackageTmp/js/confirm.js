@@ -16,7 +16,6 @@ function initUser()
             $('#campoLinea').val(linea);
             $('#campoProducto').val(localStorage.getItem('Producto'));
             $('#campoCantidad').val(localStorage.getItem('Cantidad'));
-            $('#campoFechaCompra').val(localStorage.getItem('FechaCompra'));
             $('#campoCubrimiento').val(localStorage.getItem('Cubrimiento'));
             $('#campoPrecio').val(localStorage.getItem('Precio'));
         }
@@ -66,10 +65,12 @@ function addPackage()
         linea: $('#campoLinea').val(),
         producto: $('#campoProducto').val(),
         cantidad: $('#campoCantidad').val(),
-        fechaCompra: $('#campoFechaCompra').val(),
+        fechaCompra: '',
         tiempoCubrimiento: $('#campoCubrimiento').val(),
         precio: $('#campoPrecio').val(),
+        kind: localStorage.getItem('Llamado'),
         idUser: localStorage.getItem('User')
+
     };
 
     $.ajax
@@ -88,7 +89,6 @@ function addPackage()
                     localStorage.removeItem('Linea');
                     localStorage.removeItem('Producto');
                     localStorage.removeItem('Cantidad');
-                    localStorage.removeItem('FechaCompra');
                     localStorage.removeItem('Cubrimiento');
                     localStorage.removeItem('Precio');
                     localStorage.removeItem('Llamado');

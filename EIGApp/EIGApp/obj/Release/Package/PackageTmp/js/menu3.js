@@ -29,7 +29,7 @@ function search()
         $('#bannerState').css('color','black');
         $('#bannerState').text('Buscando ...');
     
-        var criterio = document.getElementById('searchBox').value;
+        var criterio = document.getElementById('criterio').value;
 
         $.ajax
         (
@@ -47,7 +47,7 @@ function search()
                         
                         for(var i = 0; i < data.length; i++)
                         {
-                            cadena += "<div class='result'> <div class='avatar' id='" + i + "'></div> <div id='text'> <p id='pf1'>" + data[i].Name + "</p> <p id='pf2'>" + data[i].Specialism + "</p> <p id='pf2'>" + data[i].SpecialismDescription + "</p> <p id='pf3'>" + data[i].WebPage + "</p> <p id='pf4'>" + data[i].Phone + "</p> <p id='pf4'>" + data[i].City + "</p> <p id='pf4'>" + data[i].Address + "</p> </div> </div>";  
+                            cadena += "<div class='result'> <div class='avatar' id='" + i + "'></div> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].Specialism + "</p> <p class='pf2'>" + data[i].SpecialismDescription + "</p> <p class='pf3'>" + data[i].WebPage + "</p> <p class='pf4'>" + data[i].Phone + "</p> <p class='pf4'>" + data[i].City + "</p> <p class='pf4'>" + data[i].Address + "</p> </div> </div>";  
                         } 
 
                         $('#listResults').append(cadena);
@@ -102,6 +102,9 @@ function to(num)
         break;
         case 2:
         location.href = 'businessPanel.html';
+        break;
+        case 3:
+        location.href = 'managePackage.html';
         break;
         default:
         location.href = 'menu.html';

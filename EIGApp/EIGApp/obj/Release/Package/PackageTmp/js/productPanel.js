@@ -33,10 +33,9 @@ function confirm(cantidad, cubrimiento, precio)
 {
     location.href = 'confirm.html';
     localStorage.setItem('Linea', 'Curso/Promoción/Evento');
-    localStorage.setItem('Producto', 'Afiliación');
+    localStorage.setItem('Producto', 'Paquete de Afiliación');
     localStorage.setItem('Cantidad', cantidad);
-    localStorage.setItem('FechaCompra', 'HOY');
     localStorage.setItem('Cubrimiento', cubrimiento);
     localStorage.setItem('Precio', precio);
-    localStorage.setItem('Llamado', '2');
+    localStorage.setItem('Llamado', 2);
 }
