@@ -172,6 +172,7 @@
     <Compile Include="Controllers\JobApplicationController.cs" />
     <Compile Include="Controllers\OtherPersonController.cs" />
     <Compile Include="Controllers\PackageController.cs" />
+    <Compile Include="Controllers\ParametroBusinessController.cs" />
     <Compile Include="Controllers\ParametroOtherPersonController.cs" />
     <Compile Include="Controllers\ParametroPersonController.cs" />
     <Compile Include="Controllers\PersonController.cs" />
