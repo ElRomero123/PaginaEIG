@@ -31,7 +31,7 @@ function to(num)
 
 function confirm(cantidad, cubrimiento, precio)
 {
-    location.href = 'confirmC.html';
+    location.href = 'confirm.html';
     localStorage.setItem('Linea', 'Curso/Promoción/Evento');
     localStorage.setItem('Producto', 'Paquete de Afiliación - CIPRIN');
     localStorage.setItem('Cantidad', cantidad);
