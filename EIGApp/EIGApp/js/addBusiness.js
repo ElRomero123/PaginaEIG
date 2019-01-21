@@ -179,7 +179,7 @@ function putAvatar(num, downloadURL)
     );
 }
 
-document.getElementById("fileBrowser").onchange = 
+document.getElementById("avatarBusiness").onchange = 
 function(e) 
 {
     let reader = new FileReader();  

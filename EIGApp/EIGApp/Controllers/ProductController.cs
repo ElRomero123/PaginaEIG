@@ -41,5 +41,29 @@ namespace EIGApp.Controllers
 
             return arrayProducts;
         }
+
+        public long Post(M.Product producto)
+        {
+            long id = 0;
+
+            try
+            {
+                #pragma warning disable CS0618
+                AutoMapper.Mapper.CreateMap<M.Product, O.Product>();
+                #pragma warning restore CS0618
+                O.Product BDProduct = AutoMapper.Mapper.Map<O.Product>(producto);
+                BD.Products.Add(BDProduct);
+                BD.SaveChanges();
+
+                id = BDProduct.Id;
+            }
+
+            catch
+            {
+                id = 0;
+            }
+
+            return id;
+        }
     }
 }

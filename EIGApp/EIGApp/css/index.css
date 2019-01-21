@@ -307,7 +307,7 @@ body div div div #preview {
   width: 70px;
 }
 /* line 349, ../sass/index.scss */
-body div div div #fileBrowser {
+body div div div .fileBrowser {
   outline: 0px;
   color: white;
   border: 2px solid brown;
