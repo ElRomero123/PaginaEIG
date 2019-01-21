@@ -121,12 +121,9 @@ function loadAvatar(num)
     
     firebase.initializeApp(config);
 
-    var campoAvatarPerson = document.getElementById('fileBrowser');
-    var storageRef        = firebase.storage().ref();
-    
-    var AvatarPerson = campoAvatarPerson.files[0];
-
-    var uploadTask = storageRef.child('avatar/' + 'P' + num).put(AvatarPerson);
+    var storageRef     = firebase.storage().ref();
+    var AvatarBusiness = document.getElementById('fileBrowser').files[0];
+    var uploadTask = storageRef.child('avatar/' + 'B' + num).put(AvatarBusiness);
 
     uploadTask.on
     (   
@@ -170,11 +167,10 @@ function putAvatar(num, downloadURL)
             {
                 if(data)
                 {
-                    $('#createPerson').css('background','darkgreen');
-                    $('#createPerson').css('border','2px solid darkgreen');
-                    $('#createPerson').css('color','white');
-                    $('#createPerson').text('Perfil ingresado con éxito!');
-                    
+                    $('#createBusiness').css('background','darkgreen');
+                    $('#createBusiness').css('border','2px solid darkgreen');
+                    $('#createBusiness').css('color','white');
+                    $('#createBusiness').text('Perfil ingresado con éxito!');    
                     setTimeout(recargar, 2500);
                 }
             }
