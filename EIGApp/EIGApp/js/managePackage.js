@@ -98,20 +98,23 @@ function to(num)
 function toCreate(e)
 {
     var kindP = document.getElementById("k" + e.id);
+    var opcNum = kindP.innerHTML;
     localStorage.setItem('IdPackage', e.id);
 
-    switch(kindP.innerHTML)
+    if(opcNum == 1)
     {
-        case 1:
         location.href = 'addBusiness.html';
-        break;
-        case 2:
+    }
+    else if(opcNum == 2)
+    {
         location.href = 'addProduct.html';
-        break;
-        case 3:
+    }
+    else if(opcNum == 3)
+    { 
         location.href = 'addBusinessC.html';
-        break;
-        default:
+    }
+    else
+    {
         location.href = 'addProductC.html';
     }
 }
