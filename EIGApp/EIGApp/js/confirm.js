@@ -47,8 +47,15 @@ function to(num)
             case 1:
             location.href = 'businessPanel.html';
             break;
-            default:
+            case 2:
             location.href = 'productPanel.html';
+            break;
+            case 3:
+            location.href = 'businessPanelC.html';
+            break;
+            default:
+            location.href = 'productPanelC.html';
+
         }
     }
 }
