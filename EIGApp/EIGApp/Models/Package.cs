@@ -9,7 +9,7 @@
         public string FechaCompra { get; set; }
         public string TiempoCubrimiento { get; set; }
         public string Precio { get; set; }
-        public bool Kind { get; set; }
+        public int Kind { get; set; }
         public long IdUser { get; set; }
     }
 }
