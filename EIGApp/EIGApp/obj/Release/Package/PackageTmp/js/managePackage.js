@@ -100,13 +100,18 @@ function toCreate(e)
     var kindP = document.getElementById("k" + e.id);
     localStorage.setItem('IdPackage', e.id);
 
-    if(kindP.innerHTML == 1)
+    switch(kindP.innerHTML)
     {
+        case 1:
         location.href = 'addBusiness.html';
-    }
-
-    else
-    {
+        break;
+        case 2:
         location.href = 'addProduct.html';
+        break;
+        case 3:
+        location.href = 'addBusinessC.html';
+        break;
+        default:
+        location.href = 'addProductC.html';
     }
 }

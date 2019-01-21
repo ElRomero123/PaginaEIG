@@ -35,9 +35,9 @@ function to(num)
         location.href = 'otherPersonPanelC.html';
         break;
         case 5:
-        location.href = 'businessPanel.html';
+        location.href = 'businessPanelC.html';
         break;
         default:
-        location.href = 'productPanel.html';
+        location.href = 'productPanelC.html';
     }
 }

@@ -50,7 +50,7 @@ function createBusiness()
                 city: $('#campoCity').val(),
                 address: $('#campoAddress').val(),
                 avatar: '',
-                ciprin: 0,
+                ciprin: 1,
                 active: 0,
                 idPackage: localStorage.getItem('IdPackage')
             };
