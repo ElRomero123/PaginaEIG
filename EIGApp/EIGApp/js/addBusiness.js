@@ -37,31 +37,30 @@ function createBusiness()
     {
         if(validateAvatar())
         {
-            var persona =
+            var negocio =
             {
-                name: $('#campoFullName').val(),
-                profesionDescription: $('#campoProfesionDescription').val(),
-                email: $('#campoEmail').val(),
+                name: $('#campoName').val(),
+                specialism: $('#campoSpecialism').val(),
+                specialismDescription: $('#campoSpecialismDescription').val(),
+                webPage: $('#campoWebPage').val(),
                 phone: $('#campoPhone').val(),
                 city: $('#campoCity').val(),
                 address: $('#campoAddress').val(),
                 avatar: '',
-                approved: false,
-                idUser: localStorage.getItem('User')
+                idPackage: localStorage.getItem('IdPackage')
             };
         
-    
-            $('#createPerson').css('background','yellow');
-            $('#createPerson').css('border','2px solid yellow');
-            $('#createPerson').css('color','black');
-            $('#createPerson').text('Creando perfil de usuario...');
+            $('#createBusiness').css('background','yellow');
+            $('#createBusiness').css('border','2px solid yellow');
+            $('#createBusiness').css('color','black');
+            $('#createBusiness').text('Creando perfil de usuario...');
     
             $.ajax
             (
                 {
-                    url: '../api/person',
+                    url: '../api/business',
                     type: 'POST',
-                    data: JSON.stringify(persona),
+                    data: JSON.stringify(negocio),
                     contentType: "application/json;charset=utf-8",
     
                     success:
@@ -75,9 +74,9 @@ function createBusiness()
     
         else
         {
-            $('#createPerson').css('background','red');
-            $('#createPerson').css('border','2px solid red');
-            $('#createPerson').text('NO existe foto de usuario!');
+            $('#createBusiness').css('background','red');
+            $('#createBusiness').css('border','2px solid red');
+            $('#createBusiness').text('NO existe foto de usuario!');
         }
     }
 
@@ -100,6 +99,12 @@ function validateText()
     var c7 = $('#campoAddress').val().length >= 8;
 
     return c1 && c2 && c3 && c4 && c5 && c6 && c7;
+}
+
+function validateAvatar()
+{
+    var AvatarBusiness = document.getElementById('fileBrowser').files[0];
+    return AvatarBusiness != null;
 }
 
 function loadAvatar(num)
@@ -198,14 +203,6 @@ function(e)
         preview.innerHTML = '';
         preview.append(image);
     };
-}
-
-function validateAvatar()
-{
-    var campoAvatarPerson = document.getElementById('fileBrowser');
-    var AvatarPerson = campoAvatarPerson.files[0];
-
-    return AvatarPerson != null;
 }
 
 function recargar()

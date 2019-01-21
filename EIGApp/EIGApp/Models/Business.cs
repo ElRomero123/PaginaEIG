@@ -11,6 +11,6 @@
         public string City { get; set; }
         public string Address { get; set; }
         public string Avatar { get; set; }
-        public long IdUser { get; set; }
+        public long IdPackage { get; set; }
     }
 }
