@@ -6,18 +6,20 @@ function initUser()
     var name     = localStorage.getItem('Name');
     var username = localStorage.getItem('Username');
     var kind     = localStorage.getItem('KindPackage');
+
+    alert(kind);
     
     if(name != null)
     {
-        if(kind)
+        if(kind == false)
         {
-            location.href = 'addProduct.html';
+            $('#infoName').text(name);
+            $('#infoUsername').text(username);
         }
 
         else
         {
-            $('#infoName').text(name);
-            $('#infoUsername').text(username);
+            location.href = 'addProduct.html';
         }
     }
 
