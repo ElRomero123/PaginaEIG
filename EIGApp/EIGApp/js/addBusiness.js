@@ -5,7 +5,7 @@ function initUser()
 
     var name     = localStorage.getItem('Name');
     var username = localStorage.getItem('Username');
-    var kind     = localStorage.getItem('Kind');
+    var kind     = localStorage.getItem('KindPackage');
     
     if(name != null)
     {
@@ -25,6 +25,4 @@ function initUser()
     {
         location.href = 'index.html';
     }
-
-    localStorage.removeItem('Kind');
 }

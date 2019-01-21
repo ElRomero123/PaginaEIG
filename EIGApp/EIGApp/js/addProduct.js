@@ -15,6 +15,4 @@ function initUser()
     {
         location.href = 'index.html';
     }
-
-    localStorage.removeItem('Kind');
 }
