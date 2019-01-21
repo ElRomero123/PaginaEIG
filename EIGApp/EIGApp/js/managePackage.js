@@ -100,13 +100,13 @@ function toCreate(e)
     var kindP = document.getElementById("k" + e.id);
     localStorage.setItem('IdPackage', e.id);
 
-    if(kindP)
+    if(kindP.innerHTML == true)
     {
         localStorage.setItem('KindPackage', 'Business');
     }
     else
     {
-        localStorage.setItem('KindPackage', 'Business');
+        localStorage.setItem('KindPackage', 'Product');
     }
     
     //location.href = 'addBusiness.html';
