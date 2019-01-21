@@ -39,5 +39,29 @@ namespace EIGApp.Controllers
 
             return arrayBusinesses;
         }
+
+        public long Post(M.Business negocio)
+        {
+            long id = 0;
+
+            try
+            {
+                #pragma warning disable CS0618
+                AutoMapper.Mapper.CreateMap<M.Business, O.Business>();
+                #pragma warning restore CS0618
+                O.Business BDBusiness = AutoMapper.Mapper.Map<O.Business>(negocio);
+                BD.Businesses.Add(BDBusiness);
+                BD.SaveChanges();
+
+                id = BDBusiness.Id;
+            }
+
+            catch
+            {
+                id = 0;
+            }
+
+            return id;
+        }
     }
 }

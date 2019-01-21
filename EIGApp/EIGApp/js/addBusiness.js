@@ -53,7 +53,7 @@ function createBusiness()
             $('#createBusiness').css('background','yellow');
             $('#createBusiness').css('border','2px solid yellow');
             $('#createBusiness').css('color','black');
-            $('#createBusiness').text('Creando perfil de usuario...');
+            $('#createBusiness').text('Agregando negocio ...');
     
             $.ajax
             (
@@ -76,7 +76,7 @@ function createBusiness()
         {
             $('#createBusiness').css('background','red');
             $('#createBusiness').css('border','2px solid red');
-            $('#createBusiness').text('NO existe foto de usuario!');
+            $('#createBusiness').text('NO existe FOTO de LOGO!');
         }
     }
 
