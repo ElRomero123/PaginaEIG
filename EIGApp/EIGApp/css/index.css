@@ -102,7 +102,7 @@ body div div #listResults .result {
   height: auto;
 }
 /* line 84, ../sass/index.scss */
-body div div #listResults .result #text {
+body div div #listResults .result .text {
   color: black;
   background: white;
   font-family: acephimere;
@@ -112,24 +112,24 @@ body div div #listResults .result #text {
   width: 200px;
 }
 /* line 86, ../sass/index.scss */
-body div div #listResults .result #text #pf1 {
+body div div #listResults .result .text .pf1 {
   color: darkred;
   font-size: 17px;
 }
 /* line 92, ../sass/index.scss */
-body div div #listResults .result #text #pf2 {
+body div div #listResults .result .text .pf2 {
   font-size: 12px;
 }
 /* line 97, ../sass/index.scss */
-body div div #listResults .result #text #pf3 {
+body div div #listResults .result .text .pf3 {
   font-size: 10px;
 }
 /* line 102, ../sass/index.scss */
-body div div #listResults .result #text #pf4 {
+body div div #listResults .result .text .pf4 {
   font-size: 10px;
 }
 /* line 107, ../sass/index.scss */
-body div div #listResults .result #text p {
+body div div #listResults .result .text p {
   margin: 2px;
 }
 /* line 121, ../sass/index.scss */

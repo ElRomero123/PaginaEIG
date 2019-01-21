@@ -49,7 +49,7 @@ function loadPackages()
 
                         for(var i = 0; i < data.length; i++)
                         {
-                            cadena += "<div id='" + data[i].Id + "' class='result' onclick='toCreate(this)'> <div id='text'> <p id='pf1'>" + data[i].Linea + "</p> <p id='pf2'>" + data[i].Producto + "</p> <p id='pf3'>" + data[i].Cantidad + "</p> <p id='pf4'>" + data[i].FechaCompra + "</p> <p id='pf4'>" + data[i].TiempoCubrimiento + "</p> <p id='pf4'>" + data[i].Precio + "</p> <p hidden id='pf4'>" + data[i].Kind + "</p> </div> </div>";  
+                            cadena += "<div id='" + data[i].Id + "' class='result' onclick='toCreate(this)'> <div class='text'> <p class='pf1'>" + data[i].Linea + "</p> <p class='pf2'>" + data[i].Producto + "</p> <p class='pf3'>" + data[i].Cantidad + "</p> <p class='pf4'>" + data[i].FechaCompra + "</p> <p class='pf4'>" + data[i].TiempoCubrimiento + "</p> <p class='pf4'>" + data[i].Precio + "</p> <p hidden id='k" + data[i].Id + "' class='pf4'>" + data[i].Kind + "</p> </div> </div>";  
                         }
                         
                         $('#listResults').append(cadena);
@@ -97,6 +97,9 @@ function to(num)
 
 function toCreate(e)
 {
+    var kindP = document.getElementById('k' + e.id).text;
+    
     localStorage.setItem('IdPackage', e.id);
+    localStorage.setItem('KindPackage', kindP);
     location.href = 'addBusiness.html';
 }
