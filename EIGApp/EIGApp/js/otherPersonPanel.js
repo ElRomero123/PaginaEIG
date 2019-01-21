@@ -1,4 +1,5 @@
 window.onload = initUser;
+var OtherPersonAvatar;
 
 function initUser()
 {
@@ -32,6 +33,8 @@ function to(num)
 
 function createOtherPerson()
 {
+    OtherPersonAvatar = document.getElementById('otherPersonAvatar');
+
     if(validateText())
     {
         if(validateAvatar())
@@ -102,12 +105,8 @@ function loadAvatar(num)
     
     firebase.initializeApp(config);
 
-    var campoAvatarPerson = document.getElementById('fileBrowser');
-    var storageRef        = firebase.storage().ref();
-    
-    var AvatarPerson = campoAvatarPerson.files[0];
-
-    var uploadTask = storageRef.child('avatar/' + 'OP' + num).put(AvatarPerson);
+    var storageRef = firebase.storage().ref();
+    var uploadTask = storageRef.child('avatar/' + 'OP' + num).put(OtherPersonAvatar.files[0]);
 
     uploadTask.on
     (   
@@ -163,11 +162,9 @@ function putAvatar(num, downloadURL)
     );
 }
 
-document.getElementById("fileBrowser").onchange = 
-function(e) 
+document.getElementById('otherPersonAvatar').onchange = function(e) 
 {
-    let reader = new FileReader();
-  
+    let reader = new FileReader();  
     reader.readAsDataURL(e.target.files[0]);
     
     console.log(e.target.files[0]);
@@ -175,12 +172,7 @@ function(e)
     {
         let preview = document.getElementById('preview'),
         image = document.createElement('img');
-
         image.src = reader.result;
-
-        image.id = 1;
-        var imagen = $('#1');
-
         preview.innerHTML = '';
         preview.append(image);
     };
@@ -201,10 +193,7 @@ function validateText()
 
 function validateAvatar()
 {
-    var campoAvatarPerson = document.getElementById('fileBrowser');
-    var AvatarPerson = campoAvatarPerson.files[0];
-
-    return AvatarPerson != null;
+    return OtherPersonAvatar.files[0] != null;
 }
 
 function recargar()

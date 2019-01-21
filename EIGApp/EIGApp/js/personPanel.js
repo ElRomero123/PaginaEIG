@@ -178,7 +178,7 @@ function putAvatar(num, downloadURL)
     );
 }
 
-PersonAvatar.onchange = function(e) 
+document.getElementById('personAvatar').onchange = function(e) 
 {
     let reader = new FileReader();
     reader.readAsDataURL(e.target.files[0]);

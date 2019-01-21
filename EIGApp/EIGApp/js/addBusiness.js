@@ -1,5 +1,5 @@
 window.onload = initUser;
-var AvatarBusiness;
+var BusinessAvatar;
 
 function initUser()
 {
@@ -34,7 +34,7 @@ function to(num)
 
 function createBusiness()
 {
-    AvatarBusiness = document.getElementById('avatarBusiness').files[0];
+    BusinessAvatar = document.getElementById('businessAvatar');
 
     if(validateText())
     {
@@ -106,7 +106,7 @@ function validateText()
 
 function validateAvatar()
 {
-    return AvatarBusiness != null;
+    return BusinessAvatar.files[0] != null;
 }
 
 function loadAvatar(num)
@@ -124,7 +124,7 @@ function loadAvatar(num)
     firebase.initializeApp(config);
 
     var storageRef     = firebase.storage().ref();
-    var uploadTask = storageRef.child('avatar/' + 'B' + num).put(AvatarBusiness);
+    var uploadTask = storageRef.child('avatar/' + 'B' + num).put(BusinessAvatar.files[0]);
 
     uploadTask.on
     (   
@@ -179,8 +179,7 @@ function putAvatar(num, downloadURL)
     );
 }
 
-document.getElementById("avatarBusiness").onchange = 
-function(e) 
+document.getElementById('businessAvatar').onchange = function(e) 
 {
     let reader = new FileReader();  
     reader.readAsDataURL(e.target.files[0]);
@@ -189,12 +188,7 @@ function(e)
     {
         let preview = document.getElementById('preview'),
         image = document.createElement('img');
-
         image.src = reader.result;
-
-        image.id = 1;
-        var imagen = $('#1');
-
         preview.innerHTML = '';
         preview.append(image);
     };

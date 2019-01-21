@@ -1,5 +1,5 @@
 window.onload = initUser;
-var AvatarProduct;
+var ProductAvatar;
 
 function initUser()
 {
@@ -34,7 +34,7 @@ function to(num)
 
 function createProduct()
 {
-    AvatarProduct = document.getElementById('avatarProduct').files[0];
+    ProductAvatar = document.getElementById('productAvatar');
 
     if(validateText())
     {
@@ -112,7 +112,7 @@ function validateText()
 
 function validateAvatar()
 {
-    return AvatarProduct != null;
+    return ProductAvatar.files[0] != null;
 }
 
 function loadAvatar(num)
@@ -130,7 +130,7 @@ function loadAvatar(num)
     firebase.initializeApp(config);
 
     var storageRef     = firebase.storage().ref();
-    var uploadTask = storageRef.child('avatar/' + 'PR' + num).put(AvatarProduct);
+    var uploadTask = storageRef.child('avatar/' + 'PR' + num).put(ProductAvatar.files[0]);
 
     uploadTask.on
     (   
@@ -185,8 +185,7 @@ function putAvatar(num, downloadURL)
     );
 }
 
-document.getElementById('avatarProduct').onchange = 
-function(e) 
+document.getElementById('productAvatar').onchange = function(e) 
 {
     let reader = new FileReader();  
     reader.readAsDataURL(e.target.files[0]);
@@ -196,7 +195,6 @@ function(e)
         let preview = document.getElementById('preview'),
         image = document.createElement('img');
         image.src = reader.result;
-        image.id = 1;
         preview.innerHTML = '';
         preview.append(image);
     };
