@@ -157,7 +157,7 @@ function putAvatar(num, downloadURL)
     $.ajax
     (
         {
-            url: '../api/parametroPerson',
+            url: '../api/parametroBusiness',
             type: 'POST',
             data: JSON.stringify(parametrosPutAvatar),
             contentType: "application/json;charset=utf-8",
@@ -181,11 +181,9 @@ function putAvatar(num, downloadURL)
 document.getElementById("fileBrowser").onchange = 
 function(e) 
 {
-    let reader = new FileReader();
-  
+    let reader = new FileReader();  
     reader.readAsDataURL(e.target.files[0]);
-    
-    console.log(e.target.files[0]);
+
     reader.onload = function()
     {
         let preview = document.getElementById('preview'),
