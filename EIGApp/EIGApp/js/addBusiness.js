@@ -16,3 +16,22 @@ function initUser()
         location.href = 'index.html';
     }
 }
+
+function createBusiness()
+{
+    
+}
+
+function to(num)
+{
+    switch(num)
+    {
+        case 1:
+        localStorage.clear();
+        location.href = 'index.html';
+        break;
+        default:
+        localStorage.removeItem('IdPackage');
+        location.href = 'managePackage.html';
+    }
+}
