@@ -123,6 +123,7 @@
     <Content Include="img\t.png" />
     <Content Include="img\y.png" />
     <Content Include="js\addBusiness.js" />
+    <Content Include="js\addProduct.js" />
     <Content Include="js\businessPanel.js" />
     <Content Include="js\confirm.js" />
     <Content Include="js\error.js" />

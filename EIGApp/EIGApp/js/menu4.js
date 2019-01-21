@@ -47,7 +47,7 @@ function search()
                         
                         for(var i = 0; i < data.length; i++)
                         {
-                            cadena += "<div class='result'> <div class='avatar' id='" + i + "'></div> <div id='text'> <p id='pf1'>" + data[i].Name + "</p> <p id='pf2'>" + data[i].Type + "</p> <p id='pf2'>" + data[i].TypeDescription + "</p> <p id='pf3'>" + data[i].AttendantName + "</p> <p id='pf3'>" + data[i].AttendantPhone + "</p>  <p id='pf3'>" + data[i].AttendantEmail + "</p> <p id='pf4'>" + data[i].City + "</p> <p id='pf4'>" + data[i].Address + "</p> <p id='pf4'>" + data[i].Date + "</p> </div> </div>";  
+                            cadena += "<div class='result'> <div class='avatar' id='" + i + "'></div> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].Type + "</p> <p class='pf2'>" + data[i].TypeDescription + "</p> <p class='pf3'>" + data[i].AttendantName + "</p> <p class='pf3'>" + data[i].AttendantPhone + "</p>  <p class='pf3'>" + data[i].AttendantEmail + "</p> <p class='pf4'>" + data[i].City + "</p> <p class='pf4'>" + data[i].Address + "</p> <p class='pf4'>" + data[i].Date + "</p> </div> </div>";  
                         } 
 
                         $('#listResults').append(cadena);
