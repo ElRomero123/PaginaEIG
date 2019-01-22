@@ -11,9 +11,10 @@ namespace EIGApp.Controllers
 
         public M.Product[] Get(string cadena)
         {
-            var query = from P in BD.Products
-                        where(P.Name.Contains(cadena) || P.TypeDescription.Contains(cadena) || P.AttendantName.Contains(cadena) || P.Date.Contains(cadena))
-                        select new {P.Name, P.Type, P.TypeDescription, P.AttendantName, P.AttendantWebPage, P.AttendantEmail, P.AttendantPhone, P.City, P.Address, P.Date, P.Avatar, P.Ciprin, P.Active};
+            var query = from PR in BD.Products
+                        where(PR.Name.Contains(cadena) || PR.TypeDescription.Contains(cadena) || PR.AttendantName.Contains(cadena) || PR.Date.Contains(cadena))
+                        orderby (PR.Ciprin)
+                        select new {PR.Name, PR.Type, PR.TypeDescription, PR.AttendantName, PR.AttendantWebPage, PR.AttendantEmail, PR.AttendantPhone, PR.City, PR.Address, PR.Date, PR.Avatar, PR.Ciprin, PR.Active};
 
             var lista = query.ToArray();
 

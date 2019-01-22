@@ -13,8 +13,9 @@ namespace EIGApp.Controllers
         {
             var query = from B in BD.Businesses
                         where (B.Name.Contains(cadena) || B.SpecialismDescription.Contains(cadena))
+                        orderby (B.Ciprin)
                         select new {B.Name, B.Specialism, B.SpecialismDescription, B.WebPage, B.Phone, B.City, B.Address, B.Avatar, B.Ciprin, B.Active};
-
+                          
             var lista = query.ToArray();
 
             M.Business[] arrayBusinesses = new M.Business[lista.Length];

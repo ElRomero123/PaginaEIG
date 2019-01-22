@@ -13,6 +13,7 @@ namespace EIGApp.Controllers
         {
             var query = from P in BD.People
                         where (P.Name.Contains(cadena) || P.ProfesionDescription.Contains(cadena))
+                        orderby (P.Ciprin)
                         select new {P.Name, P.ProfesionDescription, P.Email, P.Phone, P.City, P.Address, P.Avatar, P.Ciprin, P.Active};
 
             var lista = query.ToArray();
