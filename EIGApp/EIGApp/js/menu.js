@@ -31,8 +31,8 @@ function search()
         $('#bannerState').text('Buscando ...');
     
         var criterio = document.getElementById('criterio').value;
-         
-        initMap();
+
+        //initMap();
         
         $.ajax
         (
@@ -140,6 +140,7 @@ function to(num)
     }
 }
 
+/*
 function initMap()
 {
     map = new google.maps.Map (document.getElementById('maps'), {
@@ -147,3 +148,4 @@ function initMap()
         zoom: 8
       });
 }
+*/
