@@ -13,7 +13,6 @@ namespace EIGApp.Controllers
         {
             var query = from PR in BD.Products
                         where(PR.Name.Contains(cadena) || PR.TypeDescription.Contains(cadena) || PR.AttendantName.Contains(cadena) || PR.Date.Contains(cadena))
-                        orderby (PR.Ciprin)
                         select new {PR.Name, PR.Type, PR.TypeDescription, PR.AttendantName, PR.AttendantWebPage, PR.AttendantEmail, PR.AttendantPhone, PR.City, PR.Address, PR.Date, PR.Avatar, PR.Ciprin, PR.Active};
 
             var lista = query.ToArray();
