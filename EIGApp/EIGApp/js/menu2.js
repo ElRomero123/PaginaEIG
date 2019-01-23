@@ -32,7 +32,6 @@ function search()
     {
         $('#listResults').empty();
         $('#listResults').hide();
-        $('#maps').empty();
         $('#bannerState').css('display','block');
         $('#bannerState').css('background','yellow');
         $('#bannerState').css('color','black');
@@ -76,9 +75,7 @@ function search()
                         $('#bannerState').css('background','green');
                         $('#bannerState').css('color','white');
                         $('#bannerState').text(i + ' otros perfil(es) encontrados!');
-                        $('#listResults').css('display','flex');
-                        $('#maps').append('<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d757.0218273722048!2d-73.9316468375744!3d40.62795646258929!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses-419!2sco!4v1546800277209" width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>');
-                        $('#maps').css('display','inline-block');     
+                        $('#listResults').css('display','flex'); 
                     }
 
                     else
