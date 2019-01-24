@@ -17,64 +17,6 @@ function initUser()
     }
 }
 
-function upload()
-{
-    alert('Upload funciona');
-    /*
-    $('#submit').css('background','yellow');
-    $('#submit').css('border','2 px solid yellow');
-    $('#submit').css('color','black');
-    $('#submit').text('Subiendo archivo ...');
-
-    if(navigator.onLine)
-    {
-        var config = 
-        {
-            apiKey: "AIzaSyA4F7aYKhXv5zEWabtUYABA-4lJJdAgyW4",
-            authDomain: "eliteintelligencegroup-719d3.firebaseapp.com",
-            databaseURL: "https://eliteintelligencegroup-719d3.firebaseio.com",
-            projectId: "eliteintelligencegroup-719d3",
-            storageBucket: "eliteintelligencegroup-719d3.appspot.com",
-            messagingSenderId: "567347907651"
-        };
-    
-        firebase.initializeApp(config);
-    
-        fileReference = firebase.storage().ref();
-    
-        var fileToUpload = fichero.files[0];
-        var uploadTask = fileReference.child('avatar/' + fileToUpload.name).put(fileToUpload);
-    
-        uploadTask.on('state_changed', 
-        
-            function(snapshot)
-            {
-                //Se va mostrando el progreso de la subida
-            },
-    
-            function(error)
-            {
-                alert('Hubo un error');
-            },
-            function()
-            {
-                $('#submit').css('background','darkgreen');
-                $('#submit').css('border','2 px solid darkgreen');
-                $('#submit').css('color','white');
-                $('#submit').text('Archivo subido!');
-            }
-        );
-    }
-
-    else
-    {
-        $('#submit').css('background','red');
-        $('#submit').css('border','2 px solid red');
-        $('#submit').text('No estás conectado a Internet!');
-    }
-    */
-}
-
 function to(num)
 {
     switch(num)
@@ -84,9 +26,66 @@ function to(num)
         location.href = 'index.html';
         break;
         case 2:
-        location.href = 'index.html';
+        location.href = 'manageCases.html';
         break;
         default:
         location.href = 'menu.html';
     }
+}
+
+function createCase()
+{
+    if(validateText())
+    {
+        var caso =
+        {
+            name: $('#campoCase').val(),
+            descriptionCase: $('#campoDescription').val(),
+            idUser: localStorage.getItem('User')
+        };
+    
+        $('#createCase').css('background','yellow');
+        $('#createCase').css('border','2 px solid yellow');
+        $('#createCase').css('color','black');
+        $('#createCase').text('Subiendo archivo ...');
+    
+        $.ajax
+        (
+            {
+                url: '../api/case',
+                type: 'POST',
+                data: JSON.stringify(caso),
+                contentType: "application/json;charset=utf-8",
+    
+                success:
+                function (data)
+                {
+                    if (data)
+                    {
+                        location.href = 'manageCases.html';    
+                    }
+    
+                    else
+                    {
+                        $('#createCase').css('background','red');
+                        $('#createCase').css('border','2px solid red');
+                        $('#createCase').css('color','white');
+                        $('#createCase').text('Error en el registro!');
+                    }
+                }
+            }
+        );
+    }
+
+    else
+    {
+        $('#createCase').css('background','red');
+        $('#createCase').css('border','2px solid red');
+        $('#createCase').text('Entradas invalidas!');
+    }
+}
+
+function validateText()
+{
+    return true;
 }

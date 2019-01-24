@@ -28,8 +28,6 @@
             </div>
 
             <div>
-                <p><b>Paso 1:</b> Datos básicos sobre el caso.</p>
-
                 <p>Título del caso (25 caracteres)</p>
                 <input type='text' maxlength="25" id='campoCase'>
 
@@ -37,17 +35,7 @@
                 <input type='text' maxlength="100" id='campoDescription'>
 
                 <div>
-                    <button id='register' class='register' onclick='createCase()'>Enviar caso</button>
-                </div>
-
-                <p><b>Paso 2: </b> Anexar archivos sobre el caso (Formatos pdf, jpg, png, bmp, doc, txt, docx).</p>
-
-                <div>
-                    <input type='file' class='fileBrowser' accept=".jpg,.png">
-                </div>
-
-                <div>
-                    <button class='register' id='submit' onclick='upload()'>Enviar archivo</button>
+                    <button id='createCase' class='register' onclick='createC()'>Enviar caso</button>
                 </div>
             </div>
         </div>
