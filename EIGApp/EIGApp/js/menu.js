@@ -129,6 +129,9 @@ function to(num)
         location.href = 'menu8.html';
         break;
         case 9:
+        location.href = 'menu9.html';
+        break;
+        case 10:
         localStorage.clear();
         location.href = 'index.html';
         break;
