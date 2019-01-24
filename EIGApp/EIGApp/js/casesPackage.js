@@ -5,7 +5,6 @@ function initUser()
     var name     = localStorage.getItem('Name');
     var username = localStorage.getItem('Username');
     
-    
     if(name != null)
     {
         $('#infoName').text(name);
@@ -92,26 +91,7 @@ function to(num)
     }
 }
 
-function toCreate(e)
+function toEditCase(e)
 {
-    var kindP = document.getElementById("k" + e.id);
-    var opcNum = kindP.innerHTML;
-    localStorage.setItem('IdPackage', e.id);
-
-    if(opcNum == 1)
-    {
-        location.href = 'addBusiness.html';
-    }
-    else if(opcNum == 2)
-    {
-        location.href = 'addProduct.html';
-    }
-    else if(opcNum == 3)
-    { 
-        location.href = 'addBusinessC.html';
-    }
-    else
-    {
-        location.href = 'addProductC.html';
-    }
+    alert(e.id);
 }
