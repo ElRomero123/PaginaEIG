@@ -26,18 +26,17 @@ function to(num)
         location.href = 'index.html';
         break;
         case 2:
-        location.href = 'menu.html';
         break;
         case 3:
-        location.href = 'personPanelC.html';
+        location.href = 'menu.html';
         break;
         case 4:
-        location.href = 'otherPersonPanelC.html';
+        location.href = 'personPanelC.html';
         break;
         case 5:
-        location.href = 'businessPanelC.html';
+        location.href = 'otherPersonPanelC.html';
         break;
         default:
-        location.href = 'productPanelC.html';
+        location.href = 'businessPanelC.html';
     }
 }
