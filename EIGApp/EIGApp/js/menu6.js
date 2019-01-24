@@ -25,30 +25,31 @@ function to(num)
         localStorage.clear();
         location.href = 'index.html';
         break;
+        case 2:
+        location.href = 'manageJobApplication.html';
+        break;
         default:
         location.href = 'menu.html';
     }
 }
 
-function createJobApplication()
+function createJA()
 {
-    alert('Aplicación laboral funciona!');
-    /*
-    $('#register').css('background','yellow');
-    $('#register').css('border','2 px solid yellow');
-    $('#register').css('color','black');
-    $('#register').text('Enviando tu solicitud ...');
-
-    if(navigator.onLine)
+    if(validateText())
     {
         var jobApplication =
         {
-            name:                   $('#campoName').val(),
-            documentNumber:         $('#campoDocumentNumber').val(),
+            name: $('#campoName').val(),
+            documentNumber: $('#campoDocumentNumber').val(),
             descriptionApplication: $('#campoDescriptionApplication').val(),
-            age:                    $('#campoAge').val(),
-            idUser:                 localStorage.getItem('User')
+            age: $('#campoAge').val(),
+            idUser: localStorage.getItem('campoAge')
         };
+    
+        $('#createJobApplication').css('background','yellow');
+        $('#createJobApplication').css('border','2 px solid yellow');
+        $('#createJobApplication').css('color','black');
+        $('#createJobApplication').text('Creando postulación ...');
     
         $.ajax
         (
@@ -61,20 +62,17 @@ function createJobApplication()
                 success:
                 function (data)
                 {
-                    if(data)
+                    if (data)
                     {
-                        $('#register').css('background','darkgreen');
-                        $('#register').css('border','2 px solid darkgreen');
-                        $('#register').css('color','white');
-                        $('#register').text('Solicitud enviada!');
+                        location.href = 'manageJobApplication.html';    
                     }
     
                     else
                     {
-                        $('#register').css('background','red');
-                        $('#register').css('border','2 px solid red');
-                        $('#register').css('color','white');
-                        $('#register').text('Error al enviar!');
+                        $('#createJobApplication').css('background','red');
+                        $('#createJobApplication').css('border','2px solid red');
+                        $('#createJobApplication').css('color','white');
+                        $('#createJobApplication').text('Error creando postulación!');
                     }
                 }
             }
@@ -83,9 +81,13 @@ function createJobApplication()
 
     else
     {
-        $('#register').css('background','red');
-        $('#register').css('border','2 px solid red');
-        $('#register').text('No estás conectado a Internet!');
+        $('#createJobApplication').css('background','red');
+        $('#createJobApplication').css('border','2px solid red');
+        $('#createJobApplication').text('Entradas invalidas!');
     }
-    */
+}
+
+function validateText()
+{
+    return true;
 }
