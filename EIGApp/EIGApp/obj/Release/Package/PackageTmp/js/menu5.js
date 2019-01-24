@@ -47,7 +47,7 @@ function createC()
         $('#createCase').css('background','yellow');
         $('#createCase').css('border','2 px solid yellow');
         $('#createCase').css('color','black');
-        $('#createCase').text('Subiendo archivo ...');
+        $('#createCase').text('Creando caso ...');
     
         $.ajax
         (
@@ -70,7 +70,7 @@ function createC()
                         $('#createCase').css('background','red');
                         $('#createCase').css('border','2px solid red');
                         $('#createCase').css('color','white');
-                        $('#createCase').text('Error en el registro!');
+                        $('#createCase').text('Error creando caso!');
                     }
                 }
             }
