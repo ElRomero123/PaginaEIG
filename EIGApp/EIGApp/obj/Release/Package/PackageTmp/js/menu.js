@@ -1,4 +1,5 @@
 window.onload = initUser;
+var map;
 
 function initUser()
 {
@@ -23,7 +24,6 @@ function search()
     {
         $('#listResults').empty();
         $('#listResults').hide();
-        $('#maps').empty();
         $('#bannerState').css('display','block');
         $('#bannerState').css('background','yellow');
         $('#bannerState').css('color','black');
@@ -31,6 +31,8 @@ function search()
     
         var criterio = document.getElementById('criterio').value;
 
+        //initMap();
+        
         $.ajax
         (
             {
@@ -47,7 +49,15 @@ function search()
 
                         for(var i = 0; i < data.length; i++)
                         {
-                            cadena += "<div class='result'> <div class='avatar' id='" + i + "'></div> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].ProfesionDescription + "</p> <p class='pf3'>" + data[i].Email + "</p> <p class='pf4'>" + data[i].Phone + "</p> <p class='pf4'>" + data[i].City + "</p> <p class='pf4'>" + data[i].Address + "</p> </div> </div>";  
+                            if(data[i].Ciprin == 1)
+                            {
+                                cadena += "<div class='result'> <div class='avatar' id='" + i + "'></div> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].ProfesionDescription + "</p> <p class='pf3'>" + data[i].Email + "</p> <p class='pf4'>" + data[i].Phone + "</p> <p class='pf4'>" + data[i].City + "</p> <p class='pf4'>" + data[i].Address + "</p> <p class='c'>Pertenece a CIPRIN</p> </div> </div>";
+                            }
+
+                            else
+                            {
+                                cadena += "<div class='result'> <div class='avatar' id='" + i + "'></div> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].ProfesionDescription + "</p> <p class='pf3'>" + data[i].Email + "</p> <p class='pf4'>" + data[i].Phone + "</p> <p class='pf4'>" + data[i].City + "</p> <p class='pf4'>" + data[i].Address + "</p> </div> </div>";
+                            }
                         }
                         
                         $('#listResults').append(cadena);
@@ -61,8 +71,6 @@ function search()
                         $('#bannerState').css('color','white');
                         $('#bannerState').text(i + ' investigador(es) encontrados!');
                         $('#listResults').css('display','flex');
-                        $('#maps').append('<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d757.0218273722048!2d-73.9316468375744!3d40.62795646258929!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses-419!2sco!4v1546800277209" width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>');
-                        $('#maps').css('display','inline-block');     
                     }
 
                     else
@@ -121,6 +129,9 @@ function to(num)
         location.href = 'menu8.html';
         break;
         case 9:
+        location.href = 'menu9.html';
+        break;
+        case 10:
         localStorage.clear();
         location.href = 'index.html';
         break;
@@ -128,3 +139,13 @@ function to(num)
         location.href = 'personPanel.html';
     }
 }
+
+/*
+function initMap()
+{
+    map = new google.maps.Map (document.getElementById('maps'), {
+        center: {lat: -34.397, lng: 150.644},
+        zoom: 8
+      });
+}
+*/

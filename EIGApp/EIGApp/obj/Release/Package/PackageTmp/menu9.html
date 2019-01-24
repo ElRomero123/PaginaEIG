@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href='css/index.css'>
+        <link rel='icon' href='img/title.ico'>
+        <title>Ayuda y comentarios</title>
+    </head>
+
+    <body>
+        <header>
+            <div class='headerLogo'></div>
+            <div>
+                <p id='infoName'></p>
+                <p id='infoUsername'></p>
+                <button class='close' onclick='to(1)'>Cerrar Sesión</button>
+            </div>
+        </header>
+
+        <div>
+            <p class='searchTag'>Donaciones</p>
+            <p class='categorySearch'>Aquí puedes aportar al mejoramiento de nuestra plataforma EIG!</p>
+
+            <div class='categories'>
+                <div id='c9' class='category' onclick="to(2)"></div>
+            </div>
+            
+            <div>
+                <p>Con cuanto quiere ayudarnos? Exprese la cantidad en $ US</p>
+                <input type='number' id='campoCantidad'>
+
+                <div>
+                    <button class='register' onclick='confirmDonation()'>Confirmar donación</button>
+                </div>
+            </div>
+        </div>
+            
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src='js/menu9.js'></script>
+    </body>
+</html>

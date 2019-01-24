@@ -25,13 +25,13 @@ function to(num)
         localStorage.clear();
         location.href = 'index.html';
         break;
-        default: location.href = 'productos.html';
+        default: location.href = 'menu7.html';
     }
 }
 
 function confirm(cantidad, cubrimiento, precio)
 {
-    location.href = 'confirmC.html';
+    location.href = 'confirm.html';
     localStorage.setItem('Linea', 'Curso/Promoción/Evento');
     localStorage.setItem('Producto', 'Paquete de Afiliación - CIPRIN');
     localStorage.setItem('Cantidad', cantidad);

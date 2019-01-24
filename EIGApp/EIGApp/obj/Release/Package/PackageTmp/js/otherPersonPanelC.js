@@ -27,7 +27,7 @@ function to(num)
         location.href = 'index.html';
         break;
         default: 
-        location.href = 'menu2.html';
+        location.href = 'menu7.html';
     }
 }
 

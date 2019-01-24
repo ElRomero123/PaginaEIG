@@ -68,7 +68,8 @@ body
         {
             #maps
             {
-                display: none;
+                width: 90%;
+                height: 300px;
                 vertical-align: middle;
             }
 
@@ -103,6 +104,12 @@ body
                         {
                             font-size: 10px;
                         }
+
+                        .c
+                        {
+                            background-color: orangered;
+                            font-size: 12px;
+                        }
     
                         p
                         {
@@ -128,7 +135,7 @@ body
     
                     div
                     {
-                        display: inline-block;
+                        display: block;
                     }
     
                     cursor: pointer;
@@ -141,7 +148,7 @@ body
                     width: 300px;
                     height: auto;
                 }
-    
+
                 display: none;
                 margin: 20px auto;
                 vertical-align: middle;
@@ -159,6 +166,16 @@ body
     
         .categories
         {
+            #c10:hover
+            {
+                background: url('../img/menu/10R.png');
+            }
+
+            #c10
+            {
+                background: url('../img/menu/10N.png');
+            }
+
             #c9:hover
             {
                 background: url('../img/menu/9R.png');
