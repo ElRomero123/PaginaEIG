@@ -17,6 +17,19 @@ function initUser()
     }
 }
 
+function to(num)
+{
+    switch(num)
+    {
+        case 1:
+        localStorage.clear();
+        location.href = 'index.html';
+        break;
+        default:
+        location.href = 'menu.html';
+    }
+}
+
 function createJobApplication()
 {
     alert('Aplicación laboral funciona!');
@@ -75,17 +88,4 @@ function createJobApplication()
         $('#register').text('No estás conectado a Internet!');
     }
     */
-}
-
-function to(num)
-{
-    switch(num)
-    {
-        case 1:
-        localStorage.clear();
-        location.href = 'index.html';
-        break;
-        default:
-        location.href = 'menu.html';
-    }
 }

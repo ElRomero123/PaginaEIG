@@ -33,7 +33,7 @@ function to(num)
     }
 }
 
-function createCase()
+function createC()
 {
     if(validateText())
     {

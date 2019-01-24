@@ -126,6 +126,7 @@
     <Content Include="js\businessPanelC.js" />
     <Content Include="js\confirm.js" />
     <Content Include="js\error.js" />
+    <Content Include="js\manageCases.js" />
     <Content Include="js\managePackage.js" />
     <Content Include="js\menu.js" />
     <Content Include="js\menu2.js" />
@@ -143,6 +144,7 @@
     <Content Include="js\productPanel.js" />
     <Content Include="js\productPanelC.js" />
     <Content Include="js\register.js" />
+    <Content Include="manageCases.html" />
     <Content Include="managePackage.html" />
     <Content Include="menu9.html" />
     <Content Include="ORM\BD.Context.tt">
