@@ -105,6 +105,8 @@
     <Content Include="img\g.png" />
     <Content Include="img\logo.png" />
     <Content Include="img\lupa.png" />
+    <Content Include="img\menu\10N.png" />
+    <Content Include="img\menu\10R.png" />
     <Content Include="img\menu\1N.png" />
     <Content Include="img\menu\1R.png" />
     <Content Include="img\menu\2N.png" />
@@ -143,6 +145,7 @@
     <Content Include="js\menu6.js" />
     <Content Include="js\menu7.js" />
     <Content Include="js\menu8.js" />
+    <Content Include="js\menu9.js" />
     <Content Include="js\otherPersonPanel.js" />
     <Content Include="js\otherPersonPanelC.js" />
     <Content Include="js\personPanel.js" />
@@ -151,6 +154,7 @@
     <Content Include="js\productPanelC.js" />
     <Content Include="js\register.js" />
     <Content Include="managePackage.html" />
+    <Content Include="menu9.html" />
     <Content Include="ORM\BD.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>BD.edmx</DependentUpon>
