@@ -127,6 +127,7 @@
     <Content Include="js\confirm.js" />
     <Content Include="js\error.js" />
     <Content Include="js\manageCases.js" />
+    <Content Include="js\manageJobApplication.js" />
     <Content Include="js\managePackage.js" />
     <Content Include="js\menu.js" />
     <Content Include="js\menu2.js" />
@@ -145,6 +146,7 @@
     <Content Include="js\productPanelC.js" />
     <Content Include="js\register.js" />
     <Content Include="manageCases.html" />
+    <Content Include="manageJobApplication.html" />
     <Content Include="managePackage.html" />
     <Content Include="menu9.html" />
     <Content Include="ORM\BD.Context.tt">
@@ -290,6 +292,7 @@
     <Content Include="ORM\BD.edmx.diagram">
       <DependentUpon>BD.edmx</DependentUpon>
     </Content>
+    <Content Include="img\menu\8N.pdn" />
     <None Include="packages.config" />
     <Content Include="sass\index.scss" />
     <None Include="Properties\PublishProfiles\eliteintelligence - FTP.pubxml" />
