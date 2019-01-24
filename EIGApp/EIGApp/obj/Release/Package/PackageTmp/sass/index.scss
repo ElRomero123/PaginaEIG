@@ -166,19 +166,9 @@ body
     
         .categories
         {
-            #c10:hover
-            {
-                background: url('../img/menu/10R.png');
-            }
-
             #c10
             {
                 background: url('../img/menu/10N.png');
-            }
-
-            #c9:hover
-            {
-                background: url('../img/menu/9R.png');
             }
 
             #c9
@@ -186,19 +176,9 @@ body
                 background: url('../img/menu/9N.png');
             }
 
-            #c8:hover
-            {
-                background: url('../img/menu/8R.png');
-            }
-
             #c8
             {
                 background: url('../img/menu/8N.png');
-            }
-
-            #c7:hover
-            {
-                background: url('../img/menu/7R.png');
             }
 
             #c7
@@ -206,19 +186,9 @@ body
                 background: url('../img/menu/7N.png');
             }
 
-            #c6:hover
-            {
-                background: url('../img/menu/6R.png');
-            }
-
             #c6
             {
                 background: url('../img/menu/6N.png');
-            }
-
-            #c5:hover
-            {
-                background: url('../img/menu/5R.png');
             }
 
             #c5
@@ -226,19 +196,9 @@ body
                 background: url('../img/menu/5N.png');
             }
 
-            #c4:hover
-            {
-                background: url('../img/menu/4R.png');
-            }
-
             #c4
             {
                 background: url('../img/menu/4N.png');
-            }
-
-            #c3:hover
-            {
-                background: url('../img/menu/3R.png');
             }
 
             #c3
@@ -246,24 +206,28 @@ body
                 background: url('../img/menu/3N.png');
             }
 
-            #c2:hover
-            {
-                background: url('../img/menu/2R.png');
-            }
-
             #c2
             {
                 background: url('../img/menu/2N.png');
             }
 
-            #c1:hover
-            {
-                background: url('../img/menu/1R.png');
-            }
-
             #c1
             {
                 background: url('../img/menu/1N.png');
+            }
+
+            .category:hover
+            {
+                filter: invert(100%);
+                /*
+                transition: 0.25s;
+                border-radius: 0px;
+                height: 90px;
+                width: 90px;
+                display: inline-block;
+                margin: 4px;
+                color: white;
+                */
             }
 
             .category

@@ -29,12 +29,12 @@ function to(num)
     }
 }
 
-function confirm(cantidad, cubrimiento, precio)
+function confirm(cantidad, producto, cubrimiento, precio)
 {
     location.href = 'confirm.html';
     localStorage.setItem('Linea', 'Curso/Promoción/Evento');
-    localStorage.setItem('Producto', 'Paquete de Afiliación');
     localStorage.setItem('Cantidad', cantidad);
+    localStorage.setItem('Producto', producto);
     localStorage.setItem('Cubrimiento', cubrimiento);
     localStorage.setItem('Precio', precio);
     localStorage.setItem('Llamado', 2);
