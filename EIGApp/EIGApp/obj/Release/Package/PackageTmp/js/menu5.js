@@ -83,6 +83,9 @@ function to(num)
         localStorage.clear();
         location.href = 'index.html';
         break;
+        case 2:
+        location.href = 'index.html';
+        break;
         default:
         location.href = 'menu.html';
     }

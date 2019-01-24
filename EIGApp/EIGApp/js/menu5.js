@@ -84,7 +84,7 @@ function to(num)
         location.href = 'index.html';
         break;
         case 2:
-        location.href = 'index.html';
+        location.href = 'casesPackage.html';
         break;
         default:
         location.href = 'menu.html';
