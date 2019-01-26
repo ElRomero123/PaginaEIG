@@ -14,7 +14,7 @@ namespace EIGApp.Controllers
             var query = from P in BD.People
                         where (P.Name.Contains(cadena) || P.ProfesionDescription.Contains(cadena))
                         orderby (P.Ciprin)
-                        select new {P.Name, P.ProfesionDescription, P.Email, P.Phone, P.City, P.Address, P.Avatar, P.Ciprin, P.Active};
+                        select new {P.Name, P.ProfesionDescription, P.Email, P.Phone, P.City, P.Address, P.Avatar, P.Ciprin, P.Active, P.CreationDate};
 
             var lista = query.ToArray();
 
@@ -24,15 +24,16 @@ namespace EIGApp.Controllers
             {
                 M.Person temp = new M.Person
                 {
-                    Name = lista[i].Name,
+                    Name                 = lista[i].Name,
                     ProfesionDescription = lista[i].ProfesionDescription,
-                    Email = lista[i].Email,
-                    Phone = lista[i].Phone,
-                    City = lista[i].City,
-                    Address = lista[i].Address,
-                    Avatar = lista[i].Avatar,
-                    Ciprin = lista[i].Ciprin,
-                    Active = lista[i].Active
+                    Email                = lista[i].Email,
+                    Phone                = lista[i].Phone,
+                    City                 = lista[i].City,
+                    Address              = lista[i].Address,
+                    Avatar               = lista[i].Avatar,
+                    Ciprin               = lista[i].Ciprin,
+                    Active               = lista[i].Active,
+                    CreationDate         = lista[i].CreationDate
                 };
 
                 arrayPeople[i] = temp;
@@ -51,6 +52,7 @@ namespace EIGApp.Controllers
                 AutoMapper.Mapper.CreateMap<M.Person, O.Person>();
                 #pragma warning restore CS0618
                 O.Person BDPerson = AutoMapper.Mapper.Map<O.Person>(persona);
+                BDPerson.CreationDate = System.DateTime.Now.ToString("g");
                 BD.People.Add(BDPerson);
                 BD.SaveChanges();
 

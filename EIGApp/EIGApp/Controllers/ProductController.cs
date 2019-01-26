@@ -13,7 +13,7 @@ namespace EIGApp.Controllers
         {
             var query = from PR in BD.Products
                         where(PR.Name.Contains(cadena) || PR.TypeDescription.Contains(cadena) || PR.AttendantName.Contains(cadena) || PR.Date.Contains(cadena))
-                        select new {PR.Name, PR.Type, PR.TypeDescription, PR.AttendantName, PR.AttendantWebPage, PR.AttendantEmail, PR.AttendantPhone, PR.City, PR.Address, PR.Date, PR.Avatar, PR.Ciprin, PR.Active};
+                        select new {PR.Name, PR.Type, PR.TypeDescription, PR.AttendantName, PR.AttendantWebPage, PR.AttendantEmail, PR.AttendantPhone, PR.City, PR.Address, PR.Date, PR.Avatar, PR.Ciprin, PR.Active, PR.CreationDate};
 
             var lista = query.ToArray();
 
@@ -23,19 +23,20 @@ namespace EIGApp.Controllers
             {
                 M.Product temp = new M.Product
                 {
-                    Name = lista[i].Name,
-                    Type = lista[i].Type,
-                    TypeDescription = lista[i].TypeDescription,
-                    AttendantName = lista[i].AttendantName,
+                    Name             = lista[i].Name,
+                    Type             = lista[i].Type,
+                    TypeDescription  = lista[i].TypeDescription,
+                    AttendantName    = lista[i].AttendantName,
                     AttendantWebPage = lista[i].AttendantWebPage,
-                    AttendantEmail = lista[i].AttendantEmail,
-                    AttendantPhone = lista[i].AttendantPhone,
-                    City = lista[i].City,
-                    Address = lista[i].Address,
-                    Date = lista[i].Date,
-                    Avatar = lista[i].Avatar,
-                    Ciprin = lista[i].Ciprin,
-                    Active = lista[i].Active
+                    AttendantEmail   = lista[i].AttendantEmail,
+                    AttendantPhone   = lista[i].AttendantPhone,
+                    City             = lista[i].City,
+                    Address          = lista[i].Address,
+                    Date             = lista[i].Date,
+                    Avatar           = lista[i].Avatar,
+                    Ciprin           = lista[i].Ciprin,
+                    Active           = lista[i].Active,
+                    CreationDate     = lista[i].CreationDate
                 };
 
                 arrayProducts[i] = temp;
@@ -54,6 +55,7 @@ namespace EIGApp.Controllers
                 AutoMapper.Mapper.CreateMap<M.Product, O.Product>();
                 #pragma warning restore CS0618
                 O.Product BDProduct = AutoMapper.Mapper.Map<O.Product>(producto);
+                BDProduct.CreationDate = System.DateTime.Now.ToString("g");
                 BD.Products.Add(BDProduct);
                 BD.SaveChanges();
 

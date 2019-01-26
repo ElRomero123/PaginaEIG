@@ -14,7 +14,7 @@ namespace EIGApp.Controllers
             var query = from B in BD.Businesses
                         where (B.Name.Contains(cadena) || B.SpecialismDescription.Contains(cadena))
                         orderby (B.Ciprin)
-                        select new {B.Name, B.Specialism, B.SpecialismDescription, B.WebPage, B.Phone, B.City, B.Address, B.Avatar, B.Ciprin, B.Active};
+                        select new {B.Name, B.Specialism, B.SpecialismDescription, B.WebPage, B.Phone, B.City, B.Address, B.Avatar, B.Ciprin, B.Active, B.CreationDate};
                           
             var lista = query.ToArray();
 
@@ -24,16 +24,17 @@ namespace EIGApp.Controllers
             {
                 M.Business temp = new M.Business
                 {
-                    Name = lista[i].Name,
-                    Specialism = lista[i].Specialism,
+                    Name                  = lista[i].Name,
+                    Specialism            = lista[i].Specialism,
                     SpecialismDescription = lista[i].SpecialismDescription,
-                    WebPage = lista[i].WebPage,
-                    Phone = lista[i].Phone,
-                    City = lista[i].City,
-                    Address = lista[i].Address,
-                    Avatar = lista[i].Avatar,
-                    Ciprin = lista[i].Ciprin,
-                    Active = lista[i].Active
+                    WebPage               = lista[i].WebPage,
+                    Phone                 = lista[i].Phone,
+                    City                  = lista[i].City,
+                    Address               = lista[i].Address,
+                    Avatar                = lista[i].Avatar,
+                    Ciprin                = lista[i].Ciprin,
+                    Active                = lista[i].Active,
+                    CreationDate          = lista[i].CreationDate
                 };
 
                 arrayBusinesses[i] = temp;
@@ -52,6 +53,7 @@ namespace EIGApp.Controllers
                 AutoMapper.Mapper.CreateMap<M.Business, O.Business>();
                 #pragma warning restore CS0618
                 O.Business BDBusiness = AutoMapper.Mapper.Map<O.Business>(negocio);
+                BDBusiness.CreationDate = System.DateTime.Now.ToString("g");
                 BD.Businesses.Add(BDBusiness);
                 BD.SaveChanges();
 

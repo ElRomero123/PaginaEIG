@@ -13,7 +13,7 @@ namespace EIGApp.Controllers
         {
             var query = from C in BD.Cases
                         where (C.IdUser.Equals(idUser))
-                        select new { C.Id, C.Name, C.DescriptionCase };
+                        select new {C.Id, C.Name, C.DescriptionCase, C.PostedDate};
 
             var lista = query.ToArray();
 
@@ -23,9 +23,10 @@ namespace EIGApp.Controllers
             {
                 M.Case temp = new M.Case
                 {
-                    Id = lista[i].Id,
-                    Name = lista[i].Name,
-                    DescriptionCase = lista[i].DescriptionCase
+                    Id              = lista[i].Id,
+                    Name            = lista[i].Name,
+                    DescriptionCase = lista[i].DescriptionCase,
+                    PostedDate      = lista[i].PostedDate
                 };
 
                 arrayCase[i] = temp;
@@ -44,6 +45,7 @@ namespace EIGApp.Controllers
                 AutoMapper.Mapper.CreateMap<M.Case, O.Case>();
                 #pragma warning restore CS0618
                 O.Case BDCase = AutoMapper.Mapper.Map<O.Case>(caso);
+                BDCase.PostedDate = System.DateTime.Now.ToString("g");
                 BD.Cases.Add(BDCase);
                 BD.SaveChanges();
                 state = true;

@@ -11,9 +11,9 @@ namespace EIGApp.Controllers
 
         public M.JobApplication[] Get(long idUser)
         {
-            var query = from JB in BD.JobApplications
-                        where (JB.IdUser.Equals(idUser))
-                        select new {JB.Id, JB.Name, JB.DocumentNumber, JB.DescriptionApplication, JB.Age};
+            var query = from JA in BD.JobApplications
+                        where (JA.IdUser.Equals(idUser))
+                        select new {JA.Id, JA.Name, JA.DocumentNumber, JA.DescriptionApplication, JA.Age, JA.PostedDate};
 
             var lista = query.ToArray();
 
@@ -23,11 +23,12 @@ namespace EIGApp.Controllers
             {
                 M.JobApplication temp = new M.JobApplication
                 {
-                    Id = lista[i].Id,
-                    Name = lista[i].Name,
-                    DocumentNumber = lista[i].DocumentNumber,
+                    Id                     = lista[i].Id,
+                    Name                   = lista[i].Name,
+                    DocumentNumber         = lista[i].DocumentNumber,
                     DescriptionApplication = lista[i].DescriptionApplication,
-                    Age = lista[i].Age
+                    Age                    = lista[i].Age,
+                    PostedDate             = lista[i].PostedDate
                 };
 
                 arrayJobApplication[i] = temp;
@@ -46,6 +47,7 @@ namespace EIGApp.Controllers
                 AutoMapper.Mapper.CreateMap<M.JobApplication, O.JobApplication>();
                 #pragma warning restore CS0618
                 O.JobApplication BDJobApplication = AutoMapper.Mapper.Map<O.JobApplication>(jobApplication);
+                BDJobApplication.PostedDate = System.DateTime.Now.ToString("g");
                 BD.JobApplications.Add(BDJobApplication);
                 BD.SaveChanges();
                 state = true;

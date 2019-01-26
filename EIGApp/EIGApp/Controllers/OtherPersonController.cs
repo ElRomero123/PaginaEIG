@@ -13,8 +13,7 @@ namespace EIGApp.Controllers
         {
             var query = from OP in BD.OtherPersons
                         where (OP.Name.Contains(cadena) || OP.Profesion.Contains(cadena) || OP.ProfesionDescription.Contains(cadena))
-                        orderby (OP.Ciprin)
-                        select new {OP.Name, OP.Profesion, OP.ProfesionDescription, OP.Email, OP.Phone, OP.City, OP.Address, OP.Avatar, OP.Ciprin, OP.Active};
+                        select new {OP.Name, OP.Profesion, OP.ProfesionDescription, OP.Email, OP.Phone, OP.City, OP.Address, OP.Avatar, OP.Ciprin, OP.Active, OP.CreationDate};
 
             var lista = query.ToArray();
 
@@ -24,16 +23,17 @@ namespace EIGApp.Controllers
             {
                 M.OtherPerson temp = new M.OtherPerson
                 {
-                    Name = lista[i].Name,
-                    Profesion = lista[i].Profesion,
+                    Name                 = lista[i].Name,
+                    Profesion            = lista[i].Profesion,
                     ProfesionDescription = lista[i].ProfesionDescription,
-                    Email = lista[i].Email,
-                    Phone = lista[i].Phone,
-                    City = lista[i].City,
-                    Address = lista[i].Address,
-                    Avatar = lista[i].Avatar,
-                    Ciprin = lista[i].Ciprin,
-                    Active = lista[i].Active
+                    Email                = lista[i].Email,
+                    Phone                = lista[i].Phone,
+                    City                 = lista[i].City,
+                    Address              = lista[i].Address,
+                    Avatar               = lista[i].Avatar,
+                    Ciprin               = lista[i].Ciprin,
+                    Active               = lista[i].Active,
+                    CreationDate         = lista[i].CreationDate
                 };
 
                 arrayOtherPersons[i] = temp;
@@ -52,6 +52,7 @@ namespace EIGApp.Controllers
                 AutoMapper.Mapper.CreateMap<M.OtherPerson, O.OtherPerson>();
                 #pragma warning restore CS0618
                 O.OtherPerson BDOtherPerson = AutoMapper.Mapper.Map<O.OtherPerson>(otraPersona);
+                BDOtherPerson.CreationDate = System.DateTime.Now.ToString("g");
                 BD.OtherPersons.Add(BDOtherPerson);
                 BD.SaveChanges();
 
