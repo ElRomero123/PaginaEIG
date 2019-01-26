@@ -41,7 +41,20 @@ function to(num)
         location.href = 'index.html';
         break;
         default:
-        var llamado = localStorage.getItem('Llamado');
+        var Call = localStorage.getItem('Call');
+
+        if(Llamado == 1)
+        {
+            location.href = 'businessPanel.html';
+            localStorage.removeItem('Call');
+        }
+
+        else
+        {
+            location.href = 'businessPanelC.html';
+            localStorage.removeItem('Call');
+        }
+        /*
         switch(llamado)
         {
             case 1:
@@ -55,8 +68,8 @@ function to(num)
             break;
             default:
             location.href = 'productPanelC.html';
-
         }
+        */
     }
 }
 
