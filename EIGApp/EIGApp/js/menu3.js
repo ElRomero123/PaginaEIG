@@ -26,7 +26,7 @@ function search()
         $('#bannerState').css('display','block');
         $('#bannerState').css('background','yellow');
         $('#bannerState').css('color','black');
-        $('#bannerState').text('Buscando ...');
+        $('#bannerState').text('Buscando empresas ...');
     
         var criterio = document.getElementById('criterio').value;
 
@@ -48,11 +48,11 @@ function search()
                         {
                             if(data[i].Ciprin == 1)
                             {
-                                cadena += "<div class='result'> <div class='avatar' id='" + i + "'></div> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].Specialism + "</p> <p class='pf2'>" + data[i].SpecialismDescription + "</p> <p class='pf3'>" + data[i].WebPage + "</p> <p class='pf4'>" + data[i].Phone + "</p> <p class='pf4'>" + data[i].City + "</p> <p class='pf4'>" + data[i].Address + "</p> <p class='c'>Pertenece a CIPRIN</p> </div> </div>";
+                                cadena += "<div class='result'> <div class='avatar' id='" + i + "'></div> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].Specialism + "</p> <p class='pf2'>" + data[i].SpecialismDescription + "</p> <p class='pf3'>" + data[i].WebPage + "</p> <p class='pf4'>" + data[i].Phone + "</p> <p class='pf4'>" + data[i].City + "</p> <p class='pf4'>" + data[i].Address + "</p> <p class='pf4'>" + 'Unido el ' + data[i].CreationDate + "</p> <p class='c'>Pertenece a CIPRIN</p> </div> </div>";
                             }
                             else
                             {
-                                cadena += "<div class='result'> <div class='avatar' id='" + i + "'></div> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].Specialism + "</p> <p class='pf2'>" + data[i].SpecialismDescription + "</p> <p class='pf3'>" + data[i].WebPage + "</p> <p class='pf4'>" + data[i].Phone + "</p> <p class='pf4'>" + data[i].City + "</p> <p class='pf4'>" + data[i].Address + "</p> </div> </div>";
+                                cadena += "<div class='result'> <div class='avatar' id='" + i + "'></div> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].Specialism + "</p> <p class='pf2'>" + data[i].SpecialismDescription + "</p> <p class='pf3'>" + data[i].WebPage + "</p> <p class='pf4'>" + data[i].Phone + "</p> <p class='pf4'>" + data[i].City + "</p> <p class='pf4'>" + data[i].Address + "</p> <p class='pf4'>" + 'Unido el ' + data[i].CreationDate + "</p> </div> </div>";
                             }
                               
                         } 
@@ -66,7 +66,7 @@ function search()
 
                         $('#bannerState').css('background','green');
                         $('#bannerState').css('color','white');
-                        $('#bannerState').text(i + ' empresas(s) encontradas!');
+                        $('#bannerState').text(i + ' resultados encontrados!');
                         $('#listResults').css('display','flex');
                     }
 
@@ -85,7 +85,7 @@ function search()
     {
         $('#bannerState').css('background','red');
         $('#bannerState').css('color','white');
-        $('#bannerState').text('No estás conectado a internet!');
+        $('#bannerState').text('Sin internet!');
     }
 }
 

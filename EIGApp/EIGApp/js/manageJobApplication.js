@@ -20,19 +20,6 @@ function initUser()
     loadJobApplications();
 }
 
-function to(num)
-{
-    switch(num)
-    {
-        case 1:
-        localStorage.clear();
-        location.href = 'index.html';
-        break;
-        default:
-        location.href = 'menu6.html';
-    }
-}
-
 function loadJobApplications()
 {
     if(navigator.onLine)
@@ -42,7 +29,7 @@ function loadJobApplications()
         $('#bannerState').css('display','block');
         $('#bannerState').css('background','yellow');
         $('#bannerState').css('color','black');
-        $('#bannerState').text('Cargando postulaciones ...');
+        $('#bannerState').text('Cargando tus solicitudes ...');
 
         var idUser = localStorage.getItem('User');
 
@@ -62,14 +49,13 @@ function loadJobApplications()
 
                         for(var i = 0; i < data.length; i++)
                         {
-                            cadena += "<div id='" + data[i].Id + "' class='result' onclick='toEditApplication(this)'> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].DocumentNumber + "</p> <p class='pf3'>" + data[i].Cantidad + "</p> <p class='pf4'>" + data[i].FechaCompra + "</p> <p class='pf4'>" + data[i].DescriptionApplication + "</p> <p class='pf4'>" + data[i].Age + "</p> </div> </div>";  
+                            cadena += "<div id='" + data[i].Id + "' class='result' onclick='toEditApplication(this)'> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].DocumentNumber + "</p> <p class='pf3'>" + data[i].Cantidad + "</p> <p class='pf4'>" + data[i].FechaCompra + "</p> <p class='pf4'>" + data[i].DescriptionApplication + "</p> <p class='pf4'>" + data[i].Age + "</p> <p class='pf4'>" + data[i].PostedDate + "</p> </div> </div>";  
                         }
                         
                         $('#listResults').append(cadena);
-
                         $('#bannerState').css('background','green');
                         $('#bannerState').css('color','white');
-                        $('#bannerState').text('Tienes ' + i + ' postulación(es)!');
+                        $('#bannerState').text('Usted tiene ' + i + ' solicitudes de empleo!');
                         $('#listResults').css('display','flex');
                     }
 
@@ -77,7 +63,7 @@ function loadJobApplications()
                     {
                         $('#bannerState').css('background','red');
                         $('#bannerState').css('color','white');
-                        $('#bannerState').text('Aún NO tienes postulaciones!');
+                        $('#bannerState').text('Aún no has realizado una solicitud!');
                     }
                 }
             }
@@ -88,7 +74,20 @@ function loadJobApplications()
     {
         $('#bannerState').css('background','red');
         $('#bannerState').css('color','white');
-        $('#bannerState').text('No estás conectado a internet!');
+        $('#bannerState').text('Sin internet!');
+    }
+}
+
+function to(num)
+{
+    switch(num)
+    {
+        case 1:
+        localStorage.clear();
+        location.href = 'index.html';
+        break;
+        default:
+        location.href = 'menu6.html';
     }
 }
 

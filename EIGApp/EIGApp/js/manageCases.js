@@ -48,14 +48,14 @@ function loadCases()
 
                         for(var i = 0; i < data.length; i++)
                         {
-                            cadena += "<div id='" + data[i].Id + "' class='result' onclick='toEditCase(this)'> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].Description + "</div> </div>";  
+                            cadena += "<div id='" + data[i].Id + "' class='result' onclick='toEditCase(this)'> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].Description + "</p> <p class='pf3'>" + data[i].PostedDate + "</p> </div> </div>";  
                         }
                         
                         $('#listResults').append(cadena);
 
                         $('#bannerState').css('background','green');
                         $('#bannerState').css('color','white');
-                        $('#bannerState').text('Tienes ' + i + ' caso(s)!');
+                        $('#bannerState').text('Usted tiene ' + i + ' casos!');
                         $('#listResults').css('display','flex');
                     }
 
@@ -63,7 +63,7 @@ function loadCases()
                     {
                         $('#bannerState').css('background','red');
                         $('#bannerState').css('color','white');
-                        $('#bannerState').text('NO has creado ningún caso!');
+                        $('#bannerState').text('Aún no has subido un caso!');
                     }
                 }
             }
@@ -74,7 +74,7 @@ function loadCases()
     {
         $('#bannerState').css('background','red');
         $('#bannerState').css('color','white');
-        $('#bannerState').text('No estás conectado a internet!');
+        $('#bannerState').text('Sin internet!');
     }
 }
 
