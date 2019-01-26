@@ -66,6 +66,7 @@ namespace EIGApp.Controllers
                 AutoMapper.Mapper.CreateMap<M.User, O.User>();
                 #pragma warning restore CS0618
                 O.User BDUser = AutoMapper.Mapper.Map<O.User>(usuario);
+                BDUser.JoinDate = System.DateTime.Now.ToString("g");
                 BD.Users.Add(BDUser);
                 BD.SaveChanges();
                 state = true;

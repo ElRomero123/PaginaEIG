@@ -12,9 +12,10 @@
           <ScalarProperty Name="Phone" ColumnName="Phone" />
           <ScalarProperty Name="City" ColumnName="City" />
           <ScalarProperty Name="Address" ColumnName="Address" />
-          <ScalarProperty Name="Avatar" ColumnName="Avatar" />
           <ScalarProperty Name="Ciprin" ColumnName="Ciprin" />
           <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="Avatar" ColumnName="Avatar" />
           <ScalarProperty Name="IdPackage" ColumnName="IdPackage" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -25,25 +26,8 @@
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="DescriptionCase" ColumnName="DescriptionCase" />
+          <ScalarProperty Name="PostedDate" ColumnName="PostedDate" />
           <ScalarProperty Name="IdUser" ColumnName="IdUser" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="FileCases">
-      <EntityTypeMapping TypeName="bdEIGModel.FileCase">
-        <MappingFragment StoreEntitySet="FileCase">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="LinkFile" ColumnName="LinkFile" />
-          <ScalarProperty Name="IdCase" ColumnName="IdCase" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="FileJobApplications">
-      <EntityTypeMapping TypeName="bdEIGModel.FileJobApplication">
-        <MappingFragment StoreEntitySet="FileJobApplication">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="LinkFile" ColumnName="LinkFile" />
-          <ScalarProperty Name="IdJobApplication" ColumnName="IdJobApplication" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -55,6 +39,7 @@
           <ScalarProperty Name="DocumentNumber" ColumnName="DocumentNumber" />
           <ScalarProperty Name="DescriptionApplication" ColumnName="DescriptionApplication" />
           <ScalarProperty Name="Age" ColumnName="Age" />
+          <ScalarProperty Name="PostedDate" ColumnName="PostedDate" />
           <ScalarProperty Name="IdUser" ColumnName="IdUser" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -70,9 +55,10 @@
           <ScalarProperty Name="Phone" ColumnName="Phone" />
           <ScalarProperty Name="City" ColumnName="City" />
           <ScalarProperty Name="Address" ColumnName="Address" />
-          <ScalarProperty Name="Avatar" ColumnName="Avatar" />
           <ScalarProperty Name="Ciprin" ColumnName="Ciprin" />
           <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="Avatar" ColumnName="Avatar" />
           <ScalarProperty Name="IdUser" ColumnName="IdUser" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -102,9 +88,10 @@
           <ScalarProperty Name="Phone" ColumnName="Phone" />
           <ScalarProperty Name="City" ColumnName="City" />
           <ScalarProperty Name="Address" ColumnName="Address" />
-          <ScalarProperty Name="Avatar" ColumnName="Avatar" />
           <ScalarProperty Name="Ciprin" ColumnName="Ciprin" />
           <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="Avatar" ColumnName="Avatar" />
           <ScalarProperty Name="IdUser" ColumnName="IdUser" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -123,46 +110,11 @@
           <ScalarProperty Name="City" ColumnName="City" />
           <ScalarProperty Name="Address" ColumnName="Address" />
           <ScalarProperty Name="Date" ColumnName="Date" />
-          <ScalarProperty Name="Avatar" ColumnName="Avatar" />
           <ScalarProperty Name="Ciprin" ColumnName="Ciprin" />
           <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="Avatar" ColumnName="Avatar" />
           <ScalarProperty Name="IdPackage" ColumnName="IdPackage" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="ScoreBusinesses">
-      <EntityTypeMapping TypeName="bdEIGModel.ScoreBusiness">
-        <MappingFragment StoreEntitySet="ScoreBusiness">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="Score" ColumnName="Score" />
-          <ScalarProperty Name="IdBusiness" ColumnName="IdBusiness" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="ScoreOtherPersons">
-      <EntityTypeMapping TypeName="bdEIGModel.ScoreOtherPerson">
-        <MappingFragment StoreEntitySet="ScoreOtherPerson">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="Score" ColumnName="Score" />
-          <ScalarProperty Name="IdOtherPerson" ColumnName="IdOtherPerson" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="ScorePersons">
-      <EntityTypeMapping TypeName="bdEIGModel.ScorePerson">
-        <MappingFragment StoreEntitySet="ScorePerson">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="Score" ColumnName="Score" />
-          <ScalarProperty Name="IdPerson" ColumnName="IdPerson" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="ScoreProducts">
-      <EntityTypeMapping TypeName="bdEIGModel.ScoreProduct">
-        <MappingFragment StoreEntitySet="ScoreProduct">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="Score" ColumnName="Score" />
-          <ScalarProperty Name="IdProduct" ColumnName="IdProduct" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -172,6 +124,7 @@
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="PostedDate" ColumnName="PostedDate" />
           <ScalarProperty Name="IdUser" ColumnName="IdUser" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -185,44 +138,9 @@
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="Email" ColumnName="Email" />
           <ScalarProperty Name="Phone" ColumnName="Phone" />
-          <ScalarProperty Name="TienePerfil" ColumnName="TienePerfil" />
           <ScalarProperty Name="Address" ColumnName="Address" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="VisitBusinesses">
-      <EntityTypeMapping TypeName="bdEIGModel.VisitBusiness">
-        <MappingFragment StoreEntitySet="VisitBusiness">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="Date" ColumnName="Date" />
-          <ScalarProperty Name="IdBusiness" ColumnName="IdBusiness" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="VisitOtherPersons">
-      <EntityTypeMapping TypeName="bdEIGModel.VisitOtherPerson">
-        <MappingFragment StoreEntitySet="VisitOtherPerson">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="Date" ColumnName="Date" />
-          <ScalarProperty Name="IdOtherPerson" ColumnName="IdOtherPerson" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="VisitPersons">
-      <EntityTypeMapping TypeName="bdEIGModel.VisitPerson">
-        <MappingFragment StoreEntitySet="VisitPerson">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="Date" ColumnName="Date" />
-          <ScalarProperty Name="IdPerson" ColumnName="IdPerson" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="VisitProducts">
-      <EntityTypeMapping TypeName="bdEIGModel.VisitProduct">
-        <MappingFragment StoreEntitySet="VisitProduct">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="Date" ColumnName="Date" />
-          <ScalarProperty Name="IdProduct" ColumnName="IdProduct" />
+          <ScalarProperty Name="joinDate" ColumnName="joinDate" />
+          <ScalarProperty Name="TienePerfil" ColumnName="TienePerfil" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

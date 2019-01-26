@@ -12,13 +12,12 @@
     <Property Name="Phone" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="City" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="Address" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Avatar" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="Ciprin" Type="Int32" Nullable="false" />
     <Property Name="Active" Type="Int32" Nullable="false" />
+    <Property Name="CreationDate" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Avatar" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="IdPackage" Type="Int64" Nullable="false" />
     <NavigationProperty Name="Package" Relationship="Self.FK_Business_Package" FromRole="Business" ToRole="Package" />
-    <NavigationProperty Name="ScoreBusinesses" Relationship="Self.FK_ScoreBusiness_Business" FromRole="Business" ToRole="ScoreBusiness" />
-    <NavigationProperty Name="VisitBusinesses" Relationship="Self.FK_VisitBusiness_Business" FromRole="Business" ToRole="VisitBusiness" />
   </EntityType>
   <EntityType Name="Case">
     <Key>
@@ -27,27 +26,9 @@
     <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="DescriptionCase" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PostedDate" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="IdUser" Type="Int64" Nullable="false" />
     <NavigationProperty Name="User" Relationship="Self.FK_Case_User" FromRole="Case" ToRole="User" />
-    <NavigationProperty Name="FileCases" Relationship="Self.FK_FileCase_Case" FromRole="Case" ToRole="FileCase" />
-  </EntityType>
-  <EntityType Name="FileCase">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="LinkFile" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="IdCase" Type="Int64" Nullable="false" />
-    <NavigationProperty Name="Case" Relationship="Self.FK_FileCase_Case" FromRole="FileCase" ToRole="Case" />
-  </EntityType>
-  <EntityType Name="FileJobApplication">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="LinkFile" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="IdJobApplication" Type="Int64" Nullable="false" />
-    <NavigationProperty Name="JobApplication" Relationship="Self.FK_FileJobApplication_JobApplication" FromRole="FileJobApplication" ToRole="JobApplication" />
   </EntityType>
   <EntityType Name="JobApplication">
     <Key>
@@ -58,8 +39,8 @@
     <Property Name="DocumentNumber" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="DescriptionApplication" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="Age" Type="Int32" Nullable="false" />
+    <Property Name="PostedDate" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="IdUser" Type="Int64" Nullable="false" />
-    <NavigationProperty Name="FileJobApplications" Relationship="Self.FK_FileJobApplication_JobApplication" FromRole="JobApplication" ToRole="FileJobApplication" />
     <NavigationProperty Name="User" Relationship="Self.FK_JobApplication_User" FromRole="JobApplication" ToRole="User" />
   </EntityType>
   <EntityType Name="OtherPerson">
@@ -74,13 +55,12 @@
     <Property Name="Phone" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="City" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="Address" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Avatar" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="Ciprin" Type="Int32" Nullable="false" />
     <Property Name="Active" Type="Int32" Nullable="false" />
+    <Property Name="CreationDate" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Avatar" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="IdUser" Type="Int64" Nullable="false" />
     <NavigationProperty Name="User" Relationship="Self.FK_OtherPerson_User" FromRole="OtherPerson" ToRole="User" />
-    <NavigationProperty Name="ScoreOtherPersons" Relationship="Self.FK_ScoreOtherPerson_OtherPerson" FromRole="OtherPerson" ToRole="ScoreOtherPerson" />
-    <NavigationProperty Name="VisitOtherPersons" Relationship="Self.FK_VisitOtherPerson_OtherPerson" FromRole="OtherPerson" ToRole="VisitOtherPerson" />
   </EntityType>
   <EntityType Name="Package">
     <Key>
@@ -110,13 +90,12 @@
     <Property Name="Phone" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="City" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="Address" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Avatar" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="Ciprin" Type="Int32" Nullable="false" />
     <Property Name="Active" Type="Int32" Nullable="false" />
+    <Property Name="CreationDate" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Avatar" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="IdUser" Type="Int64" Nullable="false" />
     <NavigationProperty Name="User" Relationship="Self.FK_Person_User" FromRole="Person" ToRole="User" />
-    <NavigationProperty Name="ScorePersons" Relationship="Self.FK_ScorePerson_Person" FromRole="Person" ToRole="ScorePerson" />
-    <NavigationProperty Name="VisitPersons" Relationship="Self.FK_VisitPerson_Person" FromRole="Person" ToRole="VisitPerson" />
   </EntityType>
   <EntityType Name="Product">
     <Key>
@@ -133,49 +112,12 @@
     <Property Name="City" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="Address" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="Date" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Avatar" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="Ciprin" Type="Int32" Nullable="false" />
     <Property Name="Active" Type="Int32" Nullable="false" />
+    <Property Name="CreationDate" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Avatar" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="IdPackage" Type="Int64" Nullable="false" />
     <NavigationProperty Name="Package" Relationship="Self.FK_Product_Package" FromRole="Product" ToRole="Package" />
-    <NavigationProperty Name="ScoreProducts" Relationship="Self.FK_ScoreProduct_Product" FromRole="Product" ToRole="ScoreProduct" />
-    <NavigationProperty Name="VisitProducts" Relationship="Self.FK_VisitProduct_Product" FromRole="Product" ToRole="VisitProduct" />
-  </EntityType>
-  <EntityType Name="ScoreBusiness">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="Int64" Nullable="false" />
-    <Property Name="Score" Type="Int32" Nullable="false" />
-    <Property Name="IdBusiness" Type="Int64" Nullable="false" />
-    <NavigationProperty Name="Business" Relationship="Self.FK_ScoreBusiness_Business" FromRole="ScoreBusiness" ToRole="Business" />
-  </EntityType>
-  <EntityType Name="ScoreOtherPerson">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="Int64" Nullable="false" />
-    <Property Name="Score" Type="Int32" Nullable="false" />
-    <Property Name="IdOtherPerson" Type="Int64" Nullable="false" />
-    <NavigationProperty Name="OtherPerson" Relationship="Self.FK_ScoreOtherPerson_OtherPerson" FromRole="ScoreOtherPerson" ToRole="OtherPerson" />
-  </EntityType>
-  <EntityType Name="ScorePerson">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="Int64" Nullable="false" />
-    <Property Name="Score" Type="Int32" Nullable="false" />
-    <Property Name="IdPerson" Type="Int64" Nullable="false" />
-    <NavigationProperty Name="Person" Relationship="Self.FK_ScorePerson_Person" FromRole="ScorePerson" ToRole="Person" />
-  </EntityType>
-  <EntityType Name="ScoreProduct">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="Int64" Nullable="false" />
-    <Property Name="Score" Type="Int32" Nullable="false" />
-    <Property Name="IdProduct" Type="Int64" Nullable="false" />
-    <NavigationProperty Name="Product" Relationship="Self.FK_ScoreProduct_Product" FromRole="ScoreProduct" ToRole="Product" />
   </EntityType>
   <EntityType Name="Suggestion">
     <Key>
@@ -184,6 +126,7 @@
     <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="Description" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PostedDate" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="IdUser" Type="Int64" Nullable="false" />
     <NavigationProperty Name="User" Relationship="Self.FK_Suggestion_User" FromRole="Suggestion" ToRole="User" />
   </EntityType>
@@ -197,50 +140,15 @@
     <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="Email" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="Phone" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="TienePerfil" Type="Boolean" Nullable="false" />
     <Property Name="Address" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="joinDate" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="TienePerfil" Type="Boolean" Nullable="false" />
     <NavigationProperty Name="Cases" Relationship="Self.FK_Case_User" FromRole="User" ToRole="Case" />
     <NavigationProperty Name="JobApplications" Relationship="Self.FK_JobApplication_User" FromRole="User" ToRole="JobApplication" />
     <NavigationProperty Name="OtherPersons" Relationship="Self.FK_OtherPerson_User" FromRole="User" ToRole="OtherPerson" />
     <NavigationProperty Name="Packages" Relationship="Self.FK_Package_User" FromRole="User" ToRole="Package" />
     <NavigationProperty Name="People" Relationship="Self.FK_Person_User" FromRole="User" ToRole="Person" />
     <NavigationProperty Name="Suggestions" Relationship="Self.FK_Suggestion_User" FromRole="User" ToRole="Suggestion" />
-  </EntityType>
-  <EntityType Name="VisitBusiness">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="Int64" Nullable="false" />
-    <Property Name="Date" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="IdBusiness" Type="Int64" Nullable="false" />
-    <NavigationProperty Name="Business" Relationship="Self.FK_VisitBusiness_Business" FromRole="VisitBusiness" ToRole="Business" />
-  </EntityType>
-  <EntityType Name="VisitOtherPerson">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="Int64" Nullable="false" />
-    <Property Name="Date" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="IdOtherPerson" Type="Int64" Nullable="false" />
-    <NavigationProperty Name="OtherPerson" Relationship="Self.FK_VisitOtherPerson_OtherPerson" FromRole="VisitOtherPerson" ToRole="OtherPerson" />
-  </EntityType>
-  <EntityType Name="VisitPerson">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="Int64" Nullable="false" />
-    <Property Name="Date" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="IdPerson" Type="Int64" Nullable="false" />
-    <NavigationProperty Name="Person" Relationship="Self.FK_VisitPerson_Person" FromRole="VisitPerson" ToRole="Person" />
-  </EntityType>
-  <EntityType Name="VisitProduct">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="Int64" Nullable="false" />
-    <Property Name="Date" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="IdProduct" Type="Int64" Nullable="false" />
-    <NavigationProperty Name="Product" Relationship="Self.FK_VisitProduct_Product" FromRole="VisitProduct" ToRole="Product" />
   </EntityType>
   <Association Name="FK_Business_Package">
     <End Role="Package" Type="Self.Package" Multiplicity="1">
@@ -256,34 +164,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_ScoreBusiness_Business">
-    <End Role="Business" Type="Self.Business" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="ScoreBusiness" Type="Self.ScoreBusiness" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Business">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="ScoreBusiness">
-        <PropertyRef Name="IdBusiness" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_VisitBusiness_Business">
-    <End Role="Business" Type="Self.Business" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="VisitBusiness" Type="Self.VisitBusiness" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Business">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="VisitBusiness">
-        <PropertyRef Name="IdBusiness" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_Case_User">
     <End Role="User" Type="Self.User" Multiplicity="1">
       <OnDelete Action="Cascade" />
@@ -295,34 +175,6 @@
       </Principal>
       <Dependent Role="Case">
         <PropertyRef Name="IdUser" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_FileCase_Case">
-    <End Role="Case" Type="Self.Case" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="FileCase" Type="Self.FileCase" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Case">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="FileCase">
-        <PropertyRef Name="IdCase" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_FileJobApplication_JobApplication">
-    <End Role="JobApplication" Type="Self.JobApplication" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="FileJobApplication" Type="Self.FileJobApplication" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="JobApplication">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="FileJobApplication">
-        <PropertyRef Name="IdJobApplication" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -351,34 +203,6 @@
       </Principal>
       <Dependent Role="OtherPerson">
         <PropertyRef Name="IdUser" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_ScoreOtherPerson_OtherPerson">
-    <End Role="OtherPerson" Type="Self.OtherPerson" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="ScoreOtherPerson" Type="Self.ScoreOtherPerson" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="OtherPerson">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="ScoreOtherPerson">
-        <PropertyRef Name="IdOtherPerson" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_VisitOtherPerson_OtherPerson">
-    <End Role="OtherPerson" Type="Self.OtherPerson" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="VisitOtherPerson" Type="Self.VisitOtherPerson" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="OtherPerson">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="VisitOtherPerson">
-        <PropertyRef Name="IdOtherPerson" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -424,62 +248,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_ScorePerson_Person">
-    <End Role="Person" Type="Self.Person" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="ScorePerson" Type="Self.ScorePerson" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Person">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="ScorePerson">
-        <PropertyRef Name="IdPerson" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_VisitPerson_Person">
-    <End Role="Person" Type="Self.Person" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="VisitPerson" Type="Self.VisitPerson" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Person">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="VisitPerson">
-        <PropertyRef Name="IdPerson" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_ScoreProduct_Product">
-    <End Role="Product" Type="Self.Product" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="ScoreProduct" Type="Self.ScoreProduct" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Product">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="ScoreProduct">
-        <PropertyRef Name="IdProduct" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_VisitProduct_Product">
-    <End Role="Product" Type="Self.Product" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="VisitProduct" Type="Self.VisitProduct" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Product">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="VisitProduct">
-        <PropertyRef Name="IdProduct" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_Suggestion_User">
     <End Role="User" Type="Self.User" Multiplicity="1">
       <OnDelete Action="Cascade" />
@@ -497,46 +265,20 @@
   <EntityContainer Name="bdEIGEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Businesses" EntityType="Self.Business" />
     <EntitySet Name="Cases" EntityType="Self.Case" />
-    <EntitySet Name="FileCases" EntityType="Self.FileCase" />
-    <EntitySet Name="FileJobApplications" EntityType="Self.FileJobApplication" />
     <EntitySet Name="JobApplications" EntityType="Self.JobApplication" />
     <EntitySet Name="OtherPersons" EntityType="Self.OtherPerson" />
     <EntitySet Name="Packages" EntityType="Self.Package" />
     <EntitySet Name="People" EntityType="Self.Person" />
     <EntitySet Name="Products" EntityType="Self.Product" />
-    <EntitySet Name="ScoreBusinesses" EntityType="Self.ScoreBusiness" />
-    <EntitySet Name="ScoreOtherPersons" EntityType="Self.ScoreOtherPerson" />
-    <EntitySet Name="ScorePersons" EntityType="Self.ScorePerson" />
-    <EntitySet Name="ScoreProducts" EntityType="Self.ScoreProduct" />
     <EntitySet Name="Suggestions" EntityType="Self.Suggestion" />
     <EntitySet Name="Users" EntityType="Self.User" />
-    <EntitySet Name="VisitBusinesses" EntityType="Self.VisitBusiness" />
-    <EntitySet Name="VisitOtherPersons" EntityType="Self.VisitOtherPerson" />
-    <EntitySet Name="VisitPersons" EntityType="Self.VisitPerson" />
-    <EntitySet Name="VisitProducts" EntityType="Self.VisitProduct" />
     <AssociationSet Name="FK_Business_Package" Association="Self.FK_Business_Package">
       <End Role="Package" EntitySet="Packages" />
       <End Role="Business" EntitySet="Businesses" />
     </AssociationSet>
-    <AssociationSet Name="FK_ScoreBusiness_Business" Association="Self.FK_ScoreBusiness_Business">
-      <End Role="Business" EntitySet="Businesses" />
-      <End Role="ScoreBusiness" EntitySet="ScoreBusinesses" />
-    </AssociationSet>
-    <AssociationSet Name="FK_VisitBusiness_Business" Association="Self.FK_VisitBusiness_Business">
-      <End Role="Business" EntitySet="Businesses" />
-      <End Role="VisitBusiness" EntitySet="VisitBusinesses" />
-    </AssociationSet>
     <AssociationSet Name="FK_Case_User" Association="Self.FK_Case_User">
       <End Role="User" EntitySet="Users" />
       <End Role="Case" EntitySet="Cases" />
-    </AssociationSet>
-    <AssociationSet Name="FK_FileCase_Case" Association="Self.FK_FileCase_Case">
-      <End Role="Case" EntitySet="Cases" />
-      <End Role="FileCase" EntitySet="FileCases" />
-    </AssociationSet>
-    <AssociationSet Name="FK_FileJobApplication_JobApplication" Association="Self.FK_FileJobApplication_JobApplication">
-      <End Role="JobApplication" EntitySet="JobApplications" />
-      <End Role="FileJobApplication" EntitySet="FileJobApplications" />
     </AssociationSet>
     <AssociationSet Name="FK_JobApplication_User" Association="Self.FK_JobApplication_User">
       <End Role="User" EntitySet="Users" />
@@ -545,14 +287,6 @@
     <AssociationSet Name="FK_OtherPerson_User" Association="Self.FK_OtherPerson_User">
       <End Role="User" EntitySet="Users" />
       <End Role="OtherPerson" EntitySet="OtherPersons" />
-    </AssociationSet>
-    <AssociationSet Name="FK_ScoreOtherPerson_OtherPerson" Association="Self.FK_ScoreOtherPerson_OtherPerson">
-      <End Role="OtherPerson" EntitySet="OtherPersons" />
-      <End Role="ScoreOtherPerson" EntitySet="ScoreOtherPersons" />
-    </AssociationSet>
-    <AssociationSet Name="FK_VisitOtherPerson_OtherPerson" Association="Self.FK_VisitOtherPerson_OtherPerson">
-      <End Role="OtherPerson" EntitySet="OtherPersons" />
-      <End Role="VisitOtherPerson" EntitySet="VisitOtherPersons" />
     </AssociationSet>
     <AssociationSet Name="FK_Package_User" Association="Self.FK_Package_User">
       <End Role="User" EntitySet="Users" />
@@ -565,22 +299,6 @@
     <AssociationSet Name="FK_Person_User" Association="Self.FK_Person_User">
       <End Role="User" EntitySet="Users" />
       <End Role="Person" EntitySet="People" />
-    </AssociationSet>
-    <AssociationSet Name="FK_ScorePerson_Person" Association="Self.FK_ScorePerson_Person">
-      <End Role="Person" EntitySet="People" />
-      <End Role="ScorePerson" EntitySet="ScorePersons" />
-    </AssociationSet>
-    <AssociationSet Name="FK_VisitPerson_Person" Association="Self.FK_VisitPerson_Person">
-      <End Role="Person" EntitySet="People" />
-      <End Role="VisitPerson" EntitySet="VisitPersons" />
-    </AssociationSet>
-    <AssociationSet Name="FK_ScoreProduct_Product" Association="Self.FK_ScoreProduct_Product">
-      <End Role="Product" EntitySet="Products" />
-      <End Role="ScoreProduct" EntitySet="ScoreProducts" />
-    </AssociationSet>
-    <AssociationSet Name="FK_VisitProduct_Product" Association="Self.FK_VisitProduct_Product">
-      <End Role="Product" EntitySet="Products" />
-      <End Role="VisitProduct" EntitySet="VisitProducts" />
     </AssociationSet>
     <AssociationSet Name="FK_Suggestion_User" Association="Self.FK_Suggestion_User">
       <End Role="User" EntitySet="Users" />

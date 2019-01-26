@@ -33,6 +33,7 @@ namespace EIGApp.ORM
         public virtual DbSet<Person> People { get; set; }
         public virtual DbSet<Product> Products { get; set; }
         public virtual DbSet<Suggestion> Suggestions { get; set; }
+        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<User> Users { get; set; }
     }
 }

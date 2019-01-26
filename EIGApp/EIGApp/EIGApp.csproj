@@ -227,12 +227,6 @@
     <Compile Include="ORM\Case.cs">
       <DependentUpon>BD.tt</DependentUpon>
     </Compile>
-    <Compile Include="ORM\FileCase.cs">
-      <DependentUpon>BD.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ORM\FileJobApplication.cs">
-      <DependentUpon>BD.tt</DependentUpon>
-    </Compile>
     <Compile Include="ORM\JobApplication.cs">
       <DependentUpon>BD.tt</DependentUpon>
     </Compile>
@@ -248,34 +242,13 @@
     <Compile Include="ORM\Product.cs">
       <DependentUpon>BD.tt</DependentUpon>
     </Compile>
-    <Compile Include="ORM\ScoreBusiness.cs">
-      <DependentUpon>BD.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ORM\ScoreOtherPerson.cs">
-      <DependentUpon>BD.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ORM\ScorePerson.cs">
-      <DependentUpon>BD.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ORM\ScoreProduct.cs">
-      <DependentUpon>BD.tt</DependentUpon>
-    </Compile>
     <Compile Include="ORM\Suggestion.cs">
       <DependentUpon>BD.tt</DependentUpon>
     </Compile>
+    <Compile Include="ORM\sysdiagram.cs">
+      <DependentUpon>BD.tt</DependentUpon>
+    </Compile>
     <Compile Include="ORM\User.cs">
-      <DependentUpon>BD.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ORM\VisitBusiness.cs">
-      <DependentUpon>BD.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ORM\VisitOtherPerson.cs">
-      <DependentUpon>BD.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ORM\VisitPerson.cs">
-      <DependentUpon>BD.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ORM\VisitProduct.cs">
       <DependentUpon>BD.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -285,6 +258,7 @@
     <Content Include="fonts\acephimere.otf" />
     <Content Include="fonts\acephimereThinItalic.otf" />
     <Content Include="fonts\acephimereThin.otf" />
+    <Content Include="img\menu\8N.pdn" />
     <EntityDeploy Include="ORM\BD.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>BD.Designer.cs</LastGenOutput>
@@ -292,7 +266,6 @@
     <Content Include="ORM\BD.edmx.diagram">
       <DependentUpon>BD.edmx</DependentUpon>
     </Content>
-    <Content Include="img\menu\8N.pdn" />
     <None Include="packages.config" />
     <Content Include="sass\index.scss" />
     <None Include="Properties\PublishProfiles\eliteintelligence - FTP.pubxml" />

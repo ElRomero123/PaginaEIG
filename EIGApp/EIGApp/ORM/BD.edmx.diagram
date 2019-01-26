@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="b58f99cac6364d249a5958f15d3313a5" Name="Diagram1">
+      <Diagram DiagramId="25675a490d7d41f48f7f36cdaca5778c" Name="Diagram1">
         <EntityTypeShape EntityType="bdEIGModel.Business" Width="1.5" PointX="5.25" PointY="12.875" IsExpanded="true" />
         <EntityTypeShape EntityType="bdEIGModel.Case" Width="1.5" PointX="3" PointY="2.125" IsExpanded="true" />
         <EntityTypeShape EntityType="bdEIGModel.JobApplication" Width="1.5" PointX="3" PointY="5.125" IsExpanded="true" />
@@ -13,6 +13,7 @@
         <EntityTypeShape EntityType="bdEIGModel.Person" Width="1.5" PointX="3" PointY="22.375" IsExpanded="true" />
         <EntityTypeShape EntityType="bdEIGModel.Product" Width="1.5" PointX="5.25" PointY="17.25" IsExpanded="true" />
         <EntityTypeShape EntityType="bdEIGModel.Suggestion" Width="1.5" PointX="3" PointY="26.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="bdEIGModel.sysdiagram" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="bdEIGModel.User" Width="1.5" PointX="0.75" PointY="13.5" IsExpanded="true" />
         <AssociationConnector Association="bdEIGModel.FK_Business_Package" ManuallyRouted="false" />
         <AssociationConnector Association="bdEIGModel.FK_Case_User" ManuallyRouted="false" />

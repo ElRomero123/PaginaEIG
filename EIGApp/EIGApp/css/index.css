@@ -234,57 +234,56 @@ body div .search {
 }
 /* line 266, ../sass/index.scss */
 body div .searchBox:focus {
-  height: 20px;
   border: 2px solid red;
 }
-/* line 272, ../sass/index.scss */
+/* line 271, ../sass/index.scss */
 body div .searchBox {
   vertical-align: middle;
   transition: 0.15s;
   outline: 0px;
   border: 2px solid black;
   color: red;
-  font-family: arial;
+  font-family: acephimere;
   font-size: 14px;
   padding: 10px;
-  height: 10px;
+  height: 15px;
   width: 70%;
 }
-/* line 286, ../sass/index.scss */
+/* line 285, ../sass/index.scss */
 body div div {
   margin: 40px auto 6px auto;
 }
-/* line 288, ../sass/index.scss */
+/* line 287, ../sass/index.scss */
 body div div div {
   margin: 10px auto;
 }
-/* line 290, ../sass/index.scss */
+/* line 289, ../sass/index.scss */
 body div div div .register:hover {
   border: 2px solid orangered;
   background-color: white;
   color: orangered;
 }
-/* line 297, ../sass/index.scss */
+/* line 296, ../sass/index.scss */
 body div div div .register {
   background-color: orangered;
 }
-/* line 302, ../sass/index.scss */
+/* line 301, ../sass/index.scss */
 body div div div #send:hover {
   border: 2px solid darkgreen;
   background-color: white;
   color: darkgreen;
 }
-/* line 309, ../sass/index.scss */
+/* line 308, ../sass/index.scss */
 body div div div #send {
   background-color: darkgreen;
 }
-/* line 314, ../sass/index.scss */
+/* line 313, ../sass/index.scss */
 body div div div #preview {
   overflow: hidden;
   height: 70px;
   width: 70px;
 }
-/* line 321, ../sass/index.scss */
+/* line 320, ../sass/index.scss */
 body div div div .fileBrowser {
   outline: 0px;
   color: white;
@@ -295,7 +294,7 @@ body div div div .fileBrowser {
   height: 20px;
   width: 70%;
 }
-/* line 333, ../sass/index.scss */
+/* line 332, ../sass/index.scss */
 body div div div button {
   outline: 0px;
   transition: 0.2s;
@@ -306,12 +305,12 @@ body div div div button {
   margin: 5px;
   height: 40px;
 }
-/* line 348, ../sass/index.scss */
+/* line 347, ../sass/index.scss */
 body div div input:focus {
   height: 20px;
   border: 2px solid orangered;
 }
-/* line 354, ../sass/index.scss */
+/* line 353, ../sass/index.scss */
 body div div input {
   transition: 0.15s;
   outline: 0px;
@@ -324,14 +323,15 @@ body div div input {
   width: 35%;
   margin: 5px;
 }
-/* line 368, ../sass/index.scss */
+/* line 367, ../sass/index.scss */
 body div div p {
   font-size: 13px;
   font-family: acephimere;
   margin: 6px;
 }
-/* line 378, ../sass/index.scss */
+/* line 377, ../sass/index.scss */
 body div .categorySearch {
+  margin: 5px;
   font-size: 14px;
   font-family: acephimere;
 }

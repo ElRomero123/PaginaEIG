@@ -43,7 +43,7 @@ function createJA()
             documentNumber: $('#campoDocumentNumber').val(),
             descriptionApplication: $('#campoDescriptionApplication').val(),
             age: $('#campoAge').val(),
-            idUser: localStorage.getItem('campoAge')
+            idUser: localStorage.getItem('User')
         };
     
         $('#createJobApplication').css('background','yellow');

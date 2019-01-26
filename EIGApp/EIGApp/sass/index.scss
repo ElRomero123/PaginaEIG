@@ -265,7 +265,6 @@ body
 
         .searchBox:focus
         {
-            height: 20px;
             border: 2px solid red;
         }
 
@@ -276,10 +275,10 @@ body
             outline: 0px;
             border: 2px solid black;
             color: red;
-            font-family: arial;
+            font-family: acephimere;
             font-size: 14px;
             padding: 10px;
-            height: 10px;
+            height: 15px;
             width: 70%;
         }
 
@@ -377,6 +376,7 @@ body
         
         .categorySearch
         {
+            margin: 5px;
             font-size: 14px;
             font-family: acephimere;
         }
