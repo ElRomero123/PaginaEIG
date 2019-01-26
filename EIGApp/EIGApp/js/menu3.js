@@ -110,6 +110,7 @@ function to(num)
         break;
         case 3:
         location.href = 'managePackage.html';
+        localStorage.setItem('Call', 1);
         break;
         default:
         location.href = 'menu.html';

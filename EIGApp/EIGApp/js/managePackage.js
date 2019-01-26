@@ -91,21 +91,20 @@ function to(num)
         var Call = localStorage.getItem('Call');
         if(Call == 1)
         {
-
+            location.href = 'menu3.html';
+            localStorage.removeItem('Call');
         }
 
         else if(Call == 2)
         {
-
+            location.href = 'productos.html';
+            localStorage.removeItem('Call');
         }
 
-        else if(Call == 3)
-        {
-
-        }
         else
         {
-            
+            location.href = 'menu7.html';
+            localStorage.removeItem('Call');
         }
     }
 }
