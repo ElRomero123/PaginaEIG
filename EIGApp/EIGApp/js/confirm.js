@@ -49,27 +49,17 @@ function to(num)
             localStorage.removeItem('Call');
         }
 
-        else
+        else if (Call == 2)
         {
             location.href = 'businessPanelC.html';
             localStorage.removeItem('Call');
         }
-        /*
-        switch(llamado)
+
+        else
         {
-            case 1:
-            location.href = 'businessPanel.html';
-            break;
-            case 2:
             location.href = 'productPanel.html';
-            break;
-            case 3:
-            location.href = 'businessPanelC.html';
-            break;
-            default:
-            location.href = 'productPanelC.html';
+            localStorage.removeItem('Call');
         }
-        */
     }
 }
 
