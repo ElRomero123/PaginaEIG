@@ -43,7 +43,7 @@ function to(num)
         default:
         var Call = localStorage.getItem('Call');
 
-        if(Llamado == 1)
+        if(Call == 1)
         {
             location.href = 'businessPanel.html';
             localStorage.removeItem('Call');
