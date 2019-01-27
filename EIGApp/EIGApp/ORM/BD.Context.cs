@@ -28,12 +28,13 @@ namespace EIGApp.ORM
         public virtual DbSet<Business> Businesses { get; set; }
         public virtual DbSet<Case> Cases { get; set; }
         public virtual DbSet<JobApplication> JobApplications { get; set; }
+        public virtual DbSet<MultimediaCase> MultimediaCases { get; set; }
+        public virtual DbSet<MultimediaJobApplication> MultimediaJobApplications { get; set; }
         public virtual DbSet<OtherPerson> OtherPersons { get; set; }
         public virtual DbSet<Package> Packages { get; set; }
         public virtual DbSet<Person> People { get; set; }
         public virtual DbSet<Product> Products { get; set; }
         public virtual DbSet<Suggestion> Suggestions { get; set; }
-        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<User> Users { get; set; }
     }
 }

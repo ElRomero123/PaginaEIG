@@ -14,6 +14,12 @@ namespace EIGApp.ORM
     
     public partial class JobApplication
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public JobApplication()
+        {
+            this.MultimediaJobApplications = new HashSet<MultimediaJobApplication>();
+        }
+    
         public long Id { get; set; }
         public string Name { get; set; }
         public string DocumentNumber { get; set; }
@@ -23,5 +29,7 @@ namespace EIGApp.ORM
         public long IdUser { get; set; }
     
         public virtual User User { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<MultimediaJobApplication> MultimediaJobApplications { get; set; }
     }
 }

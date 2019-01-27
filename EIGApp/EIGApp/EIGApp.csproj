@@ -165,7 +165,6 @@
     <Content Include="personPanelC.html" />
     <Content Include="productos.html" />
     <Content Include="productPanel.html" />
-    <Content Include="productPanelC.html" />
     <Content Include="register.html" />
     <Content Include="menu.html" />
     <Content Include="menu5.html" />
@@ -183,6 +182,8 @@
     <Compile Include="Controllers\BusinessController.cs" />
     <Compile Include="Controllers\CaseController.cs" />
     <Compile Include="Controllers\JobApplicationController.cs" />
+    <Compile Include="Controllers\MultimediaCaseController.cs" />
+    <Compile Include="Controllers\MultimediaJobApplicationController.cs" />
     <Compile Include="Controllers\OtherPersonController.cs" />
     <Compile Include="Controllers\PackageController.cs" />
     <Compile Include="Controllers\ParametroBusinessController.cs" />
@@ -199,6 +200,8 @@
     <Compile Include="Models\Business.cs" />
     <Compile Include="Models\Case.cs" />
     <Compile Include="Models\JobApplication.cs" />
+    <Compile Include="Models\MultimediaCase.cs" />
+    <Compile Include="Models\MultimediaJobApplication.cs" />
     <Compile Include="Models\OtherPerson.cs" />
     <Compile Include="Models\Package.cs" />
     <Compile Include="Models\ParametrosPutAvatar.cs" />
@@ -230,6 +233,12 @@
     <Compile Include="ORM\JobApplication.cs">
       <DependentUpon>BD.tt</DependentUpon>
     </Compile>
+    <Compile Include="ORM\MultimediaCase.cs">
+      <DependentUpon>BD.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ORM\MultimediaJobApplication.cs">
+      <DependentUpon>BD.tt</DependentUpon>
+    </Compile>
     <Compile Include="ORM\OtherPerson.cs">
       <DependentUpon>BD.tt</DependentUpon>
     </Compile>
@@ -243,9 +252,6 @@
       <DependentUpon>BD.tt</DependentUpon>
     </Compile>
     <Compile Include="ORM\Suggestion.cs">
-      <DependentUpon>BD.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ORM\sysdiagram.cs">
       <DependentUpon>BD.tt</DependentUpon>
     </Compile>
     <Compile Include="ORM\User.cs">
