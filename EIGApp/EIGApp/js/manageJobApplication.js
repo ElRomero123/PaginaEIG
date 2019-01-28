@@ -119,3 +119,8 @@ function eliminar(e)
         }
     );
 }
+
+function recargar()
+{
+    location.reload();
+}

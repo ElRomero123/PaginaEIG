@@ -29,7 +29,7 @@ function to(num)
         location.href = 'index.html';
         break;
         default:
-        location.href = 'manageCases.html';
+        location.href = 'manageJobApplication.html';
     }
 }
 

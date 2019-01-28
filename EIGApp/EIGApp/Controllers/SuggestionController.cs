@@ -18,6 +18,7 @@ namespace EIGApp.Controllers
                 AutoMapper.Mapper.CreateMap<M.Suggestion, O.Suggestion>();
                 #pragma warning restore CS0618
                 O.Suggestion BDSuggestion = AutoMapper.Mapper.Map<O.Suggestion>(suggestion);
+                BDSuggestion.PostedDate = System.DateTime.Now.ToString("g");
                 BD.Suggestions.Add(BDSuggestion);
                 BD.SaveChanges();
                 state = true;

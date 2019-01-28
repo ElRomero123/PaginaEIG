@@ -33,6 +33,15 @@
           <Property Name="PostedDate" Type="nvarchar" MaxLength="255" Nullable="false" />
           <Property Name="IdUser" Type="bigint" Nullable="false" />
         </EntityType>
+        <EntityType Name="Donation">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Amount" Type="bigint" Nullable="false" />
+          <Property Name="Date" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="IdUser" Type="bigint" Nullable="false" />
+        </EntityType>
         <EntityType Name="JobApplication">
           <Key>
             <PropertyRef Name="Id" />
@@ -187,6 +196,20 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Donation_User">
+          <End Role="User" Type="Self.User" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Donation" Type="Self.Donation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Donation">
+              <PropertyRef Name="IdUser" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_JobApplication_User">
           <End Role="User" Type="Self.User" Multiplicity="1">
             <OnDelete Action="Cascade" />
@@ -302,6 +325,7 @@
         <EntityContainer Name="bdEIGModelStoreContainer">
           <EntitySet Name="Business" EntityType="Self.Business" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Case" EntityType="Self.Case" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Donation" EntityType="Self.Donation" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="JobApplication" EntityType="Self.JobApplication" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MultimediaCase" EntityType="Self.MultimediaCase" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MultimediaJobApplication" EntityType="Self.MultimediaJobApplication" Schema="dbo" store:Type="Tables" />
@@ -318,6 +342,10 @@
           <AssociationSet Name="FK_Case_User" Association="Self.FK_Case_User">
             <End Role="User" EntitySet="User" />
             <End Role="Case" EntitySet="Case" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Donation_User" Association="Self.FK_Donation_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="Donation" EntitySet="Donation" />
           </AssociationSet>
           <AssociationSet Name="FK_JobApplication_User" Association="Self.FK_JobApplication_User">
             <End Role="User" EntitySet="User" />
@@ -387,6 +415,16 @@
           <Property Name="IdUser" Type="Int64" Nullable="false" />
           <NavigationProperty Name="User" Relationship="Self.FK_Case_User" FromRole="Case" ToRole="User" />
           <NavigationProperty Name="MultimediaCases" Relationship="Self.FK_MultimediaCase_Case" FromRole="Case" ToRole="MultimediaCase" />
+        </EntityType>
+        <EntityType Name="Donation">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Amount" Type="Int64" Nullable="false" />
+          <Property Name="Date" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IdUser" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="User" Relationship="Self.FK_Donation_User" FromRole="Donation" ToRole="User" />
         </EntityType>
         <EntityType Name="JobApplication">
           <Key>
@@ -525,6 +563,7 @@
           <Property Name="JoinDate" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="TienePerfil" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="Cases" Relationship="Self.FK_Case_User" FromRole="User" ToRole="Case" />
+          <NavigationProperty Name="Donations" Relationship="Self.FK_Donation_User" FromRole="User" ToRole="Donation" />
           <NavigationProperty Name="JobApplications" Relationship="Self.FK_JobApplication_User" FromRole="User" ToRole="JobApplication" />
           <NavigationProperty Name="OtherPersons" Relationship="Self.FK_OtherPerson_User" FromRole="User" ToRole="OtherPerson" />
           <NavigationProperty Name="Packages" Relationship="Self.FK_Package_User" FromRole="User" ToRole="Package" />
@@ -570,6 +609,20 @@
             </Principal>
             <Dependent Role="MultimediaCase">
               <PropertyRef Name="IdCase" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Donation_User">
+          <End Role="User" Type="Self.User" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Donation" Type="Self.Donation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Donation">
+              <PropertyRef Name="IdUser" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -674,6 +727,7 @@
         <EntityContainer Name="bdEIGEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Businesses" EntityType="Self.Business" />
           <EntitySet Name="Cases" EntityType="Self.Case" />
+          <EntitySet Name="Donations" EntityType="Self.Donation" />
           <EntitySet Name="JobApplications" EntityType="Self.JobApplication" />
           <EntitySet Name="MultimediaCases" EntityType="Self.MultimediaCase" />
           <EntitySet Name="MultimediaJobApplications" EntityType="Self.MultimediaJobApplication" />
@@ -694,6 +748,10 @@
           <AssociationSet Name="FK_MultimediaCase_Case" Association="Self.FK_MultimediaCase_Case">
             <End Role="Case" EntitySet="Cases" />
             <End Role="MultimediaCase" EntitySet="MultimediaCases" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Donation_User" Association="Self.FK_Donation_User">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Donation" EntitySet="Donations" />
           </AssociationSet>
           <AssociationSet Name="FK_JobApplication_User" Association="Self.FK_JobApplication_User">
             <End Role="User" EntitySet="Users" />
@@ -756,6 +814,16 @@
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="DescriptionCase" ColumnName="DescriptionCase" />
                 <ScalarProperty Name="PostedDate" ColumnName="PostedDate" />
+                <ScalarProperty Name="IdUser" ColumnName="IdUser" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Donations">
+            <EntityTypeMapping TypeName="bdEIGModel.Donation">
+              <MappingFragment StoreEntitySet="Donation">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
                 <ScalarProperty Name="IdUser" ColumnName="IdUser" />
               </MappingFragment>
             </EntityTypeMapping>
