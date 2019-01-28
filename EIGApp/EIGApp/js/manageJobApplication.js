@@ -49,7 +49,7 @@ function loadJobApplications()
 
                         for(var i = 0; i < data.length; i++)
                         {
-                            cadena += "<div id='" + data[i].Id + "' class='result' onclick='toEditApplication(this)'> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].DocumentNumber + "</p> <p class='pf3'>" + data[i].Cantidad + "</p> <p class='pf4'>" + data[i].FechaCompra + "</p> <p class='pf4'>" + data[i].DescriptionApplication + "</p> <p class='pf4'>" + data[i].Age + "</p> <p class='pf4'>" + data[i].PostedDate + "</p> </div> </div>";  
+                            cadena += "<div class='result'> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>Identificación " + data[i].DocumentNumber + "</p> <p class='pf2'>" + data[i].DescriptionApplication + "</p> <p class='pf2'>" + data[i].Age + " años</p> <p class='pf3'> Publicado el " + data[i].PostedDate + "</p> <button id='" + data[i].Id + "' class='deleteResult' onclick='eliminar(this)'>Eliminar</button> <button id='" + data[i].Id + "' class='moreResult' onclick='toEditJA(this)'>Ver anexos</button> </div> </div>";  
                         }
                         
                         $('#listResults').append(cadena);
@@ -91,7 +91,14 @@ function to(num)
     }
 }
 
-function toEditApplication(e)
+function toEditJA(e)
 {
-    alert(e.id);
+    localStorage.setItem('JA', e.id);
+    location.href = 'editJA.html';
+    //alert('Anexos ' + e.id);
+}
+
+function eliminar(e)
+{
+    alert('Eliminar ' + e.id);
 }

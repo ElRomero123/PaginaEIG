@@ -1,6 +1,7 @@
 ﻿using System.Web.Http;
 using M = EIGApp.Models;
 using O = EIGApp.ORM;
+using System.Linq;
 
 namespace EIGApp.Controllers
 {
@@ -8,9 +9,9 @@ namespace EIGApp.Controllers
     {
         private O.bdEIGEntities BD = new O.bdEIGEntities();
 
-        public bool Post(M.MultimediaJobApplication multimediaJobApplication)
+        public long Post(M.MultimediaJobApplication multimediaJobApplication)
         {
-            bool state;
+            long id;
 
             try
             {
@@ -18,17 +19,44 @@ namespace EIGApp.Controllers
                 AutoMapper.Mapper.CreateMap<M.MultimediaJobApplication, O.MultimediaJobApplication>();
                 #pragma warning restore CS0618
                 O.MultimediaJobApplication BDMultimediaJobApplication = AutoMapper.Mapper.Map<O.MultimediaJobApplication>(multimediaJobApplication);
+                BDMultimediaJobApplication.LoadDate = System.DateTime.Now.ToString("g");
                 BD.MultimediaJobApplications.Add(BDMultimediaJobApplication);
                 BD.SaveChanges();
-                state = true;
+                id = BDMultimediaJobApplication.Id;
             }
 
             catch
             {
-                state = false;
+                id = 0;
             }
 
-            return state;
+            return id;
+        }
+
+        public M.MultimediaJobApplication[] Get(long idJA)
+        {
+            var query = from MJA in BD.MultimediaJobApplications
+                        where (MJA.IdJobApplication.Equals(idJA))
+                        select new {MJA.Id, MJA.FileName, MJA.DownloadLink, MJA.LoadDate};
+
+            var lista = query.ToArray();
+
+            M.MultimediaJobApplication[] arrayMultimediaJobApplication = new M.MultimediaJobApplication[lista.Length];
+
+            for (int i = 0; i < lista.Length; i++)
+            {
+                M.MultimediaJobApplication temp = new M.MultimediaJobApplication
+                {
+                    Id = lista[i].Id,
+                    FileName = lista[i].FileName,
+                    DownloadLink = lista[i].DownloadLink,
+                    LoadDate = lista[i].LoadDate
+                };
+
+                arrayMultimediaJobApplication[i] = temp;
+            }
+
+            return arrayMultimediaJobApplication;
         }
     }
 }

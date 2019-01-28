@@ -189,6 +189,7 @@
     <Compile Include="Controllers\PackageController.cs" />
     <Compile Include="Controllers\ParametroBusinessController.cs" />
     <Compile Include="Controllers\ParametroFileCaseController.cs" />
+    <Compile Include="Controllers\ParametroFileJAController.cs" />
     <Compile Include="Controllers\ParametroOtherPersonController.cs" />
     <Compile Include="Controllers\ParametroPersonController.cs" />
     <Compile Include="Controllers\ParametroProductController.cs" />
