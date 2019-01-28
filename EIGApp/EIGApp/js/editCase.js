@@ -62,7 +62,7 @@ function loadAnexos()
 
                         for(var i = 0; i < data.length; i++)
                         {
-                            cadena += "<div class='result' id='" + data[i].Id + "' onclick='download(this)'> <div class='text'> <p class='pf2'>" + data[i].FileName + "</p> <p class='pf4'>Anexado el " + data[i].LoadDate + "</p> <p hidden class='pf4' id='DL" + data[i].Id + "'>" + data[i].DownloadLink + "</p> </div> </div>";  
+                            cadena += "<div class='result'> <div class='text'> <p class='pf2'>" + data[i].FileName + "</p> <p class='pf4'>Anexado el " + data[i].LoadDate + "</p> <button id='" + data[i].Id + "' class='deleteResult' onclick='eliminar(this)'>Eliminar</button> <button id='" + data[i].Id + "' class='moreResult' onclick='download(this)'>Descargar</button> <p hidden class='pf4' id='DL" + data[i].Id + "'>" + data[i].DownloadLink + "</p> </div> </div>";  
                         }
                         
                         $('#listResults').append(cadena);
@@ -206,7 +206,7 @@ function putFile(num, fileName, downloadURL)
                     $('#loadFC').css('border','2px solid darkgreen');
                     $('#loadFC').css('color','white');
                     $('#loadFC').text('Archivo anexado con éxito!');
-                    setTimeout(recargar, 800);
+                    setTimeout(recargar, 200);
                 }
             }
         }
@@ -221,4 +221,34 @@ function validateFile()
 function recargar()
 {
     location.reload();
+}
+
+function eliminar(e)
+{
+    alert('Eliminar anexo ' + e.id + ' funciona!');
+
+    $.ajax
+    (
+        {
+            url: '../api/multimediaCase/?idCase=' + e.id,
+            type: 'POST',
+            contentType: "application/json;charset=utf-8",
+
+            success:
+            function (data) 
+            {
+                if(data)
+                {
+                    $('#bannerState').css('background','brown');
+                    $('#bannerState').text('El anexo ha sido eliminado!');
+                    setTimeout(recargar, 800);
+                }
+
+                else
+                {
+                    alert('NO se pudo eliminar el anexo!');
+                }
+            }
+        }
+    );
 }

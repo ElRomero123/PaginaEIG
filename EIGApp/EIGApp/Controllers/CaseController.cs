@@ -35,6 +35,25 @@ namespace EIGApp.Controllers
             return arrayCase;
         }
 
+        public bool Post(long idCase)
+        {
+            bool result = false;
+
+            try
+            {
+                O.Case caso = BD.Cases.FirstOrDefault(x => x.Id == idCase);
+                BD.Cases.Remove(caso);
+                BD.SaveChanges();
+                result = true;
+            }
+            catch
+            {
+                result = false;
+            }
+            
+            return result;
+        }
+
         public bool Post(M.Case caso)
         {
             bool state;
