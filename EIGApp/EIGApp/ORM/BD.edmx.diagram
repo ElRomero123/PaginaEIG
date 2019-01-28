@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="d50008260e6f4b56894a019992c78265" Name="Diagram1">
+      <Diagram DiagramId="838a81b757a340a4985f40fa4d3b4f60" Name="Diagram1">
         <EntityTypeShape EntityType="bdEIGModel.Business" Width="1.5" PointX="5.25" PointY="16.125" IsExpanded="true" />
         <EntityTypeShape EntityType="bdEIGModel.Case" Width="1.5" PointX="3" PointY="2.25" IsExpanded="true" />
         <EntityTypeShape EntityType="bdEIGModel.Donation" Width="1.5" PointX="3" PointY="5.375" IsExpanded="true" />
@@ -16,7 +16,7 @@
         <EntityTypeShape EntityType="bdEIGModel.Person" Width="1.5" PointX="3" PointY="25.625" IsExpanded="true" />
         <EntityTypeShape EntityType="bdEIGModel.Product" Width="1.5" PointX="5.25" PointY="20.625" IsExpanded="true" />
         <EntityTypeShape EntityType="bdEIGModel.Suggestion" Width="1.5" PointX="3" PointY="29.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="bdEIGModel.User" Width="1.5" PointX="0.75" PointY="15.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="bdEIGModel.User" Width="1.5" PointX="0.75" PointY="15" IsExpanded="true" />
         <AssociationConnector Association="bdEIGModel.FK_Business_Package" ManuallyRouted="false" />
         <AssociationConnector Association="bdEIGModel.FK_Case_User" ManuallyRouted="false" />
         <AssociationConnector Association="bdEIGModel.FK_MultimediaCase_Case" ManuallyRouted="false" />

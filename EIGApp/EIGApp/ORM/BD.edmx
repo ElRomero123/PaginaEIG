@@ -167,6 +167,7 @@
           <Property Name="Address" Type="nvarchar" MaxLength="255" Nullable="false" />
           <Property Name="JoinDate" Type="nvarchar" MaxLength="255" Nullable="false" />
           <Property Name="TienePerfil" Type="bit" Nullable="false" />
+          <Property Name="Administrador" Type="bit" Nullable="false" />
         </EntityType>
         <Association Name="FK_Business_Package">
           <End Role="Package" Type="Self.Package" Multiplicity="1">
@@ -562,6 +563,7 @@
           <Property Name="Address" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="JoinDate" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="TienePerfil" Type="Boolean" Nullable="false" />
+          <Property Name="Administrador" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="Cases" Relationship="Self.FK_Case_User" FromRole="User" ToRole="Case" />
           <NavigationProperty Name="Donations" Relationship="Self.FK_Donation_User" FromRole="User" ToRole="Donation" />
           <NavigationProperty Name="JobApplications" Relationship="Self.FK_JobApplication_User" FromRole="User" ToRole="JobApplication" />
@@ -960,6 +962,7 @@
                 <ScalarProperty Name="Address" ColumnName="Address" />
                 <ScalarProperty Name="JoinDate" ColumnName="JoinDate" />
                 <ScalarProperty Name="TienePerfil" ColumnName="TienePerfil" />
+                <ScalarProperty Name="Administrador" ColumnName="Administrador" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

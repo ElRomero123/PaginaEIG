@@ -59,6 +59,11 @@ function validate()
                     location.href = 'menu.html';    
                 }
 
+                else if(data.Administrador)
+                {
+
+                }
+
                 else
                 {
                     $('#send').css('background','red');
