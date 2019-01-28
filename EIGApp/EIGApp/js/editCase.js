@@ -103,7 +103,7 @@ function loadFileCase()
 
     if(validateFile())
     {
-        var persona =
+        var multimediaCase =
         {
             downloadLink: '',
             idCase: localStorage.getItem('Case')
@@ -117,9 +117,9 @@ function loadFileCase()
         $.ajax
         (
             {
-                url: '../api/person',
+                url: '../api/multimediaCase',
                 type: 'POST',
-                data: JSON.stringify(persona),
+                data: JSON.stringify(multimediaCase),
                 contentType: "application/json;charset=utf-8",
 
                 success:
@@ -137,6 +137,76 @@ function loadFileCase()
         $('#loadFC').css('border','2px solid red');
         $('#loadFC').text('Debe seleccionar un fichero!');
     }
+}
+
+function loadAvatar(num)
+{    
+    var config = 
+    {
+        apiKey: "AIzaSyA4F7aYKhXv5zEWabtUYABA-4lJJdAgyW4",
+        authDomain: "eliteintelligencegroup-719d3.firebaseapp.com",
+        databaseURL: "https://eliteintelligencegroup-719d3.firebaseio.com",
+        projectId: "eliteintelligencegroup-719d3",
+        storageBucket: "eliteintelligencegroup-719d3.appspot.com",
+        messagingSenderId: "567347907651"
+    };
+    
+    firebase.initializeApp(config);
+
+    var storageRef = firebase.storage().ref();
+    var uploadTask = storageRef.child('anexosCase/' + num + PersonAvatar.files[0].name).put(PersonAvatar.files[0]);
+
+    uploadTask.on
+    (   
+        'state_changed',
+        function(snapshot)
+        {
+
+        },
+        function(error)
+        {
+            
+        },
+        function()
+        {
+            uploadTask.snapshot.ref.getDownloadURL().then(function(downloadURL) 
+            {    
+                putFile(num, downloadURL);
+            });
+        }
+    );
+}
+
+function putFile(num, downloadURL)
+{
+    var parametrosPutAvatar =
+    {
+        id: num,
+        downloadURL: downloadURL
+    };
+
+    $.ajax
+    (
+        {
+            url: '../api/parametroPerson',
+            type: 'POST',
+            data: JSON.stringify(parametrosPutAvatar),
+            contentType: "application/json;charset=utf-8",
+
+            success:
+            function (data)
+            {
+                if(data)
+                {
+                    $('#createPerson').css('background','darkgreen');
+                    $('#createPerson').css('border','2px solid darkgreen');
+                    $('#createPerson').css('color','white');
+                    $('#createPerson').text('Persona agregada!');
+                    setTimeout(recargar, 2500);
+                }
+            }
+        }
+    );
 }
 
 function validateFile()

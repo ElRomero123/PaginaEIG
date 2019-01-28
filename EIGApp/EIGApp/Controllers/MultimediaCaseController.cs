@@ -9,9 +9,9 @@ namespace EIGApp.Controllers
     {
         private O.bdEIGEntities BD = new O.bdEIGEntities();
 
-        public bool Post(M.MultimediaCase multimediaCase)
+        public long Post(M.MultimediaCase multimediaCase)
         {
-            bool state;
+            long id;
 
             try
             {
@@ -21,15 +21,15 @@ namespace EIGApp.Controllers
                 O.MultimediaCase BDMultimediaCase = AutoMapper.Mapper.Map<O.MultimediaCase>(multimediaCase);
                 BD.MultimediaCases.Add(BDMultimediaCase);
                 BD.SaveChanges();
-                state = true;
+                id = BDMultimediaCase.Id;
             }
 
             catch
             {
-                state = false;
+                id = 0;
             }
 
-            return state;
+            return id;
         }
 
         public M.MultimediaCase[] Get(long idCase)
