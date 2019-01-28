@@ -44,6 +44,24 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="MultimediaCases">
+      <EntityTypeMapping TypeName="bdEIGModel.MultimediaCase">
+        <MappingFragment StoreEntitySet="MultimediaCase">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="DownloadLink" ColumnName="DownloadLink" />
+          <ScalarProperty Name="IdCase" ColumnName="IdCase" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MultimediaJobApplications">
+      <EntityTypeMapping TypeName="bdEIGModel.MultimediaJobApplication">
+        <MappingFragment StoreEntitySet="MultimediaJobApplication">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="DownloadLink" ColumnName="DownloadLink" />
+          <ScalarProperty Name="IdJobApplication" ColumnName="IdJobApplication" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="OtherPersons">
       <EntityTypeMapping TypeName="bdEIGModel.OtherPerson">
         <MappingFragment StoreEntitySet="OtherPerson">
@@ -126,17 +144,6 @@
           <ScalarProperty Name="Description" ColumnName="Description" />
           <ScalarProperty Name="PostedDate" ColumnName="PostedDate" />
           <ScalarProperty Name="IdUser" ColumnName="IdUser" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="sysdiagrams">
-      <EntityTypeMapping TypeName="bdEIGModel.sysdiagram">
-        <MappingFragment StoreEntitySet="sysdiagrams">
-          <ScalarProperty Name="name" ColumnName="name" />
-          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-          <ScalarProperty Name="version" ColumnName="version" />
-          <ScalarProperty Name="definition" ColumnName="definition" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

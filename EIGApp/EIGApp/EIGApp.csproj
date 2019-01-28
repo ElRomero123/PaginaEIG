@@ -99,6 +99,7 @@
     <Content Include="businessPanelC.html" />
     <Content Include="confirm.html" />
     <Content Include="css\index.css" />
+    <Content Include="editCase.html" />
     <Content Include="error.html" />
     <Content Include="Global.asax" />
     <Content Include="img\f.png" />
@@ -125,6 +126,7 @@
     <Content Include="js\businessPanel.js" />
     <Content Include="js\businessPanelC.js" />
     <Content Include="js\confirm.js" />
+    <Content Include="js\editCase.js" />
     <Content Include="js\error.js" />
     <Content Include="js\manageCases.js" />
     <Content Include="js\manageJobApplication.js" />
@@ -143,7 +145,6 @@
     <Content Include="js\personPanel.js" />
     <Content Include="js\personPanelC.js" />
     <Content Include="js\productPanel.js" />
-    <Content Include="js\productPanelC.js" />
     <Content Include="js\register.js" />
     <Content Include="manageCases.html" />
     <Content Include="manageJobApplication.html" />
@@ -187,6 +188,7 @@
     <Compile Include="Controllers\OtherPersonController.cs" />
     <Compile Include="Controllers\PackageController.cs" />
     <Compile Include="Controllers\ParametroBusinessController.cs" />
+    <Compile Include="Controllers\ParametroFileCaseController.cs" />
     <Compile Include="Controllers\ParametroOtherPersonController.cs" />
     <Compile Include="Controllers\ParametroPersonController.cs" />
     <Compile Include="Controllers\ParametroProductController.cs" />
@@ -204,6 +206,7 @@
     <Compile Include="Models\MultimediaJobApplication.cs" />
     <Compile Include="Models\OtherPerson.cs" />
     <Compile Include="Models\Package.cs" />
+    <Compile Include="Models\ParametroPutFile.cs" />
     <Compile Include="Models\ParametrosPutAvatar.cs" />
     <Compile Include="Models\Person.cs" />
     <Compile Include="Models\Product.cs" />

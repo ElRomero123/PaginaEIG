@@ -40,6 +40,22 @@
     <Property Name="PostedDate" Type="nvarchar" MaxLength="255" Nullable="false" />
     <Property Name="IdUser" Type="bigint" Nullable="false" />
   </EntityType>
+  <EntityType Name="MultimediaCase">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DownloadLink" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="IdCase" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MultimediaJobApplication">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DownloadLink" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="IdJobApplication" Type="bigint" Nullable="false" />
+  </EntityType>
   <EntityType Name="OtherPerson">
     <Key>
       <PropertyRef Name="Id" />
@@ -120,16 +136,6 @@
     <Property Name="PostedDate" Type="nvarchar" MaxLength="255" Nullable="false" />
     <Property Name="IdUser" Type="bigint" Nullable="false" />
   </EntityType>
-  <EntityType Name="sysdiagrams">
-    <Key>
-      <PropertyRef Name="diagram_id" />
-    </Key>
-    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
-    <Property Name="principal_id" Type="int" Nullable="false" />
-    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="version" Type="int" />
-    <Property Name="definition" Type="varbinary(max)" />
-  </EntityType>
   <EntityType Name="User">
     <Key>
       <PropertyRef Name="Id" />
@@ -183,6 +189,34 @@
       </Principal>
       <Dependent Role="JobApplication">
         <PropertyRef Name="IdUser" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MultimediaCase_Case">
+    <End Role="Case" Type="Self.Case" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="MultimediaCase" Type="Self.MultimediaCase" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Case">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MultimediaCase">
+        <PropertyRef Name="IdCase" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MultimediaJobApplication_JobApplication">
+    <End Role="JobApplication" Type="Self.JobApplication" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="MultimediaJobApplication" Type="Self.MultimediaJobApplication" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="JobApplication">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MultimediaJobApplication">
+        <PropertyRef Name="IdJobApplication" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -260,12 +294,13 @@
     <EntitySet Name="Business" EntityType="Self.Business" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Case" EntityType="Self.Case" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="JobApplication" EntityType="Self.JobApplication" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MultimediaCase" EntityType="Self.MultimediaCase" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MultimediaJobApplication" EntityType="Self.MultimediaJobApplication" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="OtherPerson" EntityType="Self.OtherPerson" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Package" EntityType="Self.Package" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Person" EntityType="Self.Person" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Suggestion" EntityType="Self.Suggestion" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
     <AssociationSet Name="FK_Business_Package" Association="Self.FK_Business_Package">
       <End Role="Package" EntitySet="Package" />
@@ -278,6 +313,14 @@
     <AssociationSet Name="FK_JobApplication_User" Association="Self.FK_JobApplication_User">
       <End Role="User" EntitySet="User" />
       <End Role="JobApplication" EntitySet="JobApplication" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MultimediaCase_Case" Association="Self.FK_MultimediaCase_Case">
+      <End Role="Case" EntitySet="Case" />
+      <End Role="MultimediaCase" EntitySet="MultimediaCase" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MultimediaJobApplication_JobApplication" Association="Self.FK_MultimediaJobApplication_JobApplication">
+      <End Role="JobApplication" EntitySet="JobApplication" />
+      <End Role="MultimediaJobApplication" EntitySet="MultimediaJobApplication" />
     </AssociationSet>
     <AssociationSet Name="FK_OtherPerson_User" Association="Self.FK_OtherPerson_User">
       <End Role="User" EntitySet="User" />

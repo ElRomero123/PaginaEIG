@@ -29,6 +29,7 @@
     <Property Name="PostedDate" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="IdUser" Type="Int64" Nullable="false" />
     <NavigationProperty Name="User" Relationship="Self.FK_Case_User" FromRole="Case" ToRole="User" />
+    <NavigationProperty Name="MultimediaCases" Relationship="Self.FK_MultimediaCase_Case" FromRole="Case" ToRole="MultimediaCase" />
   </EntityType>
   <EntityType Name="JobApplication">
     <Key>
@@ -42,6 +43,25 @@
     <Property Name="PostedDate" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="IdUser" Type="Int64" Nullable="false" />
     <NavigationProperty Name="User" Relationship="Self.FK_JobApplication_User" FromRole="JobApplication" ToRole="User" />
+    <NavigationProperty Name="MultimediaJobApplications" Relationship="Self.FK_MultimediaJobApplication_JobApplication" FromRole="JobApplication" ToRole="MultimediaJobApplication" />
+  </EntityType>
+  <EntityType Name="MultimediaCase">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DownloadLink" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="IdCase" Type="Int64" Nullable="false" />
+    <NavigationProperty Name="Case" Relationship="Self.FK_MultimediaCase_Case" FromRole="MultimediaCase" ToRole="Case" />
+  </EntityType>
+  <EntityType Name="MultimediaJobApplication">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DownloadLink" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="IdJobApplication" Type="Int64" Nullable="false" />
+    <NavigationProperty Name="JobApplication" Relationship="Self.FK_MultimediaJobApplication_JobApplication" FromRole="MultimediaJobApplication" ToRole="JobApplication" />
   </EntityType>
   <EntityType Name="OtherPerson">
     <Key>
@@ -130,16 +150,6 @@
     <Property Name="IdUser" Type="Int64" Nullable="false" />
     <NavigationProperty Name="User" Relationship="Self.FK_Suggestion_User" FromRole="Suggestion" ToRole="User" />
   </EntityType>
-  <EntityType Name="sysdiagram">
-    <Key>
-      <PropertyRef Name="diagram_id" />
-    </Key>
-    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="principal_id" Type="Int32" Nullable="false" />
-    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="version" Type="Int32" />
-    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
-  </EntityType>
   <EntityType Name="User">
     <Key>
       <PropertyRef Name="Id" />
@@ -188,6 +198,20 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_MultimediaCase_Case">
+    <End Role="Case" Type="Self.Case" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="MultimediaCase" Type="Self.MultimediaCase" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Case">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MultimediaCase">
+        <PropertyRef Name="IdCase" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_JobApplication_User">
     <End Role="User" Type="Self.User" Multiplicity="1">
       <OnDelete Action="Cascade" />
@@ -199,6 +223,20 @@
       </Principal>
       <Dependent Role="JobApplication">
         <PropertyRef Name="IdUser" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MultimediaJobApplication_JobApplication">
+    <End Role="JobApplication" Type="Self.JobApplication" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="MultimediaJobApplication" Type="Self.MultimediaJobApplication" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="JobApplication">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MultimediaJobApplication">
+        <PropertyRef Name="IdJobApplication" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -276,12 +314,13 @@
     <EntitySet Name="Businesses" EntityType="Self.Business" />
     <EntitySet Name="Cases" EntityType="Self.Case" />
     <EntitySet Name="JobApplications" EntityType="Self.JobApplication" />
+    <EntitySet Name="MultimediaCases" EntityType="Self.MultimediaCase" />
+    <EntitySet Name="MultimediaJobApplications" EntityType="Self.MultimediaJobApplication" />
     <EntitySet Name="OtherPersons" EntityType="Self.OtherPerson" />
     <EntitySet Name="Packages" EntityType="Self.Package" />
     <EntitySet Name="People" EntityType="Self.Person" />
     <EntitySet Name="Products" EntityType="Self.Product" />
     <EntitySet Name="Suggestions" EntityType="Self.Suggestion" />
-    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
     <EntitySet Name="Users" EntityType="Self.User" />
     <AssociationSet Name="FK_Business_Package" Association="Self.FK_Business_Package">
       <End Role="Package" EntitySet="Packages" />
@@ -291,9 +330,17 @@
       <End Role="User" EntitySet="Users" />
       <End Role="Case" EntitySet="Cases" />
     </AssociationSet>
+    <AssociationSet Name="FK_MultimediaCase_Case" Association="Self.FK_MultimediaCase_Case">
+      <End Role="Case" EntitySet="Cases" />
+      <End Role="MultimediaCase" EntitySet="MultimediaCases" />
+    </AssociationSet>
     <AssociationSet Name="FK_JobApplication_User" Association="Self.FK_JobApplication_User">
       <End Role="User" EntitySet="Users" />
       <End Role="JobApplication" EntitySet="JobApplications" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MultimediaJobApplication_JobApplication" Association="Self.FK_MultimediaJobApplication_JobApplication">
+      <End Role="JobApplication" EntitySet="JobApplications" />
+      <End Role="MultimediaJobApplication" EntitySet="MultimediaJobApplications" />
     </AssociationSet>
     <AssociationSet Name="FK_OtherPerson_User" Association="Self.FK_OtherPerson_User">
       <End Role="User" EntitySet="Users" />
