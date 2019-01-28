@@ -16,10 +16,10 @@ function initUser()
         location.href = 'index.html';
     }
 
-    loadCases();
+    loadAnexos();
 }
 
-function loadCases()
+function loadAnexos()
 {
     if(navigator.onLine)
     {
@@ -28,14 +28,14 @@ function loadCases()
         $('#bannerState').css('display','block');
         $('#bannerState').css('background','yellow');
         $('#bannerState').css('color','black');
-        $('#bannerState').text('Cargando tus casos ...');
+        $('#bannerState').text('Cargando ...');
 
-        var idUser = localStorage.getItem('User');
+        var idCase = localStorage.getItem('Case');
 
         $.ajax
         (
             {
-                url: '../api/case/?idUser=' + idUser,
+                url: '../api/multimediaCase/?idCase=' + idCase,
                 type: 'GET',
                 contentType: "application/json;charset=utf-8",
 
@@ -48,14 +48,14 @@ function loadCases()
 
                         for(var i = 0; i < data.length; i++)
                         {
-                            cadena += "<div id='" + data[i].Id + "' class='result' onclick='toEditCase(this)'> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].Description + "</p> <p class='pf3'>" + data[i].PostedDate + "</p> </div> </div>";  
+                            cadena += "<div id='" + data[i].Id + "' class='result' onclick='download(this)'> <div class='text'> <p class='pf1'>" + data[i].DownloadLink + "</p> </div> </div>";  
                         }
                         
                         $('#listResults').append(cadena);
 
                         $('#bannerState').css('background','green');
                         $('#bannerState').css('color','white');
-                        $('#bannerState').text('Usted tiene ' + i + ' casos!');
+                        $('#bannerState').text('Usted tiene ' + i + ' anexos!');
                         $('#listResults').css('display','flex');
                     }
 
@@ -63,7 +63,7 @@ function loadCases()
                     {
                         $('#bannerState').css('background','red');
                         $('#bannerState').css('color','white');
-                        $('#bannerState').text('Aún no has subido un caso!');
+                        $('#bannerState').text('El caso no tiene anexos!');
                     }
                 }
             }
@@ -87,11 +87,11 @@ function to(num)
         location.href = 'index.html';
         break;
         default:
-        location.href = 'menu5.html';
+        location.href = 'manageCases.html';
     }
 }
 
-function toEditCase(e)
+function download(e)
 {
     alert(e.id);
 }

@@ -93,7 +93,6 @@ function to(num)
 
 function toEditCase(e)
 {
-    localStorage.setItem('IdCase', e.id);
+    localStorage.setItem('Case', e.id);
     location.href = 'editCase.html';
-    //alert(e.id);
 }
