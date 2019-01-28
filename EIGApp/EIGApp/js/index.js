@@ -61,7 +61,11 @@ function validate()
 
                 else if(data.Administrador)
                 {
-
+                    localStorage.setItem('User', data.Id);
+                    localStorage.setItem('Username', data.Username);
+                    localStorage.setItem('Name', data.Name);
+                    localStorage.setItem('TienePerfil', data.TienePerfil);
+                    location.href = 'menuManager.html';
                 }
 
                 else
