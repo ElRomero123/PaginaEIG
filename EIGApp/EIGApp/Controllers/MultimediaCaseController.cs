@@ -33,6 +33,25 @@ namespace EIGApp.Controllers
             return id;
         }
 
+        public bool Post(long idMC)
+        {
+            bool result = false;
+
+            try
+            {
+                O.MultimediaCase MC = BD.MultimediaCases.FirstOrDefault(x => x.Id == idMC);
+                BD.MultimediaCases.Remove(MC);
+                BD.SaveChanges();
+                result = true;
+            }
+            catch
+            {
+                result = false;
+            }
+
+            return result;
+        }
+
         public M.MultimediaCase[] Get(long idCase)
         {
             var query = from MC in BD.MultimediaCases

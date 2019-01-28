@@ -225,12 +225,10 @@ function recargar()
 
 function eliminar(e)
 {
-    alert('Eliminar anexo ' + e.id + ' funciona!');
-
     $.ajax
     (
         {
-            url: '../api/multimediaCase/?idCase=' + e.id,
+            url: '../api/multimediaCase/?idMC=' + e.id,
             type: 'POST',
             contentType: "application/json;charset=utf-8",
 
