@@ -179,7 +179,7 @@ function loadFile(num)
 
 function putFile(num, downloadURL)
 {
-    var parametroPutFileCase =
+    var parametroPutFile =
     {
         id: num,
         downloadURL: downloadURL
@@ -190,7 +190,7 @@ function putFile(num, downloadURL)
         {
             url: '../api/parametroFileCase',
             type: 'POST',
-            data: JSON.stringify(parametroPutFileCase),
+            data: JSON.stringify(parametroPutFile),
             contentType: "application/json;charset=utf-8",
 
             success:
