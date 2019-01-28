@@ -125,7 +125,7 @@ function loadFileCase()
                 success:
                 function (data)
                 {
-                    loadAvatar(data);
+                    loadFile(data);
                 }
             }
         );
@@ -139,7 +139,7 @@ function loadFileCase()
     }
 }
 
-function loadAvatar(num)
+function loadFile(num)
 {    
     var config = 
     {
@@ -154,7 +154,7 @@ function loadAvatar(num)
     firebase.initializeApp(config);
 
     var storageRef = firebase.storage().ref();
-    var uploadTask = storageRef.child('anexosCase/' + num + PersonAvatar.files[0].name).put(PersonAvatar.files[0]);
+    var uploadTask = storageRef.child('anexosCase/' + num + FileCase.files[0].name).put(FileCase.files[0]);
 
     uploadTask.on
     (   
@@ -179,7 +179,7 @@ function loadAvatar(num)
 
 function putFile(num, downloadURL)
 {
-    var parametrosPutAvatar =
+    var parametroPutFileCase =
     {
         id: num,
         downloadURL: downloadURL
@@ -188,9 +188,9 @@ function putFile(num, downloadURL)
     $.ajax
     (
         {
-            url: '../api/parametroPerson',
+            url: '../api/parametroFileCase',
             type: 'POST',
-            data: JSON.stringify(parametrosPutAvatar),
+            data: JSON.stringify(parametroPutFileCase),
             contentType: "application/json;charset=utf-8",
 
             success:
@@ -198,10 +198,10 @@ function putFile(num, downloadURL)
             {
                 if(data)
                 {
-                    $('#createPerson').css('background','darkgreen');
-                    $('#createPerson').css('border','2px solid darkgreen');
-                    $('#createPerson').css('color','white');
-                    $('#createPerson').text('Persona agregada!');
+                    $('#loadFC').css('background','darkgreen');
+                    $('#loadFC').css('border','2px solid darkgreen');
+                    $('#loadFC').css('color','white');
+                    $('#loadFC').text('Archivo anexado con éxito!');
                     setTimeout(recargar, 2500);
                 }
             }
