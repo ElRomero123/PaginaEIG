@@ -27,6 +27,6 @@ function to(num)
         location.href = 'index.html';
         break;
         default:
-        location.href = 'menuProfilesManager.html';
+        location.href = 'personPanel.html';
     }
 }
