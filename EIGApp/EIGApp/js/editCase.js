@@ -62,7 +62,7 @@ function loadAnexos()
 
                         for(var i = 0; i < data.length; i++)
                         {
-                            cadena += "<div id='" + data[i].Id + "' class='result' onclick='download(this)'> <div class='text'> <p class='pf1'>" + data[i].DownloadLink + "</p> </div> </div>";  
+                            cadena += "<div class='result' id='" + data[i].Id + "' onclick='download(this)'> <div class='text'> <p class='pf1'>" + data[i].FileName + "</p> <p class='pf4'>" + data[i].LoadDate + "</p> <p hidden class='pf4' id='DL" + data[i].Id + "'>" + data[i].DownloadLink + "</p> </div> </div>";  
                         }
                         
                         $('#listResults').append(cadena);
@@ -94,7 +94,8 @@ function loadAnexos()
 
 function download(e)
 {
-    alert(e.id);
+    var download = document.getElementById('DL' + e.id).innerHTML;
+    location.href = download;
 }
 
 function loadFileCase()
@@ -105,6 +106,7 @@ function loadFileCase()
     {
         var multimediaCase =
         {
+            fileName: '',
             downloadLink: '',
             idCase: localStorage.getItem('Case')
         };
@@ -154,7 +156,8 @@ function loadFile(num)
     firebase.initializeApp(config);
 
     var storageRef = firebase.storage().ref();
-    var uploadTask = storageRef.child('anexosCase/' + num + FileCase.files[0].name).put(FileCase.files[0]);
+    var fileName = num + FileCase.files[0].name;
+    var uploadTask = storageRef.child('anexosCase/' + fileName).put(FileCase.files[0]);
 
     uploadTask.on
     (   
@@ -171,17 +174,18 @@ function loadFile(num)
         {
             uploadTask.snapshot.ref.getDownloadURL().then(function(downloadURL) 
             {    
-                putFile(num, downloadURL);
+                putFile(num, fileName, downloadURL);
             });
         }
     );
 }
 
-function putFile(num, downloadURL)
+function putFile(num, fileName, downloadURL)
 {
     var parametroPutFile =
     {
         id: num,
+        fileName: fileName,
         downloadURL: downloadURL
     };
 
@@ -212,4 +216,9 @@ function putFile(num, downloadURL)
 function validateFile()
 {
     return FileCase.files[0] != null;
+}
+
+function recargar()
+{
+    location.reload();
 }

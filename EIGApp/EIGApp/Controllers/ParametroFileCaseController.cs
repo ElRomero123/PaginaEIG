@@ -16,7 +16,9 @@ namespace EIGApp.Controllers
             try
             {
                 O.MultimediaCase multimediaCase = BD.MultimediaCases.FirstOrDefault(x => x.Id == parametroPutFile.Id);
+                multimediaCase.FileName     = parametroPutFile.FileName;
                 multimediaCase.DownloadLink = parametroPutFile.DownloadURL;
+                multimediaCase.LoadDate     = System.DateTime.Now.ToString("g");
                 BD.SaveChanges();
                 state = true;
             }

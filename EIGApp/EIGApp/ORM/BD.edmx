@@ -50,7 +50,9 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FileName" Type="nvarchar" MaxLength="255" Nullable="false" />
           <Property Name="DownloadLink" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="LoadDate" Type="nvarchar" MaxLength="255" Nullable="false" />
           <Property Name="IdCase" Type="bigint" Nullable="false" />
         </EntityType>
         <EntityType Name="MultimediaJobApplication">
@@ -58,7 +60,9 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FileName" Type="nvarchar" MaxLength="255" Nullable="false" />
           <Property Name="DownloadLink" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="LoadDate" Type="nvarchar" MaxLength="255" Nullable="false" />
           <Property Name="IdJobApplication" Type="bigint" Nullable="false" />
         </EntityType>
         <EntityType Name="OtherPerson">
@@ -403,7 +407,9 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FileName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="DownloadLink" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LoadDate" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="IdCase" Type="Int64" Nullable="false" />
           <NavigationProperty Name="Case" Relationship="Self.FK_MultimediaCase_Case" FromRole="MultimediaCase" ToRole="Case" />
         </EntityType>
@@ -412,7 +418,9 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FileName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="DownloadLink" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LoadDate" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="IdJobApplication" Type="Int64" Nullable="false" />
           <NavigationProperty Name="JobApplication" Relationship="Self.FK_MultimediaJobApplication_JobApplication" FromRole="MultimediaJobApplication" ToRole="JobApplication" />
         </EntityType>
@@ -769,7 +777,9 @@
             <EntityTypeMapping TypeName="bdEIGModel.MultimediaCase">
               <MappingFragment StoreEntitySet="MultimediaCase">
                 <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="FileName" ColumnName="FileName" />
                 <ScalarProperty Name="DownloadLink" ColumnName="DownloadLink" />
+                <ScalarProperty Name="LoadDate" ColumnName="LoadDate" />
                 <ScalarProperty Name="IdCase" ColumnName="IdCase" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -778,7 +788,9 @@
             <EntityTypeMapping TypeName="bdEIGModel.MultimediaJobApplication">
               <MappingFragment StoreEntitySet="MultimediaJobApplication">
                 <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="FileName" ColumnName="FileName" />
                 <ScalarProperty Name="DownloadLink" ColumnName="DownloadLink" />
+                <ScalarProperty Name="LoadDate" ColumnName="LoadDate" />
                 <ScalarProperty Name="IdJobApplication" ColumnName="IdJobApplication" />
               </MappingFragment>
             </EntityTypeMapping>
