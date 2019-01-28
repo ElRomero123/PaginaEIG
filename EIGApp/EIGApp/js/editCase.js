@@ -1,4 +1,5 @@
 window.onload = initUser;
+var FileCase;
 
 function initUser()
 {
@@ -17,6 +18,19 @@ function initUser()
     }
 
     loadAnexos();
+}
+
+function to(num)
+{
+    switch(num)
+    {
+        case 1:
+        localStorage.clear();
+        location.href = 'index.html';
+        break;
+        default:
+        location.href = 'manageCases.html';
+    }
 }
 
 function loadAnexos()
@@ -78,20 +92,54 @@ function loadAnexos()
     }
 }
 
-function to(num)
-{
-    switch(num)
-    {
-        case 1:
-        localStorage.clear();
-        location.href = 'index.html';
-        break;
-        default:
-        location.href = 'manageCases.html';
-    }
-}
-
 function download(e)
 {
     alert(e.id);
+}
+
+function loadFileCase()
+{
+    FileCase =  document.getElementById('fileCase');
+
+    if(validateFile())
+    {
+        var persona =
+        {
+            downloadLink: '',
+            idCase: localStorage.getItem('Case')
+        };
+    
+        $('#loadFC').css('background','yellow');
+        $('#loadFC').css('border','2px solid yellow');
+        $('#loadFC').css('color','black');
+        $('#loadFC').text('Anexando fichero ...');
+
+        $.ajax
+        (
+            {
+                url: '../api/person',
+                type: 'POST',
+                data: JSON.stringify(persona),
+                contentType: "application/json;charset=utf-8",
+
+                success:
+                function (data)
+                {
+                    loadAvatar(data);
+                }
+            }
+        );
+    }
+
+    else
+    {
+        $('#loadFC').css('background','red');
+        $('#loadFC').css('border','2px solid red');
+        $('#loadFC').text('Debe seleccionar un fichero!');
+    }
+}
+
+function validateFile()
+{
+    return FileCase.files[0] != null;
 }
