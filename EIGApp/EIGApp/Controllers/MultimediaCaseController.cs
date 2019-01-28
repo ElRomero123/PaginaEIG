@@ -19,6 +19,7 @@ namespace EIGApp.Controllers
                 AutoMapper.Mapper.CreateMap<M.MultimediaCase, O.MultimediaCase>();
                 #pragma warning restore CS0618
                 O.MultimediaCase BDMultimediaCase = AutoMapper.Mapper.Map<O.MultimediaCase>(multimediaCase);
+                BDMultimediaCase.LoadDate = System.DateTime.Now.ToString("g");
                 BD.MultimediaCases.Add(BDMultimediaCase);
                 BD.SaveChanges();
                 id = BDMultimediaCase.Id;
@@ -36,7 +37,7 @@ namespace EIGApp.Controllers
         {
             var query = from MC in BD.MultimediaCases
                         where (MC.IdCase.Equals(idCase))
-                        select new {MC.Id, MC.DownloadLink};
+                        select new {MC.Id, MC.FileName, MC.DownloadLink, MC.LoadDate};
 
             var lista = query.ToArray();
 
@@ -46,8 +47,10 @@ namespace EIGApp.Controllers
             {
                 M.MultimediaCase temp = new M.MultimediaCase
                 {
-                    Id = lista[i].Id,
-                    DownloadLink = lista[i].DownloadLink
+                    Id           = lista[i].Id,
+                    FileName     = lista[i].FileName,
+                    DownloadLink = lista[i].DownloadLink,
+                    LoadDate     = lista[i].LoadDate
                 };
 
                 arrayMultimediaCase[i] = temp;

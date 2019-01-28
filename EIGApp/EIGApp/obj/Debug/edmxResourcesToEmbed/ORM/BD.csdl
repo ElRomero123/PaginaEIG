@@ -50,7 +50,9 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FileName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="DownloadLink" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LoadDate" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="IdCase" Type="Int64" Nullable="false" />
     <NavigationProperty Name="Case" Relationship="Self.FK_MultimediaCase_Case" FromRole="MultimediaCase" ToRole="Case" />
   </EntityType>
@@ -59,7 +61,9 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FileName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="DownloadLink" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LoadDate" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="IdJobApplication" Type="Int64" Nullable="false" />
     <NavigationProperty Name="JobApplication" Relationship="Self.FK_MultimediaJobApplication_JobApplication" FromRole="MultimediaJobApplication" ToRole="JobApplication" />
   </EntityType>

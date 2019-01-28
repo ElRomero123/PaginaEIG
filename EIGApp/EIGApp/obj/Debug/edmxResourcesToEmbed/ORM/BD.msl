@@ -48,7 +48,9 @@
       <EntityTypeMapping TypeName="bdEIGModel.MultimediaCase">
         <MappingFragment StoreEntitySet="MultimediaCase">
           <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="FileName" ColumnName="FileName" />
           <ScalarProperty Name="DownloadLink" ColumnName="DownloadLink" />
+          <ScalarProperty Name="LoadDate" ColumnName="LoadDate" />
           <ScalarProperty Name="IdCase" ColumnName="IdCase" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -57,7 +59,9 @@
       <EntityTypeMapping TypeName="bdEIGModel.MultimediaJobApplication">
         <MappingFragment StoreEntitySet="MultimediaJobApplication">
           <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="FileName" ColumnName="FileName" />
           <ScalarProperty Name="DownloadLink" ColumnName="DownloadLink" />
+          <ScalarProperty Name="LoadDate" ColumnName="LoadDate" />
           <ScalarProperty Name="IdJobApplication" ColumnName="IdJobApplication" />
         </MappingFragment>
       </EntityTypeMapping>

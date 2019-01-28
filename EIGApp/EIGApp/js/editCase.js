@@ -69,7 +69,7 @@ function loadAnexos()
 
                         $('#bannerState').css('background','green');
                         $('#bannerState').css('color','white');
-                        $('#bannerState').text('Usted tiene ' + i + ' anexos!');
+                        $('#bannerState').text('El caso tiene ' + i + ' anexos!');
                         $('#listResults').css('display','flex');
                     }
 
@@ -95,7 +95,7 @@ function loadAnexos()
 function download(e)
 {
     var download = document.getElementById('DL' + e.id).innerHTML;
-    location.href = download;
+    window.open(download, '_blank');
 }
 
 function loadFileCase()
