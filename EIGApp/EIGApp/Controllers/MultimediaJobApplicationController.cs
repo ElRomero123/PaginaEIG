@@ -33,6 +33,25 @@ namespace EIGApp.Controllers
             return id;
         }
 
+        public bool Post(long idMJA)
+        {
+            bool result = false;
+
+            try
+            {
+                O.MultimediaJobApplication MJA = BD.MultimediaJobApplications.FirstOrDefault(x => x.Id == idMJA);
+                BD.MultimediaJobApplications.Remove(MJA);
+                BD.SaveChanges();
+                result = true;
+            }
+            catch
+            {
+                result = false;
+            }
+
+            return result;
+        }
+
         public M.MultimediaJobApplication[] Get(long idJA)
         {
             var query = from MJA in BD.MultimediaJobApplications

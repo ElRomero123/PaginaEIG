@@ -60,5 +60,24 @@ namespace EIGApp.Controllers
 
             return state;
         }
+
+        public bool Post(long idJA)
+        {
+            bool result = false;
+
+            try
+            {
+                O.JobApplication JA = BD.JobApplications.FirstOrDefault(x => x.Id == idJA);
+                BD.JobApplications.Remove(JA);
+                BD.SaveChanges();
+                result = true;
+            }
+            catch
+            {
+                result = false;
+            }
+
+            return result;
+        }
     }
 }

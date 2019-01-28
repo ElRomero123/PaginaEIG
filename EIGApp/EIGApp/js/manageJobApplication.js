@@ -20,6 +20,19 @@ function initUser()
     loadJobApplications();
 }
 
+function to(num)
+{
+    switch(num)
+    {
+        case 1:
+        localStorage.clear();
+        location.href = 'index.html';
+        break;
+        default:
+        location.href = 'menu6.html';
+    }
+}
+
 function loadJobApplications()
 {
     if(navigator.onLine)
@@ -78,27 +91,31 @@ function loadJobApplications()
     }
 }
 
-function to(num)
-{
-    switch(num)
-    {
-        case 1:
-        localStorage.clear();
-        location.href = 'index.html';
-        break;
-        default:
-        location.href = 'menu6.html';
-    }
-}
-
 function toEditJA(e)
 {
     localStorage.setItem('JA', e.id);
     location.href = 'editJA.html';
-    //alert('Anexos ' + e.id);
 }
 
 function eliminar(e)
 {
-    alert('Eliminar ' + e.id);
+    $.ajax
+    (
+        {
+            url: '../api/jobApplication/?idJA=' + e.id,
+            type: 'POST',
+            contentType: "application/json;charset=utf-8",
+
+            success:
+            function (data) 
+            {
+                if(data)
+                {
+                    $('#bannerState').css('background','brown');
+                    $('#bannerState').text('La solicitud ha sido eliminada!');
+                    setTimeout(recargar, 800);
+                }
+            }
+        }
+    );
 }

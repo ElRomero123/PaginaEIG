@@ -219,7 +219,25 @@ function recargar()
 
 function eliminar(e)
 {
-    alert('Eliminar ' + e.id);
+    $.ajax
+    (
+        {
+            url: '../api/multimediaJobApplication/?idMJA=' + e.id,
+            type: 'POST',
+            contentType: "application/json;charset=utf-8",
+
+            success:
+            function (data) 
+            {
+                if(data)
+                {
+                    $('#bannerState').css('background','brown');
+                    $('#bannerState').text('El anexo ha sido eliminado!');
+                    setTimeout(recargar, 800);
+                }
+            }
+        }
+    );
 }
 
 function download(e)
