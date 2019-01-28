@@ -48,7 +48,7 @@ function loadCases()
 
                         for(var i = 0; i < data.length; i++)
                         {
-                            cadena += "<div id='" + data[i].Id + "' class='result' onclick='toEditCase(this)'> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].Description + "</p> <p class='pf3'>" + data[i].PostedDate + "</p> </div> </div>";  
+                            cadena += "<div id='" + data[i].Id + "' class='result' onclick='toEditCase(this)'> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].DescriptionCase + "</p> <p class='pf3'> Publicado el " + data[i].PostedDate + "</p> <button class='delete' onclick='eliminar()'>Eliminar</button> </div> </div>";  
                         }
                         
                         $('#listResults').append(cadena);
@@ -95,4 +95,9 @@ function toEditCase(e)
 {
     localStorage.setItem('Case', e.id);
     location.href = 'editCase.html';
+}
+
+function eliminar()
+{
+    alert('Eliminar caso funciona');
 }

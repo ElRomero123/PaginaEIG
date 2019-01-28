@@ -62,7 +62,7 @@ function loadAnexos()
 
                         for(var i = 0; i < data.length; i++)
                         {
-                            cadena += "<div class='result' id='" + data[i].Id + "' onclick='download(this)'> <div class='text'> <p class='pf1'>" + data[i].FileName + "</p> <p class='pf4'>" + data[i].LoadDate + "</p> <p hidden class='pf4' id='DL" + data[i].Id + "'>" + data[i].DownloadLink + "</p> </div> </div>";  
+                            cadena += "<div class='result' id='" + data[i].Id + "' onclick='download(this)'> <div class='text'> <p class='pf2'>" + data[i].FileName + "</p> <p class='pf4'>Anexado el " + data[i].LoadDate + "</p> <p hidden class='pf4' id='DL" + data[i].Id + "'>" + data[i].DownloadLink + "</p> </div> </div>";  
                         }
                         
                         $('#listResults').append(cadena);
@@ -114,7 +114,7 @@ function loadFileCase()
         $('#loadFC').css('background','yellow');
         $('#loadFC').css('border','2px solid yellow');
         $('#loadFC').css('color','black');
-        $('#loadFC').text('Anexando fichero ...');
+        $('#loadFC').text('Anexando archivo ...');
 
         $.ajax
         (
@@ -206,7 +206,7 @@ function putFile(num, fileName, downloadURL)
                     $('#loadFC').css('border','2px solid darkgreen');
                     $('#loadFC').css('color','white');
                     $('#loadFC').text('Archivo anexado con éxito!');
-                    setTimeout(recargar, 2500);
+                    setTimeout(recargar, 800);
                 }
             }
         }
