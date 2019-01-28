@@ -100,6 +100,7 @@
     <Content Include="confirm.html" />
     <Content Include="css\index.css" />
     <Content Include="editCase.html" />
+    <Content Include="editJA.html" />
     <Content Include="error.html" />
     <Content Include="Global.asax" />
     <Content Include="img\f.png" />
@@ -127,6 +128,7 @@
     <Content Include="js\businessPanelC.js" />
     <Content Include="js\confirm.js" />
     <Content Include="js\editCase.js" />
+    <Content Include="js\editJA.js" />
     <Content Include="js\error.js" />
     <Content Include="js\manageCases.js" />
     <Content Include="js\manageJobApplication.js" />
@@ -140,6 +142,7 @@
     <Content Include="js\menu7.js" />
     <Content Include="js\menu8.js" />
     <Content Include="js\menu9.js" />
+    <Content Include="js\menuManager.js" />
     <Content Include="js\otherPersonPanel.js" />
     <Content Include="js\otherPersonPanelC.js" />
     <Content Include="js\personPanel.js" />
@@ -150,6 +153,7 @@
     <Content Include="manageJobApplication.html" />
     <Content Include="managePackage.html" />
     <Content Include="menu9.html" />
+    <Content Include="menuManager.html" />
     <Content Include="ORM\BD.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>BD.edmx</DependentUpon>
