@@ -30,7 +30,7 @@ function to(num)
         location.href = 'menuProfilesManager.html';
         break;
         case 3:
-        location.href = 'menuProfilesManager.html';
+        location.href = 'menuCasesManager.html';
         break;
         case 4:
         location.href = 'menuProfilesManager.html';

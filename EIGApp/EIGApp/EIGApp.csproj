@@ -142,7 +142,9 @@
     <Content Include="js\menu7.js" />
     <Content Include="js\menu8.js" />
     <Content Include="js\menu9.js" />
+    <Content Include="js\menuCasesManager.js" />
     <Content Include="js\menuManager.js" />
+    <Content Include="js\menuProfilesManager.js" />
     <Content Include="js\otherPersonPanel.js" />
     <Content Include="js\otherPersonPanelC.js" />
     <Content Include="js\personPanel.js" />
@@ -153,7 +155,9 @@
     <Content Include="manageJobApplication.html" />
     <Content Include="managePackage.html" />
     <Content Include="menu9.html" />
+    <Content Include="menuCasesManager.html" />
     <Content Include="menuManager.html" />
+    <Content Include="menuProfilesManager.html" />
     <Content Include="ORM\BD.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>BD.edmx</DependentUpon>
