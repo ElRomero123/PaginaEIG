@@ -32,6 +32,12 @@ function to(num)
         case 3:
         location.href = 'menuProfilesManager.html';
         break;
+        case 4:
+        location.href = 'menuProfilesManager.html';
+        break;
+        case 5:
+        location.href = 'menuProfilesManager.html';
+        break;
         default:
         location.href = 'menuProfilesManager.html';
     }

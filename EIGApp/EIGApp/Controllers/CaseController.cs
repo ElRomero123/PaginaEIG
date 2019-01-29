@@ -35,6 +35,33 @@ namespace EIGApp.Controllers
             return arrayCase;
         }
 
+        public M.Case[] Get()
+        {
+            var query = from C in BD.Cases
+                        where (true)
+                        select new {C.Id, C.Name, C.DescriptionCase, C.PostedDate, C.User.Username};
+
+            var lista = query.ToArray();
+
+            M.Case[] arrayCase = new M.Case[lista.Length];
+
+            for (int i = 0; i < lista.Length; i++)
+            {
+                M.Case temp = new M.Case
+                {
+                    Id              = lista[i].Id,
+                    Name            = lista[i].Name,
+                    DescriptionCase = lista[i].DescriptionCase,
+                    PostedDate      = lista[i].PostedDate,
+                    Username        = lista[i].Username
+                };
+
+                arrayCase[i] = temp;
+            }
+
+            return arrayCase;
+        }
+
         public bool Post(long idCase)
         {
             bool result = false;
