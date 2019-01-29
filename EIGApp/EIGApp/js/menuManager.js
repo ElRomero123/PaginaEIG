@@ -26,6 +26,12 @@ function to(num)
         localStorage.clear();
         location.href = 'index.html';
         break;
+        case 2:
+        location.href = 'menuProfilesManager.html';
+        break;
+        case 3:
+        location.href = 'menuProfilesManager.html';
+        break;
         default:
         location.href = 'menuProfilesManager.html';
     }
