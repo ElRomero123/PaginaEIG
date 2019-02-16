@@ -1,6 +1,6 @@
 /* line 1, ../sass/index.scss */
 body {
-  background: black;
+  background-color: #7f0000;
 }
 /* line 3, ../sass/index.scss */
 body div {
@@ -8,22 +8,22 @@ body div {
   text-align: center;
   text-align: center;
   color: white;
-  background-color: #7f0000;
+  background-color: transparent;
   border-radius: 10px;
   padding: 10px;
   margin: 220px auto 95px auto;
   height: auto;
   width: 90%;
 }
-/* line 6, ../sass/index.scss */
+/* line 5, ../sass/index.scss */
 body div .costosYear {
   display: inline-block;
 }
-/* line 8, ../sass/index.scss */
+/* line 7, ../sass/index.scss */
 body div .costosYear .costosEmpresa:hover {
   background-color: darkmagenta;
 }
-/* line 13, ../sass/index.scss */
+/* line 12, ../sass/index.scss */
 body div .costosYear .costosEmpresa {
   cursor: pointer;
   transition: 0.2s;
@@ -34,44 +34,46 @@ body div .costosYear .costosEmpresa {
   height: 115px;
   background-color: blue;
 }
-/* line 15, ../sass/index.scss */
+/* line 14, ../sass/index.scss */
 body div .costosYear .costosEmpresa .p3 {
   font-size: 12px;
 }
-/* line 20, ../sass/index.scss */
+/* line 19, ../sass/index.scss */
 body div .costosYear .costosEmpresa .p2 {
   font-family: acephimereThin;
   font-size: 20px;
 }
-/* line 26, ../sass/index.scss */
+/* line 25, ../sass/index.scss */
 body div .costosYear .costosEmpresa .p1 {
   font-size: 40px;
 }
-/* line 31, ../sass/index.scss */
+/* line 30, ../sass/index.scss */
 body div .costosYear .costosEmpresa p {
   font-family: acephimere;
 }
-/* line 46, ../sass/index.scss */
+/* line 45, ../sass/index.scss */
 body div .costosYear .p2 {
   font-size: 20px;
 }
-/* line 51, ../sass/index.scss */
+/* line 50, ../sass/index.scss */
 body div .costosYear .p1 {
   font-size: 60px;
 }
-/* line 56, ../sass/index.scss */
+/* line 55, ../sass/index.scss */
 body div .costosYear p {
   font-family: acephimereThinItalic;
 }
-/* line 67, ../sass/index.scss */
+/* line 66, ../sass/index.scss */
 body div div {
   margin: 10px auto;
   padding: 0px;
   border-radius: 0px;
 }
-/* line 69, ../sass/index.scss */
+/* line 68, ../sass/index.scss */
 body div div #maps {
-  width: 95%;
+  position: fixed;
+  margin: 0px auto;
+  width: 100%;
   height: 500px;
 }
 /* line 76, ../sass/index.scss */
@@ -391,7 +393,7 @@ body div .searchTag {
 body div p {
   margin: auto;
 }
-/* line 461, ../sass/index.scss */
+/* line 462, ../sass/index.scss */
 body header {
   background-color: darkgray;
   height: auto;
@@ -400,17 +402,17 @@ body header {
   left: 0px;
   position: fixed;
 }
-/* line 463, ../sass/index.scss */
+/* line 464, ../sass/index.scss */
 body header div {
   margin: 5px auto;
   background: gray;
 }
-/* line 465, ../sass/index.scss */
+/* line 466, ../sass/index.scss */
 body header div .close:hover {
   color: black;
   background: white;
 }
-/* line 471, ../sass/index.scss */
+/* line 472, ../sass/index.scss */
 body header div .close {
   transition: 0.2s;
   outline: 0px;
@@ -422,20 +424,20 @@ body header div .close {
   margin: 7px;
   padding: 10px;
 }
-/* line 484, ../sass/index.scss */
+/* line 485, ../sass/index.scss */
 body header div #infoUsername {
   font-size: 12px;
 }
-/* line 489, ../sass/index.scss */
+/* line 490, ../sass/index.scss */
 body header div #infoName {
   font-size: 16px;
 }
-/* line 494, ../sass/index.scss */
+/* line 495, ../sass/index.scss */
 body header div p {
   display: flex;
   font-family: acephimere;
 }
-/* line 504, ../sass/index.scss */
+/* line 505, ../sass/index.scss */
 body header .headerLogo {
   background: url("../img/logo.png");
   margin: 10px auto 10px auto;
