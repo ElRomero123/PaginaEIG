@@ -57,6 +57,8 @@ function search()
                             {
                                 cadena += "<div class='result'> <div class='avatar' id='" + i + "'></div> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].ProfesionDescription + "</p> <p class='pf3'>" + data[i].Email + "</p> <p class='pf4'>" + data[i].Phone + "</p> <p class='pf4'>" + data[i].City + "</p> <p class='pf4'>" + data[i].Address + "</p> <p class='pf4'>" + 'Unido el ' + data[i].CreationDate + "</p> </div> </div>";
                             }
+
+                            putMarket();
                         }
                         
                         $('#listResults').append(cadena);
@@ -145,9 +147,11 @@ function startMap()
     navigator.geolocation.getCurrentPosition(function(position)
     { 
         console.log(position);
-        map = new google.maps.Map(document.getElementById('maps'), {zoom: 15, center: {lat: position.coords.latitude, lng: position.coords.longitude}});
+        mapa = new google.maps.Map(document.getElementById('maps'), {zoom: 15, center: {lat: position.coords.latitude, lng: position.coords.longitude}});
     });
+}
 
-    //var map = new google.maps.Map(document.getElementById('maps'), {zoom: 15, center: pos});
-    //var marker = new google.maps.Marker({position: pos, map: map});
+function putMarket(loc)
+{
+    marker = new google.maps.Marker({position: loc, map: mapa});
 }
