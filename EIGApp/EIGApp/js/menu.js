@@ -144,9 +144,10 @@ function startMap()
     var pos;
     navigator.geolocation.getCurrentPosition(function(position)
     { 
-        pos = {lat: position.coords.latitude, lng: position.coords.longitude};
+        console.log(position);
+        map = new google.maps.Map(document.getElementById('maps'), {zoom: 15, center: {lat: position.coords.latitude, lng: position.coords.longitude}});
     });
 
-    var map = new google.maps.Map(document.getElementById('maps'), {zoom: 5, center: pos});
+    //var map = new google.maps.Map(document.getElementById('maps'), {zoom: 15, center: pos});
     //var marker = new google.maps.Marker({position: pos, map: map});
 }
