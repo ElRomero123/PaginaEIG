@@ -58,7 +58,7 @@ function search()
                                 cadena += "<div class='result'> <div class='avatar' id='" + i + "'></div> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].ProfesionDescription + "</p> <p class='pf3'>" + data[i].Email + "</p> <p class='pf4'>" + data[i].Phone + "</p> <p class='pf4'>" + data[i].City + "</p> <p class='pf4'>" + data[i].Address + "</p> <p class='pf4'>" + 'Unido el ' + data[i].CreationDate + "</p> </div> </div>";
                             }
 
-                            putMarket();
+                            putMarket({lat: data[i].Latitude, lng: data[i].Longitude});
                         }
                         
                         $('#listResults').append(cadena);
