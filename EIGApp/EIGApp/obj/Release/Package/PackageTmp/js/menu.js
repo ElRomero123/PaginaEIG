@@ -140,7 +140,7 @@ function to(num)
     }
 }
 
-/*
+
 function initMap()
 {
     map = new google.maps.Map (document.getElementById('maps'), {
@@ -148,4 +148,3 @@ function initMap()
         zoom: 8
       });
 }
-*/
