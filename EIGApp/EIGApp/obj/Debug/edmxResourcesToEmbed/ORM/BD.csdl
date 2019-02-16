@@ -122,8 +122,8 @@
     <Property Name="ProfesionDescription" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="Email" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="Phone" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="City" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Address" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Latitude" Type="Single" Nullable="false" />
+    <Property Name="Longitude" Type="Single" Nullable="false" />
     <Property Name="Ciprin" Type="Int32" Nullable="false" />
     <Property Name="Active" Type="Int32" Nullable="false" />
     <Property Name="CreationDate" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />

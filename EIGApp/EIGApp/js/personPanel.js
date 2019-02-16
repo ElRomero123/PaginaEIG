@@ -10,6 +10,7 @@ function initUser()
     {
         $('#infoName').text(name);
         $('#infoUsername').text(username);
+        startMap();
     }
 
     else
@@ -196,4 +197,13 @@ document.getElementById('personAvatar').onchange = function(e)
 function recargar()
 {
     location.reload();
+}
+
+function startMap()
+{
+    navigator.geolocation.getCurrentPosition(function(position)
+    { 
+        console.log(position);
+        mapa = new google.maps.Map(document.getElementById('maps'), {zoom: 15, center: {lat: position.coords.latitude, lng: position.coords.longitude}});
+    });
 }
