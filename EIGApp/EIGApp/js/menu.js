@@ -147,6 +147,6 @@ function startMap()
         pos = {lat: position.coords.latitude, lng: position.coords.longitude};
     });
 
-    var map = new google.maps.Map(document.getElementById('maps'), {zoom: 15, center: pos});
-    marker = new google.maps.Marker({position: pos, map: map});
+    var map = new google.maps.Map(document.getElementById('maps'), {zoom: 5, center: pos});
+    //var marker = new google.maps.Marker({position: pos, map: map});
 }
