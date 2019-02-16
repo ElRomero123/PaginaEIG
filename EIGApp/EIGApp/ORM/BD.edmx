@@ -115,8 +115,8 @@
           <Property Name="ProfesionDescription" Type="nvarchar" MaxLength="255" Nullable="false" />
           <Property Name="Email" Type="nvarchar" MaxLength="255" Nullable="false" />
           <Property Name="Phone" Type="nvarchar" MaxLength="255" Nullable="false" />
-          <Property Name="City" Type="nvarchar" MaxLength="255" Nullable="false" />
-          <Property Name="Address" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="Latitude" Type="real" Nullable="false" />
+          <Property Name="Longitude" Type="real" Nullable="false" />
           <Property Name="Ciprin" Type="int" Nullable="false" />
           <Property Name="Active" Type="int" Nullable="false" />
           <Property Name="CreationDate" Type="nvarchar" MaxLength="255" Nullable="false" />
@@ -508,8 +508,8 @@
           <Property Name="ProfesionDescription" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Email" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Phone" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="City" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Address" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Latitude" Type="Single" Nullable="false" />
+          <Property Name="Longitude" Type="Single" Nullable="false" />
           <Property Name="Ciprin" Type="Int32" Nullable="false" />
           <Property Name="Active" Type="Int32" Nullable="false" />
           <Property Name="CreationDate" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
@@ -907,8 +907,8 @@
                 <ScalarProperty Name="ProfesionDescription" ColumnName="ProfesionDescription" />
                 <ScalarProperty Name="Email" ColumnName="Email" />
                 <ScalarProperty Name="Phone" ColumnName="Phone" />
-                <ScalarProperty Name="City" ColumnName="City" />
-                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+                <ScalarProperty Name="Longitude" ColumnName="Longitude" />
                 <ScalarProperty Name="Ciprin" ColumnName="Ciprin" />
                 <ScalarProperty Name="Active" ColumnName="Active" />
                 <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />

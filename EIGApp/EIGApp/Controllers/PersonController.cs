@@ -14,7 +14,7 @@ namespace EIGApp.Controllers
             var query = from P in BD.People
                         where (P.Name.Contains(cadena) || P.ProfesionDescription.Contains(cadena))
                         orderby (P.Ciprin)
-                        select new {P.Name, P.ProfesionDescription, P.Email, P.Phone, P.City, P.Address, P.Avatar, P.Ciprin, P.Active, P.CreationDate};
+                        select new {P.Name, P.ProfesionDescription, P.Email, P.Phone, P.Latitude, P.Longitude, P.Ciprin, P.Active, P.CreationDate, P.Avatar};
 
             var lista = query.ToArray();
 
@@ -28,12 +28,12 @@ namespace EIGApp.Controllers
                     ProfesionDescription = lista[i].ProfesionDescription,
                     Email                = lista[i].Email,
                     Phone                = lista[i].Phone,
-                    City                 = lista[i].City,
-                    Address              = lista[i].Address,
-                    Avatar               = lista[i].Avatar,
+                    Latitude             = lista[i].Latitude,
+                    Longitude            = lista[i].Longitude,
                     Ciprin               = lista[i].Ciprin,
                     Active               = lista[i].Active,
-                    CreationDate         = lista[i].CreationDate
+                    CreationDate         = lista[i].CreationDate,
+                    Avatar               = lista[i].Avatar
                 };
 
                 arrayPeople[i] = temp;
