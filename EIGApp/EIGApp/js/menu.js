@@ -1,5 +1,5 @@
 window.onload = initUser;
-var map;
+var mapa, mapOptions;
 
 function initUser()
 {
@@ -10,7 +10,7 @@ function initUser()
     {
         $('#infoName').text(name);
         $('#infoUsername').text(username);
-        initMap();
+        startMap();
     }
 
     else
@@ -139,15 +139,12 @@ function to(num)
     }
 }
 
-
-function initMap()
+function startMap()
 {
-    map = new google.maps.Map 
-    (
-        document.getElementById('maps'), 
-        {
-            center: {lat: -34.397, lng: 150.644},
-            zoom: 8
-        }
-    );
+    var uluru = {lat: -25.344, lng: 131.036};
+    // The map, centered at Uluru
+    var map = new google.maps.Map(
+    document.getElementById('maps'), {zoom: 4, center: uluru});
+    // The marker, positioned at Uluru
+    var marker = new google.maps.Marker({position: uluru, map: map});
 }

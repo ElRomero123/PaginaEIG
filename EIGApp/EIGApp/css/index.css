@@ -71,9 +71,8 @@ body div div {
 }
 /* line 69, ../sass/index.scss */
 body div div #maps {
-  width: 90%;
+  width: 95%;
   height: 500px;
-  vertical-align: middle;
 }
 /* line 76, ../sass/index.scss */
 body div div #listResults {
