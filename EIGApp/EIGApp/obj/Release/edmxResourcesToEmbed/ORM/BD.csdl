@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="bdEIGModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+<Schema Namespace="BDEIGModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
   <EntityType Name="Business">
     <Key>
       <PropertyRef Name="Id" />
@@ -29,6 +29,17 @@
     <Property Name="PostedDate" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="IdUser" Type="Int64" Nullable="false" />
     <NavigationProperty Name="User" Relationship="Self.FK_Case_User" FromRole="Case" ToRole="User" />
+    <NavigationProperty Name="MultimediaCases" Relationship="Self.FK_MultimediaCase_Case" FromRole="Case" ToRole="MultimediaCase" />
+  </EntityType>
+  <EntityType Name="Donation">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Amount" Type="Int64" Nullable="false" />
+    <Property Name="Date" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="IdUser" Type="Int64" Nullable="false" />
+    <NavigationProperty Name="User" Relationship="Self.FK_Donation_User" FromRole="Donation" ToRole="User" />
   </EntityType>
   <EntityType Name="JobApplication">
     <Key>
@@ -42,6 +53,29 @@
     <Property Name="PostedDate" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="IdUser" Type="Int64" Nullable="false" />
     <NavigationProperty Name="User" Relationship="Self.FK_JobApplication_User" FromRole="JobApplication" ToRole="User" />
+    <NavigationProperty Name="MultimediaJobApplications" Relationship="Self.FK_MultimediaJobApplication_JobApplication" FromRole="JobApplication" ToRole="MultimediaJobApplication" />
+  </EntityType>
+  <EntityType Name="MultimediaCase">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FileName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DownloadLink" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LoadDate" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="IdCase" Type="Int64" Nullable="false" />
+    <NavigationProperty Name="Case" Relationship="Self.FK_MultimediaCase_Case" FromRole="MultimediaCase" ToRole="Case" />
+  </EntityType>
+  <EntityType Name="MultimediaJobApplication">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FileName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DownloadLink" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LoadDate" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="IdJobApplication" Type="Int64" Nullable="false" />
+    <NavigationProperty Name="JobApplication" Relationship="Self.FK_MultimediaJobApplication_JobApplication" FromRole="MultimediaJobApplication" ToRole="JobApplication" />
   </EntityType>
   <EntityType Name="OtherPerson">
     <Key>
@@ -136,14 +170,16 @@
     </Key>
     <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Username" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Password" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="Email" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="Phone" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="Address" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="joinDate" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="JoinDate" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="TienePerfil" Type="Boolean" Nullable="false" />
+    <Property Name="Administrador" Type="Boolean" Nullable="false" />
     <NavigationProperty Name="Cases" Relationship="Self.FK_Case_User" FromRole="User" ToRole="Case" />
+    <NavigationProperty Name="Donations" Relationship="Self.FK_Donation_User" FromRole="User" ToRole="Donation" />
     <NavigationProperty Name="JobApplications" Relationship="Self.FK_JobApplication_User" FromRole="User" ToRole="JobApplication" />
     <NavigationProperty Name="OtherPersons" Relationship="Self.FK_OtherPerson_User" FromRole="User" ToRole="OtherPerson" />
     <NavigationProperty Name="Packages" Relationship="Self.FK_Package_User" FromRole="User" ToRole="Package" />
@@ -178,6 +214,34 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_MultimediaCase_Case">
+    <End Role="Case" Type="Self.Case" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="MultimediaCase" Type="Self.MultimediaCase" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Case">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MultimediaCase">
+        <PropertyRef Name="IdCase" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Donation_User">
+    <End Role="User" Type="Self.User" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Donation" Type="Self.Donation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Donation">
+        <PropertyRef Name="IdUser" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_JobApplication_User">
     <End Role="User" Type="Self.User" Multiplicity="1">
       <OnDelete Action="Cascade" />
@@ -189,6 +253,20 @@
       </Principal>
       <Dependent Role="JobApplication">
         <PropertyRef Name="IdUser" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MultimediaJobApplication_JobApplication">
+    <End Role="JobApplication" Type="Self.JobApplication" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="MultimediaJobApplication" Type="Self.MultimediaJobApplication" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="JobApplication">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MultimediaJobApplication">
+        <PropertyRef Name="IdJobApplication" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -262,10 +340,13 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="bdEIGEntities" annotation:LazyLoadingEnabled="true">
+  <EntityContainer Name="BDEIGEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Businesses" EntityType="Self.Business" />
     <EntitySet Name="Cases" EntityType="Self.Case" />
+    <EntitySet Name="Donations" EntityType="Self.Donation" />
     <EntitySet Name="JobApplications" EntityType="Self.JobApplication" />
+    <EntitySet Name="MultimediaCases" EntityType="Self.MultimediaCase" />
+    <EntitySet Name="MultimediaJobApplications" EntityType="Self.MultimediaJobApplication" />
     <EntitySet Name="OtherPersons" EntityType="Self.OtherPerson" />
     <EntitySet Name="Packages" EntityType="Self.Package" />
     <EntitySet Name="People" EntityType="Self.Person" />
@@ -280,9 +361,21 @@
       <End Role="User" EntitySet="Users" />
       <End Role="Case" EntitySet="Cases" />
     </AssociationSet>
+    <AssociationSet Name="FK_MultimediaCase_Case" Association="Self.FK_MultimediaCase_Case">
+      <End Role="Case" EntitySet="Cases" />
+      <End Role="MultimediaCase" EntitySet="MultimediaCases" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Donation_User" Association="Self.FK_Donation_User">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Donation" EntitySet="Donations" />
+    </AssociationSet>
     <AssociationSet Name="FK_JobApplication_User" Association="Self.FK_JobApplication_User">
       <End Role="User" EntitySet="Users" />
       <End Role="JobApplication" EntitySet="JobApplications" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MultimediaJobApplication_JobApplication" Association="Self.FK_MultimediaJobApplication_JobApplication">
+      <End Role="JobApplication" EntitySet="JobApplications" />
+      <End Role="MultimediaJobApplication" EntitySet="MultimediaJobApplications" />
     </AssociationSet>
     <AssociationSet Name="FK_OtherPerson_User" Association="Self.FK_OtherPerson_User">
       <End Role="User" EntitySet="Users" />

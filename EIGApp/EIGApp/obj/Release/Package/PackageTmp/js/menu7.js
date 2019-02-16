@@ -26,6 +26,8 @@ function to(num)
         location.href = 'index.html';
         break;
         case 2:
+        location.href = 'managePackage.html';
+        localStorage.setItem('Call', 3);
         break;
         case 3:
         location.href = 'menu.html';

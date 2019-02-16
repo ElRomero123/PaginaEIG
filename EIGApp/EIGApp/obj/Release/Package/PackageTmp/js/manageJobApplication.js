@@ -20,6 +20,19 @@ function initUser()
     loadJobApplications();
 }
 
+function to(num)
+{
+    switch(num)
+    {
+        case 1:
+        localStorage.clear();
+        location.href = 'index.html';
+        break;
+        default:
+        location.href = 'menu6.html';
+    }
+}
+
 function loadJobApplications()
 {
     if(navigator.onLine)
@@ -49,7 +62,7 @@ function loadJobApplications()
 
                         for(var i = 0; i < data.length; i++)
                         {
-                            cadena += "<div id='" + data[i].Id + "' class='result' onclick='toEditApplication(this)'> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].DocumentNumber + "</p> <p class='pf3'>" + data[i].Cantidad + "</p> <p class='pf4'>" + data[i].FechaCompra + "</p> <p class='pf4'>" + data[i].DescriptionApplication + "</p> <p class='pf4'>" + data[i].Age + "</p> <p class='pf4'>" + data[i].PostedDate + "</p> </div> </div>";  
+                            cadena += "<div class='result'> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>Identificación " + data[i].DocumentNumber + "</p> <p class='pf2'>" + data[i].DescriptionApplication + "</p> <p class='pf2'>" + data[i].Age + " años</p> <p class='pf3'> Publicado el " + data[i].PostedDate + "</p> <button id='" + data[i].Id + "' class='deleteResult' onclick='eliminar(this)'>Eliminar</button> <button id='" + data[i].Id + "' class='moreResult' onclick='toEditJA(this)'>Ver anexos</button> </div> </div>";  
                         }
                         
                         $('#listResults').append(cadena);
@@ -78,20 +91,36 @@ function loadJobApplications()
     }
 }
 
-function to(num)
+function toEditJA(e)
 {
-    switch(num)
-    {
-        case 1:
-        localStorage.clear();
-        location.href = 'index.html';
-        break;
-        default:
-        location.href = 'menu6.html';
-    }
+    localStorage.setItem('JA', e.id);
+    location.href = 'editJA.html';
 }
 
-function toEditApplication(e)
+function eliminar(e)
 {
-    alert(e.id);
+    $.ajax
+    (
+        {
+            url: '../api/jobApplication/?idJA=' + e.id,
+            type: 'POST',
+            contentType: "application/json;charset=utf-8",
+
+            success:
+            function (data) 
+            {
+                if(data)
+                {
+                    $('#bannerState').css('background','brown');
+                    $('#bannerState').text('La solicitud ha sido eliminada!');
+                    setTimeout(recargar, 800);
+                }
+            }
+        }
+    );
+}
+
+function recargar()
+{
+    location.reload();
 }

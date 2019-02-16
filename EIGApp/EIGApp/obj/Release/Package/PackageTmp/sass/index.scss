@@ -75,11 +75,6 @@ body
 
             #listResults
             {
-                .result:hover
-                {
-                    filter: invert(15%);
-                }
-
                 .result
                 {
                     .text
@@ -103,6 +98,42 @@ body
                         .pf4
                         {
                             font-size: 10px;
+                        }
+
+                        .deleteResult:hover
+                        {
+                            border: 1px solid red;
+                            color: red;
+                            background: white;
+                        }
+
+                        .deleteResult
+                        {
+                            border: 1px solid transparent;
+                            border-radius: 5px;
+                            transition: 0.2s;
+                            color: white;
+                            background-color: red;
+                            padding: 10px;
+                            margin: 2px;
+                        }
+
+                        .moreResult:hover
+                        {
+                            border: 1px solid green;
+                            color: green;
+                            background: white;
+                        }
+
+                        .moreResult
+                        {
+                            border: 1px solid transparent;
+                            border-radius: 5px;
+                            transition: 0.2s;
+                            color: white;
+                            background-color: green;
+                            padding: 10px;
+                            margin: 2px;
                         }
 
                         .c
@@ -166,6 +197,31 @@ body
     
         .categories
         {
+            #c15
+            {
+                background: url('../img/menu/15N.png');
+            }
+
+            #c14
+            {
+                background: url('../img/menu/14N.png');
+            }
+
+            #c13
+            {
+                background: url('../img/menu/13N.png');
+            }
+
+            #c12
+            {
+                background: url('../img/menu/12N.png');
+            }
+
+            #c11
+            {
+                background: url('../img/menu/11N.png');
+            }
+
             #c10
             {
                 background: url('../img/menu/10N.png');
@@ -265,7 +321,6 @@ body
 
         .searchBox:focus
         {
-            height: 20px;
             border: 2px solid red;
         }
 
@@ -276,10 +331,10 @@ body
             outline: 0px;
             border: 2px solid black;
             color: red;
-            font-family: arial;
+            font-family: acephimere;
             font-size: 14px;
             padding: 10px;
-            height: 10px;
+            height: 15px;
             width: 70%;
         }
 
@@ -377,6 +432,7 @@ body
         
         .categorySearch
         {
+            margin: 5px;
             font-size: 14px;
             font-family: acephimere;
         }

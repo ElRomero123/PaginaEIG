@@ -87,11 +87,25 @@ function to(num)
         localStorage.clear();
         location.href = 'index.html';
         break;
-        case 2:
-        location.href = 'menu3.html';
-        break;
         default:
-        location.href = 'productos.html';
+        var Call = localStorage.getItem('Call');
+        if(Call == 1)
+        {
+            location.href = 'menu3.html';
+            localStorage.removeItem('Call');
+        }
+
+        else if(Call == 2)
+        {
+            location.href = 'productos.html';
+            localStorage.removeItem('Call');
+        }
+
+        else
+        {
+            location.href = 'menu7.html';
+            localStorage.removeItem('Call');
+        }
     }
 }
 

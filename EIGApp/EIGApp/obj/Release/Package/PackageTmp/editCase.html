@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href='css/index.css'>
+        <link rel='icon' href='img/title.ico'>
+        <title>Mis casos</title>
+    </head>
+
+    <body>
+        <header>
+            <div class='headerLogo'></div>
+            <div>
+                <p id='infoName'></p>
+                <p id='infoUsername'></p>
+                <button class='close' onclick='to(1)'>Cerrar Sesión</button>
+            </div>
+        </header>
+
+        <div> 
+            <p class='searchTag'>Documentos anexos</p> 
+            <p class='categorySearch'>Editar archivos anexos a tu caso</p>
+
+            <div class='categories'>
+                <div id='c9' class='category' onclick="to(2)"></div>
+            </div>
+            
+            <div id='bannerState'> </div>
+
+            <div>
+                <div id='listResults'>
+                </div> 
+            </div>
+
+            <div>
+                <div>
+                    <input type='file' id='fileCase' class='fileBrowser' accept='.jpg, .png, .pdf, .doc, .docx, .xls, .xlsx, .ppt, .pptx, .txt, .mp4, .avi, .3gp'>
+                </div>
+
+                <div>
+                    <button class='register' id='loadFC' onclick='loadFileCase()'>Anexar</button>
+                </div>
+            </div>
+            
+        </div>
+            
+        <script src="https://www.gstatic.com/firebasejs/5.7.3/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/5.7.3/firebase-storage.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src='js/editCase.js'></script>
+    </body>
+</html>

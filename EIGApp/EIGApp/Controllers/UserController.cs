@@ -9,7 +9,7 @@ namespace EIGApp.Controllers
 {
     public class UserController : ApiController
     {
-        private O.bdEIGEntities BD = new O.bdEIGEntities();
+        private O.BDEIGEntities BD = new O.BDEIGEntities();
 
         public M.User Get(string username, string password)
         {

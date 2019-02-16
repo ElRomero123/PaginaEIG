@@ -13,10 +13,10 @@ namespace EIGApp.ORM
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class bdEIGEntities : DbContext
+    public partial class BDEIGEntities : DbContext
     {
-        public bdEIGEntities()
-            : base("name=bdEIGEntities")
+        public BDEIGEntities()
+            : base("name=BDEIGEntities")
         {
         }
     

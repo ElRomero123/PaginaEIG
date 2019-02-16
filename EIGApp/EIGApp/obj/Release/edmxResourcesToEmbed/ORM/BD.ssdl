@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="bdEIGModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+<Schema Namespace="BDEIGModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
   <EntityType Name="Business">
     <Key>
       <PropertyRef Name="Id" />
@@ -28,6 +28,15 @@
     <Property Name="PostedDate" Type="nvarchar" MaxLength="255" Nullable="false" />
     <Property Name="IdUser" Type="bigint" Nullable="false" />
   </EntityType>
+  <EntityType Name="Donation">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Amount" Type="bigint" Nullable="false" />
+    <Property Name="Date" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="IdUser" Type="bigint" Nullable="false" />
+  </EntityType>
   <EntityType Name="JobApplication">
     <Key>
       <PropertyRef Name="Id" />
@@ -39,6 +48,26 @@
     <Property Name="Age" Type="int" Nullable="false" />
     <Property Name="PostedDate" Type="nvarchar" MaxLength="255" Nullable="false" />
     <Property Name="IdUser" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MultimediaCase">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FileName" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="DownloadLink" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="LoadDate" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="IdCase" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MultimediaJobApplication">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FileName" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="DownloadLink" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="LoadDate" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="IdJobApplication" Type="bigint" Nullable="false" />
   </EntityType>
   <EntityType Name="OtherPerson">
     <Key>
@@ -126,13 +155,14 @@
     </Key>
     <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Username" Type="nvarchar" MaxLength="255" Nullable="false" />
-    <Property Name="Password" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="Password" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Name" Type="nvarchar" MaxLength="255" Nullable="false" />
     <Property Name="Email" Type="nvarchar" MaxLength="255" Nullable="false" />
     <Property Name="Phone" Type="nvarchar" MaxLength="255" Nullable="false" />
     <Property Name="Address" Type="nvarchar" MaxLength="255" Nullable="false" />
-    <Property Name="joinDate" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="JoinDate" Type="nvarchar" MaxLength="255" Nullable="false" />
     <Property Name="TienePerfil" Type="bit" Nullable="false" />
+    <Property Name="Administrador" Type="bit" Nullable="false" />
   </EntityType>
   <Association Name="FK_Business_Package">
     <End Role="Package" Type="Self.Package" Multiplicity="1">
@@ -162,6 +192,20 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_Donation_User">
+    <End Role="User" Type="Self.User" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Donation" Type="Self.Donation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Donation">
+        <PropertyRef Name="IdUser" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_JobApplication_User">
     <End Role="User" Type="Self.User" Multiplicity="1">
       <OnDelete Action="Cascade" />
@@ -173,6 +217,34 @@
       </Principal>
       <Dependent Role="JobApplication">
         <PropertyRef Name="IdUser" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MultimediaCase_Case">
+    <End Role="Case" Type="Self.Case" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="MultimediaCase" Type="Self.MultimediaCase" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Case">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MultimediaCase">
+        <PropertyRef Name="IdCase" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MultimediaJobApplication_JobApplication">
+    <End Role="JobApplication" Type="Self.JobApplication" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="MultimediaJobApplication" Type="Self.MultimediaJobApplication" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="JobApplication">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MultimediaJobApplication">
+        <PropertyRef Name="IdJobApplication" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -246,10 +318,13 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="bdEIGModelStoreContainer">
+  <EntityContainer Name="BDEIGModelStoreContainer">
     <EntitySet Name="Business" EntityType="Self.Business" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Case" EntityType="Self.Case" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Donation" EntityType="Self.Donation" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="JobApplication" EntityType="Self.JobApplication" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MultimediaCase" EntityType="Self.MultimediaCase" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MultimediaJobApplication" EntityType="Self.MultimediaJobApplication" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="OtherPerson" EntityType="Self.OtherPerson" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Package" EntityType="Self.Package" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Person" EntityType="Self.Person" Schema="dbo" store:Type="Tables" />
@@ -264,9 +339,21 @@
       <End Role="User" EntitySet="User" />
       <End Role="Case" EntitySet="Case" />
     </AssociationSet>
+    <AssociationSet Name="FK_Donation_User" Association="Self.FK_Donation_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="Donation" EntitySet="Donation" />
+    </AssociationSet>
     <AssociationSet Name="FK_JobApplication_User" Association="Self.FK_JobApplication_User">
       <End Role="User" EntitySet="User" />
       <End Role="JobApplication" EntitySet="JobApplication" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MultimediaCase_Case" Association="Self.FK_MultimediaCase_Case">
+      <End Role="Case" EntitySet="Case" />
+      <End Role="MultimediaCase" EntitySet="MultimediaCase" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MultimediaJobApplication_JobApplication" Association="Self.FK_MultimediaJobApplication_JobApplication">
+      <End Role="JobApplication" EntitySet="JobApplication" />
+      <End Role="MultimediaJobApplication" EntitySet="MultimediaJobApplication" />
     </AssociationSet>
     <AssociationSet Name="FK_OtherPerson_User" Association="Self.FK_OtherPerson_User">
       <End Role="User" EntitySet="User" />

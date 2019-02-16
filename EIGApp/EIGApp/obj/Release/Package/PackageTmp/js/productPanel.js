@@ -37,5 +37,5 @@ function confirm(cantidad, producto, cubrimiento, precio)
     localStorage.setItem('Producto', producto);
     localStorage.setItem('Cubrimiento', cubrimiento);
     localStorage.setItem('Precio', precio);
-    localStorage.setItem('Llamado', 2);
+    localStorage.setItem('Call', 3);
 }

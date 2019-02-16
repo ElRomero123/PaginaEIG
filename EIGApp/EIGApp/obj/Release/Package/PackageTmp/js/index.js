@@ -56,7 +56,15 @@ function validate()
                     localStorage.setItem('Username', data.Username);
                     localStorage.setItem('Name', data.Name);
                     localStorage.setItem('TienePerfil', data.TienePerfil);
-                    location.href = 'menu.html';    
+                    
+                    if(data.Administrador)
+                    {
+                        location.href = 'menuManager.html';
+                    }
+                    else
+                    {
+                        location.href = 'menu.html'; 
+                    }
                 }
 
                 else

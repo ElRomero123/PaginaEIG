@@ -7,7 +7,7 @@ namespace EIGApp.Controllers
 {
     public class JobApplicationController : ApiController
     {
-        private O.bdEIGEntities BD = new O.bdEIGEntities();
+        private O.BDEIGEntities BD = new O.BDEIGEntities();
 
         public M.JobApplication[] Get(long idUser)
         {

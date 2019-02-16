@@ -26,7 +26,7 @@ function search()
         $('#bannerState').css('display','block');
         $('#bannerState').css('background','yellow');
         $('#bannerState').css('color','black');
-        $('#bannerState').text('Buscando cursos/promociones/eventos ...');
+        $('#bannerState').text('Buscando otros ...');
     
         var criterio = document.getElementById('criterio').value;
     
@@ -111,6 +111,7 @@ function to(num)
         break;
         case 3:
         location.href = 'managePackage.html';
+        localStorage.setItem('Call', 2);
         break;
         default:
         location.href = 'menu.html';

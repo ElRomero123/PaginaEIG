@@ -15,14 +15,16 @@
                 <p id='infoName'></p>
                 <p id='infoUsername'></p>
                 <button class='close' onclick='to(1)'>Cerrar Sesión</button>
-                <button class='close' onclick='to(2)'>Sección negocios</button>
-                <button class='close' onclick='to(3)'>Sección productos</button>
             </div>
         </header>
 
         <div> 
             <p class='searchTag'>Mis paquetes</p> 
             <p class='categorySearch'>Aquí están tus paquetes adquiridos</p>
+
+            <div class='categories'>
+                <div id='c9' class='category' onclick='to(2)'></div>
+            </div>
             
             <div id='bannerState'> </div>
 
@@ -30,8 +32,6 @@
                 <div id='listResults'>
                 </div> 
             </div>
-            
-   
         </div>
             
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>

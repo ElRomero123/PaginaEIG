@@ -19,12 +19,10 @@ function initUser()
 
 function createSuggestion()
 {
-    alert('Crear sugerencia funciona!');
-    /*
-    $('#register').css('background','yellow');
-    $('#register').css('border','2 px solid yellow');
-    $('#register').css('color','black');
-    $('#register').text('Enviando tu sugerencia ...');
+    $('#createSuggestion').css('background','yellow');
+    $('#createSuggestion').css('border','2 px solid yellow');
+    $('#createSuggestion').css('color','black');
+    $('#createSuggestion').text('Enviando tu sugerencia ...');
 
     if(navigator.onLine)
     {
@@ -48,18 +46,18 @@ function createSuggestion()
                 {
                     if(data)
                     {
-                        $('#register').css('background','darkgreen');
-                        $('#register').css('border','2 px solid darkgreen');
-                        $('#register').css('color','white');
-                        $('#register').text('Sugerencia enviada!');
+                        $('#createSuggestion').css('background','darkgreen');
+                        $('#createSuggestion').css('border','2 px solid darkgreen');
+                        $('#createSuggestion').css('color','white');
+                        $('#createSuggestion').text('Sugerencia enviada!');
                     }
     
                     else
                     {
-                        $('#register').css('background','red');
-                        $('#register').css('border','2 px solid red');
-                        $('#register').css('color','white');
-                        $('#register').text('Error en el envío!');
+                        $('#createSuggestion').css('background','red');
+                        $('#createSuggestion').css('border','2 px solid red');
+                        $('#createSuggestion').css('color','white');
+                        $('#createSuggestion').text('Error en el envío!');
                     }
                 }
             }
@@ -68,11 +66,10 @@ function createSuggestion()
 
     else
     {
-        $('#register').css('background','red');
-        $('#register').css('border','2 px solid red');
-        $('#register').text('No estás conectado a Internet!');
+        $('#createSuggestion').css('background','red');
+        $('#createSuggestion').css('border','2 px solid red');
+        $('#createSuggestion').text('Sin internet!');
     }
-    */
 }
 
 function to(num)

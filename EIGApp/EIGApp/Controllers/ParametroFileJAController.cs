@@ -7,7 +7,7 @@ namespace EIGApp.Controllers
 {
     public class ParametroFileJAController : ApiController
     {
-        private O.bdEIGEntities BD = new O.bdEIGEntities();
+        private O.BDEIGEntities BD = new O.BDEIGEntities();
 
         public bool Post(M.ParametroPutFile parametroPutFile)
         {

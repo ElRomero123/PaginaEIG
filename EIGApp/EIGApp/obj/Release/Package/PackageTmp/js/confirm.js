@@ -41,21 +41,24 @@ function to(num)
         location.href = 'index.html';
         break;
         default:
-        var llamado = localStorage.getItem('Llamado');
-        switch(llamado)
-        {
-            case 1:
-            location.href = 'businessPanel.html';
-            break;
-            case 2:
-            location.href = 'productPanel.html';
-            break;
-            case 3:
-            location.href = 'businessPanelC.html';
-            break;
-            default:
-            location.href = 'productPanelC.html';
+        var Call = localStorage.getItem('Call');
 
+        if(Call == 1)
+        {
+            location.href = 'businessPanel.html';
+            localStorage.removeItem('Call');
+        }
+
+        else if (Call == 2)
+        {
+            location.href = 'businessPanelC.html';
+            localStorage.removeItem('Call');
+        }
+
+        else
+        {
+            location.href = 'productPanel.html';
+            localStorage.removeItem('Call');
         }
     }
 }

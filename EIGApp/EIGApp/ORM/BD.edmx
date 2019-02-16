@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="bdEIGModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="BDEIGModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Business">
           <Key>
             <PropertyRef Name="Id" />
@@ -160,7 +160,7 @@
           </Key>
           <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Username" Type="nvarchar" MaxLength="255" Nullable="false" />
-          <Property Name="Password" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="Password" Type="nvarchar(max)" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="255" Nullable="false" />
           <Property Name="Email" Type="nvarchar" MaxLength="255" Nullable="false" />
           <Property Name="Phone" Type="nvarchar" MaxLength="255" Nullable="false" />
@@ -323,7 +323,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="bdEIGModelStoreContainer">
+        <EntityContainer Name="BDEIGModelStoreContainer">
           <EntitySet Name="Business" EntityType="Self.Business" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Case" EntityType="Self.Case" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Donation" EntityType="Self.Donation" Schema="dbo" store:Type="Tables" />
@@ -385,7 +385,7 @@
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="bdEIGModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="BDEIGModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="Business">
           <Key>
             <PropertyRef Name="Id" />
@@ -556,7 +556,7 @@
           </Key>
           <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Username" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Password" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Email" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Phone" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
@@ -726,7 +726,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="bdEIGEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="BDEIGEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Businesses" EntityType="Self.Business" />
           <EntitySet Name="Cases" EntityType="Self.Case" />
           <EntitySet Name="Donations" EntityType="Self.Donation" />
@@ -789,9 +789,9 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="bdEIGModelStoreContainer" CdmEntityContainer="bdEIGEntities">
+        <EntityContainerMapping StorageEntityContainer="BDEIGModelStoreContainer" CdmEntityContainer="BDEIGEntities">
           <EntitySetMapping Name="Businesses">
-            <EntityTypeMapping TypeName="bdEIGModel.Business">
+            <EntityTypeMapping TypeName="BDEIGModel.Business">
               <MappingFragment StoreEntitySet="Business">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -810,7 +810,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Cases">
-            <EntityTypeMapping TypeName="bdEIGModel.Case">
+            <EntityTypeMapping TypeName="BDEIGModel.Case">
               <MappingFragment StoreEntitySet="Case">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -821,7 +821,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Donations">
-            <EntityTypeMapping TypeName="bdEIGModel.Donation">
+            <EntityTypeMapping TypeName="BDEIGModel.Donation">
               <MappingFragment StoreEntitySet="Donation">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Amount" ColumnName="Amount" />
@@ -831,7 +831,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="JobApplications">
-            <EntityTypeMapping TypeName="bdEIGModel.JobApplication">
+            <EntityTypeMapping TypeName="BDEIGModel.JobApplication">
               <MappingFragment StoreEntitySet="JobApplication">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -844,7 +844,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="MultimediaCases">
-            <EntityTypeMapping TypeName="bdEIGModel.MultimediaCase">
+            <EntityTypeMapping TypeName="BDEIGModel.MultimediaCase">
               <MappingFragment StoreEntitySet="MultimediaCase">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="FileName" ColumnName="FileName" />
@@ -855,7 +855,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="MultimediaJobApplications">
-            <EntityTypeMapping TypeName="bdEIGModel.MultimediaJobApplication">
+            <EntityTypeMapping TypeName="BDEIGModel.MultimediaJobApplication">
               <MappingFragment StoreEntitySet="MultimediaJobApplication">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="FileName" ColumnName="FileName" />
@@ -866,7 +866,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="OtherPersons">
-            <EntityTypeMapping TypeName="bdEIGModel.OtherPerson">
+            <EntityTypeMapping TypeName="BDEIGModel.OtherPerson">
               <MappingFragment StoreEntitySet="OtherPerson">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -885,7 +885,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Packages">
-            <EntityTypeMapping TypeName="bdEIGModel.Package">
+            <EntityTypeMapping TypeName="BDEIGModel.Package">
               <MappingFragment StoreEntitySet="Package">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Linea" ColumnName="Linea" />
@@ -900,7 +900,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="People">
-            <EntityTypeMapping TypeName="bdEIGModel.Person">
+            <EntityTypeMapping TypeName="BDEIGModel.Person">
               <MappingFragment StoreEntitySet="Person">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -918,7 +918,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Products">
-            <EntityTypeMapping TypeName="bdEIGModel.Product">
+            <EntityTypeMapping TypeName="BDEIGModel.Product">
               <MappingFragment StoreEntitySet="Product">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -940,7 +940,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Suggestions">
-            <EntityTypeMapping TypeName="bdEIGModel.Suggestion">
+            <EntityTypeMapping TypeName="BDEIGModel.Suggestion">
               <MappingFragment StoreEntitySet="Suggestion">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -951,7 +951,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Users">
-            <EntityTypeMapping TypeName="bdEIGModel.User">
+            <EntityTypeMapping TypeName="BDEIGModel.User">
               <MappingFragment StoreEntitySet="User">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Username" ColumnName="Username" />

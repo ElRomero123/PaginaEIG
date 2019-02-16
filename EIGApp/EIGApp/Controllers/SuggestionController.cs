@@ -6,7 +6,7 @@ namespace EIGApp.Controllers
 {
     public class SuggestionController : ApiController
     {
-        private O.bdEIGEntities BD = new O.bdEIGEntities();
+        private O.BDEIGEntities BD = new O.BDEIGEntities();
 
         public bool Post(M.Suggestion suggestion)
         {
