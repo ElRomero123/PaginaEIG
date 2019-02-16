@@ -10,14 +10,13 @@ function initUser()
     {
         $('#infoName').text(name);
         $('#infoUsername').text(username);
+        initMap();
     }
 
     else
     {
         location.href = 'index.html';
     }
-
-    initMap();
 }
 
 function search()
@@ -143,9 +142,12 @@ function to(num)
 
 function initMap()
 {
-    map = new google.maps.Map (document.getElementById('maps'), 
-    {
-        center: {lat: -34.397, lng: 150.644},
-        zoom: 8
-    });
+    map = new google.maps.Map 
+    (
+        document.getElementById('maps'), 
+        {
+            center: {lat: -34.397, lng: 150.644},
+            zoom: 8
+        }
+    );
 }
