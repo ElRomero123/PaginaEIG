@@ -78,7 +78,6 @@ function createPerson()
                     }
                 }
             );
-            */
         }
     
         else
