@@ -1,6 +1,7 @@
 window.onload = initUser;
 var PersonAvatar;
-var marker;
+var longitude;
+var latitude;
 
 function initUser()
 {
@@ -47,15 +48,15 @@ function createPerson()
                 profesionDescription: $('#campoProfesionDescription').val(),
                 email: $('#campoEmail').val(),
                 phone: $('#campoPhone').val(),
-                latitude: marker.Map.latitude,
-                longitude: marker.map.longitude,
+                latitude: marker.latitude,
+                longitude: marker.longitude,
                 ciprin: 0,
                 active: 0,
                 avatar: '',
                 idUser: localStorage.getItem('User')
             };
 
-            console.log(persona);
+            getPosition();
         
             /*
             $('#createPerson').css('background','yellow');
@@ -103,10 +104,8 @@ function validateText()
     var c2 = $('#campoProfesionDescription').val().length >= 8;
     var c3 = $('#campoEmail').val().length >= 8;
     var c4 = $('#campoPhone').val().length >= 8;
-    var c5 = $('#campoCity').val().length >= 8;
-    var c6 = $('#campoAddress').val().length >= 8;
 
-    return c1 && c2 && c3 && c4 && c5 && c6;
+    return c1 && c2 && c3 && c4;
 }
 
 function validateAvatar()
@@ -216,8 +215,15 @@ function startMap()
         (
             'dragend', function(event)
             {
+                longitude = this.getPosition.lng();
+                latitude = this.getPosition.lng();
                 document.getElementById('maps').value = this.getPosition().lat()+","+ this.getPosition().lng();
             }
         );
     });
+}
+
+function getPosition()
+{
+    console.log(marker.position);
 }
