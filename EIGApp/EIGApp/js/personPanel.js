@@ -48,17 +48,16 @@ function createPerson()
                 profesionDescription: $('#campoProfesionDescription').val(),
                 email: $('#campoEmail').val(),
                 phone: $('#campoPhone').val(),
-                latitude: marker.latitude,
-                longitude: marker.longitude,
+                latitude: latitude,
+                longitude: longitude,
                 ciprin: 0,
                 active: 0,
                 avatar: '',
                 idUser: localStorage.getItem('User')
             };
 
-            getPosition();
+            console.log(persona);
         
-            /*
             $('#createPerson').css('background','yellow');
             $('#createPerson').css('border','2px solid yellow');
             $('#createPerson').css('color','black');
@@ -215,15 +214,10 @@ function startMap()
         (
             'dragend', function(event)
             {
-                longitude = this.getPosition.lng();
-                latitude = this.getPosition.lng();
-                document.getElementById('maps').value = this.getPosition().lat()+","+ this.getPosition().lng();
+                longitude = this.getPosition().lng();
+                latitude = this.getPosition().lat();
+                document.getElementById('maps').value = latitude + "," + longitude;
             }
         );
     });
-}
-
-function getPosition()
-{
-    console.log(marker.position);
 }
