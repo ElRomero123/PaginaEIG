@@ -100,7 +100,6 @@ function addPackage()
                     localStorage.removeItem('Cantidad');
                     localStorage.removeItem('Cubrimiento');
                     localStorage.removeItem('Precio');
-                    localStorage.removeItem('Llamado');
 
                     location.href = 'managePackage.html';
                 }
