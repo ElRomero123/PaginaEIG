@@ -1,5 +1,5 @@
 window.onload = initUser;
-var mapa;
+var mapa, gmaps;
 
 function initUser()
 {
@@ -10,7 +10,6 @@ function initUser()
     {
         $('#infoName').text(name);
         $('#infoUsername').text(username);
-        startMap();
     }
 
     else
@@ -44,6 +43,8 @@ function search()
                 {
                     if(data.length > 0)
                     {
+                        startMap();
+
                         var cadena = "";
 
                         for(var i = 0; i < data.length; i++)
@@ -79,6 +80,7 @@ function search()
                         $('#bannerState').css('background','red');
                         $('#bannerState').css('color','white');
                         $('#bannerState').text('Sin resultados!');
+                        hideMap();
                     }
                 }
             }
@@ -143,10 +145,12 @@ function to(num)
 
 function startMap()
 {
+    gmaps = document.getElementById('maps');
+    gmaps.style = 'display: block';
     navigator.geolocation.getCurrentPosition(function(position)
     { 
         console.log(position);
-        mapa = new google.maps.Map(document.getElementById('maps'), {zoom: 15, center: {lat: position.coords.latitude, lng: position.coords.longitude}});
+        mapa = new google.maps.Map(gmaps, {zoom: 15, center: {lat: position.coords.latitude, lng: position.coords.longitude}});
     });
 }
 
@@ -159,4 +163,9 @@ function putMarket(loc, avatar)
       };
 
     marker = new google.maps.Marker({position: loc, map: mapa, icon: image});
+}
+
+function hideMap()
+{
+    gmaps.style = 'display: none';
 }
