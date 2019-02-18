@@ -67,6 +67,7 @@ function search()
                         } 
 
                         $('#listResults').append(cadena);
+                        $('#listResults').css('display','flex'); 
 
                         for(var i = 0; i < data.length; i++)
                         {
@@ -76,7 +77,6 @@ function search()
                         $('#bannerState').css('background','green');
                         $('#bannerState').css('color','white');
                         $('#bannerState').text(i + ' resultados encontrados!');
-                        $('#listResults').css('display','flex'); 
                     }
 
                     else
