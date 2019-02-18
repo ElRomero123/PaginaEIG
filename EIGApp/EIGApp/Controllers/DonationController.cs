@@ -1,6 +1,7 @@
 ﻿using System.Web.Http;
 using M = EIGApp.Models;
 using O = EIGApp.ORM;
+using System.Linq;
 
 namespace EIGApp.Controllers
 {
@@ -31,6 +32,31 @@ namespace EIGApp.Controllers
             }
 
             return result;
+        }
+
+        public M.Donation[] Get()
+        {
+            var query = from D in BD.Donations
+                        where (true)
+                        select new {D.Amount, D.Date, D.User.Username};
+
+            var lista = query.ToArray();
+
+            M.Donation[] arrayDonation = new M.Donation[lista.Length];
+
+            for (int i = 0; i < lista.Length; i++)
+            {
+                M.Donation temp = new M.Donation
+                {
+                    Amount = lista[i].Amount,
+                    Date = lista[i].Date,
+                    Username = lista[i].Username
+                };
+
+                arrayDonation[i] = temp;
+            }
+
+            return arrayDonation;
         }
     }
 }

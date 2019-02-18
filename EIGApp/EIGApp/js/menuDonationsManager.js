@@ -33,7 +33,7 @@ function loadDonations()
         $.ajax
         (
             {
-                url: '../api/case',
+                url: '../api/donation',
                 type: 'GET',
                 contentType: "application/json;charset=utf-8",
 
@@ -46,7 +46,7 @@ function loadDonations()
 
                         for(var i = 0; i < data.length; i++)
                         {
-                            cadena += "<div class='result'> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].DescriptionCase + "</p> <p class='pf3'> Publicado el " + data[i].PostedDate + " por " + data[i].Username + "</p> <button id='" + data[i].Id + "' class='deleteResult' onclick='eliminar(this)'>Eliminar</button> </div> </div>";  
+                            cadena += "<div class='result'> <div class='text'> <p class='pf1'>" + data[i].Amount + "</p> <p class='pf3'> Donada el " + data[i].Date + " por " + data[i].Username + "</p> </div> </div>";  
                         }
                         
                         $('#listResults').append(cadena);
