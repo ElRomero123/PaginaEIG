@@ -1,5 +1,6 @@
 window.onload = initUser;
 var fichero, fileReference;
+var mapa;
 
 function initUser()
 {
@@ -10,6 +11,7 @@ function initUser()
     {
         $('#infoName').text(name);
         $('#infoUsername').text(username);
+        startMap();
     }
 
     else
@@ -57,12 +59,14 @@ function search()
                         {
                             if(data[i].Ciprin == 1)
                             {
-                                cadena += "<div class='result'> <div class='avatar' id='" + i + "'></div> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].Profesion + "</p> <p class='pf2'>" + data[i].ProfesionDescription + "</p> <p class='pf3'>" + data[i].Email + "</p> <p class='pf4'>" + data[i].Phone + "</p> <p class='pf4'>" + data[i].City + "</p> <p class='pf4'>" + data[i].Address + "</p> <p class='pf4'>" + 'Unido el ' + data[i].CreationDate + "</p> <p class='c'>Pertenece a CIPRIN</p> </div> </div>";
+                                cadena += "<div class='result'> <div class='avatar' id='" + i + "'></div> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].Profesion + "</p> <p class='pf2'>" + data[i].ProfesionDescription + "</p> <p class='pf3'>" + data[i].Email + "</p> <p class='pf4'>" + data[i].Phone + "</p> <p class='pf4'>" + 'Unido el ' + data[i].CreationDate + "</p> <p class='c'>Pertenece a CIPRIN</p> </div> </div>";
                             }
                             else
                             {
-                                cadena += "<div class='result'> <div class='avatar' id='" + i + "'></div> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].Profesion + "</p> <p class='pf2'>" + data[i].ProfesionDescription + "</p> <p class='pf3'>" + data[i].Email + "</p> <p class='pf4'>" + data[i].Phone + "</p> <p class='pf4'>" + data[i].City + "</p> <p class='pf4'>" + data[i].Address + "</p> <p class='pf4'>" + 'Unido el ' + data[i].CreationDate + "</p> </div> </div>";  
-                            }                       
+                                cadena += "<div class='result'> <div class='avatar' id='" + i + "'></div> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].Profesion + "</p> <p class='pf2'>" + data[i].ProfesionDescription + "</p> <p class='pf3'>" + data[i].Email + "</p> <p class='pf4'>" + data[i].Phone + "</p> <p class='pf4'>" + 'Unido el ' + data[i].CreationDate + "</p> </div> </div>";  
+                            }        
+                            
+                            putMarket({lat: data[i].Latitude, lng: data[i].Longitude}, data[i].Avatar);
                         } 
 
                         $('#listResults').append(cadena);
@@ -119,4 +123,23 @@ function to(num)
         default:
         location.href = 'menu.html';
     }
+}
+
+function startMap()
+{
+    navigator.geolocation.getCurrentPosition(function(position)
+    { 
+        console.log(position);
+        mapa = new google.maps.Map(document.getElementById('maps'), {zoom: 15, center: {lat: position.coords.latitude, lng: position.coords.longitude}});
+    });
+}
+
+function putMarket(loc, avatar)
+{
+    var image = {
+        url: avatar,
+        scaledSize: new google.maps.Size(35, 35)
+      };
+
+    marker = new google.maps.Marker({position: loc, map: mapa, icon: image});
 }

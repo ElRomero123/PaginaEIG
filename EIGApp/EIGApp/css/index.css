@@ -393,7 +393,7 @@ body div .searchTag {
 body div p {
   margin: auto;
 }
-/* line 462, ../sass/index.scss */
+/* line 461, ../sass/index.scss */
 body header {
   background-color: darkgray;
   height: auto;
@@ -402,17 +402,17 @@ body header {
   left: 0px;
   position: fixed;
 }
-/* line 464, ../sass/index.scss */
+/* line 463, ../sass/index.scss */
 body header div {
   margin: 5px auto;
   background: gray;
 }
-/* line 466, ../sass/index.scss */
+/* line 465, ../sass/index.scss */
 body header div .close:hover {
   color: black;
   background: white;
 }
-/* line 472, ../sass/index.scss */
+/* line 471, ../sass/index.scss */
 body header div .close {
   transition: 0.2s;
   outline: 0px;
@@ -424,20 +424,20 @@ body header div .close {
   margin: 7px;
   padding: 10px;
 }
-/* line 485, ../sass/index.scss */
+/* line 484, ../sass/index.scss */
 body header div #infoUsername {
   font-size: 12px;
 }
-/* line 490, ../sass/index.scss */
+/* line 489, ../sass/index.scss */
 body header div #infoName {
   font-size: 16px;
 }
-/* line 495, ../sass/index.scss */
+/* line 494, ../sass/index.scss */
 body header div p {
   display: flex;
   font-family: acephimere;
 }
-/* line 505, ../sass/index.scss */
+/* line 504, ../sass/index.scss */
 body header .headerLogo {
   background: url("../img/logo.png");
   margin: 10px auto 10px auto;

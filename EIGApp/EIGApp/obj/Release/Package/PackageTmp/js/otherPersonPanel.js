@@ -1,5 +1,7 @@
 window.onload = initUser;
 var OtherPersonAvatar;
+var longitude;
+var latitude;
 
 function initUser()
 {
@@ -10,6 +12,7 @@ function initUser()
     {
         $('#infoName').text(name);
         $('#infoUsername').text(username);
+        startMap();
     }
 
     else
@@ -46,12 +49,12 @@ function createOtherPerson()
                 profesionDescription: $('#campoProfesionDescription').val(),
                 email:                $('#campoEmail').val(),
                 phone:                $('#campoPhone').val(),
-                city:                 $('#campoCity').val(),
-                address:              $('#campoAddress').val(),
-                avatar:               '',
+                latitude:             latitude,
+                longitude:            longitude,
                 ciprin:               0,
                 active:               0,
                 approved:             false,
+                avatar:               '',
                 idUser:               localStorage.getItem('User')
             };
 
@@ -187,10 +190,8 @@ function validateText()
     var c3 = $('#campoProfesionDescription').val().length >= 8;
     var c4 = $('#campoEmail').val().length >= 8;
     var c5 = $('#campoPhone').val().length >= 8;
-    var c6 = $('#campoCity').val().length >= 8;
-    var c7 = $('#campoAddress').val().length >= 8;
 
-    return c1 && c2 && c3 && c4 && c5 && c6 && c7;
+    return c1 && c2 && c3 && c4 && c5;
 }
 
 function validateAvatar()
@@ -201,4 +202,24 @@ function validateAvatar()
 function recargar()
 {
     location.reload();
+}
+
+function startMap()
+{
+    navigator.geolocation.getCurrentPosition(function(position)
+    { 
+        console.log(position);
+        mapa = new google.maps.Map(document.getElementById('maps'), {zoom: 5, center: {lat: position.coords.latitude, lng: position.coords.longitude}});
+        marker = new google.maps.Marker({draggable: true, animation: google.maps.Animation.DROP, position: {lat: position.coords.latitude, lng: position.coords.longitude}, map: mapa});
+
+        marker.addListener
+        (
+            'dragend', function(event)
+            {
+                longitude = this.getPosition().lng();
+                latitude = this.getPosition().lat();
+                document.getElementById('maps').value = latitude + "," + longitude;
+            }
+        );
+    });
 }
