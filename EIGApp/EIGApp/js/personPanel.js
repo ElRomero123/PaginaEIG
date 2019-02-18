@@ -215,7 +215,7 @@ function startMap()
             {
                 longitude = this.getPosition().lng();
                 latitude = this.getPosition().lat();
-                document.getElementById('maps').value = latitude + "," + longitude;
+                document.getElementById('maps2').value = latitude + "," + longitude;
             }
         );
     });
