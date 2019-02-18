@@ -1,6 +1,7 @@
 ﻿using System.Web.Http;
 using M = EIGApp.Models;
 using O = EIGApp.ORM;
+using System.Linq;
 
 namespace EIGApp.Controllers
 {
@@ -30,6 +31,31 @@ namespace EIGApp.Controllers
             }
 
             return state;
+        }
+
+        public M.Suggestion[] Get()
+        {
+            var query = from S in BD.Suggestions
+                        where (true)
+                        select new {S.Name, S.Description, S.PostedDate};
+
+            var lista = query.ToArray();
+
+            M.Suggestion[] arraySuggestion = new M.Suggestion[lista.Length];
+
+            for (int i = 0; i < lista.Length; i++)
+            {
+                M.Suggestion temp = new M.Suggestion
+                {
+                    Name        = lista[i].Name,
+                    Description = lista[i].Description,
+                    PostedDate  = lista[i].PostedDate
+                };
+
+                arraySuggestion[i] = temp;
+            }
+
+            return arraySuggestion;
         }
     }
 }

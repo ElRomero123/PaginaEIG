@@ -16,10 +16,10 @@ function initUser()
         location.href = 'index.html';
     }
 
-    loadCases();
+    loadSuggestions();
 }
 
-function loadCases()
+function loadSuggestions()
 {
     if(navigator.onLine)
     {
@@ -33,7 +33,7 @@ function loadCases()
         $.ajax
         (
             {
-                url: '../api/case',
+                url: '../api/suggestion',
                 type: 'GET',
                 contentType: "application/json;charset=utf-8",
 
@@ -46,14 +46,14 @@ function loadCases()
 
                         for(var i = 0; i < data.length; i++)
                         {
-                            cadena += "<div class='result'> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].DescriptionCase + "</p> <p class='pf3'> Publicado el " + data[i].PostedDate + " por " + data[i].Username + "</p> <button id='" + data[i].Id + "' class='deleteResult' onclick='eliminar(this)'>Eliminar</button> </div> </div>";  
+                            cadena += "<div class='result'> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].Description + "</p> <p class='pf3'> Publicado el " + data[i].PostedDate + " por " + data[i].Username + "</p> </div> </div>";  
                         }
                         
                         $('#listResults').append(cadena);
 
                         $('#bannerState').css('background','green');
                         $('#bannerState').css('color','white');
-                        $('#bannerState').text(i + ' casos subidos.');
+                        $('#bannerState').text(i + ' sugerencias!');
                         $('#listResults').css('display','flex');
                     }
 

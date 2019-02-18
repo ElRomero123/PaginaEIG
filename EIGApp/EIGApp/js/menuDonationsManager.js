@@ -16,10 +16,10 @@ function initUser()
         location.href = 'index.html';
     }
 
-    loadCases();
+    loadDonations();
 }
 
-function loadCases()
+function loadDonations()
 {
     if(navigator.onLine)
     {
@@ -53,7 +53,7 @@ function loadCases()
 
                         $('#bannerState').css('background','green');
                         $('#bannerState').css('color','white');
-                        $('#bannerState').text(i + ' casos subidos.');
+                        $('#bannerState').text(i + ' donaciones!');
                         $('#listResults').css('display','flex');
                     }
 

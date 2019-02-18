@@ -16,10 +16,10 @@ function initUser()
         location.href = 'index.html';
     }
 
-    loadCases();
+    loadApplications();
 }
 
-function loadCases()
+function loadApplications()
 {
     if(navigator.onLine)
     {
@@ -53,7 +53,7 @@ function loadCases()
 
                         $('#bannerState').css('background','green');
                         $('#bannerState').css('color','white');
-                        $('#bannerState').text(i + ' casos subidos.');
+                        $('#bannerState').text(i + ' postulaciones!');
                         $('#listResults').css('display','flex');
                     }
 
