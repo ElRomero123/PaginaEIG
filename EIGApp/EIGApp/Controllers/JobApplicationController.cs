@@ -37,6 +37,34 @@ namespace EIGApp.Controllers
             return arrayJobApplication;
         }
 
+        public M.JobApplication[] Get()
+        {
+            var query = from JA in BD.JobApplications
+                        where (true)
+                        select new {JA.Name, JA.DocumentNumber, JA.DescriptionApplication, JA.Age, JA.PostedDate, JA.User.Username};
+
+            var lista = query.ToArray();
+
+            M.JobApplication[] arrayJobApplication = new M.JobApplication[lista.Length];
+
+            for (int i = 0; i < lista.Length; i++)
+            {
+                M.JobApplication temp = new M.JobApplication
+                {
+                    Name                   = lista[i].Name,
+                    DocumentNumber         = lista[i].DocumentNumber,
+                    DescriptionApplication = lista[i].DescriptionApplication,
+                    Age                    = lista[i].Age,
+                    PostedDate             = lista[i].PostedDate,
+                    Username               = lista[i].Username
+                };
+
+                arrayJobApplication[i] = temp;
+            }
+
+            return arrayJobApplication;
+        }
+
         public bool Post(M.JobApplication jobApplication)
         {
             bool state;
