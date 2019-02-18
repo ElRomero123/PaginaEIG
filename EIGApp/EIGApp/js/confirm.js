@@ -78,7 +78,7 @@ function addPackage()
         fechaCompra: '',
         tiempoCubrimiento: $('#campoCubrimiento').val(),
         precio: $('#campoPrecio').val(),
-        kind: localStorage.getItem('Llamado'),
+        kind: localStorage.getItem('Call'),
         idUser: localStorage.getItem('User')
     };
 
