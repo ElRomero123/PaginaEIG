@@ -71,7 +71,7 @@ body div div {
 }
 /* line 68, ../sass/index.scss */
 body div div #maps {
-  position: fixed;
+  display: none;
   margin: 0px auto;
   width: 100%;
   height: 500px;
