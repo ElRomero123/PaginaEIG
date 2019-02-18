@@ -61,7 +61,7 @@ function loadCases()
                     {
                         $('#bannerState').css('background','red');
                         $('#bannerState').css('color','white');
-                        $('#bannerState').text('Sin casos creados!');
+                        $('#bannerState').text('Sin donaciones realizadas!');
                     }
                 }
             }

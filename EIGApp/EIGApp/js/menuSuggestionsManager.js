@@ -61,7 +61,7 @@ function loadCases()
                     {
                         $('#bannerState').css('background','red');
                         $('#bannerState').css('color','white');
-                        $('#bannerState').text('Sin casos creados!');
+                        $('#bannerState').text('Sin sugerencias de usuarios!');
                     }
                 }
             }
@@ -116,7 +116,7 @@ function eliminar(e)
 
                 else
                 {
-                    alert('NO se pudo eliminar el caso! ');
+                    alert('NO se pudo eliminar el caso!');
                 }
             }
         }
