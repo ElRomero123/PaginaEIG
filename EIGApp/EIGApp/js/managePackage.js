@@ -121,10 +121,10 @@ function toCreate(e)
     }
     else if(opcNum == 2)
     {
-        location.href = 'addBusinessC.html';
+        location.href = 'addProduct.html';
     }
     else
     { 
-        location.href = 'addProduct.html';
+        location.href = 'addBusinessC.html';
     }
 }
