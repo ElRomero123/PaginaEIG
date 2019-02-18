@@ -91,19 +91,19 @@ function to(num)
         var Call = localStorage.getItem('Call');
         if(Call == 1)
         {
-            location.href = 'addBusiness.html';
+            location.href = 'businessPanel.html';
             localStorage.removeItem('Call');
         }
 
         else if(Call == 2)
         {
-            location.href = 'addBusinessC.html';
+            location.href = 'businessPanelC.html';
             localStorage.removeItem('Call');
         }
 
         else
         {
-            location.href = 'addProduct.html';
+            location.href = 'productPanel.html';
             localStorage.removeItem('Call');
         }
     }
