@@ -3,20 +3,29 @@ var mapa, gmaps;
 
 function initUser()
 {
-    var name          = localStorage.getItem('Name');
-    var username      = localStorage.getItem('Username');
-    var administrador = localStorage.getItem('Username');
-    
-    if(name != null)
+    var administrador = localStorage.getItem('Administrador');
+    alert(administrador);
+
+    if(administrador)
     {
-    
-        $('#infoName').text(name);
-        $('#infoUsername').text(username);
+        location.href = 'menuManager.html';
     }
 
     else
     {
-        location.href = 'index.html';
+        var name     = localStorage.getItem('Name');
+        var username = localStorage.getItem('Username');
+
+        if(name != null)
+        {
+            $('#infoName').text(name);
+            $('#infoUsername').text(username);
+        }
+    
+        else
+        {
+            location.href = 'index.html';
+        }
     }
 }
 
