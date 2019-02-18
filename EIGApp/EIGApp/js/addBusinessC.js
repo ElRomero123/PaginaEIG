@@ -207,7 +207,7 @@ function startMap()
     navigator.geolocation.getCurrentPosition(function(position)
     { 
         console.log(position);
-        mapa = new google.maps.Map(document.getElementById('maps'), {zoom: 5, center: {lat: position.coords.latitude, lng: position.coords.longitude}});
+        mapa = new google.maps.Map(document.getElementById('maps2'), {zoom: 5, center: {lat: position.coords.latitude, lng: position.coords.longitude}});
         marker = new google.maps.Marker({draggable: true, animation: google.maps.Animation.DROP, position: {lat: position.coords.latitude, lng: position.coords.longitude}, map: mapa});
 
         marker.addListener
