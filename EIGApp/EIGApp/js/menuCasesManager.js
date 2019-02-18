@@ -61,7 +61,7 @@ function loadCases()
                     {
                         $('#bannerState').css('background','red');
                         $('#bannerState').css('color','white');
-                        $('#bannerState').text('No se han creado casos en la plataforma.');
+                        $('#bannerState').text('Sin casos creados!');
                     }
                 }
             }
@@ -85,7 +85,7 @@ function to(num)
         location.href = 'index.html';
         break;
         default:
-        location.href = 'menu5.html';
+        location.href = 'menuManager.html';
     }
 }
 
