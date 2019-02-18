@@ -3,11 +3,13 @@ var mapa, gmaps;
 
 function initUser()
 {
-    var name     = localStorage.getItem('Name');
-    var username = localStorage.getItem('Username');
+    var name          = localStorage.getItem('Name');
+    var username      = localStorage.getItem('Username');
+    var administrador = localStorage.getItem('Username');
     
     if(name != null)
     {
+    
         $('#infoName').text(name);
         $('#infoUsername').text(username);
     }
