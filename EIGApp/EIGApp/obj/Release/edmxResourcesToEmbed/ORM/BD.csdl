@@ -10,8 +10,8 @@
     <Property Name="SpecialismDescription" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="WebPage" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="Phone" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="City" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Address" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Latitude" Type="Single" Nullable="false" />
+    <Property Name="Longitude" Type="Single" Nullable="false" />
     <Property Name="Ciprin" Type="Int32" Nullable="false" />
     <Property Name="Active" Type="Int32" Nullable="false" />
     <Property Name="CreationDate" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
@@ -143,8 +143,8 @@
     <Property Name="AttendantWebPage" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="AttendantEmail" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="AttendantPhone" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="City" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Address" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Latitude" Type="Single" Nullable="false" />
+    <Property Name="Longitude" Type="Single" Nullable="false" />
     <Property Name="Date" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="Ciprin" Type="Int32" Nullable="false" />
     <Property Name="Active" Type="Int32" Nullable="false" />

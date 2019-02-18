@@ -1,5 +1,7 @@
 window.onload = initUser;
 var ProductAvatar;
+var longitude;
+var latitude;
 
 function initUser()
 {
@@ -10,6 +12,7 @@ function initUser()
     {
         $('#infoName').text(name);
         $('#infoUsername').text(username);
+        startMap();
     }
 
     else
@@ -49,8 +52,8 @@ function createProduct()
                 attendantWebPage: $('#campoAttendantWebPage').val(),
                 attendantEmail: $('#campoAttendantEmail').val(),
                 attendantPhone: $('#campoAttendantPhone').val(),
-                city: $('#campoCity').val(),
-                address: $('#campoAddress').val(),
+                latitude: latitude,
+                longitude: longitude,
                 date: $('#campoDate').val(),
                 avatar: '',
                 ciprin: 0,
@@ -105,11 +108,9 @@ function validateText()
     var c5 = $('#campoAttendantWebPage').val().length >= 8;
     var c6 = $('#campoAttendantEmail').val().length >= 8;
     var c7 = $('#campoAttendantPhone').val().length >= 8;
-    var c8 = $('#campoCity').val().length >= 8;
-    var c9 = $('#campoAddress').val().length >= 8;
-    var c10 = $('#campoDate').val().length >= 8;
+    var c8 = $('#campoDate').val().length >= 8;
 
-    return c1 && c2 && c3 && c4 && c5 && c6 && c7 && c8 && c9 && c10;
+    return c1 && c2 && c3 && c4 && c5 && c6 && c7 && c8;
 }
 
 function validateAvatar()
@@ -205,4 +206,23 @@ document.getElementById('productAvatar').onchange = function(e)
 function recargar()
 {
     location.reload();
+}
+
+function startMap()
+{
+    navigator.geolocation.getCurrentPosition(function(position)
+    { 
+        mapa = new google.maps.Map(document.getElementById('maps2'), {zoom: 5, center: {lat: position.coords.latitude, lng: position.coords.longitude}});
+        marker = new google.maps.Marker({draggable: true, animation: google.maps.Animation.DROP, position: {lat: position.coords.latitude, lng: position.coords.longitude}, map: mapa});
+
+        marker.addListener
+        (
+            'dragend', function(event)
+            {
+                longitude = this.getPosition().lng();
+                latitude = this.getPosition().lat();
+                document.getElementById('maps2').value = latitude + "," + longitude;
+            }
+        );
+    });
 }

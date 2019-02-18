@@ -1,6 +1,5 @@
 window.onload = initUser;
-var fichero, fileReference;
-var mapa;
+var mapa, gmaps;
 
 function initUser()
 {
@@ -11,15 +10,12 @@ function initUser()
     {
         $('#infoName').text(name);
         $('#infoUsername').text(username);
-        startMap();
     }
 
     else
     {
         location.href = 'index.html';
     }
-
-    fichero = document.getElementById('fileBrowser');
 }
 
 function cerrarSesion()
@@ -53,6 +49,7 @@ function search()
                 {
                     if(data.length > 0)
                     {
+                        startMap();
                         var cadena = "";
                         
                         for(var i = 0; i < data.length; i++)
@@ -65,21 +62,21 @@ function search()
                             {
                                 cadena += "<div class='result'> <div class='avatar' id='" + i + "'></div> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].Profesion + "</p> <p class='pf2'>" + data[i].ProfesionDescription + "</p> <p class='pf3'>" + data[i].Email + "</p> <p class='pf4'>" + data[i].Phone + "</p> <p class='pf4'>" + 'Unido el ' + data[i].CreationDate + "</p> </div> </div>";  
                             }        
-                            
-                            putMarket({lat: data[i].Latitude, lng: data[i].Longitude}, data[i].Avatar);
                         } 
 
                         $('#listResults').append(cadena);
+                        $('#listResults').css('display','flex'); 
 
                         for(var i = 0; i < data.length; i++)
                         {
-                            document.getElementById(i).style.background = 'url("' + data[i].Avatar + '")';
+                            avatar = data[i].Avatar;
+                            document.getElementById(i).style.background = 'url("' + avatar + '")';
+                            putMarket({lat: data[i].Latitude, lng: data[i].Longitude}, avatar);
                         }
 
                         $('#bannerState').css('background','green');
                         $('#bannerState').css('color','white');
                         $('#bannerState').text(i + ' resultados encontrados!');
-                        $('#listResults').css('display','flex'); 
                     }
 
                     else
@@ -87,6 +84,7 @@ function search()
                         $('#bannerState').css('background','red');
                         $('#bannerState').css('color','white');
                         $('#bannerState').text('Sin resultados!');
+                        hideMap();
                     }
                 }
             }
@@ -127,19 +125,27 @@ function to(num)
 
 function startMap()
 {
+    gmaps = document.getElementById('maps');
+    gmaps.style = 'display: block';
     navigator.geolocation.getCurrentPosition(function(position)
     { 
         console.log(position);
-        mapa = new google.maps.Map(document.getElementById('maps'), {zoom: 15, center: {lat: position.coords.latitude, lng: position.coords.longitude}});
+        mapa = new google.maps.Map(gmaps, {zoom: 15, center: {lat: position.coords.latitude, lng: position.coords.longitude}});
     });
 }
 
 function putMarket(loc, avatar)
 {
-    var image = {
+    var image = 
+    {
         url: avatar,
         scaledSize: new google.maps.Size(35, 35)
-      };
+    };
 
     marker = new google.maps.Marker({position: loc, map: mapa, icon: image});
+}
+
+function hideMap()
+{
+    gmaps.style = 'display: none';
 }

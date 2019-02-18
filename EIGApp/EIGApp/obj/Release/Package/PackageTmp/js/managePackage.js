@@ -123,12 +123,8 @@ function toCreate(e)
     {
         location.href = 'addProduct.html';
     }
-    else if(opcNum == 3)
+    else
     { 
         location.href = 'addBusinessC.html';
-    }
-    else
-    {
-        location.href = 'addProductC.html';
     }
 }

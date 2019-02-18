@@ -10,8 +10,8 @@
           <ScalarProperty Name="SpecialismDescription" ColumnName="SpecialismDescription" />
           <ScalarProperty Name="WebPage" ColumnName="WebPage" />
           <ScalarProperty Name="Phone" ColumnName="Phone" />
-          <ScalarProperty Name="City" ColumnName="City" />
-          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+          <ScalarProperty Name="Longitude" ColumnName="Longitude" />
           <ScalarProperty Name="Ciprin" ColumnName="Ciprin" />
           <ScalarProperty Name="Active" ColumnName="Active" />
           <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
@@ -139,8 +139,8 @@
           <ScalarProperty Name="AttendantWebPage" ColumnName="AttendantWebPage" />
           <ScalarProperty Name="AttendantEmail" ColumnName="AttendantEmail" />
           <ScalarProperty Name="AttendantPhone" ColumnName="AttendantPhone" />
-          <ScalarProperty Name="City" ColumnName="City" />
-          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+          <ScalarProperty Name="Longitude" ColumnName="Longitude" />
           <ScalarProperty Name="Date" ColumnName="Date" />
           <ScalarProperty Name="Ciprin" ColumnName="Ciprin" />
           <ScalarProperty Name="Active" ColumnName="Active" />
