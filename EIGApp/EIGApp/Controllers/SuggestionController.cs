@@ -37,7 +37,7 @@ namespace EIGApp.Controllers
         {
             var query = from S in BD.Suggestions
                         where (true)
-                        select new {S.Name, S.Description, S.PostedDate};
+                        select new {S.Name, S.Description, S.PostedDate, S.User.Username};
 
             var lista = query.ToArray();
 
@@ -49,7 +49,8 @@ namespace EIGApp.Controllers
                 {
                     Name        = lista[i].Name,
                     Description = lista[i].Description,
-                    PostedDate  = lista[i].PostedDate
+                    PostedDate  = lista[i].PostedDate,
+                    Username    = lista[i].Username
                 };
 
                 arraySuggestion[i] = temp;

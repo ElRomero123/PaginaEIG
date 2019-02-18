@@ -6,6 +6,7 @@
         public string Name { get; set; }
         public string Description { get; set; }
         public string PostedDate { get; set; }
+        public string Username { get; set; }
         public long IdUser { get; set; }
     }
 }
