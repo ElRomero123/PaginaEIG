@@ -22,8 +22,8 @@ namespace EIGApp.ORM
         public string AttendantWebPage { get; set; }
         public string AttendantEmail { get; set; }
         public string AttendantPhone { get; set; }
-        public string City { get; set; }
-        public string Address { get; set; }
+        public float Latitude { get; set; }
+        public float Longitude { get; set; }
         public string Date { get; set; }
         public int Ciprin { get; set; }
         public int Active { get; set; }

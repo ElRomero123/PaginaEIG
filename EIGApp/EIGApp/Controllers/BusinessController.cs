@@ -14,7 +14,7 @@ namespace EIGApp.Controllers
             var query = from B in BD.Businesses
                         where (B.Name.Contains(cadena) || B.SpecialismDescription.Contains(cadena))
                         orderby (B.Ciprin)
-                        select new {B.Name, B.Specialism, B.SpecialismDescription, B.WebPage, B.Phone, B.City, B.Address, B.Avatar, B.Ciprin, B.Active, B.CreationDate};
+                        select new {B.Name, B.Specialism, B.SpecialismDescription, B.WebPage, B.Phone, B.Latitude, B.Longitude, B.Ciprin, B.Active, B.CreationDate, B.Avatar};
                           
             var lista = query.ToArray();
 
@@ -29,12 +29,12 @@ namespace EIGApp.Controllers
                     SpecialismDescription = lista[i].SpecialismDescription,
                     WebPage               = lista[i].WebPage,
                     Phone                 = lista[i].Phone,
-                    City                  = lista[i].City,
-                    Address               = lista[i].Address,
-                    Avatar                = lista[i].Avatar,
+                    Latitude              = lista[i].Latitude,
+                    Longitude             = lista[i].Longitude,
                     Ciprin                = lista[i].Ciprin,
                     Active                = lista[i].Active,
-                    CreationDate          = lista[i].CreationDate
+                    CreationDate          = lista[i].CreationDate,
+                    Avatar                = lista[i].Avatar,
                 };
 
                 arrayBusinesses[i] = temp;
