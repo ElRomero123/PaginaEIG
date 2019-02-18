@@ -1,4 +1,5 @@
 window.onload = initUser;
+var mapa, gmaps;
 
 function initUser()
 {
@@ -63,7 +64,9 @@ function search()
 
                         for(var i = 0; i < data.length; i++)
                         {
-                            document.getElementById(i).style.background = 'url("' + data[i].Avatar + '")';
+                            avatar = data[i].Avatar;
+                            document.getElementById(i).style.background = 'url("' + avatar + '")';
+                            putMarket({lat: data[i].Latitude, lng: data[i].Longitude}, avatar);
                         }
 
                         $('#bannerState').css('background','green');
@@ -76,6 +79,7 @@ function search()
                         $('#bannerState').css('background','red');
                         $('#bannerState').css('color','white');
                         $('#bannerState').text('Sin resultados!');
+                        hideMap();
                     }
                 }
             }
@@ -131,7 +135,6 @@ function startMap()
 
 function putMarket(loc, avatar)
 {
-
     var image = 
     {
         url: avatar,
