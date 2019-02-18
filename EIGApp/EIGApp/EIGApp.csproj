@@ -94,7 +94,6 @@
     <Content Include="addBusiness.html" />
     <Content Include="addBusinessC.html" />
     <Content Include="addProduct.html" />
-    <Content Include="addProductC.html" />
     <Content Include="businessPanel.html" />
     <Content Include="businessPanelC.html" />
     <Content Include="confirm.html" />
