@@ -32,8 +32,7 @@ function option(num)
 
 function validate()
 {
-    var username = document.getElementById('boxUsername').value;
-    var password = document.getElementById('boxPassword').value;
+    var clave = document.getElementById('boxClave').value;
 
     $('#send').css('background','orangered');
     $('#send').css('border','2px solid orangered');
@@ -43,7 +42,7 @@ function validate()
     $.ajax
     (
         {
-            url: '../api/manager/?username=' + username + '&password=' + password,
+            url: '../api/manager/?clave=' + clave,
             type: 'GET',
             contentType: "application/json;charset=utf-8",
 
@@ -53,8 +52,8 @@ function validate()
                 if(data.Name != null)
                 {
                     localStorage.setItem('User', data.Id);
-                    localStorage.setItem('Username', data.Username);
                     localStorage.setItem('Name', data.Name);
+                    localStorage.setItem('Email', data.Email);
                     location.href = 'menuManager.html'; 
                 }
 

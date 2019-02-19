@@ -11,26 +11,22 @@ namespace EIGApp.Controllers
     {
         private O.BDEIGEntities BD = new O.BDEIGEntities();
 
-        public M.Manager Get(string username, string password)
+        public M.Manager Get(string password)
         {
             var query = from M in BD.Managers
-                        where (M.Username.Equals(username))
-                        select new {M.Id, M.Username, M.Password, M.Name};
+                        where (M.Clave.Equals(SHA256Encrypt(password)))
+                        select new {M.Id, M.Name, M.Email, M.Phone};
 
             M.Manager temp = new M.Manager();
 
             try
             {
                 var lista = query.ToArray()[0];
-
-                string hashPassword = SHA256Encrypt(password);
-
-                if (lista.Password.Equals(hashPassword))
-                {
-                    temp.Id = lista.Id;
-                    temp.Username = lista.Username;
-                    temp.Password = lista.Name;
-                }
+   
+                temp.Id = lista.Id;
+                temp.Name = lista.Name;
+                temp.Email = lista.Email;
+                temp.Phone = lista.Phone;
             }
 
             catch
