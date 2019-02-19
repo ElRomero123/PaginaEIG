@@ -50,9 +50,7 @@ function validate()
                 name: $('#campoName').val(),
                 email: $('#campoEmail').val(),
                 phone: $('#campoAddress').val(),
-                address: $('#campoAddress').val(),
-                tienePerfil: false,
-                administrador: false
+                address: $('#campoAddress').val()
             };
     
             $('#register').css('background','yellow');
