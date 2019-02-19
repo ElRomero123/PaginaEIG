@@ -94,6 +94,6 @@ function to(num)
         location.href = 'index.html';
         break;
         default:
-        location.href = 'manageJobApplication.html';
+        location.href = 'menuApplicationsManager.html';
     }
 }
