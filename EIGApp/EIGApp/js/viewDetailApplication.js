@@ -1,5 +1,4 @@
 window.onload = initUser;
-var FileJA;
 
 function initUser()
 {
@@ -64,7 +63,7 @@ function loadAnexos()
                     {
                         $('#bannerState').css('background','red');
                         $('#bannerState').css('color','white');
-                        $('#bannerState').text('La solicitud no tiene anexos!');
+                        $('#bannerState').text('La solicitud NO tiene anexos!');
                     }
                 }
             }

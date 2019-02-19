@@ -16,10 +16,10 @@ function initUser()
         location.href = 'index.html';
     }
 
-    loadApplications();
+    loadAnexos();
 }
 
-function loadApplications()
+function loadAnexos()
 {
     if(navigator.onLine)
     {
@@ -30,10 +30,12 @@ function loadApplications()
         $('#bannerState').css('color','black');
         $('#bannerState').text('Cargando ...');
 
+        var idCase = localStorage.getItem('CaseId');
+
         $.ajax
         (
             {
-                url: '../api/jobApplication',
+                url: '../api/multimediaCase/?idCase=' + idCase,
                 type: 'GET',
                 contentType: "application/json;charset=utf-8",
 
@@ -46,14 +48,14 @@ function loadApplications()
 
                         for(var i = 0; i < data.length; i++)
                         {
-                            cadena += "<div class='result'> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].DocumentNumber + "</p> <p class='pf2'>" + data[i].DescriptionApplication + "</p> <p class='pf2'>Edad: " + data[i].Age + "</p> <p class='pf3'> Fecha de postulación " + data[i].PostedDate + " por " + data[i].Username + "</p> <button id='" + data[i].Id + "' class='moreResult' onclick='toDetailJA(this)'>Ver anexos</button> </div> </div>";  
+                            cadena += "<div class='result'> <div class='text'> <p class='pf2'>" + data[i].FileName + "</p> <p class='pf4'>Anexado el " + data[i].LoadDate + "</p> <button id='" + data[i].Id + "' class='deleteResult' onclick='eliminar(this)'>Eliminar</button> <button id='" + data[i].Id + "' class='moreResult' onclick='download(this)'>Descargar</button> <p hidden class='pf4' id='DL" + data[i].Id + "'>" + data[i].DownloadLink + "</p> </div> </div>";  
                         }
                         
                         $('#listResults').append(cadena);
 
                         $('#bannerState').css('background','green');
                         $('#bannerState').css('color','white');
-                        $('#bannerState').text(i + ' solicitudes!');
+                        $('#bannerState').text('El caso tiene ' + i + ' anexos!');
                         $('#listResults').css('display','flex');
                     }
 
@@ -61,7 +63,7 @@ function loadApplications()
                     {
                         $('#bannerState').css('background','red');
                         $('#bannerState').css('color','white');
-                        $('#bannerState').text('Sin solicitudes!');
+                        $('#bannerState').text('El caso NO tiene anexos!');
                     }
                 }
             }
@@ -76,6 +78,12 @@ function loadApplications()
     }
 }
 
+function download(e)
+{
+    var download = document.getElementById('DL' + e.id).innerHTML;
+    window.open(download, '_blank');
+}
+
 function to(num)
 {
     switch(num)
@@ -85,12 +93,6 @@ function to(num)
         location.href = 'index.html';
         break;
         default:
-        location.href = 'menuManager.html';
+        location.href = 'menuCasesManager.html';
     }
-}
-
-function toDetailJA(e)
-{
-    localStorage.setItem('JAId', e.id);
-    location.href = 'viewDetailApplication.html';
 }
