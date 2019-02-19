@@ -54,6 +54,20 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Managers">
+      <EntityTypeMapping TypeName="BDEIGModel.Manager">
+        <MappingFragment StoreEntitySet="Manager">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="JoinDate" ColumnName="JoinDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="MultimediaCases">
       <EntityTypeMapping TypeName="BDEIGModel.MultimediaCase">
         <MappingFragment StoreEntitySet="MultimediaCase">
@@ -172,8 +186,6 @@
           <ScalarProperty Name="Phone" ColumnName="Phone" />
           <ScalarProperty Name="Address" ColumnName="Address" />
           <ScalarProperty Name="JoinDate" ColumnName="JoinDate" />
-          <ScalarProperty Name="TienePerfil" ColumnName="TienePerfil" />
-          <ScalarProperty Name="Administrador" ColumnName="Administrador" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

@@ -24,7 +24,6 @@ function option(num)
             $('#send').css('border','2px solid red');
             $('#send').text('NO está conectado a internet!');
         }
-        
         break;
         case 2:
         default: location.href = 'register.html';

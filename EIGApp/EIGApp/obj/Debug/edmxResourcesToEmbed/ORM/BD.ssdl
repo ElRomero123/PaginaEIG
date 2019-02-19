@@ -49,6 +49,19 @@
     <Property Name="PostedDate" Type="nvarchar" MaxLength="255" Nullable="false" />
     <Property Name="IdUser" Type="bigint" Nullable="false" />
   </EntityType>
+  <EntityType Name="Manager">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Username" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="Password" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="Address" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="JoinDate" Type="nvarchar" MaxLength="255" Nullable="false" />
+  </EntityType>
   <EntityType Name="MultimediaCase">
     <Key>
       <PropertyRef Name="Id" />
@@ -161,8 +174,6 @@
     <Property Name="Phone" Type="nvarchar" MaxLength="255" Nullable="false" />
     <Property Name="Address" Type="nvarchar" MaxLength="255" Nullable="false" />
     <Property Name="JoinDate" Type="nvarchar" MaxLength="255" Nullable="false" />
-    <Property Name="TienePerfil" Type="bit" Nullable="false" />
-    <Property Name="Administrador" Type="bit" Nullable="false" />
   </EntityType>
   <Association Name="FK_Business_Package">
     <End Role="Package" Type="Self.Package" Multiplicity="1">
@@ -323,6 +334,7 @@
     <EntitySet Name="Case" EntityType="Self.Case" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Donation" EntityType="Self.Donation" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="JobApplication" EntityType="Self.JobApplication" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Manager" EntityType="Self.Manager" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="MultimediaCase" EntityType="Self.MultimediaCase" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="MultimediaJobApplication" EntityType="Self.MultimediaJobApplication" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="OtherPerson" EntityType="Self.OtherPerson" Schema="dbo" store:Type="Tables" />
