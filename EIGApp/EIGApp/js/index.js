@@ -13,21 +13,25 @@ function option(num)
     switch(num)
     {
         case 1:
-        if(navigator.onLine)
-        {
-            validate();
-        }
+        alert('Hola');
+        /*
+            if(navigator.onLine)
+            {
+                validate();
+            }
 
-        else
-        {
-            $('#send').css('background','red');
-            $('#send').css('border','2px solid red');
-            $('#send').text('NO está conectado a internet!');
-        }
+            else
+            {
+                $('#send').css('background','red');
+                $('#send').css('border','2px solid red');
+                $('#send').text('NO está conectado a internet!');
+            }
+            */
         break;
         case 2:
-        default: location.href = 'register.html';
+        location.href = 'register.html';
         break;
+
         default:
         location.href = 'loginManager.html';
     }

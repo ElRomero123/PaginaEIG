@@ -130,6 +130,7 @@
     <Content Include="js\editCase.js" />
     <Content Include="js\editJA.js" />
     <Content Include="js\error.js" />
+    <Content Include="js\loginManager.js" />
     <Content Include="js\manageCases.js" />
     <Content Include="js\manageJobApplication.js" />
     <Content Include="js\managePackage.js" />
@@ -156,6 +157,7 @@
     <Content Include="js\register.js" />
     <Content Include="js\viewDetailApplication.js" />
     <Content Include="js\viewDetailCase.js" />
+    <Content Include="loginManager.html" />
     <Content Include="manageCases.html" />
     <Content Include="manageJobApplication.html" />
     <Content Include="managePackage.html" />

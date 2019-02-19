@@ -65,7 +65,7 @@
           <Property Name="Email" Type="nvarchar" MaxLength="255" Nullable="false" />
           <Property Name="Phone" Type="nvarchar" MaxLength="255" Nullable="false" />
           <Property Name="Address" Type="nvarchar" MaxLength="255" Nullable="false" />
-          <Property Name="JoinDate" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="Cadena" Type="date" />
         </EntityType>
         <EntityType Name="MultimediaCase">
           <Key>
@@ -464,7 +464,7 @@
           <Property Name="Email" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Phone" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Address" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="JoinDate" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Cadena" Type="DateTime" Precision="0" />
         </EntityType>
         <EntityType Name="MultimediaCase">
           <Key>
@@ -877,7 +877,7 @@
                 <ScalarProperty Name="Email" ColumnName="Email" />
                 <ScalarProperty Name="Phone" ColumnName="Phone" />
                 <ScalarProperty Name="Address" ColumnName="Address" />
-                <ScalarProperty Name="JoinDate" ColumnName="JoinDate" />
+                <ScalarProperty Name="Cadena" ColumnName="Cadena" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
