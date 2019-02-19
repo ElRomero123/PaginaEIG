@@ -46,14 +46,14 @@ function loadApplications()
 
                         for(var i = 0; i < data.length; i++)
                         {
-                            cadena += "<div class='result'> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].DocumentNumber + "</p> <p class='pf2'>" + data[i].DescriptionApplication + "</p> p class='pf2'>" + data[i].Age + "</p> <p class='pf3'> Publicado el " + data[i].PostedDate + " por " + data[i].Username + "</p> </div> </div>";  
+                            cadena += "<div class='result'> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].DocumentNumber + "</p> <p class='pf2'>" + data[i].DescriptionApplication + "</p> p class='pf2'>Edad: " + data[i].Age + "</p> <p class='pf3'> Fecha de postulación " + data[i].PostedDate + " por " + data[i].Username + "</p> </div> </div>";  
                         }
                         
                         $('#listResults').append(cadena);
 
                         $('#bannerState').css('background','green');
                         $('#bannerState').css('color','white');
-                        $('#bannerState').text(i + ' postulaciones!');
+                        $('#bannerState').text(i + ' solicitudes!');
                         $('#listResults').css('display','flex');
                     }
 
@@ -61,7 +61,7 @@ function loadApplications()
                     {
                         $('#bannerState').css('background','red');
                         $('#bannerState').css('color','white');
-                        $('#bannerState').text('Sin postulaciones creadas!');
+                        $('#bannerState').text('Sin solicitudes!');
                     }
                 }
             }

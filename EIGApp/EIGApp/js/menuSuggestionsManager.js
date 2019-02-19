@@ -53,7 +53,7 @@ function loadSuggestions()
 
                         $('#bannerState').css('background','green');
                         $('#bannerState').css('color','white');
-                        $('#bannerState').text(i + ' sugerencias!');
+                        $('#bannerState').text(i + ' recomendaciones!');
                         $('#listResults').css('display','flex');
                     }
 
@@ -61,7 +61,7 @@ function loadSuggestions()
                     {
                         $('#bannerState').css('background','red');
                         $('#bannerState').css('color','white');
-                        $('#bannerState').text('Sin sugerencias de usuarios!');
+                        $('#bannerState').text('Sin recomendaciones!');
                     }
                 }
             }

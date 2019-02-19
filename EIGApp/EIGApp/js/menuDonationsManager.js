@@ -46,7 +46,7 @@ function loadDonations()
 
                         for(var i = 0; i < data.length; i++)
                         {
-                            cadena += "<div class='result'> <div class='text'> <p class='pf1'>" + data[i].Amount + "</p> <p class='pf3'> Donada el " + data[i].Date + " por " + data[i].Username + "</p> </div> </div>";  
+                            cadena += "<div class='result'> <div class='text'> <p class='pf1'> $ " + data[i].Amount + " US </p> <p class='pf3'> Donada el " + data[i].Date + " por " + data[i].Username + "</p> </div> </div>";  
                         }
                         
                         $('#listResults').append(cadena);
@@ -61,7 +61,7 @@ function loadDonations()
                     {
                         $('#bannerState').css('background','red');
                         $('#bannerState').css('color','white');
-                        $('#bannerState').text('Sin donaciones realizadas!');
+                        $('#bannerState').text('Sin donaciones!');
                     }
                 }
             }
