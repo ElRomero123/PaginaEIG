@@ -53,7 +53,7 @@ function loadCases()
 
                         $('#bannerState').css('background','green');
                         $('#bannerState').css('color','white');
-                        $('#bannerState').text(i + ' casos subidos.');
+                        $('#bannerState').text(i + ' caso');
                         $('#listResults').css('display','flex');
                     }
 
@@ -61,7 +61,7 @@ function loadCases()
                     {
                         $('#bannerState').css('background','red');
                         $('#bannerState').css('color','white');
-                        $('#bannerState').text('Sin casos creados!');
+                        $('#bannerState').text('Sin casos!');
                     }
                 }
             }
@@ -89,8 +89,8 @@ function to(num)
     }
 }
 
-function toDetailJA(e)
+function toDetailCase(e)
 {
     localStorage.setItem('CaseId', e.id);
-    location.href = 'viewDetailApplication.html';
+    location.href = 'viewDetailCase.html';
 }

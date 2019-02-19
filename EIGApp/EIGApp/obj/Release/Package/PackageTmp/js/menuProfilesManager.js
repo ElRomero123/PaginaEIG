@@ -26,7 +26,13 @@ function to(num)
         localStorage.clear();
         location.href = 'index.html';
         break;
+        case 2:
+        location.href = 'menuManager.html';
+        break;
+        case 3:
+        alert('Controlar por usuario funciona');
+        break;
         default:
-        location.href = 'personPanel.html';
+        alert('Controlar por paquete funciona');
     }
 }

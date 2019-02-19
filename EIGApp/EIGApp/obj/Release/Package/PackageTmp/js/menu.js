@@ -3,19 +3,31 @@ var mapa, gmaps;
 
 function initUser()
 {
+    var administrador = localStorage.getItem('Administrador');
     var name     = localStorage.getItem('Name');
     var username = localStorage.getItem('Username');
-    
+
     if(name != null)
     {
         $('#infoName').text(name);
         $('#infoUsername').text(username);
+
+        if(administrador == true)
+        {
+            location.href = 'menuManager.html';
+        }
+
+        else if (administrador == false)
+        { 
+        }
     }
 
     else
     {
         location.href = 'index.html';
     }
+
+    
 }
 
 function search()

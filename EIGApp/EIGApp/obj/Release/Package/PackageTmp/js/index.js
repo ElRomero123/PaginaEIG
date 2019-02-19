@@ -56,6 +56,7 @@ function validate()
                     localStorage.setItem('Username', data.Username);
                     localStorage.setItem('Name', data.Name);
                     localStorage.setItem('TienePerfil', data.TienePerfil);
+                    localStorage.setItem('Administrador', data.Administrador);
                     
                     if(data.Administrador)
                     {
