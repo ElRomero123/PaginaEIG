@@ -10,7 +10,5 @@
         public string Phone { get; set; }
         public string Address { get; set; }
         public string JoinDate { get; set; }
-        public bool TienePerfil { get; set; }
-        public bool Administrador { get; set; }
     }
 }

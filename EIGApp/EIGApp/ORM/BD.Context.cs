@@ -29,6 +29,7 @@ namespace EIGApp.ORM
         public virtual DbSet<Case> Cases { get; set; }
         public virtual DbSet<Donation> Donations { get; set; }
         public virtual DbSet<JobApplication> JobApplications { get; set; }
+        public virtual DbSet<Manager> Managers { get; set; }
         public virtual DbSet<MultimediaCase> MultimediaCases { get; set; }
         public virtual DbSet<MultimediaJobApplication> MultimediaJobApplications { get; set; }
         public virtual DbSet<OtherPerson> OtherPersons { get; set; }

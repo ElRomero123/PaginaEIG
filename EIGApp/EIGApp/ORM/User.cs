@@ -34,8 +34,6 @@ namespace EIGApp.ORM
         public string Phone { get; set; }
         public string Address { get; set; }
         public string JoinDate { get; set; }
-        public bool TienePerfil { get; set; }
-        public bool Administrador { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Case> Cases { get; set; }

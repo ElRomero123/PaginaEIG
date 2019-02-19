@@ -26,7 +26,11 @@ function option(num)
         }
         
         break;
+        case 2:
         default: location.href = 'register.html';
+        break;
+        default:
+        location.href = 'loginManager.html';
     }
 }
 
@@ -55,9 +59,6 @@ function validate()
                     localStorage.setItem('User', data.Id);
                     localStorage.setItem('Username', data.Username);
                     localStorage.setItem('Name', data.Name);
-                    localStorage.setItem('TienePerfil', data.TienePerfil);
-                    localStorage.setItem('Administrador', data.Administrador);
-                
                     location.href = 'menu.html'; 
                 }
 
