@@ -41,7 +41,7 @@ namespace EIGApp.Controllers
         {
             var query = from JA in BD.JobApplications
                         where (true)
-                        select new {JA.Name, JA.DocumentNumber, JA.DescriptionApplication, JA.Age, JA.PostedDate, JA.User.Username};
+                        select new {JA.Id, JA.Name, JA.DocumentNumber, JA.DescriptionApplication, JA.Age, JA.PostedDate, JA.User.Username};
 
             var lista = query.ToArray();
 
@@ -51,6 +51,7 @@ namespace EIGApp.Controllers
             {
                 M.JobApplication temp = new M.JobApplication
                 {
+                    Id                     = lista[i].Id,
                     Name                   = lista[i].Name,
                     DocumentNumber         = lista[i].DocumentNumber,
                     DescriptionApplication = lista[i].DescriptionApplication,

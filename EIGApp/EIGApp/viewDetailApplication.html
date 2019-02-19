@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href='css/index.css'>
         <link rel='icon' href='img/title.ico'>
-        <title>Búsqueda - Investigadores privados</title>
+        <title>Mis casos</title>
     </head>
 
     <body>
@@ -19,19 +19,24 @@
         </header>
 
         <div> 
-            <p class='searchTag'>Menú de administración</p> 
-            <p class='categorySearch'>Gestión del uso de la plataforma</p>
-         
+            <p class='searchTag'>Documentos anexos</p> 
+            <p class='categorySearch'>Editar archivos anexos a tu caso</p>
+
             <div class='categories'>
-                <div id='c11' class='category' onclick='to(2)'></div>
-                <div id='c13' class='category' onclick='to(3)'></div>
-                <div id='c12' class='category' onclick='to(4)'></div>
-                <div id='c14' class='category' onclick='to(5)'></div>
-                <div id='c15' class='category' onclick='to(6)'></div>
+                <div id='c9' class='category' onclick="to(2)"></div>
+            </div>
+            
+            <div id='bannerState'> </div>
+
+            <div>
+                <div id='listResults'>
+                </div> 
             </div>
         </div>
             
+        <script src="https://www.gstatic.com/firebasejs/5.7.3/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/5.7.3/firebase-storage.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <script src='js/menuManager.js'></script>
+        <script src='js/viewDetailApplication.js'></script>
     </body>
 </html>
