@@ -30,9 +30,11 @@ function to(num)
         location.href = 'menuAdministrator.html';
         break;
         case 3:
-        alert('Controlar por usuario funciona');
+        location.href = 'userControllerAdministrator.html';
+        //alert('Controlar por usuario funciona');
         break;
         default:
-        alert('Controlar por paquete funciona');
+        location.href = 'packageControllerAdministrator.html';
+        //alert('Controlar por paquete funciona');
     }
 }
