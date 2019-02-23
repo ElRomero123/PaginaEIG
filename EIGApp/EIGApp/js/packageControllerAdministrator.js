@@ -16,7 +16,7 @@ function initUser()
         location.href = 'index.html';
     }
 
-    //loadCases();
+    loadPackages();
 }
 
 /*
