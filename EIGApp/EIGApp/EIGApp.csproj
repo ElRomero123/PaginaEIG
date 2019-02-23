@@ -108,6 +108,13 @@
     <Content Include="img\logo.png" />
     <Content Include="img\lupa.png" />
     <Content Include="img\menu\10N.png" />
+    <Content Include="img\menu\11N.png" />
+    <Content Include="img\menu\12N.png" />
+    <Content Include="img\menu\13N.png" />
+    <Content Include="img\menu\14N.png" />
+    <Content Include="img\menu\15N.png" />
+    <Content Include="img\menu\16N.png" />
+    <Content Include="img\menu\17N.png" />
     <Content Include="img\menu\1N.png" />
     <Content Include="img\menu\2N.png" />
     <Content Include="img\menu\3N.png" />
@@ -302,7 +309,6 @@
     <Content Include="fonts\acephimere.otf" />
     <Content Include="fonts\acephimereThinItalic.otf" />
     <Content Include="fonts\acephimereThin.otf" />
-    <Content Include="img\menu\8N.pdn" />
     <EntityDeploy Include="ORM\BD.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>BD.Designer.cs</LastGenOutput>

@@ -13,6 +13,7 @@ function option(num)
     switch(num)
     {
         case 1:
+        
         if(navigator.onLine)
         {
             validate();
@@ -24,9 +25,14 @@ function option(num)
             $('#send').css('border','2px solid red');
             $('#send').text('NO está conectado a internet!');
         }
-        
+
         break;
-        default: location.href = 'register.html';
+        case 2:
+        location.href = 'register.html';
+        break;
+
+        default:
+        location.href = 'loginAdministrator.html';
     }
 }
 
@@ -55,17 +61,7 @@ function validate()
                     localStorage.setItem('User', data.Id);
                     localStorage.setItem('Username', data.Username);
                     localStorage.setItem('Name', data.Name);
-                    localStorage.setItem('TienePerfil', data.TienePerfil);
-                    localStorage.setItem('Administrador', data.Administrador);
-                    
-                    if(data.Administrador)
-                    {
-                        location.href = 'menuManager.html';
-                    }
-                    else
-                    {
-                        location.href = 'menu.html'; 
-                    }
+                    location.href = 'menu.html'; 
                 }
 
                 else
