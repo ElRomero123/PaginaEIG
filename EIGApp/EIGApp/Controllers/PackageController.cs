@@ -43,7 +43,7 @@ namespace EIGApp.Controllers
         {
             var query = from P in BD.Packages
                         where (true)
-                        select new {P.Id, P.Linea, P.Producto, P.Cantidad, P.FechaCompra, P.TiempoCubrimiento, P.Precio};
+                        select new {P.Id, P.Linea, P.Producto, P.Cantidad, P.FechaCompra, P.TiempoCubrimiento, P.Precio, P.User.Username};
 
             var lista = query.ToArray();
             int rsize = lista.Length;
@@ -60,7 +60,8 @@ namespace EIGApp.Controllers
                     Cantidad          = lista[i].Cantidad,
                     FechaCompra       = lista[i].FechaCompra,
                     TiempoCubrimiento = lista[i].TiempoCubrimiento,
-                    Precio            = lista[i].Precio
+                    Precio            = lista[i].Precio,
+                    Username          = lista[i].Username
                 };
 
                 arrayPackage[i] = temp;

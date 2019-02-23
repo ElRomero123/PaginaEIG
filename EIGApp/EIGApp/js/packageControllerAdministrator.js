@@ -47,7 +47,7 @@ function loadPackages()
 
                         for(var i = 0; i < data.length; i++)
                         {
-                            cadena += "<div class='result'> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].DescriptionCase + "</p> <p class='pf3'> Publicado el " + data[i].PostedDate + " por " + data[i].Username + "</p> <button id='" + data[i].Id + "' class='moreResult' onclick='toMorePackage(this)'>Mas</button> </div> </div>";  
+                            cadena += "<div class='result'> <div class='text'> <p class='pf1'>" + data[i].Producto + "</p> <p class='pf2'>" + data[i].Linea + "</p> <p class='pf3'>" + data[i].Cantidad + "</p> <p class='pf3'>" + data[i].TiempoCubrimiento + "</p> <p class='pf3'>" + data[i].Precio + "</p> <p class='pf3'> Comprado " + data[i].FechaCompra + " por " + data[i].Username + "</p> <button id='" + data[i].Id + "' class='moreResult' onclick='toMorePackage(this)'>Mas</button> </div> </div>";  
                         }
         
                         $('#listResults').append(cadena);

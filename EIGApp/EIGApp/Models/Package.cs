@@ -10,6 +10,7 @@
         public string TiempoCubrimiento { get; set; }
         public string Precio { get; set; }
         public int Kind { get; set; }
+        public string Username { get; set; }
         public long IdUser { get; set; }
     }
 }

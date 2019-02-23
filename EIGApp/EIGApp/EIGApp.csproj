@@ -130,7 +130,7 @@
     <Content Include="js\editCase.js" />
     <Content Include="js\editJA.js" />
     <Content Include="js\error.js" />
-    <Content Include="js\loginManager.js" />
+    <Content Include="js\loginAdministrator.js" />
     <Content Include="js\manageCases.js" />
     <Content Include="js\manageJobApplication.js" />
     <Content Include="js\managePackage.js" />
@@ -143,29 +143,33 @@
     <Content Include="js\menu7.js" />
     <Content Include="js\menu8.js" />
     <Content Include="js\menu9.js" />
-    <Content Include="js\menuApplicationsManager.js" />
-    <Content Include="js\menuCasesManager.js" />
-    <Content Include="js\menuDonationsManager.js" />
-    <Content Include="js\menuManager.js" />
-    <Content Include="js\menuProfilesManager.js" />
-    <Content Include="js\menuSuggestionsManager.js" />
+    <Content Include="js\menuAdministrator.js" />
+    <Content Include="js\menuApplicationsAdministrator.js" />
+    <Content Include="js\menuCasesAdministrator.js" />
+    <Content Include="js\menuDonationsAdministrator.js" />
+    <Content Include="js\menuProfilesAdministrator.js" />
+    <Content Include="js\menuSuggestionsAdministrator.js" />
     <Content Include="js\otherPersonPanel.js" />
     <Content Include="js\otherPersonPanelC.js" />
+    <Content Include="js\packageControllerAdministrator.js" />
     <Content Include="js\personPanel.js" />
     <Content Include="js\personPanelC.js" />
     <Content Include="js\productPanel.js" />
     <Content Include="js\register.js" />
+    <Content Include="js\userControllerAdministrator.js" />
     <Content Include="js\viewDetailApplication.js" />
     <Content Include="js\viewDetailCase.js" />
+    <Content Include="loginAdministrator.html" />
     <Content Include="manageCases.html" />
     <Content Include="manageJobApplication.html" />
     <Content Include="managePackage.html" />
     <Content Include="menu9.html" />
-    <Content Include="menuApplicationsManager.html" />
-    <Content Include="menuCasesManager.html" />
-    <Content Include="menuDonationsManager.html" />
-    <Content Include="menuProfilesManager.html" />
-    <Content Include="menuSuggestionsManager.html" />
+    <Content Include="menuAdministrator.html" />
+    <Content Include="menuApplicationsAdministrator.html" />
+    <Content Include="menuCasesAdministrator.html" />
+    <Content Include="menuDonationsAdministrator.html" />
+    <Content Include="menuProfilesAdministrator.html" />
+    <Content Include="menuSuggestionsAdministrator.html" />
     <Content Include="ORM\BD.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>BD.edmx</DependentUpon>
@@ -178,6 +182,7 @@
     </Content>
     <Content Include="otherPersonPanel.html" />
     <Content Include="otherPersonPanelC.html" />
+    <Content Include="packageControllerAdministrator.html" />
     <Content Include="personPanel.html" />
     <Content Include="personPanelC.html" />
     <Content Include="productos.html" />
@@ -192,6 +197,7 @@
     <Content Include="menu2.html" />
     <Content Include="index.html" />
     <Content Include="js\index.js" />
+    <Content Include="userControllerAdministrator.html" />
     <Content Include="viewDetailApplication.html" />
     <Content Include="viewDetailCase.html" />
     <Content Include="Web.config" />
