@@ -16,11 +16,11 @@ function initUser()
         location.href = 'index.html';
     }
 
-    //loadCases();
+    loadUsers();
 }
 
-/*
-function loadCases()
+
+function loadUsers()
 {
     if(navigator.onLine)
     {
@@ -34,7 +34,7 @@ function loadCases()
         $.ajax
         (
             {
-                url: '../api/case',
+                url: '../api/user',
                 type: 'GET',
                 contentType: "application/json;charset=utf-8",
 
@@ -47,14 +47,14 @@ function loadCases()
 
                         for(var i = 0; i < data.length; i++)
                         {
-                            cadena += "<div class='result'> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].DescriptionCase + "</p> <p class='pf3'> Publicado el " + data[i].PostedDate + " por " + data[i].Username + "</p> <button id='" + data[i].Id + "' class='moreResult' onclick='toDetailCase(this)'>Ver anexos</button> </div> </div>";  
+                            cadena += "<div class='result'> <div class='text'> <p class='pf1'>" + data[i].Username + "</p> <p class='pf2'>" + data[i].Name + "</p> <p class='pf3'>" + data[i].Email + "</p> <p class='pf4'> Unido el " + data[i].JoinDate + "</p> <button id='" + data[i].Id + "' class='moreResult' onclick='toMoreUser(this)'>Mas</button> </div> </div>";  
                         }
                         
                         $('#listResults').append(cadena);
 
                         $('#bannerState').css('background','green');
                         $('#bannerState').css('color','white');
-                        $('#bannerState').text(i + ' caso');
+                        $('#bannerState').text(i + ' usuarios');
                         $('#listResults').css('display','flex');
                     }
 
@@ -62,7 +62,7 @@ function loadCases()
                     {
                         $('#bannerState').css('background','red');
                         $('#bannerState').css('color','white');
-                        $('#bannerState').text('Sin casos!');
+                        $('#bannerState').text('Sin usuarios!');
                     }
                 }
             }
@@ -76,7 +76,6 @@ function loadCases()
         $('#bannerState').text('Sin internet!');
     }
 }
-*/
 
 function to(num)
 {
@@ -91,10 +90,8 @@ function to(num)
     }
 }
 
-/*
-function toDetailCase(e)
+
+function toMoreUser(e)
 {
-    localStorage.setItem('CaseId', e.id);
-    location.href = 'viewDetailCase.html';
+    alert('Ver mas información de ' + e.id + ' funciona!');
 }
-*/
