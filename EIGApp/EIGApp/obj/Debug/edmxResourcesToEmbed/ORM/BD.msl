@@ -1,6 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="BDEIGModelStoreContainer" CdmEntityContainer="BDEIGEntities">
+    <EntitySetMapping Name="Administrators">
+      <EntityTypeMapping TypeName="BDEIGModel.Administrator">
+        <MappingFragment StoreEntitySet="Administrator">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Clave" ColumnName="Clave" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="Businesses">
       <EntityTypeMapping TypeName="BDEIGModel.Business">
         <MappingFragment StoreEntitySet="Business">
@@ -51,17 +61,6 @@
           <ScalarProperty Name="Age" ColumnName="Age" />
           <ScalarProperty Name="PostedDate" ColumnName="PostedDate" />
           <ScalarProperty Name="IdUser" ColumnName="IdUser" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Managers">
-      <EntityTypeMapping TypeName="BDEIGModel.Manager">
-        <MappingFragment StoreEntitySet="Manager">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="Clave" ColumnName="Clave" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="Email" ColumnName="Email" />
-          <ScalarProperty Name="Phone" ColumnName="Phone" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

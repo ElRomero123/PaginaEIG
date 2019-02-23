@@ -13,20 +13,19 @@ namespace EIGApp.Controllers
 
         public M.Manager Get(string password)
         {
-            var query = from M in BD.Managers
-                        where (M.Clave.Equals(SHA256Encrypt(password)))
-                        select new {M.Id, M.Name, M.Email, M.Phone};
+            var query = from A in BD.Administrators
+                        where (A.Clave.Equals(SHA256Encrypt(password)))
+                        select new {A.Id, A.Name, A.Email};
 
             M.Manager temp = new M.Manager();
 
             try
             {
                 var lista = query.ToArray()[0];
-   
+
                 temp.Id = lista.Id;
                 temp.Name = lista.Name;
                 temp.Email = lista.Email;
-                temp.Phone = lista.Phone;
             }
 
             catch

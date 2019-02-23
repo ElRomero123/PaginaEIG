@@ -157,7 +157,6 @@
     <Content Include="js\register.js" />
     <Content Include="js\viewDetailApplication.js" />
     <Content Include="js\viewDetailCase.js" />
-    <Content Include="loginManager.html" />
     <Content Include="manageCases.html" />
     <Content Include="manageJobApplication.html" />
     <Content Include="managePackage.html" />
@@ -165,7 +164,6 @@
     <Content Include="menuApplicationsManager.html" />
     <Content Include="menuCasesManager.html" />
     <Content Include="menuDonationsManager.html" />
-    <Content Include="menuManager.html" />
     <Content Include="menuProfilesManager.html" />
     <Content Include="menuSuggestionsManager.html" />
     <Content Include="ORM\BD.Context.tt">
@@ -200,11 +198,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\ManagerController.cs" />
     <Compile Include="Controllers\BusinessController.cs" />
     <Compile Include="Controllers\CaseController.cs" />
     <Compile Include="Controllers\DonationController.cs" />
     <Compile Include="Controllers\JobApplicationController.cs" />
-    <Compile Include="Controllers\ManagerController.cs" />
     <Compile Include="Controllers\MultimediaCaseController.cs" />
     <Compile Include="Controllers\MultimediaJobApplicationController.cs" />
     <Compile Include="Controllers\OtherPersonController.cs" />
@@ -222,11 +220,11 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Manager.cs" />
     <Compile Include="Models\Business.cs" />
     <Compile Include="Models\Case.cs" />
     <Compile Include="Models\Donation.cs" />
     <Compile Include="Models\JobApplication.cs" />
-    <Compile Include="Models\Manager.cs" />
     <Compile Include="Models\MultimediaCase.cs" />
     <Compile Include="Models\MultimediaJobApplication.cs" />
     <Compile Include="Models\OtherPerson.cs" />
@@ -237,6 +235,9 @@
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\Suggestion.cs" />
     <Compile Include="Models\User.cs" />
+    <Compile Include="ORM\Administrator.cs">
+      <DependentUpon>BD.tt</DependentUpon>
+    </Compile>
     <Compile Include="ORM\BD.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -262,9 +263,6 @@
       <DependentUpon>BD.tt</DependentUpon>
     </Compile>
     <Compile Include="ORM\JobApplication.cs">
-      <DependentUpon>BD.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ORM\Manager.cs">
       <DependentUpon>BD.tt</DependentUpon>
     </Compile>
     <Compile Include="ORM\MultimediaCase.cs">

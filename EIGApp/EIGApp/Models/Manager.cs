@@ -1,6 +1,6 @@
 ﻿namespace EIGApp.Models
 {
-    public class Administrator
+    public class Manager
     {
         public long Id { get; set; }
         public string Clave { get; set; }

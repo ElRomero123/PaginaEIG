@@ -1,5 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="BDEIGModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Administrator">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Clave" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="255" Nullable="false" />
+  </EntityType>
   <EntityType Name="Business">
     <Key>
       <PropertyRef Name="Id" />
@@ -48,16 +57,6 @@
     <Property Name="Age" Type="int" Nullable="false" />
     <Property Name="PostedDate" Type="nvarchar" MaxLength="255" Nullable="false" />
     <Property Name="IdUser" Type="bigint" Nullable="false" />
-  </EntityType>
-  <EntityType Name="Manager">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Clave" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Name" Type="nvarchar" MaxLength="255" Nullable="false" />
-    <Property Name="Email" Type="nvarchar" MaxLength="255" Nullable="false" />
-    <Property Name="Phone" Type="nvarchar" MaxLength="255" Nullable="false" />
   </EntityType>
   <EntityType Name="MultimediaCase">
     <Key>
@@ -327,11 +326,11 @@
     </ReferentialConstraint>
   </Association>
   <EntityContainer Name="BDEIGModelStoreContainer">
+    <EntitySet Name="Administrator" EntityType="Self.Administrator" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Business" EntityType="Self.Business" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Case" EntityType="Self.Case" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Donation" EntityType="Self.Donation" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="JobApplication" EntityType="Self.JobApplication" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="Manager" EntityType="Self.Manager" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="MultimediaCase" EntityType="Self.MultimediaCase" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="MultimediaJobApplication" EntityType="Self.MultimediaJobApplication" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="OtherPerson" EntityType="Self.OtherPerson" Schema="dbo" store:Type="Tables" />

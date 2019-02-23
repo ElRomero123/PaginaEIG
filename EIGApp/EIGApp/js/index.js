@@ -6,6 +6,11 @@ function checkSesion()
     {
         location.href = 'menu.html';
     }
+
+    else if(localStorage.getItem('Email') != null)
+    {
+        location.href = 'menuAdministrator.html';
+    }
 }
 
 function option(num)
@@ -13,27 +18,26 @@ function option(num)
     switch(num)
     {
         case 1:
-        alert('Hola');
-        /*
-            if(navigator.onLine)
-            {
-                validate();
-            }
+        
+        if(navigator.onLine)
+        {
+            validate();
+        }
 
-            else
-            {
-                $('#send').css('background','red');
-                $('#send').css('border','2px solid red');
-                $('#send').text('NO está conectado a internet!');
-            }
-            */
+        else
+        {
+            $('#send').css('background','red');
+            $('#send').css('border','2px solid red');
+            $('#send').text('NO está conectado a internet!');
+        }
+
         break;
         case 2:
         location.href = 'register.html';
         break;
 
         default:
-        location.href = 'loginManager.html';
+        location.href = 'loginAdministrator.html';
     }
 }
 

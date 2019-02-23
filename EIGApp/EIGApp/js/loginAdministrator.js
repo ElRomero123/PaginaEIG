@@ -2,9 +2,9 @@ window.onload = checkSesion;
 
 function checkSesion()
 {   
-    if(localStorage.getItem('Name') != null)
+    if(localStorage.getItem('Email') != null)
     {
-        location.href = 'menu.html';
+        location.href = 'menuAdministrator.html';
     }
 }
 
@@ -13,20 +13,21 @@ function option(num)
     switch(num)
     {
         case 1:
-        if(navigator.onLine)
-        {
-            validate();
-        }
+            if(navigator.onLine)
+            {
+                validate();
+            }
 
-        else
-        {
-            $('#send').css('background','red');
-            $('#send').css('border','2px solid red');
-            $('#send').text('NO está conectado a internet!');
-        }
+            else
+            {
+                $('#send').css('background','red');
+                $('#send').css('border','2px solid red');
+                $('#send').text('NO está conectado a internet!');
+            }
         
         break;
-        default: location.href = 'index.html';
+        default: 
+            location.href = 'index.html';
     }
 }
 
@@ -42,7 +43,7 @@ function validate()
     $.ajax
     (
         {
-            url: '../api/administrator/?password=' + clave,
+            url: '../api/manager/?password=' + clave,
             type: 'GET',
             contentType: "application/json;charset=utf-8",
 
