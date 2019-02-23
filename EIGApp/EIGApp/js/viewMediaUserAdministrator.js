@@ -51,13 +51,13 @@ function loadProfilesUser()
                         {
                             if(data[i].Active == 1)
                             {
-                                cadena += "<div class='result'> <div class='avatar' id='" + i + "'></div> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].ProfesionDescription + "</p> <p class='pf3'>" + data[i].Email + "</p> <p class='pf4'>" + data[i].Phone + "</p> <p class='pf4'>" + 'Unido el ' + data[i].CreationDate + "</p> <button class='moreResult' onclick='showMedia(this)'>Multimedia</button> <button id='" + data[i].Id + "' class='moreResult' onclick='putOn(this)'>Desactivar</button> </div> </div>";
+                                cadena += "<div class='result'> <div class='avatar' id='" + i + "'></div> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].ProfesionDescription + "</p> <p class='pf3'>" + data[i].Email + "</p> <p class='pf4'>" + data[i].Phone + "</p> <p class='pf4'>" + 'Unido el ' + data[i].CreationDate + "</p> <button class='moreResult' onclick='showMedia(this)'>Multimedia</button> <button class='moreResult' id='" + data[i].Id + "' onclick='flip(this)'>Desactivar</button> </div> </div>";
                                 
                             }
 
                             else
                             {
-                                cadena += "<div class='result'> <div class='avatar' id='" + i + "'></div> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].ProfesionDescription + "</p> <p class='pf3'>" + data[i].Email + "</p> <p class='pf4'>" + data[i].Phone + "</p> <p class='pf4'>" + 'Unido el ' + data[i].CreationDate + "</p> <button class='moreResult' onclick='showMedia(this)'>Multimedia</button> <button id='" + data[i].Id + "' class='moreResult' onclick='putOn(this)'>Activar</button> </div> </div>";
+                                cadena += "<div class='result'> <div class='avatar' id='" + i + "'></div> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].ProfesionDescription + "</p> <p class='pf3'>" + data[i].Email + "</p> <p class='pf4'>" + data[i].Phone + "</p> <p class='pf4'>" + 'Unido el ' + data[i].CreationDate + "</p> <button class='moreResult' onclick='showMedia(this)'>Multimedia</button> <button class='moreResult' id='" + data[i].Id + "' onclick='flip(this)'>Activar</button> </div> </div>";
                             }
                         }
 
@@ -67,16 +67,14 @@ function loadProfilesUser()
                         {
                             if(data[i].Active == 1)
                             {
-                                $('#' + data[i].Id).css('background','red');
+                                $('#' + data[i].Id).css('background','green');
                                 $('#' + data[i].Id).css('color','white');
-                                $('#' + data[i].Id).text('Desactivar');
                             }
 
                             else
                             {
-                                $('#' + data[i].Id).css('background','green');
+                                $('#' + data[i].Id).css('background','red');
                                 $('#' + data[i].Id).css('color','white');
-                                $('#' + data[i].Id).text('Activar'); 
                             }
 
                             avatar = data[i].Avatar;
@@ -126,7 +124,7 @@ function to(num)
     }
 }
 
-function putOn(e)
+function flip(e)
 {
     $('#' + e.id).css('background','yellow');
     $('#' + e.id).css('color','black');
