@@ -75,6 +75,36 @@ namespace EIGApp.Controllers
             return arrayPeople;
         }
 
+        public int Post(long id)
+        {
+            int c = 0;
+
+            try
+            {
+                O.Person BDPerson = BD.People.FirstOrDefault(x => x.Id == id);
+
+                if (BDPerson.Active == 1)
+                {
+                    BDPerson.Active = 0;
+                    c = 0;
+                }
+
+                else
+                {
+                    BDPerson.Active = 1;
+                    c = 1;
+                }
+
+                BD.SaveChanges();
+            }
+                
+            catch
+            { 
+            }
+
+            return c;
+        }
+
         public long Post(M.Person persona)
         {
             long id = 0;
