@@ -3,12 +3,12 @@ window.onload = initUser;
 function initUser()
 {
     var name     = localStorage.getItem('Name');
-    var username = localStorage.getItem('Username');
+    var email = localStorage.getItem('Email');
     
     if(name != null)
     {
         $('#infoName').text(name);
-        $('#infoUsername').text(username);
+        $('#infoUsername').text(email);
     }
 
     else
@@ -16,10 +16,10 @@ function initUser()
         location.href = 'index.html';
     }
 
-    loadDonations();
+    loadSuggestions();
 }
 
-function loadDonations()
+function loadSuggestions()
 {
     if(navigator.onLine)
     {
@@ -33,7 +33,7 @@ function loadDonations()
         $.ajax
         (
             {
-                url: '../api/donation',
+                url: '../api/suggestion',
                 type: 'GET',
                 contentType: "application/json;charset=utf-8",
 
@@ -46,14 +46,14 @@ function loadDonations()
 
                         for(var i = 0; i < data.length; i++)
                         {
-                            cadena += "<div class='result'> <div class='text'> <p class='pf1'> $ " + data[i].Amount + " US </p> <p class='pf3'> Donada el " + data[i].Date + " por " + data[i].Username + "</p> </div> </div>";  
+                            cadena += "<div class='result'> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].Description + "</p> <p class='pf3'> Publicado el " + data[i].PostedDate + " por " + data[i].Username + "</p> </div> </div>";  
                         }
                         
                         $('#listResults').append(cadena);
 
                         $('#bannerState').css('background','green');
                         $('#bannerState').css('color','white');
-                        $('#bannerState').text(i + ' donaciones!');
+                        $('#bannerState').text(i + ' recomendaciones!');
                         $('#listResults').css('display','flex');
                     }
 
@@ -61,7 +61,7 @@ function loadDonations()
                     {
                         $('#bannerState').css('background','red');
                         $('#bannerState').css('color','white');
-                        $('#bannerState').text('Sin donaciones!');
+                        $('#bannerState').text('Sin recomendaciones!');
                     }
                 }
             }
@@ -85,6 +85,6 @@ function to(num)
         location.href = 'index.html';
         break;
         default:
-        location.href = 'menuManager.html';
+        location.href = 'menuAdministrator.html';
     }
 }

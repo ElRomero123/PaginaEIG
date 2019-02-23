@@ -3,12 +3,12 @@ window.onload = initUser;
 function initUser()
 {
     var name     = localStorage.getItem('Name');
-    var username = localStorage.getItem('Username');
+    var email = localStorage.getItem('Email');
     
     if(name != null)
     {
         $('#infoName').text(name);
-        $('#infoUsername').text(username);
+        $('#infoUsername').text(email);
     }
 
     else
@@ -16,10 +16,10 @@ function initUser()
         location.href = 'index.html';
     }
 
-    loadSuggestions();
+    loadApplications();
 }
 
-function loadSuggestions()
+function loadApplications()
 {
     if(navigator.onLine)
     {
@@ -33,7 +33,7 @@ function loadSuggestions()
         $.ajax
         (
             {
-                url: '../api/suggestion',
+                url: '../api/jobApplication',
                 type: 'GET',
                 contentType: "application/json;charset=utf-8",
 
@@ -46,14 +46,14 @@ function loadSuggestions()
 
                         for(var i = 0; i < data.length; i++)
                         {
-                            cadena += "<div class='result'> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].Description + "</p> <p class='pf3'> Publicado el " + data[i].PostedDate + " por " + data[i].Username + "</p> </div> </div>";  
+                            cadena += "<div class='result'> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].DocumentNumber + "</p> <p class='pf2'>" + data[i].DescriptionApplication + "</p> <p class='pf2'>Edad: " + data[i].Age + "</p> <p class='pf3'> Fecha de postulación " + data[i].PostedDate + " por " + data[i].Username + "</p> <button id='" + data[i].Id + "' class='moreResult' onclick='toDetailJA(this)'>Ver anexos</button> </div> </div>";  
                         }
                         
                         $('#listResults').append(cadena);
 
                         $('#bannerState').css('background','green');
                         $('#bannerState').css('color','white');
-                        $('#bannerState').text(i + ' recomendaciones!');
+                        $('#bannerState').text(i + ' solicitudes!');
                         $('#listResults').css('display','flex');
                     }
 
@@ -61,7 +61,7 @@ function loadSuggestions()
                     {
                         $('#bannerState').css('background','red');
                         $('#bannerState').css('color','white');
-                        $('#bannerState').text('Sin recomendaciones!');
+                        $('#bannerState').text('Sin solicitudes!');
                     }
                 }
             }
@@ -85,6 +85,12 @@ function to(num)
         location.href = 'index.html';
         break;
         default:
-        location.href = 'menuManager.html';
+        location.href = 'menuAdministrator.html';
     }
+}
+
+function toDetailJA(e)
+{
+    localStorage.setItem('JAId', e.id);
+    location.href = 'viewDetailApplication.html';
 }

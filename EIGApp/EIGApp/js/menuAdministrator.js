@@ -27,18 +27,18 @@ function to(num)
         location.href = 'index.html';
         break;
         case 2:
-        location.href = 'menuProfilesManager.html';
+        location.href = 'menuProfilesAdministrator.html';
         break;
         case 3:
-        location.href = 'menuCasesManager.html';
+        location.href = 'menuCasesAdministrator.html';
         break;
         case 4:
-        location.href = 'menuApplicationsManager.html';
+        location.href = 'menuApplicationsAdministrator.html';
         break;
         case 5:
-        location.href = 'menuSuggestionsManager.html';
+        location.href = 'menuSuggestionsAdministrator.html';
         break;
         default:
-        location.href = 'menuDonationsManager.html';
+        location.href = 'menuDonationsAdministrator.html';
     }
 }

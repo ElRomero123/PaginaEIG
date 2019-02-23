@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href='css/index.css'>
         <link rel='icon' href='img/title.ico'>
-        <title>Búsqueda - Investigadores privados</title>
+        <title>Mis casos</title>
     </head>
 
     <body>
@@ -19,17 +19,24 @@
         </header>
 
         <div> 
-            <p class='searchTag'>Menú de administración</p> 
-            <p class='categorySearch'>Gestión del uso de la plataforma</p>
-         
+            <p class='searchTag'>Postulaciones</p> 
+            <p class='categorySearch'>Gestionar solicitudes de empleo creadas para EIG Servicios Directos</p>
+
             <div class='categories'>
-                <div id='c9' class='category' onclick='to(2)'></div>
-                <div id='c16' class='category' onclick='to(3)'></div>
-                <div id='c17' class='category' onclick='to(4)'></div>
+                <div id='c9' class='category' onclick="to(2)"></div>
             </div>
+            
+            <div id='bannerState'> </div>
+
+            <div>
+                <div id='listResults'>
+                </div> 
+            </div>
+            
+   
         </div>
             
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <script src='js/menuProfilesManager.js'></script>
+        <script src='js/menuApplicationsAdministrator.js'></script>
     </body>
 </html>

@@ -3,12 +3,12 @@ window.onload = initUser;
 function initUser()
 {
     var name     = localStorage.getItem('Name');
-    var username = localStorage.getItem('Username');
+    var email = localStorage.getItem('Email');
     
     if(name != null)
     {
         $('#infoName').text(name);
-        $('#infoUsername').text(username);
+        $('#infoUsername').text(email);
     }
 
     else
@@ -93,6 +93,6 @@ function to(num)
         location.href = 'index.html';
         break;
         default:
-        location.href = 'menuApplicationsManager.html';
+        location.href = 'menuApplicationsAdministrator.html';
     }
 }

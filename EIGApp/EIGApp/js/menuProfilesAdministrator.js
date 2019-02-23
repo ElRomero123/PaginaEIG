@@ -3,12 +3,12 @@ window.onload = initUser;
 function initUser()
 {
     var name     = localStorage.getItem('Name');
-    var username = localStorage.getItem('Username');
+    var email = localStorage.getItem('Email');
     
     if(name != null)
     {
         $('#infoName').text(name);
-        $('#infoUsername').text(username);
+        $('#infoUsername').text(email);
     }
 
     else
@@ -27,7 +27,7 @@ function to(num)
         location.href = 'index.html';
         break;
         case 2:
-        location.href = 'menuManager.html';
+        location.href = 'menuAdministrator.html';
         break;
         case 3:
         alert('Controlar por usuario funciona');

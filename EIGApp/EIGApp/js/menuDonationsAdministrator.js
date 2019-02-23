@@ -3,12 +3,12 @@ window.onload = initUser;
 function initUser()
 {
     var name     = localStorage.getItem('Name');
-    var username = localStorage.getItem('Username');
+    var email = localStorage.getItem('Email');
     
     if(name != null)
     {
         $('#infoName').text(name);
-        $('#infoUsername').text(username);
+        $('#infoUsername').text(email);
     }
 
     else
@@ -16,10 +16,10 @@ function initUser()
         location.href = 'index.html';
     }
 
-    loadApplications();
+    loadDonations();
 }
 
-function loadApplications()
+function loadDonations()
 {
     if(navigator.onLine)
     {
@@ -33,7 +33,7 @@ function loadApplications()
         $.ajax
         (
             {
-                url: '../api/jobApplication',
+                url: '../api/donation',
                 type: 'GET',
                 contentType: "application/json;charset=utf-8",
 
@@ -46,14 +46,14 @@ function loadApplications()
 
                         for(var i = 0; i < data.length; i++)
                         {
-                            cadena += "<div class='result'> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].DocumentNumber + "</p> <p class='pf2'>" + data[i].DescriptionApplication + "</p> <p class='pf2'>Edad: " + data[i].Age + "</p> <p class='pf3'> Fecha de postulación " + data[i].PostedDate + " por " + data[i].Username + "</p> <button id='" + data[i].Id + "' class='moreResult' onclick='toDetailJA(this)'>Ver anexos</button> </div> </div>";  
+                            cadena += "<div class='result'> <div class='text'> <p class='pf1'> $ " + data[i].Amount + " US </p> <p class='pf3'> Donada el " + data[i].Date + " por " + data[i].Username + "</p> </div> </div>";  
                         }
                         
                         $('#listResults').append(cadena);
 
                         $('#bannerState').css('background','green');
                         $('#bannerState').css('color','white');
-                        $('#bannerState').text(i + ' solicitudes!');
+                        $('#bannerState').text(i + ' donaciones!');
                         $('#listResults').css('display','flex');
                     }
 
@@ -61,7 +61,7 @@ function loadApplications()
                     {
                         $('#bannerState').css('background','red');
                         $('#bannerState').css('color','white');
-                        $('#bannerState').text('Sin solicitudes!');
+                        $('#bannerState').text('Sin donaciones!');
                     }
                 }
             }
@@ -85,12 +85,6 @@ function to(num)
         location.href = 'index.html';
         break;
         default:
-        location.href = 'menuManager.html';
+        location.href = 'menuAdministrator.html';
     }
-}
-
-function toDetailJA(e)
-{
-    localStorage.setItem('JAId', e.id);
-    location.href = 'viewDetailApplication.html';
 }
