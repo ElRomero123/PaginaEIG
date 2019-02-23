@@ -19,7 +19,7 @@ function initUser()
     loadProfilesUser();
 }
 
-/*
+
 function loadProfilesUser()
 {
     if(navigator.onLine)
@@ -31,12 +31,12 @@ function loadProfilesUser()
         $('#bannerState').css('color','black');
         $('#bannerState').text('Cargando ...');
 
-        var idJA = localStorage.getItem('JAId');
+        var idUser = localStorage.getItem('IdUser');
 
         $.ajax
         (
             {
-                url: '../api/multimediaJobApplication/?idJA=' + idJA,
+                url: '../api/person/?idUser=' + idUser,
                 type: 'GET',
                 contentType: "application/json;charset=utf-8",
 
@@ -49,14 +49,28 @@ function loadProfilesUser()
 
                         for(var i = 0; i < data.length; i++)
                         {
-                            cadena += "<div class='result'> <div class='text'> <p class='pf2'>" + data[i].FileName + "</p> <p class='pf4'>Anexado el " + data[i].LoadDate + "</p> <button id='" + data[i].Id + "' class='moreResult' onclick='download(this)'>Descargar</button> <p hidden class='pf4' id='DL" + data[i].Id + "'>" + data[i].DownloadLink + "</p> </div> </div>";  
+                            if(data[i].Active == 1)
+                            {
+                                cadena += "<div class='result'> <div class='avatar' id='" + i + "'></div> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].ProfesionDescription + "</p> <p class='pf3'>" + data[i].Email + "</p> <p class='pf4'>" + data[i].Phone + "</p> <p class='pf4'>" + 'Unido el ' + data[i].CreationDate + "</p> <button id='" + data[i].Id + "' class='moreResult' onclick='showMedia(this)'>Multimedia</button> <button id='" + data[i].Id + "' class='moreResult' onclick='activate(this)'>Desactivar</button> </div> </div>";
+                            }
+
+                            else
+                            {
+                                cadena += "<div class='result'> <div class='avatar' id='" + i + "'></div> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].ProfesionDescription + "</p> <p class='pf3'>" + data[i].Email + "</p> <p class='pf4'>" + data[i].Phone + "</p> <p class='pf4'>" + 'Unido el ' + data[i].CreationDate + "</p> <button id='" + data[i].Id + "' class='moreResult' onclick='showMedia(this)'>Multimedia</button> <button id='" + data[i].Id + "' class='moreResult' onclick='activate(this)'>Activar</button> </div> </div>";
+                            }
                         }
-                        
+
                         $('#listResults').append(cadena);
 
+                        for(var i = 0; i < data.length; i++)
+                        {
+                            avatar = data[i].Avatar;
+                            document.getElementById(i).style.background = 'url("' + avatar + '")';
+                        }
+                        
                         $('#bannerState').css('background','green');
                         $('#bannerState').css('color','white');
-                        $('#bannerState').text('La solicitud tiene ' + i + ' anexos!');
+                        $('#bannerState').text('El usuario tiene ' + i + ' perfiles!');
                         $('#listResults').css('display','flex');
                     }
 
@@ -64,7 +78,7 @@ function loadProfilesUser()
                     {
                         $('#bannerState').css('background','red');
                         $('#bannerState').css('color','white');
-                        $('#bannerState').text('La solicitud NO tiene anexos!');
+                        $('#bannerState').text('El usuario NO tiene perfiles!');
                     }
                 }
             }
@@ -78,15 +92,11 @@ function loadProfilesUser()
         $('#bannerState').text('Sin internet!');
     }
 }
-*/
 
-/*
-function download(e)
+function showMedia(e)
 {
-    var download = document.getElementById('DL' + e.id).innerHTML;
-    window.open(download, '_blank');
+    alert('Ver multimedia de ' + e.id + ' funciona');
 }
-*/
 
 function to(num)
 {
@@ -97,6 +107,6 @@ function to(num)
         location.href = 'index.html';
         break;
         default:
-        location.href = 'menuApplicationsAdministrator.html';
+        location.href = 'userControllerAdministrator.html';
     }
 }

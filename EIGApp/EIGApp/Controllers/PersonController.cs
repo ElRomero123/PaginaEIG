@@ -42,6 +42,39 @@ namespace EIGApp.Controllers
             return arrayPeople;
         }
 
+        public M.Person[] Get(long idUser)
+        {
+            var query = from P in BD.People
+                        where (P.IdUser.Equals(idUser))
+                        select new {P.Id, P.Name, P.ProfesionDescription, P.Email, P.Phone, P.Latitude, P.Longitude, P.Ciprin, P.Active, P.CreationDate, P.Avatar};
+
+            var lista = query.ToArray();
+
+            M.Person[] arrayPeople = new M.Person[lista.Length];
+
+            for (int i = 0; i < lista.Length; i++)
+            {
+                M.Person temp = new M.Person
+                {
+                    Id = lista[i].Id,
+                    Name = lista[i].Name,
+                    ProfesionDescription = lista[i].ProfesionDescription,
+                    Email = lista[i].Email,
+                    Phone = lista[i].Phone,
+                    Latitude = lista[i].Latitude,
+                    Longitude = lista[i].Longitude,
+                    Ciprin = lista[i].Ciprin,
+                    Active = lista[i].Active,
+                    CreationDate = lista[i].CreationDate,
+                    Avatar = lista[i].Avatar
+                };
+
+                arrayPeople[i] = temp;
+            }
+
+            return arrayPeople;
+        }
+
         public long Post(M.Person persona)
         {
             long id = 0;
