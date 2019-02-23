@@ -39,6 +39,36 @@ namespace EIGApp.Controllers
             return arrayPackage;
         }
 
+        public M.Package[] Get()
+        {
+            var query = from P in BD.Packages
+                        where (true)
+                        select new {P.Id, P.Linea, P.Producto, P.Cantidad, P.FechaCompra, P.TiempoCubrimiento, P.Precio};
+
+            var lista = query.ToArray();
+            int rsize = lista.Length;
+
+            M.Package[] arrayPackage = new M.Package[rsize];
+
+            for (int i = 0; i < rsize; i++)
+            {
+                M.Package temp = new M.Package
+                {
+                    Id                = lista[i].Id,
+                    Linea             = lista[i].Linea,
+                    Producto          = lista[i].Producto,
+                    Cantidad          = lista[i].Cantidad,
+                    FechaCompra       = lista[i].FechaCompra,
+                    TiempoCubrimiento = lista[i].TiempoCubrimiento,
+                    Precio            = lista[i].Precio
+                };
+
+                arrayPackage[i] = temp;
+            }
+
+            return arrayPackage;
+        }
+
         public bool Post(M.Package paquete)
         {
             bool state;
