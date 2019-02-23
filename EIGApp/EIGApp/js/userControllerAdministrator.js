@@ -94,4 +94,5 @@ function to(num)
 function toMoreUser(e)
 {
     alert('Ver mas información de ' + e.id + ' funciona!');
+    location.href = 'viewMediaUserAdministrator.html';
 }

@@ -16,11 +16,11 @@ function initUser()
         location.href = 'index.html';
     }
 
-    loadPackages();
+    loadProfilesUser();
 }
 
-
-function loadPackages()
+/*
+function loadProfilesUser()
 {
     if(navigator.onLine)
     {
@@ -31,10 +31,12 @@ function loadPackages()
         $('#bannerState').css('color','black');
         $('#bannerState').text('Cargando ...');
 
+        var idJA = localStorage.getItem('JAId');
+
         $.ajax
         (
             {
-                url: '../api/package',
+                url: '../api/multimediaJobApplication/?idJA=' + idJA,
                 type: 'GET',
                 contentType: "application/json;charset=utf-8",
 
@@ -47,14 +49,14 @@ function loadPackages()
 
                         for(var i = 0; i < data.length; i++)
                         {
-                            cadena += "<div class='result'> <div class='text'> <p class='pf1'>" + data[i].Producto + "</p> <p class='pf2'>" + data[i].Linea + "</p> <p class='pf3'>" + data[i].Cantidad + "</p> <p class='pf3'>" + data[i].TiempoCubrimiento + "</p> <p class='pf3'>" + data[i].Precio + "</p> <p class='pf3'> Comprado el " + data[i].FechaCompra + " por " + data[i].Username + "</p> <button id='" + data[i].Id + "' class='moreResult' onclick='toMorePackage(this)'>Mas</button> </div> </div>";  
+                            cadena += "<div class='result'> <div class='text'> <p class='pf2'>" + data[i].FileName + "</p> <p class='pf4'>Anexado el " + data[i].LoadDate + "</p> <button id='" + data[i].Id + "' class='moreResult' onclick='download(this)'>Descargar</button> <p hidden class='pf4' id='DL" + data[i].Id + "'>" + data[i].DownloadLink + "</p> </div> </div>";  
                         }
-        
+                        
                         $('#listResults').append(cadena);
 
                         $('#bannerState').css('background','green');
                         $('#bannerState').css('color','white');
-                        $('#bannerState').text(i + ' paquetes');
+                        $('#bannerState').text('La solicitud tiene ' + i + ' anexos!');
                         $('#listResults').css('display','flex');
                     }
 
@@ -62,7 +64,7 @@ function loadPackages()
                     {
                         $('#bannerState').css('background','red');
                         $('#bannerState').css('color','white');
-                        $('#bannerState').text('Sin paquetes!');
+                        $('#bannerState').text('La solicitud NO tiene anexos!');
                     }
                 }
             }
@@ -76,6 +78,15 @@ function loadPackages()
         $('#bannerState').text('Sin internet!');
     }
 }
+*/
+
+/*
+function download(e)
+{
+    var download = document.getElementById('DL' + e.id).innerHTML;
+    window.open(download, '_blank');
+}
+*/
 
 function to(num)
 {
@@ -86,12 +97,6 @@ function to(num)
         location.href = 'index.html';
         break;
         default:
-        location.href = 'menuProfilesAdministrator.html';
+        location.href = 'menuApplicationsAdministrator.html';
     }
-}
-
-
-function toMorePackage(e)
-{
-    alert('Ver mas del paquete ' + e.id + ' funciona!');
 }
