@@ -31,10 +31,8 @@ function to(num)
         break;
         case 3:
         location.href = 'userControllerAdministrator.html';
-        //alert('Controlar por usuario funciona');
         break;
         default:
         location.href = 'packageControllerAdministrator.html';
-        //alert('Controlar por paquete funciona');
     }
 }
