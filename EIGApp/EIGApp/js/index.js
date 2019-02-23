@@ -6,11 +6,6 @@ function checkSesion()
     {
         location.href = 'menu.html';
     }
-
-    else if(localStorage.getItem('Email') != null)
-    {
-        location.href = 'menuAdministrator.html';
-    }
 }
 
 function option(num)

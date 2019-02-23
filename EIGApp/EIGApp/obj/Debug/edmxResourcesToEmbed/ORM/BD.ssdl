@@ -5,6 +5,7 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Alias" Type="nvarchar" MaxLength="255" Nullable="false" />
     <Property Name="Clave" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Name" Type="nvarchar" MaxLength="255" Nullable="false" />
     <Property Name="Email" Type="nvarchar" MaxLength="255" Nullable="false" />

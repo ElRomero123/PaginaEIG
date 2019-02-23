@@ -5,6 +5,7 @@
       <EntityTypeMapping TypeName="BDEIGModel.Administrator">
         <MappingFragment StoreEntitySet="Administrator">
           <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Alias" ColumnName="Alias" />
           <ScalarProperty Name="Clave" ColumnName="Clave" />
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="Email" ColumnName="Email" />

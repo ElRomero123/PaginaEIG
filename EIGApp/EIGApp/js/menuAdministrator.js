@@ -5,7 +5,7 @@ function initUser()
     var name     = localStorage.getItem('Name');
     var email = localStorage.getItem('Email');
     
-    if(name != null)
+    if(email != null)
     {
         $('#infoName').text(name);
         $('#infoUsername').text(email);

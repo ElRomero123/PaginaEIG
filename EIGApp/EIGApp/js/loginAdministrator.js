@@ -33,6 +33,7 @@ function option(num)
 
 function validate()
 {
+    var alias = document.getElementById('boxAlias').value;
     var clave = document.getElementById('boxPassword').value;
 
     $('#send').css('background','orangered');
@@ -43,7 +44,7 @@ function validate()
     $.ajax
     (
         {
-            url: '../api/manager/?password=' + clave,
+            url: '../api/manager/?alias=' + alias + '&password=' + clave,
             type: 'GET',
             contentType: "application/json;charset=utf-8",
 

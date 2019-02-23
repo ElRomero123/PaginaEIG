@@ -3,22 +3,21 @@ var mapa, gmaps;
 
 function initUser()
 {
-    var administrador = localStorage.getItem('Administrador');
     var name     = localStorage.getItem('Name');
     var username = localStorage.getItem('Username');
+    var email = localStorage.getItem('Email');
 
     if(name != null)
     {
-        $('#infoName').text(name);
-        $('#infoUsername').text(username);
-
-        if(administrador == true)
+        if(email != null)
         {
-            location.href = 'menuManager.html';
+            location.href = 'menuAdministrator.html';
         }
 
-        else if (administrador == false)
-        { 
+        else
+        {
+            $('#infoName').text(name);
+            $('#infoUsername').text(username);
         }
     }
 
@@ -26,8 +25,6 @@ function initUser()
     {
         location.href = 'index.html';
     }
-
-    
 }
 
 function search()

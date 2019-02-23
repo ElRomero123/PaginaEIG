@@ -4,8 +4,8 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="f24995d9d0d443d3908eb92ba95dbf0e" Name="Diagram1">
-        <EntityTypeShape EntityType="BDEIGModel.Administrator" Width="1.5" PointX="5.75" PointY="5.75" IsExpanded="true" />
+      <Diagram DiagramId="e189904378b44db6b0b48df45bdd505e" Name="Diagram1">
+        <EntityTypeShape EntityType="BDEIGModel.Administrator" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="BDEIGModel.Business" Width="1.5" PointX="5.25" PointY="16.125" IsExpanded="true" />
         <EntityTypeShape EntityType="BDEIGModel.Case" Width="1.5" PointX="3" PointY="2.25" IsExpanded="true" />
         <EntityTypeShape EntityType="BDEIGModel.Donation" Width="1.5" PointX="3" PointY="5.375" IsExpanded="true" />
