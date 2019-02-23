@@ -48,28 +48,59 @@ namespace EIGApp.Controllers
                         where (P.IdUser.Equals(idUser))
                         select new {P.Id, P.Name, P.ProfesionDescription, P.Email, P.Phone, P.Latitude, P.Longitude, P.Ciprin, P.Active, P.CreationDate, P.Avatar};
 
+            var query2 = from P in BD.OtherPersons
+                        where (P.IdUser.Equals(idUser))
+                        select new {P.Id, P.Name, P.ProfesionDescription, P.Email, P.Phone, P.Latitude, P.Longitude, P.Ciprin, P.Active, P.CreationDate, P.Avatar};
+
             var lista = query.ToArray();
+            var lista2 = query2.ToArray();
 
-            M.Person[] arrayPeople = new M.Person[lista.Length];
+            int size1 = lista.Length;
+            int size2 = lista2.Length;
 
-            for (int i = 0; i < lista.Length; i++)
+            M.Person[] arrayPeople = new M.Person[size1 + size2];
+
+            int i;
+            for (i = 0; i < size1; i++)
             {
                 M.Person temp = new M.Person
                 {
-                    Id = lista[i].Id,
-                    Name = lista[i].Name,
+                    Id                   = lista[i].Id,
+                    Name                 = lista[i].Name,
                     ProfesionDescription = lista[i].ProfesionDescription,
-                    Email = lista[i].Email,
-                    Phone = lista[i].Phone,
-                    Latitude = lista[i].Latitude,
-                    Longitude = lista[i].Longitude,
-                    Ciprin = lista[i].Ciprin,
-                    Active = lista[i].Active,
-                    CreationDate = lista[i].CreationDate,
-                    Avatar = lista[i].Avatar
+                    Email                = lista[i].Email,
+                    Phone                = lista[i].Phone,
+                    Latitude             = lista[i].Latitude,
+                    Longitude            = lista[i].Longitude,
+                    Ciprin               = lista[i].Ciprin,
+                    Active               = lista[i].Active,
+                    CreationDate         = lista[i].CreationDate,
+                    Avatar               = lista[i].Avatar
                 };
 
                 arrayPeople[i] = temp;
+            }
+
+            i = 0;
+            for (int j = size1; j < size1 + size2; j++)
+            {
+                M.Person temp = new M.Person
+                {
+                    Id = lista2[i].Id,
+                    Name = lista2[i].Name,
+                    ProfesionDescription = lista2[i].ProfesionDescription,
+                    Email = lista2[i].Email,
+                    Phone = lista2[i].Phone,
+                    Latitude = lista2[i].Latitude,
+                    Longitude = lista2[i].Longitude,
+                    Ciprin = lista2[i].Ciprin,
+                    Active = lista2[i].Active,
+                    CreationDate = lista2[i].CreationDate,
+                    Avatar = lista2[i].Avatar
+                };
+
+                arrayPeople[j] = temp;
+                i++;
             }
 
             return arrayPeople;
