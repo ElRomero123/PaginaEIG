@@ -67,5 +67,35 @@ namespace EIGApp.Controllers
 
             return id;
         }
+
+        public int Post(long id)
+        {
+            int c = 0;
+
+            try
+            {
+                O.OtherPerson BDOtherPerson = BD.OtherPersons.FirstOrDefault(x => x.Id == id);
+
+                if (BDOtherPerson.Active == 1)
+                {
+                    BDOtherPerson.Active = 0;
+                    c = 0;
+                }
+
+                else
+                {
+                    BDOtherPerson.Active = 1;
+                    c = 1;
+                }
+
+                BD.SaveChanges();
+            }
+
+            catch
+            {
+            }
+
+            return c;
+        }
     }
 }

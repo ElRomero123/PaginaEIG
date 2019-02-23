@@ -75,7 +75,8 @@ namespace EIGApp.Controllers
                     Ciprin               = lista[i].Ciprin,
                     Active               = lista[i].Active,
                     CreationDate         = lista[i].CreationDate,
-                    Avatar               = lista[i].Avatar
+                    Avatar               = lista[i].Avatar,
+                    Type                 = false
                 };
 
                 arrayPeople[i] = temp;
@@ -96,7 +97,8 @@ namespace EIGApp.Controllers
                     Ciprin = lista2[i].Ciprin,
                     Active = lista2[i].Active,
                     CreationDate = lista2[i].CreationDate,
-                    Avatar = lista2[i].Avatar
+                    Avatar = lista2[i].Avatar,
+                    Type = true
                 };
 
                 arrayPeople[j] = temp;
