@@ -4,12 +4,12 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="0f323a5a5e54409a91007fabd3430b30" Name="Diagram1">
+      <Diagram DiagramId="f24995d9d0d443d3908eb92ba95dbf0e" Name="Diagram1">
+        <EntityTypeShape EntityType="BDEIGModel.Administrator" Width="1.5" PointX="5.75" PointY="5.75" IsExpanded="true" />
         <EntityTypeShape EntityType="BDEIGModel.Business" Width="1.5" PointX="5.25" PointY="16.125" IsExpanded="true" />
         <EntityTypeShape EntityType="BDEIGModel.Case" Width="1.5" PointX="3" PointY="2.25" IsExpanded="true" />
         <EntityTypeShape EntityType="BDEIGModel.Donation" Width="1.5" PointX="3" PointY="5.375" IsExpanded="true" />
         <EntityTypeShape EntityType="BDEIGModel.JobApplication" Width="1.5" PointX="3" PointY="8.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="BDEIGModel.Manager" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="BDEIGModel.MultimediaCase" Width="1.5" PointX="5.25" PointY="2.375" IsExpanded="true" />
         <EntityTypeShape EntityType="BDEIGModel.MultimediaJobApplication" Width="1.5" PointX="5.25" PointY="8.5" IsExpanded="true" />
         <EntityTypeShape EntityType="BDEIGModel.OtherPerson" Width="1.5" PointX="3" PointY="11.625" IsExpanded="true" />

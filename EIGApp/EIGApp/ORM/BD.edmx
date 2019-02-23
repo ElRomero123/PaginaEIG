@@ -5,6 +5,15 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
       <Schema Namespace="BDEIGModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Administrator">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Clave" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="255" Nullable="false" />
+        </EntityType>
         <EntityType Name="Business">
           <Key>
             <PropertyRef Name="Id" />
@@ -53,16 +62,6 @@
           <Property Name="Age" Type="int" Nullable="false" />
           <Property Name="PostedDate" Type="nvarchar" MaxLength="255" Nullable="false" />
           <Property Name="IdUser" Type="bigint" Nullable="false" />
-        </EntityType>
-        <EntityType Name="Manager">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Clave" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="Name" Type="nvarchar" MaxLength="255" Nullable="false" />
-          <Property Name="Email" Type="nvarchar" MaxLength="255" Nullable="false" />
-          <Property Name="Phone" Type="nvarchar" MaxLength="255" Nullable="false" />
         </EntityType>
         <EntityType Name="MultimediaCase">
           <Key>
@@ -332,11 +331,11 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="BDEIGModelStoreContainer">
+          <EntitySet Name="Administrator" EntityType="Self.Administrator" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Business" EntityType="Self.Business" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Case" EntityType="Self.Case" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Donation" EntityType="Self.Donation" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="JobApplication" EntityType="Self.JobApplication" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Manager" EntityType="Self.Manager" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MultimediaCase" EntityType="Self.MultimediaCase" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MultimediaJobApplication" EntityType="Self.MultimediaJobApplication" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="OtherPerson" EntityType="Self.OtherPerson" Schema="dbo" store:Type="Tables" />
@@ -395,6 +394,15 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="BDEIGModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Administrator">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Clave" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
         <EntityType Name="Business">
           <Key>
             <PropertyRef Name="Id" />
@@ -449,16 +457,6 @@
           <Property Name="IdUser" Type="Int64" Nullable="false" />
           <NavigationProperty Name="User" Relationship="Self.FK_JobApplication_User" FromRole="JobApplication" ToRole="User" />
           <NavigationProperty Name="MultimediaJobApplications" Relationship="Self.FK_MultimediaJobApplication_JobApplication" FromRole="JobApplication" ToRole="MultimediaJobApplication" />
-        </EntityType>
-        <EntityType Name="Manager">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Clave" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Email" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Phone" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
         </EntityType>
         <EntityType Name="MultimediaCase">
           <Key>
@@ -744,11 +742,11 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="BDEIGEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Administrators" EntityType="Self.Administrator" />
           <EntitySet Name="Businesses" EntityType="Self.Business" />
           <EntitySet Name="Cases" EntityType="Self.Case" />
           <EntitySet Name="Donations" EntityType="Self.Donation" />
           <EntitySet Name="JobApplications" EntityType="Self.JobApplication" />
-          <EntitySet Name="Managers" EntityType="Self.Manager" />
           <EntitySet Name="MultimediaCases" EntityType="Self.MultimediaCase" />
           <EntitySet Name="MultimediaJobApplications" EntityType="Self.MultimediaJobApplication" />
           <EntitySet Name="OtherPersons" EntityType="Self.OtherPerson" />
@@ -808,6 +806,16 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="BDEIGModelStoreContainer" CdmEntityContainer="BDEIGEntities">
+          <EntitySetMapping Name="Administrators">
+            <EntityTypeMapping TypeName="BDEIGModel.Administrator">
+              <MappingFragment StoreEntitySet="Administrator">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Clave" ColumnName="Clave" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Businesses">
             <EntityTypeMapping TypeName="BDEIGModel.Business">
               <MappingFragment StoreEntitySet="Business">
@@ -858,17 +866,6 @@
                 <ScalarProperty Name="Age" ColumnName="Age" />
                 <ScalarProperty Name="PostedDate" ColumnName="PostedDate" />
                 <ScalarProperty Name="IdUser" ColumnName="IdUser" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Managers">
-            <EntityTypeMapping TypeName="BDEIGModel.Manager">
-              <MappingFragment StoreEntitySet="Manager">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Clave" ColumnName="Clave" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Email" ColumnName="Email" />
-                <ScalarProperty Name="Phone" ColumnName="Phone" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
