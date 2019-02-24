@@ -128,9 +128,7 @@ function startMap()
     gmaps.style = 'display: block';
     navigator.geolocation.getCurrentPosition(function(position)
     { 
-        console.log(position);
-        //mapa = new google.maps.Map(gmaps, {zoom: 15, center: {lat: position.coords.latitude, lng: position.coords.longitude}});
-        mapa = new google.maps.Map(gmaps, {zoom: 15, center: {lat: 5.7123563, lng: -75.3120639}});
+        mapa = new google.maps.Map(gmaps, {zoom: 15, center: {lat: position.coords.latitude, lng: position.coords.longitude}});
     });
 }
 
