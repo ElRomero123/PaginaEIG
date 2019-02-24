@@ -130,7 +130,7 @@ function to(num)
         location.href = 'index.html';
         break;
         default:
-        location.href = 'userControllerAdministrator.html';
+        location.href = 'packageControllerAdministrator.html';
     }
 }
 
