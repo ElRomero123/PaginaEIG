@@ -74,7 +74,7 @@ namespace EIGApp.Controllers
                     CreationDate = lista[i].CreationDate,
                     Active       = lista[i].Active,
                     Avatar       = lista[i].Avatar,
-                    Type         = true
+                    Type         = false
                 };
 
                 arrayBusiness[i] = temp;

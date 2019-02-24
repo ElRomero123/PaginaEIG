@@ -166,6 +166,8 @@
     <Content Include="js\userControllerAdministrator.js" />
     <Content Include="js\viewDetailApplication.js" />
     <Content Include="js\viewDetailCase.js" />
+    <Content Include="js\viewProfilesPackageAdministrator.js" />
+    <Content Include="js\viewProfilesUserAdministrator.js" />
     <Content Include="loginAdministrator.html" />
     <Content Include="manageCases.html" />
     <Content Include="manageJobApplication.html" />
@@ -207,6 +209,8 @@
     <Content Include="userControllerAdministrator.html" />
     <Content Include="viewDetailApplication.html" />
     <Content Include="viewDetailCase.html" />
+    <Content Include="viewProfilesPackageAdministrator.html" />
+    <Content Include="viewProfilesUserAdministrator.html" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
