@@ -94,5 +94,5 @@ function to(num)
 function toMoreUser(e)
 {
     localStorage.setItem('IdUser', e.id);
-    location.href = 'viewMediaUserAdministrator.html';
+    location.href = 'viewProfilesUserAdministrator.html';
 }
