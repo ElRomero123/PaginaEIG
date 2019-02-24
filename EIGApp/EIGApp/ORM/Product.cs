@@ -14,6 +14,12 @@ namespace EIGApp.ORM
     
     public partial class Product
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Product()
+        {
+            this.MediaProducts = new HashSet<MediaProduct>();
+        }
+    
         public long Id { get; set; }
         public string Name { get; set; }
         public string Type { get; set; }
@@ -31,6 +37,8 @@ namespace EIGApp.ORM
         public string Avatar { get; set; }
         public long IdPackage { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<MediaProduct> MediaProducts { get; set; }
         public virtual Package Package { get; set; }
     }
 }

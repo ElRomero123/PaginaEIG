@@ -14,6 +14,12 @@ namespace EIGApp.ORM
     
     public partial class OtherPerson
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public OtherPerson()
+        {
+            this.MediaOtherPersons = new HashSet<MediaOtherPerson>();
+        }
+    
         public long Id { get; set; }
         public string Name { get; set; }
         public string Profesion { get; set; }
@@ -28,6 +34,8 @@ namespace EIGApp.ORM
         public string Avatar { get; set; }
         public long IdUser { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<MediaOtherPerson> MediaOtherPersons { get; set; }
         public virtual User User { get; set; }
     }
 }

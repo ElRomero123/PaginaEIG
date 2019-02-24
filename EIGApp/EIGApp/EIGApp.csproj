@@ -220,6 +220,8 @@
     <Compile Include="Controllers\CaseController.cs" />
     <Compile Include="Controllers\DonationController.cs" />
     <Compile Include="Controllers\JobApplicationController.cs" />
+    <Compile Include="Controllers\MediaOtherPersonController.cs" />
+    <Compile Include="Controllers\MediaPersonController.cs" />
     <Compile Include="Controllers\MultimediaCaseController.cs" />
     <Compile Include="Controllers\MultimediaJobApplicationController.cs" />
     <Compile Include="Controllers\OtherPersonController.cs" />
@@ -242,6 +244,8 @@
     <Compile Include="Models\Case.cs" />
     <Compile Include="Models\Donation.cs" />
     <Compile Include="Models\JobApplication.cs" />
+    <Compile Include="Models\MediaOtherPerson.cs" />
+    <Compile Include="Models\MediaPerson.cs" />
     <Compile Include="Models\MultimediaCase.cs" />
     <Compile Include="Models\MultimediaJobApplication.cs" />
     <Compile Include="Models\OtherPerson.cs" />
@@ -280,6 +284,18 @@
       <DependentUpon>BD.tt</DependentUpon>
     </Compile>
     <Compile Include="ORM\JobApplication.cs">
+      <DependentUpon>BD.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ORM\MediaBusiness.cs">
+      <DependentUpon>BD.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ORM\MediaOtherPerson.cs">
+      <DependentUpon>BD.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ORM\MediaPerson.cs">
+      <DependentUpon>BD.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ORM\MediaProduct.cs">
       <DependentUpon>BD.tt</DependentUpon>
     </Compile>
     <Compile Include="ORM\MultimediaCase.cs">

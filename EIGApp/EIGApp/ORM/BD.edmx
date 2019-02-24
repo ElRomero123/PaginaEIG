@@ -64,6 +64,46 @@
           <Property Name="PostedDate" Type="nvarchar" MaxLength="255" Nullable="false" />
           <Property Name="IdUser" Type="bigint" Nullable="false" />
         </EntityType>
+        <EntityType Name="MediaBusiness">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FileName" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="DownloadLink" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="LoadDate" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="IdBusiness" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MediaOtherPerson">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FileName" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="DownloadLink" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="LoadDate" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="IdOtherPerson" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MediaPerson">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FileName" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="DownloadLink" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="LoadDate" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="IdPerson" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MediaProduct">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FileName" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="DownloadLink" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="LoadDate" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="IdProduct" Type="bigint" Nullable="false" />
+        </EntityType>
         <EntityType Name="MultimediaCase">
           <Key>
             <PropertyRef Name="Id" />
@@ -233,6 +273,62 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_MediaBusiness_Business">
+          <End Role="Business" Type="Self.Business" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="MediaBusiness" Type="Self.MediaBusiness" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Business">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="MediaBusiness">
+              <PropertyRef Name="IdBusiness" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MediaOtherPerson_OtherPerson">
+          <End Role="OtherPerson" Type="Self.OtherPerson" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="MediaOtherPerson" Type="Self.MediaOtherPerson" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OtherPerson">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="MediaOtherPerson">
+              <PropertyRef Name="IdOtherPerson" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MediaPerson_Person">
+          <End Role="Person" Type="Self.Person" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="MediaPerson" Type="Self.MediaPerson" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Person">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="MediaPerson">
+              <PropertyRef Name="IdPerson" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MediaProduct_Product">
+          <End Role="Product" Type="Self.Product" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="MediaProduct" Type="Self.MediaProduct" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="MediaProduct">
+              <PropertyRef Name="IdProduct" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_MultimediaCase_Case">
           <End Role="Case" Type="Self.Case" Multiplicity="1">
             <OnDelete Action="Cascade" />
@@ -337,6 +433,10 @@
           <EntitySet Name="Case" EntityType="Self.Case" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Donation" EntityType="Self.Donation" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="JobApplication" EntityType="Self.JobApplication" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MediaBusiness" EntityType="Self.MediaBusiness" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MediaOtherPerson" EntityType="Self.MediaOtherPerson" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MediaPerson" EntityType="Self.MediaPerson" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MediaProduct" EntityType="Self.MediaProduct" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MultimediaCase" EntityType="Self.MultimediaCase" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MultimediaJobApplication" EntityType="Self.MultimediaJobApplication" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="OtherPerson" EntityType="Self.OtherPerson" Schema="dbo" store:Type="Tables" />
@@ -360,6 +460,22 @@
           <AssociationSet Name="FK_JobApplication_User" Association="Self.FK_JobApplication_User">
             <End Role="User" EntitySet="User" />
             <End Role="JobApplication" EntitySet="JobApplication" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MediaBusiness_Business" Association="Self.FK_MediaBusiness_Business">
+            <End Role="Business" EntitySet="Business" />
+            <End Role="MediaBusiness" EntitySet="MediaBusiness" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MediaOtherPerson_OtherPerson" Association="Self.FK_MediaOtherPerson_OtherPerson">
+            <End Role="OtherPerson" EntitySet="OtherPerson" />
+            <End Role="MediaOtherPerson" EntitySet="MediaOtherPerson" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MediaPerson_Person" Association="Self.FK_MediaPerson_Person">
+            <End Role="Person" EntitySet="Person" />
+            <End Role="MediaPerson" EntitySet="MediaPerson" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MediaProduct_Product" Association="Self.FK_MediaProduct_Product">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="MediaProduct" EntitySet="MediaProduct" />
           </AssociationSet>
           <AssociationSet Name="FK_MultimediaCase_Case" Association="Self.FK_MultimediaCase_Case">
             <End Role="Case" EntitySet="Case" />
@@ -423,6 +539,7 @@
           <Property Name="Avatar" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="IdPackage" Type="Int64" Nullable="false" />
           <NavigationProperty Name="Package" Relationship="Self.FK_Business_Package" FromRole="Business" ToRole="Package" />
+          <NavigationProperty Name="MediaBusinesses" Relationship="Self.FK_MediaBusiness_Business" FromRole="Business" ToRole="MediaBusiness" />
         </EntityType>
         <EntityType Name="Case">
           <Key>
@@ -459,6 +576,50 @@
           <Property Name="IdUser" Type="Int64" Nullable="false" />
           <NavigationProperty Name="User" Relationship="Self.FK_JobApplication_User" FromRole="JobApplication" ToRole="User" />
           <NavigationProperty Name="MultimediaJobApplications" Relationship="Self.FK_MultimediaJobApplication_JobApplication" FromRole="JobApplication" ToRole="MultimediaJobApplication" />
+        </EntityType>
+        <EntityType Name="MediaBusiness">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FileName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DownloadLink" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LoadDate" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IdBusiness" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="Business" Relationship="Self.FK_MediaBusiness_Business" FromRole="MediaBusiness" ToRole="Business" />
+        </EntityType>
+        <EntityType Name="MediaOtherPerson">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FileName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DownloadLink" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LoadDate" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IdOtherPerson" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="OtherPerson" Relationship="Self.FK_MediaOtherPerson_OtherPerson" FromRole="MediaOtherPerson" ToRole="OtherPerson" />
+        </EntityType>
+        <EntityType Name="MediaPerson">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FileName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DownloadLink" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LoadDate" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IdPerson" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="Person" Relationship="Self.FK_MediaPerson_Person" FromRole="MediaPerson" ToRole="Person" />
+        </EntityType>
+        <EntityType Name="MediaProduct">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FileName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DownloadLink" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LoadDate" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IdProduct" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="Product" Relationship="Self.FK_MediaProduct_Product" FromRole="MediaProduct" ToRole="Product" />
         </EntityType>
         <EntityType Name="MultimediaCase">
           <Key>
@@ -499,6 +660,7 @@
           <Property Name="CreationDate" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Avatar" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="IdUser" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="MediaOtherPersons" Relationship="Self.FK_MediaOtherPerson_OtherPerson" FromRole="OtherPerson" ToRole="MediaOtherPerson" />
           <NavigationProperty Name="User" Relationship="Self.FK_OtherPerson_User" FromRole="OtherPerson" ToRole="User" />
         </EntityType>
         <EntityType Name="Package">
@@ -534,6 +696,7 @@
           <Property Name="CreationDate" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Avatar" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="IdUser" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="MediaPersons" Relationship="Self.FK_MediaPerson_Person" FromRole="Person" ToRole="MediaPerson" />
           <NavigationProperty Name="User" Relationship="Self.FK_Person_User" FromRole="Person" ToRole="User" />
         </EntityType>
         <EntityType Name="Product">
@@ -556,6 +719,7 @@
           <Property Name="CreationDate" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Avatar" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="IdPackage" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="MediaProducts" Relationship="Self.FK_MediaProduct_Product" FromRole="Product" ToRole="MediaProduct" />
           <NavigationProperty Name="Package" Relationship="Self.FK_Product_Package" FromRole="Product" ToRole="Package" />
         </EntityType>
         <EntityType Name="Suggestion">
@@ -600,6 +764,20 @@
             </Principal>
             <Dependent Role="Business">
               <PropertyRef Name="IdPackage" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MediaBusiness_Business">
+          <End Role="Business" Type="Self.Business" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="MediaBusiness" Type="Self.MediaBusiness" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Business">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="MediaBusiness">
+              <PropertyRef Name="IdBusiness" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -670,6 +848,48 @@
             </Principal>
             <Dependent Role="MultimediaJobApplication">
               <PropertyRef Name="IdJobApplication" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MediaOtherPerson_OtherPerson">
+          <End Role="OtherPerson" Type="Self.OtherPerson" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="MediaOtherPerson" Type="Self.MediaOtherPerson" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OtherPerson">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="MediaOtherPerson">
+              <PropertyRef Name="IdOtherPerson" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MediaPerson_Person">
+          <End Role="Person" Type="Self.Person" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="MediaPerson" Type="Self.MediaPerson" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Person">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="MediaPerson">
+              <PropertyRef Name="IdPerson" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MediaProduct_Product">
+          <End Role="Product" Type="Self.Product" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="MediaProduct" Type="Self.MediaProduct" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="MediaProduct">
+              <PropertyRef Name="IdProduct" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -749,6 +969,10 @@
           <EntitySet Name="Cases" EntityType="Self.Case" />
           <EntitySet Name="Donations" EntityType="Self.Donation" />
           <EntitySet Name="JobApplications" EntityType="Self.JobApplication" />
+          <EntitySet Name="MediaBusinesses" EntityType="Self.MediaBusiness" />
+          <EntitySet Name="MediaOtherPersons" EntityType="Self.MediaOtherPerson" />
+          <EntitySet Name="MediaPersons" EntityType="Self.MediaPerson" />
+          <EntitySet Name="MediaProducts" EntityType="Self.MediaProduct" />
           <EntitySet Name="MultimediaCases" EntityType="Self.MultimediaCase" />
           <EntitySet Name="MultimediaJobApplications" EntityType="Self.MultimediaJobApplication" />
           <EntitySet Name="OtherPersons" EntityType="Self.OtherPerson" />
@@ -760,6 +984,10 @@
           <AssociationSet Name="FK_Business_Package" Association="Self.FK_Business_Package">
             <End Role="Package" EntitySet="Packages" />
             <End Role="Business" EntitySet="Businesses" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MediaBusiness_Business" Association="Self.FK_MediaBusiness_Business">
+            <End Role="Business" EntitySet="Businesses" />
+            <End Role="MediaBusiness" EntitySet="MediaBusinesses" />
           </AssociationSet>
           <AssociationSet Name="FK_Case_User" Association="Self.FK_Case_User">
             <End Role="User" EntitySet="Users" />
@@ -780,6 +1008,18 @@
           <AssociationSet Name="FK_MultimediaJobApplication_JobApplication" Association="Self.FK_MultimediaJobApplication_JobApplication">
             <End Role="JobApplication" EntitySet="JobApplications" />
             <End Role="MultimediaJobApplication" EntitySet="MultimediaJobApplications" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MediaOtherPerson_OtherPerson" Association="Self.FK_MediaOtherPerson_OtherPerson">
+            <End Role="OtherPerson" EntitySet="OtherPersons" />
+            <End Role="MediaOtherPerson" EntitySet="MediaOtherPersons" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MediaPerson_Person" Association="Self.FK_MediaPerson_Person">
+            <End Role="Person" EntitySet="People" />
+            <End Role="MediaPerson" EntitySet="MediaPersons" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MediaProduct_Product" Association="Self.FK_MediaProduct_Product">
+            <End Role="Product" EntitySet="Products" />
+            <End Role="MediaProduct" EntitySet="MediaProducts" />
           </AssociationSet>
           <AssociationSet Name="FK_OtherPerson_User" Association="Self.FK_OtherPerson_User">
             <End Role="User" EntitySet="Users" />
@@ -869,6 +1109,50 @@
                 <ScalarProperty Name="Age" ColumnName="Age" />
                 <ScalarProperty Name="PostedDate" ColumnName="PostedDate" />
                 <ScalarProperty Name="IdUser" ColumnName="IdUser" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MediaBusinesses">
+            <EntityTypeMapping TypeName="BDEIGModel.MediaBusiness">
+              <MappingFragment StoreEntitySet="MediaBusiness">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="FileName" ColumnName="FileName" />
+                <ScalarProperty Name="DownloadLink" ColumnName="DownloadLink" />
+                <ScalarProperty Name="LoadDate" ColumnName="LoadDate" />
+                <ScalarProperty Name="IdBusiness" ColumnName="IdBusiness" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MediaOtherPersons">
+            <EntityTypeMapping TypeName="BDEIGModel.MediaOtherPerson">
+              <MappingFragment StoreEntitySet="MediaOtherPerson">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="FileName" ColumnName="FileName" />
+                <ScalarProperty Name="DownloadLink" ColumnName="DownloadLink" />
+                <ScalarProperty Name="LoadDate" ColumnName="LoadDate" />
+                <ScalarProperty Name="IdOtherPerson" ColumnName="IdOtherPerson" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MediaPersons">
+            <EntityTypeMapping TypeName="BDEIGModel.MediaPerson">
+              <MappingFragment StoreEntitySet="MediaPerson">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="FileName" ColumnName="FileName" />
+                <ScalarProperty Name="DownloadLink" ColumnName="DownloadLink" />
+                <ScalarProperty Name="LoadDate" ColumnName="LoadDate" />
+                <ScalarProperty Name="IdPerson" ColumnName="IdPerson" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MediaProducts">
+            <EntityTypeMapping TypeName="BDEIGModel.MediaProduct">
+              <MappingFragment StoreEntitySet="MediaProduct">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="FileName" ColumnName="FileName" />
+                <ScalarProperty Name="DownloadLink" ColumnName="DownloadLink" />
+                <ScalarProperty Name="LoadDate" ColumnName="LoadDate" />
+                <ScalarProperty Name="IdProduct" ColumnName="IdProduct" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
