@@ -14,6 +14,7 @@
         public int Active { get; set; }
         public string CreationDate { get; set; }
         public string Avatar { get; set; }
+        public bool Type { get; set; }
         public long IdPackage { get; set; }
     }
 }

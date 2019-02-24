@@ -87,18 +87,18 @@ namespace EIGApp.Controllers
             {
                 M.Person temp = new M.Person
                 {
-                    Id = lista2[i].Id,
-                    Name = lista2[i].Name,
+                    Id                   = lista2[i].Id,
+                    Name                 = lista2[i].Name,
                     ProfesionDescription = lista2[i].ProfesionDescription,
-                    Email = lista2[i].Email,
-                    Phone = lista2[i].Phone,
-                    Latitude = lista2[i].Latitude,
-                    Longitude = lista2[i].Longitude,
-                    Ciprin = lista2[i].Ciprin,
-                    Active = lista2[i].Active,
-                    CreationDate = lista2[i].CreationDate,
-                    Avatar = lista2[i].Avatar,
-                    Type = true
+                    Email                = lista2[i].Email,
+                    Phone                = lista2[i].Phone,
+                    Latitude             = lista2[i].Latitude,
+                    Longitude            = lista2[i].Longitude,
+                    Ciprin               = lista2[i].Ciprin,
+                    Active               = lista2[i].Active,
+                    CreationDate         = lista2[i].CreationDate,
+                    Avatar               = lista2[i].Avatar,
+                    Type                 = true
                 };
 
                 arrayPeople[j] = temp;

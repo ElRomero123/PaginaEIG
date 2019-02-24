@@ -31,12 +31,12 @@ function loadProfilesUser()
         $('#bannerState').css('color','black');
         $('#bannerState').text('Cargando ...');
 
-        var idUser = localStorage.getItem('IdUser');
+        var idPackage = localStorage.getItem('IdPackage');
 
         $.ajax
         (
             {
-                url: '../api/person/?idUser=' + idUser,
+                url: '../api/business/?idPackage=' + idPackage,
                 type: 'GET',
                 contentType: "application/json;charset=utf-8",
 
@@ -53,25 +53,25 @@ function loadProfilesUser()
                             {
                                 if(data[i].Type)
                                 {
-                                    cadena += "<div class='result'> <div class='avatar' id='" + i + "'></div> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].ProfesionDescription + "</p> <p class='pf3'>" + data[i].Email + "</p> <p class='pf4'>" + data[i].Phone + "</p> <p class='pf4'>" + 'Unido el ' + data[i].CreationDate + "</p> <button class='moreResult' id='" + data[i].Id + "' onclick='flipOP(this)'>Desactivar</button> </div> </div>";
+                                    cadena += "<div class='result'> <div class='avatar' id='" + i + "'></div> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].Specialism + "</p> <p class='pf3'>" + data[i].WebPage + "</p> <p class='pf4'>" + data[i].Phone + "</p> <p class='pf4'>" + 'Unido el ' + data[i].CreationDate + "</p> <button class='moreResult' id='" + data[i].Id + "' onclick='flipP(this)'>Desactivar</button> </div> </div>";
                                 }
 
                                 else
                                 {
-                                    cadena += "<div class='result'> <div class='avatar' id='" + i + "'></div> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].ProfesionDescription + "</p> <p class='pf3'>" + data[i].Email + "</p> <p class='pf4'>" + data[i].Phone + "</p> <p class='pf4'>" + 'Unido el ' + data[i].CreationDate + "</p> <button class='moreResult' id='" + data[i].Id + "' onclick='flip(this)'>Desactivar</button> </div> </div>";
-                                }   
+                                    cadena += "<div class='result'> <div class='avatar' id='" + i + "'></div> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].Specialism + "</p> <p class='pf3'>" + data[i].WebPage + "</p> <p class='pf4'>" + data[i].Phone + "</p> <p class='pf4'>" + 'Unido el ' + data[i].CreationDate + "</p> <button class='moreResult' id='" + data[i].Id + "' onclick='flipB(this)'>Desactivar</button> </div> </div>";
+                                }
                             }
 
                             else
                             {
                                 if(data[i].Type)
                                 {
-                                    cadena += "<div class='result'> <div class='avatar' id='" + i + "'></div> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].ProfesionDescription + "</p> <p class='pf3'>" + data[i].Email + "</p> <p class='pf4'>" + data[i].Phone + "</p> <p class='pf4'>" + 'Unido el ' + data[i].CreationDate + "</p> <button class='moreResult' id='" + data[i].Id + "' onclick='flipOP(this)'>Activar</button> </div> </div>";
+                                    cadena += "<div class='result'> <div class='avatar' id='" + i + "'></div> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].Specialism + "</p> <p class='pf3'>" + data[i].WebPage + "</p> <p class='pf4'>" + data[i].Phone + "</p> <p class='pf4'>" + 'Unido el ' + data[i].CreationDate + "</p> <button class='moreResult' id='" + data[i].Id + "' onclick='flipP(this)'>Activar</button> </div> </div>";
                                 }
 
                                 else
                                 {
-                                    cadena += "<div class='result'> <div class='avatar' id='" + i + "'></div> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].ProfesionDescription + "</p> <p class='pf3'>" + data[i].Email + "</p> <p class='pf4'>" + data[i].Phone + "</p> <p class='pf4'>" + 'Unido el ' + data[i].CreationDate + "</p> <button class='moreResult' id='" + data[i].Id + "' onclick='flip(this)'>Activar</button> </div> </div>";
+                                    cadena += "<div class='result'> <div class='avatar' id='" + i + "'></div> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].Specialism + "</p> <p class='pf3'>" + data[i].WebPage + "</p> <p class='pf4'>" + data[i].Phone + "</p> <p class='pf4'>" + 'Unido el ' + data[i].CreationDate + "</p> <button class='moreResult' id='" + data[i].Id + "' onclick='flipB(this)'>Activar</button> </div> </div>";
                                 } 
                             }
                         }
@@ -98,7 +98,7 @@ function loadProfilesUser()
                         
                         $('#bannerState').css('background','green');
                         $('#bannerState').css('color','white');
-                        $('#bannerState').text('El usuario tiene ' + i + ' perfiles!');
+                        $('#bannerState').text('El paquete tiene ' + i + ' perfiles!');
                         $('#listResults').css('display','flex');
                     }
 
@@ -106,7 +106,7 @@ function loadProfilesUser()
                     {
                         $('#bannerState').css('background','red');
                         $('#bannerState').css('color','white');
-                        $('#bannerState').text('El usuario NO tiene perfiles!');
+                        $('#bannerState').text('El paquete NO tiene perfiles!');
                     }
                 }
             }
@@ -119,11 +119,6 @@ function loadProfilesUser()
         $('#bannerState').css('color','white');
         $('#bannerState').text('Sin internet!');
     }
-}
-
-function showMedia(e)
-{
-    alert('Ver multimedia de ' + e.id + ' funciona');
 }
 
 function to(num)
@@ -139,7 +134,7 @@ function to(num)
     }
 }
 
-function flip(e)
+function flipB(e)
 {
     $('#' + e.id).css('background','yellow');
     $('#' + e.id).css('color','black');
@@ -148,7 +143,7 @@ function flip(e)
     $.ajax
     (
         {
-            url: '../api/person?id=' + e.id,
+            url: '../api/business?id=' + e.id,
             type: 'POST',
             contentType: "application/json;charset=utf-8",
 
@@ -173,7 +168,7 @@ function flip(e)
     );
 }
 
-function flipOP(e)
+function flipP(e)
 {
     $('#' + e.id).css('background','yellow');
     $('#' + e.id).css('color','black');
@@ -182,7 +177,7 @@ function flipOP(e)
     $.ajax
     (
         {
-            url: '../api/otherPerson?id=' + e.id,
+            url: '../api/product?id=' + e.id,
             type: 'POST',
             contentType: "application/json;charset=utf-8",
 

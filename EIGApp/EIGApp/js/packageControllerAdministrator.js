@@ -93,5 +93,7 @@ function to(num)
 
 function toMorePackage(e)
 {
-    alert('Ver mas del paquete ' + e.id + ' funciona!');
+    localStorage.setItem('IdPackage', e.id);
+    location.href = 'viewProfilesPackageAdministrator.html';
+    //alert('Ver mas del paquete ' + e.id + ' funciona!');
 }
