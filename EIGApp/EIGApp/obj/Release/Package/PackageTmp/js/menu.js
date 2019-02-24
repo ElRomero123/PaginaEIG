@@ -75,8 +75,7 @@ function search()
                         {
                             avatar = data[i].Avatar;
                             document.getElementById(i).style.background = 'url("' + avatar + '")';
-                            //putMarket({lat: data[i].Latitude, lng: data[i].Longitude}, avatar);
-                            putMarket({lat: 5.7123563, lng: -75.3120639}, avatar);
+                            putMarket({lat: data[i].Latitude, lng: data[i].Longitude}, avatar);
                         }
 
                         $('#bannerState').css('background','green');
@@ -165,8 +164,6 @@ function startMap()
 
 function putMarket(loc, avatar)
 {
-    alert('Poner marcador funciona!');
-    /*
     var image = 
     {
         url: avatar,
@@ -174,7 +171,6 @@ function putMarket(loc, avatar)
     };
 
     marker = new google.maps.Marker({position: loc, map: mapa, icon: image});
-    */
 }
 
 function hideMap()
