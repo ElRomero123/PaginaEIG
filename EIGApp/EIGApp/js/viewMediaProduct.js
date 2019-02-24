@@ -55,7 +55,7 @@ function loadMediaProduct()
 
                         $('#bannerState').css('background','green');
                         $('#bannerState').css('color','white');
-                        $('#bannerState').text('Archivos de este producto ' + i);
+                        $('#bannerState').text('Archivos del producto ' + i);
                         $('#listResults').css('display','flex');
                     }
 
@@ -93,6 +93,6 @@ function to(num)
         location.href = 'index.html';
         break;
         default:
-        location.href = 'menu3.html';
+        location.href = 'menu4.html';
     }
 }

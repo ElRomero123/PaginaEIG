@@ -55,7 +55,7 @@ function loadMediaBusiness()
 
                         $('#bannerState').css('background','green');
                         $('#bannerState').css('color','white');
-                        $('#bannerState').text('Archivos de este perfil ' + i);
+                        $('#bannerState').text('Archivos de la empresa ' + i);
                         $('#listResults').css('display','flex');
                     }
 
@@ -63,7 +63,7 @@ function loadMediaBusiness()
                     {
                         $('#bannerState').css('background','red');
                         $('#bannerState').css('color','white');
-                        $('#bannerState').text('El perfil NO tiene archivos!');
+                        $('#bannerState').text('La empresa NO tiene archivos!');
                     }
                 }
             }

@@ -220,6 +220,7 @@
     <Compile Include="Controllers\CaseController.cs" />
     <Compile Include="Controllers\DonationController.cs" />
     <Compile Include="Controllers\JobApplicationController.cs" />
+    <Compile Include="Controllers\MediaBusinessController.cs" />
     <Compile Include="Controllers\MediaOtherPersonController.cs" />
     <Compile Include="Controllers\MediaPersonController.cs" />
     <Compile Include="Controllers\MultimediaCaseController.cs" />
@@ -244,6 +245,7 @@
     <Compile Include="Models\Case.cs" />
     <Compile Include="Models\Donation.cs" />
     <Compile Include="Models\JobApplication.cs" />
+    <Compile Include="Models\MediaBusiness.cs" />
     <Compile Include="Models\MediaOtherPerson.cs" />
     <Compile Include="Models\MediaPerson.cs" />
     <Compile Include="Models\MultimediaCase.cs" />
