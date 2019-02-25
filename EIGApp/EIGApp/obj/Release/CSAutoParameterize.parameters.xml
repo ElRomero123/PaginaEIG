@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <parameters>
-  <parameter name="BDEIGEntities-Web.config Connection String" description="BDEIGEntities Cadena de conexión que usa la aplicación en web.config para obtener acceso a la base de datos." defaultValue="metadata=res://*/ORM.BD.csdl|res://*/ORM.BD.ssdl|res://*/ORM.BD.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=eiglatam.database.windows.net;initial catalog=BDEIG;persist security info=True;user id=Eiglatam;password=JuanPabloR123;multipleactiveresultsets=True;application name=EntityFramework&quot;" tags="SqlConnectionString">
+  <parameter name="BDEIGEntities-Web.config Connection String" description="BDEIGEntities Cadena de conexión que usa la aplicación en web.config para obtener acceso a la base de datos." defaultValue="metadata=res://*/ORM.BD.csdl|res://*/ORM.BD.ssdl|res://*/ORM.BD.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=eiglatam.database.windows.net;initial catalog=BDEIG;persist security info=True;user id=Eiglatam;password=JuanPabloR123;MultipleActiveResultSets=True;App=EntityFramework&quot;" tags="SqlConnectionString">
     <parameterEntry kind="XmlFile" scope="D:\\Proyectos\\PaginaEIG\\EIGApp\\EIGApp\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='BDEIGEntities']/@connectionString" />
   </parameter>
 </parameters>

@@ -65,6 +65,50 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="MediaBusinesses">
+      <EntityTypeMapping TypeName="BDEIGModel.MediaBusiness">
+        <MappingFragment StoreEntitySet="MediaBusiness">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="FileName" ColumnName="FileName" />
+          <ScalarProperty Name="DownloadLink" ColumnName="DownloadLink" />
+          <ScalarProperty Name="LoadDate" ColumnName="LoadDate" />
+          <ScalarProperty Name="IdBusiness" ColumnName="IdBusiness" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MediaOtherPersons">
+      <EntityTypeMapping TypeName="BDEIGModel.MediaOtherPerson">
+        <MappingFragment StoreEntitySet="MediaOtherPerson">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="FileName" ColumnName="FileName" />
+          <ScalarProperty Name="DownloadLink" ColumnName="DownloadLink" />
+          <ScalarProperty Name="LoadDate" ColumnName="LoadDate" />
+          <ScalarProperty Name="IdOtherPerson" ColumnName="IdOtherPerson" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MediaPersons">
+      <EntityTypeMapping TypeName="BDEIGModel.MediaPerson">
+        <MappingFragment StoreEntitySet="MediaPerson">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="FileName" ColumnName="FileName" />
+          <ScalarProperty Name="DownloadLink" ColumnName="DownloadLink" />
+          <ScalarProperty Name="LoadDate" ColumnName="LoadDate" />
+          <ScalarProperty Name="IdPerson" ColumnName="IdPerson" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MediaProducts">
+      <EntityTypeMapping TypeName="BDEIGModel.MediaProduct">
+        <MappingFragment StoreEntitySet="MediaProduct">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="FileName" ColumnName="FileName" />
+          <ScalarProperty Name="DownloadLink" ColumnName="DownloadLink" />
+          <ScalarProperty Name="LoadDate" ColumnName="LoadDate" />
+          <ScalarProperty Name="IdProduct" ColumnName="IdProduct" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="MultimediaCases">
       <EntityTypeMapping TypeName="BDEIGModel.MultimediaCase">
         <MappingFragment StoreEntitySet="MultimediaCase">

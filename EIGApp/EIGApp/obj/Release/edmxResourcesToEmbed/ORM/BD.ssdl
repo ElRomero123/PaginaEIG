@@ -59,6 +59,46 @@
     <Property Name="PostedDate" Type="nvarchar" MaxLength="255" Nullable="false" />
     <Property Name="IdUser" Type="bigint" Nullable="false" />
   </EntityType>
+  <EntityType Name="MediaBusiness">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FileName" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="DownloadLink" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="LoadDate" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="IdBusiness" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MediaOtherPerson">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FileName" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="DownloadLink" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="LoadDate" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="IdOtherPerson" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MediaPerson">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FileName" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="DownloadLink" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="LoadDate" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="IdPerson" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MediaProduct">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FileName" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="DownloadLink" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="LoadDate" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="IdProduct" Type="bigint" Nullable="false" />
+  </EntityType>
   <EntityType Name="MultimediaCase">
     <Key>
       <PropertyRef Name="Id" />
@@ -228,6 +268,62 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_MediaBusiness_Business">
+    <End Role="Business" Type="Self.Business" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="MediaBusiness" Type="Self.MediaBusiness" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Business">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MediaBusiness">
+        <PropertyRef Name="IdBusiness" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MediaOtherPerson_OtherPerson">
+    <End Role="OtherPerson" Type="Self.OtherPerson" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="MediaOtherPerson" Type="Self.MediaOtherPerson" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OtherPerson">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MediaOtherPerson">
+        <PropertyRef Name="IdOtherPerson" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MediaPerson_Person">
+    <End Role="Person" Type="Self.Person" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="MediaPerson" Type="Self.MediaPerson" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Person">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MediaPerson">
+        <PropertyRef Name="IdPerson" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MediaProduct_Product">
+    <End Role="Product" Type="Self.Product" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="MediaProduct" Type="Self.MediaProduct" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MediaProduct">
+        <PropertyRef Name="IdProduct" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_MultimediaCase_Case">
     <End Role="Case" Type="Self.Case" Multiplicity="1">
       <OnDelete Action="Cascade" />
@@ -332,6 +428,10 @@
     <EntitySet Name="Case" EntityType="Self.Case" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Donation" EntityType="Self.Donation" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="JobApplication" EntityType="Self.JobApplication" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MediaBusiness" EntityType="Self.MediaBusiness" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MediaOtherPerson" EntityType="Self.MediaOtherPerson" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MediaPerson" EntityType="Self.MediaPerson" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MediaProduct" EntityType="Self.MediaProduct" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="MultimediaCase" EntityType="Self.MultimediaCase" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="MultimediaJobApplication" EntityType="Self.MultimediaJobApplication" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="OtherPerson" EntityType="Self.OtherPerson" Schema="dbo" store:Type="Tables" />
@@ -355,6 +455,22 @@
     <AssociationSet Name="FK_JobApplication_User" Association="Self.FK_JobApplication_User">
       <End Role="User" EntitySet="User" />
       <End Role="JobApplication" EntitySet="JobApplication" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MediaBusiness_Business" Association="Self.FK_MediaBusiness_Business">
+      <End Role="Business" EntitySet="Business" />
+      <End Role="MediaBusiness" EntitySet="MediaBusiness" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MediaOtherPerson_OtherPerson" Association="Self.FK_MediaOtherPerson_OtherPerson">
+      <End Role="OtherPerson" EntitySet="OtherPerson" />
+      <End Role="MediaOtherPerson" EntitySet="MediaOtherPerson" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MediaPerson_Person" Association="Self.FK_MediaPerson_Person">
+      <End Role="Person" EntitySet="Person" />
+      <End Role="MediaPerson" EntitySet="MediaPerson" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MediaProduct_Product" Association="Self.FK_MediaProduct_Product">
+      <End Role="Product" EntitySet="Product" />
+      <End Role="MediaProduct" EntitySet="MediaProduct" />
     </AssociationSet>
     <AssociationSet Name="FK_MultimediaCase_Case" Association="Self.FK_MultimediaCase_Case">
       <End Role="Case" EntitySet="Case" />

@@ -50,11 +50,11 @@ function search()
                         {
                             if(data[i].Ciprin == 1)
                             {
-                                cadena += "<div class='result'> <div class='avatar' id='" + i + "'></div> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].Specialism + "</p> <p class='pf2'>" + data[i].SpecialismDescription + "</p> <p class='pf3'>" + data[i].WebPage + "</p> <p class='pf4'>" + data[i].Phone + "</p> <p class='pf4'>" + 'Unido el ' + data[i].CreationDate + "</p> <p class='c'>Pertenece a CIPRIN</p> </div> </div>";
+                                cadena += "<div class='result'> <div class='avatar' id='" + i + "'></div> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].Specialism + "</p> <p class='pf2'>" + data[i].SpecialismDescription + "</p> <p class='pf3'>" + data[i].WebPage + "</p> <p class='pf4'>" + data[i].Phone + "</p> <p class='pf4'>" + 'Unido el ' + data[i].CreationDate + "</p> <p class='c'>Pertenece a CIPRIN</p> <button id='" + data[i].Id + "' class='moreResult' onclick='showMedia(this)'>Ver multimedia</button> </div> </div>";
                             }
                             else
                             {
-                                cadena += "<div class='result'> <div class='avatar' id='" + i + "'></div> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].Specialism + "</p> <p class='pf2'>" + data[i].SpecialismDescription + "</p> <p class='pf3'>" + data[i].WebPage + "</p> <p class='pf4'>" + data[i].Phone + "</p> <p class='pf4'>" + 'Unido el ' + data[i].CreationDate + "</p> </div> </div>";
+                                cadena += "<div class='result'> <div class='avatar' id='" + i + "'></div> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].Specialism + "</p> <p class='pf2'>" + data[i].SpecialismDescription + "</p> <p class='pf3'>" + data[i].WebPage + "</p> <p class='pf4'>" + data[i].Phone + "</p> <p class='pf4'>" + 'Unido el ' + data[i].CreationDate + "</p> <button id='" + data[i].Id + "' class='moreResult' onclick='showMedia(this)'>Ver multimedia</button> </div> </div>";
                             }
                               
                         } 
@@ -128,9 +128,7 @@ function startMap()
     gmaps.style = 'display: block';
     navigator.geolocation.getCurrentPosition(function(position)
     { 
-        console.log(position);
-        //mapa = new google.maps.Map(gmaps, {zoom: 15, center: {lat: position.coords.latitude, lng: position.coords.longitude}});
-        mapa = new google.maps.Map(gmaps, {zoom: 15, center: {lat: 5.7123563, lng: -75.3120639}});
+        mapa = new google.maps.Map(gmaps, {zoom: 15, center: {lat: position.coords.latitude, lng: position.coords.longitude}});
     });
 }
 
@@ -148,4 +146,10 @@ function putMarket(loc, avatar)
 function hideMap()
 {
     gmaps.style = 'display: none';
+}
+
+function showMedia(e)
+{
+    localStorage.setItem('IdBusiness', e.id);
+    window.open('viewMediaBusiness.html', '_blank');
 }

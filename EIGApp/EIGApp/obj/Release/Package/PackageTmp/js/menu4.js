@@ -117,3 +117,9 @@ function to(num)
         location.href = 'menu.html';
     }
 }
+
+function showMedia(e)
+{
+    localStorage.setItem('IdProduct', e.id);
+    window.open('viewMediaProduct.html', '_blank');
+}
