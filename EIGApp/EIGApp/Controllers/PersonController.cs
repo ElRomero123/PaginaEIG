@@ -109,8 +109,13 @@ namespace EIGApp.Controllers
             return arrayPeople;
         }
 
-        public int Post(long id)
+        public int Post(long id, bool auth)
         {
+            if(auth)
+            {
+
+            }
+
             int c = 0;
 
             try
@@ -162,6 +167,26 @@ namespace EIGApp.Controllers
             }
 
             return id;
+        }
+
+        public bool Post(int idPerson)
+        {
+            bool result = false;
+
+            try
+            {
+                O.Person BDPerson = BD.People.FirstOrDefault(x => x.Id == idPerson);
+                BD.People.Remove(BDPerson);
+                BDPerson.Active = 0;
+                BD.SaveChanges();
+                result = true;
+            }
+
+            catch
+            {
+            }
+
+            return result;
         }
     }
 }

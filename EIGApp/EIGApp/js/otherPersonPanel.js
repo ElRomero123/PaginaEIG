@@ -29,6 +29,9 @@ function to(num)
         localStorage.clear();
         location.href = 'index.html';
         break;
+        case 2:
+        location.href = 'editCreatedProfiles.html';
+        break;
         default: 
         location.href = 'menu2.html';
     }
