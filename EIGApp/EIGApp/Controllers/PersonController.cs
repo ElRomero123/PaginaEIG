@@ -109,13 +109,8 @@ namespace EIGApp.Controllers
             return arrayPeople;
         }
 
-        public int Post(long id, bool auth)
+        public int Post(long id)
         {
-            if(auth)
-            {
-
-            }
-
             int c = 0;
 
             try

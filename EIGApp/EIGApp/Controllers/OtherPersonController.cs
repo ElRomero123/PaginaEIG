@@ -97,5 +97,24 @@ namespace EIGApp.Controllers
 
             return c;
         }
+
+        public bool Post(int idOtherPerson)
+        {
+            bool result = false;
+
+            try
+            {
+                O.OtherPerson BDOtherPerson = BD.OtherPersons.FirstOrDefault(x => x.Id == idOtherPerson);
+                BD.OtherPersons.Remove(BDOtherPerson);
+                BD.SaveChanges();
+                result = true;
+            }
+
+            catch
+            {
+            }
+
+            return result;
+        }
     }
 }

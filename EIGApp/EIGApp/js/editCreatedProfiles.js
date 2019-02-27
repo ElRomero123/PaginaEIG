@@ -100,21 +100,21 @@ function to(num)
 
 function toEditP(e)
 {
-    alert('Editar Investigador Privado ' + e.id + ' funciona!');
+    localStorage.setItem('IdPerson', e.id);
+    location.href = 'editMediaProfile.html';
 }
 
 function toEditOP(e)
 {
-    alert('Editar afín ' + e.id + ' funciona!');
+    localStorage.setItem('IdOtherPerson', e.id);
 }
 
 function deleteP(e)
 {
-    alert('Eliminar Investigador Privado ' + e.id + ' funciona!');
     $.ajax
     (
         {
-            url: '../api/person/?idCase=' + e.id,
+            url: '../api/person/?idPerson=' + e.id,
             type: 'POST',
             contentType: "application/json;charset=utf-8",
 
@@ -124,13 +124,13 @@ function deleteP(e)
                 if(data)
                 {
                     $('#bannerState').css('background','brown');
-                    $('#bannerState').text('Tu caso ha sido eliminado!');
-                    setTimeout(recargar, 800);
+                    $('#bannerState').text('Tu perfil ha sido eliminado!');
+                    setTimeout(recargar, 500);
                 }
 
                 else
                 {
-                    alert('NO se pudo eliminar el caso! ');
+                    alert('NO se pudo eliminar el pefil!');
                 }
             }
         }
@@ -139,17 +139,33 @@ function deleteP(e)
 
 function deleteOP(e)
 {
-    alert('Eliminar Afín ' + e.id + ' funciona!');
+    $.ajax
+    (
+        {
+            url: '../api/otherPerson/?idOtherPerson=' + e.id,
+            type: 'POST',
+            contentType: "application/json;charset=utf-8",
+
+            success:
+            function (data) 
+            {
+                if(data)
+                {
+                    $('#bannerState').css('background','brown');
+                    $('#bannerState').text('Tu perfil ha sido eliminado!');
+                    setTimeout(recargar, 500);
+                }
+
+                else
+                {
+                    alert('NO se pudo eliminar el pefil!');
+                }
+            }
+        }
+    );
 }
 
 function recargar()
 {
     location.reload();
 }
-
-
-
-/*
-localStorage.setItem('Case', e.id);
-location.href = 'editCase.html';
-*/
