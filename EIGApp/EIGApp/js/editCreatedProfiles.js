@@ -101,12 +101,13 @@ function to(num)
 function toEditP(e)
 {
     localStorage.setItem('IdPerson', e.id);
-    location.href = 'editMediaProfile.html';
+    location.href = 'editMediaPerson.html';
 }
 
 function toEditOP(e)
 {
     localStorage.setItem('IdOtherPerson', e.id);
+    location.href = 'editMediaOtherPerson.html';
 }
 
 function deleteP(e)

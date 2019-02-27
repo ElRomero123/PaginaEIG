@@ -10,24 +10,12 @@ function initUser()
     {
         $('#infoName').text(name);
         $('#infoUsername').text(username);
+        loadMediaPerson();
     }
 
     else
     {
         location.href = 'index.html';
-    }
-
-    var idPerson = localStorage.getItem('IdPerson');
-    var idOtherPerson = localStorage.getItem('IdOtherPerson');
-
-    if(idPerson != null)
-    {
-        loadMediaPerson(idPerson);
-    }
-
-    else
-    {
-        loadMediaOtherPerson(idOtherPerson);
     }
 }
 
@@ -40,11 +28,11 @@ function to(num)
         location.href = 'index.html';
         break;
         default:
-        location.href = 'manageCases.html';
+        location.href = 'editCreatedProfiles.html';
     }
 }
 
-function loadMediaPerson(id)
+function loadMediaPerson()
 {
     if(navigator.onLine)
     {
@@ -55,7 +43,7 @@ function loadMediaPerson(id)
         $('#bannerState').css('color','black');
         $('#bannerState').text('Cargando ...');
 
-        var idPerson = id;
+        var idPerson = localStorage.getItem('IdPerson');
 
         $.ajax
         (
@@ -80,7 +68,7 @@ function loadMediaPerson(id)
 
                         $('#bannerState').css('background','green');
                         $('#bannerState').css('color','white');
-                        $('#bannerState').text('El caso tiene ' + i + ' anexos!');
+                        $('#bannerState').text('El perfil tiene ' + i + ' archivos!');
                         $('#listResults').css('display','flex');
                     }
 
@@ -88,7 +76,7 @@ function loadMediaPerson(id)
                     {
                         $('#bannerState').css('background','red');
                         $('#bannerState').css('color','white');
-                        $('#bannerState').text('El caso no tiene anexos!');
+                        $('#bannerState').text('El perfil NO tiene anexos!');
                     }
                 }
             }
@@ -115,11 +103,11 @@ function loadFileCase()
 
     if(validateFile())
     {
-        var multimediaCase =
+        var mediaPerson =
         {
             fileName: '',
             downloadLink: '',
-            idCase: localStorage.getItem('Case')
+            idPerson: localStorage.getItem('IdPerson')
         };
     
         $('#loadFC').css('background','yellow');
@@ -130,9 +118,9 @@ function loadFileCase()
         $.ajax
         (
             {
-                url: '../api/multimediaCase',
+                url: '../api/mediaPerson',
                 type: 'POST',
-                data: JSON.stringify(multimediaCase),
+                data: JSON.stringify(mediaPerson),
                 contentType: "application/json;charset=utf-8",
 
                 success:
@@ -239,7 +227,7 @@ function eliminar(e)
     $.ajax
     (
         {
-            url: '../api/multimediaCase/?idMC=' + e.id,
+            url: '../api/mediaPerson/?idMediaPerson=' + e.id,
             type: 'POST',
             contentType: "application/json;charset=utf-8",
 
@@ -249,13 +237,13 @@ function eliminar(e)
                 if(data)
                 {
                     $('#bannerState').css('background','brown');
-                    $('#bannerState').text('El anexo ha sido eliminado!');
+                    $('#bannerState').text('El archivo ha sido eliminado!');
                     setTimeout(recargar, 800);
                 }
 
                 else
                 {
-                    alert('NO se pudo eliminar el anexo!');
+                    alert('NO se pudo eliminar el archivo!');
                 }
             }
         }
