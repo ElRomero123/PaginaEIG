@@ -97,7 +97,7 @@ function download(e)
     window.open(download, '_blank');
 }
 
-function loadFileCase()
+function loadFilePerson()
 {
     FileCase =  document.getElementById('fileCase');
 
