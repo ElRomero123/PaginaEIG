@@ -57,7 +57,7 @@ function createPerson()
                 name:                 $('#cName').val(),
                 profesionDescription: $('#cDescription').val(),
                 email:                $('#cEmail').val(),
-                phone:                $('#cIndex').val().substr(0,3).trim() + ' ' + $('#cPhone').val(),
+                phone:                $('#cIndex').val().substr(0,4).trim() + ' ' + $('#cPhone').val(),
                 latitude:             latitude,
                 longitude:            longitude,
                 ciprin:               false,
@@ -213,8 +213,10 @@ function startMap()
 {
     navigator.geolocation.getCurrentPosition(function(position)
     {
-        mapa = new google.maps.Map(document.getElementById('maps2'), {zoom: 5, center: {lat: position.coords.latitude, lng: position.coords.longitude}});
-        marker = new google.maps.Marker({draggable: true, animation: google.maps.Animation.DROP, position: {lat: position.coords.latitude, lng: position.coords.longitude}, map: mapa});
+        latitude = position.coords.latitude;
+        longitude = position.coords.longitude;
+        mapa = new google.maps.Map(document.getElementById('maps2'), {zoom: 5, center: {lat: latitude, lng: longitude}});
+        marker = new google.maps.Marker({draggable: true, animation: google.maps.Animation.DROP, position: {lat: latitude, lng: longitude}, map: mapa});
 
         marker.addListener
         (
