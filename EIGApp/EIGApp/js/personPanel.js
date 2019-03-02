@@ -57,7 +57,7 @@ function createPerson()
                 name:                 $('#cName').val(),
                 profesionDescription: $('#cDescription').val(),
                 email:                $('#cEmail').val(),
-                phone:                $('#cPhone').val(),
+                phone:                $('#cIndex').val().substr(0,3).trim() + ' ' + $('#cPhone').val(),
                 latitude:             latitude,
                 longitude:            longitude,
                 ciprin:               false,
