@@ -13,14 +13,43 @@ body footer {
   width: 100%;
   background: white;
 }
-/* line 5, ../sass/index.scss */
+/* line 7, ../sass/index.scss */
+body footer #social #s4 {
+  background: url("../img/g.png");
+}
+/* line 12, ../sass/index.scss */
+body footer #social #s3 {
+  background: url("../img/y.png");
+}
+/* line 17, ../sass/index.scss */
+body footer #social #s2 {
+  background: url("../img/t.png");
+}
+/* line 22, ../sass/index.scss */
+body footer #social #s1 {
+  background: url("../img/f.png");
+}
+/* line 27, ../sass/index.scss */
+body footer #social .s:hover {
+  filter: invert(50%);
+}
+/* line 32, ../sass/index.scss */
+body footer #social .s {
+  transition: 0.15s;
+  margin: 4px;
+  display: inline-block;
+  height: 50px;
+  width: 50px;
+}
+/* line 42, ../sass/index.scss */
 body footer div {
   color: red;
   font-family: acephimere;
   font-size: 10px;
+  padding: 6px;
   margin: 2px auto;
 }
-/* line 23, ../sass/index.scss */
+/* line 61, ../sass/index.scss */
 body div {
   margin: 5px auto;
   text-align: center;
@@ -33,15 +62,15 @@ body div {
   height: auto;
   width: 90%;
 }
-/* line 25, ../sass/index.scss */
+/* line 63, ../sass/index.scss */
 body div .costosYear {
   display: inline-block;
 }
-/* line 27, ../sass/index.scss */
+/* line 65, ../sass/index.scss */
 body div .costosYear .costosEmpresa:hover {
   background-color: darkmagenta;
 }
-/* line 32, ../sass/index.scss */
+/* line 70, ../sass/index.scss */
 body div .costosYear .costosEmpresa {
   cursor: pointer;
   transition: 0.2s;
@@ -52,55 +81,55 @@ body div .costosYear .costosEmpresa {
   height: 115px;
   background-color: blue;
 }
-/* line 34, ../sass/index.scss */
+/* line 72, ../sass/index.scss */
 body div .costosYear .costosEmpresa .p3 {
   font-size: 12px;
 }
-/* line 39, ../sass/index.scss */
+/* line 77, ../sass/index.scss */
 body div .costosYear .costosEmpresa .p2 {
   font-family: acephimereThin;
   font-size: 20px;
 }
-/* line 45, ../sass/index.scss */
+/* line 83, ../sass/index.scss */
 body div .costosYear .costosEmpresa .p1 {
   font-size: 40px;
 }
-/* line 50, ../sass/index.scss */
+/* line 88, ../sass/index.scss */
 body div .costosYear .costosEmpresa p {
   font-family: acephimere;
 }
-/* line 65, ../sass/index.scss */
+/* line 103, ../sass/index.scss */
 body div .costosYear .p2 {
   font-size: 20px;
 }
-/* line 70, ../sass/index.scss */
+/* line 108, ../sass/index.scss */
 body div .costosYear .p1 {
   font-size: 60px;
 }
-/* line 75, ../sass/index.scss */
+/* line 113, ../sass/index.scss */
 body div .costosYear p {
   font-family: acephimereThinItalic;
 }
-/* line 86, ../sass/index.scss */
+/* line 124, ../sass/index.scss */
 body div div {
   margin: 10px auto;
   padding: 0px;
   border-radius: 0px;
 }
-/* line 88, ../sass/index.scss */
+/* line 126, ../sass/index.scss */
 body div div #maps2 {
   margin: 15px auto;
   width: 60%;
   height: 500px;
 }
-/* line 95, ../sass/index.scss */
+/* line 133, ../sass/index.scss */
 body div div #maps {
   display: none;
   margin: 0px auto;
   width: 100%;
   height: 500px;
 }
-/* line 103, ../sass/index.scss */
+/* line 141, ../sass/index.scss */
 body div div #listResults {
   display: none;
   margin: 20px auto;
@@ -111,7 +140,7 @@ body div div #listResults {
   height: auto;
   width: 90%;
 }
-/* line 105, ../sass/index.scss */
+/* line 143, ../sass/index.scss */
 body div div #listResults .result {
   cursor: pointer;
   transition: 0.2s;
@@ -123,7 +152,7 @@ body div div #listResults .result {
   width: 300px;
   height: auto;
 }
-/* line 107, ../sass/index.scss */
+/* line 145, ../sass/index.scss */
 body div div #listResults .result .text {
   color: black;
   background: white;
@@ -133,30 +162,30 @@ body div div #listResults .result .text {
   height: auto;
   width: 200px;
 }
-/* line 109, ../sass/index.scss */
+/* line 147, ../sass/index.scss */
 body div div #listResults .result .text .pf1 {
   color: darkred;
   font-size: 17px;
 }
-/* line 115, ../sass/index.scss */
+/* line 153, ../sass/index.scss */
 body div div #listResults .result .text .pf2 {
   font-size: 12px;
 }
-/* line 120, ../sass/index.scss */
+/* line 158, ../sass/index.scss */
 body div div #listResults .result .text .pf3 {
   font-size: 10px;
 }
-/* line 125, ../sass/index.scss */
+/* line 163, ../sass/index.scss */
 body div div #listResults .result .text .pf4 {
   font-size: 10px;
 }
-/* line 130, ../sass/index.scss */
+/* line 168, ../sass/index.scss */
 body div div #listResults .result .text .deleteResult:hover {
   border: 1px solid red;
   color: red;
   background: white;
 }
-/* line 137, ../sass/index.scss */
+/* line 175, ../sass/index.scss */
 body div div #listResults .result .text .deleteResult {
   border: 1px solid transparent;
   border-radius: 5px;
@@ -166,13 +195,13 @@ body div div #listResults .result .text .deleteResult {
   padding: 10px;
   margin: 2px;
 }
-/* line 148, ../sass/index.scss */
+/* line 186, ../sass/index.scss */
 body div div #listResults .result .text .moreResult:hover {
   border: 1px solid green;
   color: green;
   background: white;
 }
-/* line 155, ../sass/index.scss */
+/* line 193, ../sass/index.scss */
 body div div #listResults .result .text .moreResult {
   border: 1px solid transparent;
   border-radius: 5px;
@@ -182,104 +211,104 @@ body div div #listResults .result .text .moreResult {
   padding: 10px;
   margin: 2px;
 }
-/* line 166, ../sass/index.scss */
+/* line 204, ../sass/index.scss */
 body div div #listResults .result .text .c {
   background-color: orangered;
   font-size: 12px;
 }
-/* line 172, ../sass/index.scss */
+/* line 210, ../sass/index.scss */
 body div div #listResults .result .text p {
   margin: 2px;
 }
-/* line 186, ../sass/index.scss */
+/* line 224, ../sass/index.scss */
 body div div #listResults .result .avatar {
   margin: 10px;
   border-radius: 0px;
   height: 70px;
   width: 70px;
 }
-/* line 194, ../sass/index.scss */
+/* line 232, ../sass/index.scss */
 body div div #listResults .result div {
   display: block;
 }
-/* line 225, ../sass/index.scss */
+/* line 263, ../sass/index.scss */
 body div .categories {
   text-align: center;
   margin: 10px auto 10px auto;
 }
-/* line 227, ../sass/index.scss */
+/* line 265, ../sass/index.scss */
 body div .categories #c17 {
   background: url("../img/menu/17N.png");
 }
-/* line 232, ../sass/index.scss */
+/* line 270, ../sass/index.scss */
 body div .categories #c16 {
   background: url("../img/menu/16N.png");
 }
-/* line 237, ../sass/index.scss */
+/* line 275, ../sass/index.scss */
 body div .categories #c15 {
   background: url("../img/menu/15N.png");
 }
-/* line 242, ../sass/index.scss */
+/* line 280, ../sass/index.scss */
 body div .categories #c14 {
   background: url("../img/menu/14N.png");
 }
-/* line 247, ../sass/index.scss */
+/* line 285, ../sass/index.scss */
 body div .categories #c13 {
   background: url("../img/menu/13N.png");
 }
-/* line 252, ../sass/index.scss */
+/* line 290, ../sass/index.scss */
 body div .categories #c12 {
   background: url("../img/menu/12N.png");
 }
-/* line 257, ../sass/index.scss */
+/* line 295, ../sass/index.scss */
 body div .categories #c11 {
   background: url("../img/menu/11N.png");
 }
-/* line 262, ../sass/index.scss */
+/* line 300, ../sass/index.scss */
 body div .categories #c10 {
   background: url("../img/menu/10N.png");
 }
-/* line 267, ../sass/index.scss */
+/* line 305, ../sass/index.scss */
 body div .categories #c9 {
   background: url("../img/menu/9N.png");
 }
-/* line 272, ../sass/index.scss */
+/* line 310, ../sass/index.scss */
 body div .categories #c8 {
   background: url("../img/menu/8N.png");
 }
-/* line 277, ../sass/index.scss */
+/* line 315, ../sass/index.scss */
 body div .categories #c7 {
   background: url("../img/menu/7N.png");
 }
-/* line 282, ../sass/index.scss */
+/* line 320, ../sass/index.scss */
 body div .categories #c6 {
   background: url("../img/menu/6N.png");
 }
-/* line 287, ../sass/index.scss */
+/* line 325, ../sass/index.scss */
 body div .categories #c5 {
   background: url("../img/menu/5N.png");
 }
-/* line 292, ../sass/index.scss */
+/* line 330, ../sass/index.scss */
 body div .categories #c4 {
   background: url("../img/menu/4N.png");
 }
-/* line 297, ../sass/index.scss */
+/* line 335, ../sass/index.scss */
 body div .categories #c3 {
   background: url("../img/menu/3N.png");
 }
-/* line 302, ../sass/index.scss */
+/* line 340, ../sass/index.scss */
 body div .categories #c2 {
   background: url("../img/menu/2N.png");
 }
-/* line 307, ../sass/index.scss */
+/* line 345, ../sass/index.scss */
 body div .categories #c1 {
   background: url("../img/menu/1N.png");
 }
-/* line 312, ../sass/index.scss */
+/* line 350, ../sass/index.scss */
 body div .categories .category:hover {
   filter: invert(100%);
 }
-/* line 317, ../sass/index.scss */
+/* line 355, ../sass/index.scss */
 body div .categories .category {
   transition: 0.25s;
   border-radius: 0px;
@@ -289,7 +318,7 @@ body div .categories .category {
   margin: 4px;
   color: white;
 }
-/* line 332, ../sass/index.scss */
+/* line 370, ../sass/index.scss */
 body div #bannerState {
   display: none;
   border-radius: 5px;
@@ -299,11 +328,11 @@ body div #bannerState {
   width: 200px;
   height: 15px;
 }
-/* line 343, ../sass/index.scss */
+/* line 381, ../sass/index.scss */
 body div .search:hover {
   filter: invert(100%);
 }
-/* line 348, ../sass/index.scss */
+/* line 386, ../sass/index.scss */
 body div .search {
   vertical-align: middle;
   transition: 0.15s;
@@ -313,11 +342,11 @@ body div .search {
   height: 50px;
   width: 50px;
 }
-/* line 359, ../sass/index.scss */
+/* line 397, ../sass/index.scss */
 body div .searchBox:focus {
   border: 2px solid red;
 }
-/* line 364, ../sass/index.scss */
+/* line 402, ../sass/index.scss */
 body div .searchBox {
   vertical-align: middle;
   transition: 0.15s;
@@ -330,41 +359,41 @@ body div .searchBox {
   height: 15px;
   width: 70%;
 }
-/* line 378, ../sass/index.scss */
+/* line 416, ../sass/index.scss */
 body div div {
   margin: 40px auto 6px auto;
 }
-/* line 380, ../sass/index.scss */
+/* line 418, ../sass/index.scss */
 body div div div {
   margin: 10px auto;
 }
-/* line 382, ../sass/index.scss */
+/* line 420, ../sass/index.scss */
 body div div div .register:hover {
   border: 2px solid orangered;
   background-color: white;
   color: orangered;
 }
-/* line 389, ../sass/index.scss */
+/* line 427, ../sass/index.scss */
 body div div div .register {
   background-color: orangered;
 }
-/* line 394, ../sass/index.scss */
+/* line 432, ../sass/index.scss */
 body div div div #send:hover {
   border: 2px solid darkgreen;
   background-color: white;
   color: darkgreen;
 }
-/* line 401, ../sass/index.scss */
+/* line 439, ../sass/index.scss */
 body div div div #send {
   background-color: darkgreen;
 }
-/* line 406, ../sass/index.scss */
+/* line 444, ../sass/index.scss */
 body div div div #preview {
   overflow: hidden;
   height: 70px;
   width: 70px;
 }
-/* line 413, ../sass/index.scss */
+/* line 451, ../sass/index.scss */
 body div div div .fileBrowser {
   outline: 0px;
   color: white;
@@ -375,7 +404,7 @@ body div div div .fileBrowser {
   height: 20px;
   width: 70%;
 }
-/* line 425, ../sass/index.scss */
+/* line 463, ../sass/index.scss */
 body div div div button {
   outline: 0px;
   transition: 0.2s;
@@ -386,12 +415,12 @@ body div div div button {
   margin: 5px;
   height: 40px;
 }
-/* line 440, ../sass/index.scss */
+/* line 478, ../sass/index.scss */
 body div div input:focus {
   height: 20px;
   border: 2px solid orangered;
 }
-/* line 446, ../sass/index.scss */
+/* line 484, ../sass/index.scss */
 body div div input {
   transition: 0.15s;
   outline: 0px;
@@ -404,28 +433,28 @@ body div div input {
   width: 35%;
   margin: 5px;
 }
-/* line 460, ../sass/index.scss */
+/* line 498, ../sass/index.scss */
 body div div p {
   font-size: 13px;
   font-family: acephimere;
   margin: 6px;
 }
-/* line 470, ../sass/index.scss */
+/* line 508, ../sass/index.scss */
 body div .categorySearch {
   margin: 5px;
   font-size: 14px;
   font-family: acephimere;
 }
-/* line 477, ../sass/index.scss */
+/* line 515, ../sass/index.scss */
 body div .searchTag {
   font-size: 40px;
   font-family: acephimereThinItalic;
 }
-/* line 483, ../sass/index.scss */
+/* line 521, ../sass/index.scss */
 body div p {
   margin: auto;
 }
-/* line 498, ../sass/index.scss */
+/* line 536, ../sass/index.scss */
 body header {
   background-color: darkgray;
   height: auto;
@@ -434,17 +463,17 @@ body header {
   left: 0px;
   position: fixed;
 }
-/* line 500, ../sass/index.scss */
+/* line 538, ../sass/index.scss */
 body header div {
   margin: 5px auto;
   background: gray;
 }
-/* line 502, ../sass/index.scss */
+/* line 540, ../sass/index.scss */
 body header div .close:hover {
   color: black;
   background: white;
 }
-/* line 508, ../sass/index.scss */
+/* line 546, ../sass/index.scss */
 body header div .close {
   transition: 0.2s;
   outline: 0px;
@@ -456,20 +485,20 @@ body header div .close {
   margin: 7px;
   padding: 10px;
 }
-/* line 521, ../sass/index.scss */
+/* line 559, ../sass/index.scss */
 body header div #infoUsername {
   font-size: 12px;
 }
-/* line 526, ../sass/index.scss */
+/* line 564, ../sass/index.scss */
 body header div #infoName {
   font-size: 16px;
 }
-/* line 531, ../sass/index.scss */
+/* line 569, ../sass/index.scss */
 body header div p {
   display: flex;
   font-family: acephimere;
 }
-/* line 541, ../sass/index.scss */
+/* line 579, ../sass/index.scss */
 body header .headerLogo {
   background: url("../img/logo.png");
   margin: 10px auto 10px auto;
