@@ -14,11 +14,12 @@ namespace EIGApp.Models
         public bool Ciprin { get; set; }
         public bool Active { get; set; }
         public DateTime CreationDate { get; set; }
-        public string HourZone { get; set; }
+        public string CreationHourZone { get; set; }
         public string Avatar { get; set; }
         public long IdUser { get; set; }
 
         /* Otros */
+        public string Username { get; set; }
         public bool Type { get; set; }
     }
 }

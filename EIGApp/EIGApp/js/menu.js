@@ -41,14 +41,14 @@ function search()
         $('#bannerState').css('display','block');
         $('#bannerState').css('background','yellow');
         $('#bannerState').css('color','black');
-        $('#bannerState').text('Buscando investigadores ...');
+        $('#bannerState').text('Buscando ...');
     
         var criterio = document.getElementById('criterio').value;
 
         $.ajax
         (
             {
-                url: '../api/person/?cadena=' + criterio,
+                url: '../api/person/?criterio=' + criterio,
                 type: 'GET',
                 contentType: "application/json;charset=utf-8",
 
@@ -57,24 +57,25 @@ function search()
                 {
                     if(data.length > 0)
                     {
-                        startMap();
                         var cadena = "";
 
                         for(var i = 0; i < data.length; i++)
                         {
-                            if(data[i].Ciprin == 1)
+                            if(data[i].Ciprin)
                             {
-                                cadena += "<div class='result'> <div class='avatar' id='" + i + "'></div> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].ProfesionDescription + "</p> <p class='pf3'>" + data[i].Email + "</p> <p class='pf4'>" + data[i].Phone + "</p> <p class='pf4'>" + 'Unido el ' + data[i].CreationDate + "</p> <p class='c'>Pertenece a CIPRIN</p>  <button id='" + data[i].Id + "' class='moreResult' onclick='showMedia(this)'>Ver multimedia</button>  </div> </div>";
+                                cadena += "<div class='result'> <div class='avatar' id='" + i + "'></div> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].ProfesionDescription + "</p> <p class='pf3'>" + data[i].Email + "</p> <p class='pf4'>" + data[i].Phone + "</p> <p class='pf4'>Creado el " + data[i].CreationDate + ' ' + data[i].CreationHourZone + ' por ' + data[i].Username +  "</p> <button id='" + data[i].Id + "' class='moreResult' onclick='showMedia(this)'>Multimedia</button> <p class='c'>Afiliado a CIPRIN</p> </div> </div>";
                             }
 
                             else
                             {
-                                cadena += "<div class='result'> <div class='avatar' id='" + i + "'></div> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].ProfesionDescription + "</p> <p class='pf3'>" + data[i].Email + "</p> <p class='pf4'>" + data[i].Phone + "</p> <p class='pf4'>" + 'Unido el ' + data[i].CreationDate + "</p> <button id='" + data[i].Id + "' class='moreResult' onclick='showMedia(this)'>Ver multimedia</button> </div> </div>";
+                                cadena += "<div class='result'> <div class='avatar' id='" + i + "'></div> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].ProfesionDescription + "</p> <p class='pf3'>" + data[i].Email + "</p> <p class='pf4'>" + data[i].Phone + "</p> <p class='pf4'>Creado el " + data[i].CreationDate + ' ' + data[i].CreationHourZone + ' por ' + data[i].Username +  "</p> <button id='" + data[i].Id + "' class='moreResult' onclick='showMedia(this)'>Multimedia</button> </div> </div>";
                             }
                         }
                         
                         $('#listResults').append(cadena);
                         $('#listResults').css('display','flex');
+
+                        startMap();
 
                         for(var i = 0; i < data.length; i++)
                         {
@@ -85,15 +86,16 @@ function search()
 
                         $('#bannerState').css('background','green');
                         $('#bannerState').css('color','white');
-                        $('#bannerState').text(i + ' resultados encontrados!');
+                        $('#bannerState').text(i + ' Resultados!');
                     }
 
                     else
                     {
+                        hideMap();
+
                         $('#bannerState').css('background','red');
                         $('#bannerState').css('color','white');
                         $('#bannerState').text('Sin resultados!');
-                        hideMap();
                     }
                 }
             }

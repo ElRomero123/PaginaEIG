@@ -9,12 +9,11 @@ namespace EIGApp.Controllers
     {
         private O.BDEIGEntities BD = new O.BDEIGEntities();
 
-        public M.Person[] Get(string cadena)
+        public M.Person[] Get(string criterio)
         {
             var query = from P in BD.People
-                        where (P.Name.Contains(cadena) || P.ProfesionDescription.Contains(cadena))
-                        orderby (P.Ciprin)
-                        select new {P.Id, P.Name, P.ProfesionDescription, P.Email, P.Phone, P.Latitude, P.Longitude, P.Ciprin, P.Active, P.CreationDate, P.Avatar};
+                        where (P.Name.Contains(criterio) || P.ProfesionDescription.Contains(criterio) || P.Active)
+                        select new {P.Id, P.Name, P.ProfesionDescription, P.Email, P.Phone, P.Latitude, P.Longitude, P.Ciprin, P.Active, P.CreationDate, P.CreationHourZone, P.Avatar, P.User.Username};
 
             var lista = query.ToArray();
 
@@ -24,17 +23,18 @@ namespace EIGApp.Controllers
             {
                 M.Person temp = new M.Person
                 {
-                    Id                   = lista[i].Id,
+                    Id                   = lista[i].Id, 
                     Name                 = lista[i].Name,
                     ProfesionDescription = lista[i].ProfesionDescription,
                     Email                = lista[i].Email,
                     Phone                = lista[i].Phone,
-                    Latitude             = lista[i].Latitude,
-                    Longitude            = lista[i].Longitude,
+                    Latitude             = lista[i].Latitude, 
+                    Longitude            = lista[i].Longitude,  
                     Ciprin               = lista[i].Ciprin,
-                    Active               = lista[i].Active,
-                    CreationDate         = lista[i].CreationDate,
-                    Avatar               = lista[i].Avatar
+                    CreationDate         = lista[i].CreationDate, 
+                    CreationHourZone     = lista[i].CreationHourZone, 
+                    Avatar               = lista[i].Avatar,
+                    Username             = lista[i].Username
                 };
 
                 arrayPeople[i] = temp;
