@@ -49,11 +49,11 @@ namespace EIGApp.Controllers
 
             try
             {
-                #pragma warning disable CS0618
-                AutoMapper.Mapper.CreateMap<M.OtherPerson, O.OtherPerson>();
-                #pragma warning restore CS0618
-                O.OtherPerson BDOtherPerson = AutoMapper.Mapper.Map<O.OtherPerson>(otraPersona);
-                BDOtherPerson.CreationDate = System.DateTime.Now.ToString("g");
+                O.OtherPerson BDOtherPerson = new O.OtherPerson
+                {
+                    CreationDate = System.DateTime.Now
+                };
+
                 BD.OtherPersons.Add(BDOtherPerson);
                 BD.SaveChanges();
 

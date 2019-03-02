@@ -145,6 +145,7 @@
           <ScalarProperty Name="Ciprin" ColumnName="Ciprin" />
           <ScalarProperty Name="Active" ColumnName="Active" />
           <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="CreationHourZone" ColumnName="CreationHourZone" />
           <ScalarProperty Name="Avatar" ColumnName="Avatar" />
           <ScalarProperty Name="IdUser" ColumnName="IdUser" />
         </MappingFragment>

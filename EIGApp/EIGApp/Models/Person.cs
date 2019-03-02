@@ -20,6 +20,6 @@ namespace EIGApp.Models
 
         /* Otros */
         public string Username { get; set; }
-        public bool Type { get; set; }
+        public string Type { get; set; }
     }
 }

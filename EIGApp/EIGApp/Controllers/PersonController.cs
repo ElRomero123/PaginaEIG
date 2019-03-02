@@ -47,11 +47,11 @@ namespace EIGApp.Controllers
         {
             var query = from P in BD.People
                         where (P.IdUser.Equals(idUser))
-                        select new {P.Id, P.Name, P.ProfesionDescription, P.Email, P.Phone, P.Ciprin, P.Active, P.CreationDate, P.CreationHourZone, P.Avatar};
+                        select new {P.Id, P.Name, P.ProfesionDescription, P.Email, P.Phone, P.Ciprin, P.Active, P.CreationDate, P.CreationHourZone, P.Avatar, P.User.Username};
 
             var query2 = from P in BD.OtherPersons
                         where (P.IdUser.Equals(idUser))
-                        select new {P.Id, P.Name, P.Profesion, P.Email, P.Phone, P.Ciprin, P.Active, P.CreationDate, P.CreationHourZone, P.Avatar};
+                        select new {P.Id, P.Name, P.Profesion, P.Email, P.Phone, P.Ciprin, P.Active, P.CreationDate, P.CreationHourZone, P.Avatar, P.User.Username};
 
             var lista = query.ToArray();
             var lista2 = query2.ToArray();
@@ -76,7 +76,8 @@ namespace EIGApp.Controllers
                     CreationDate         = lista[i].CreationDate,
                     CreationHourZone     = lista[i].CreationHourZone,
                     Avatar               = lista[i].Avatar,
-                    Type                 = false
+                    Type                 = "Investigador privado",
+                    Username             = lista[i].Username
                 };
 
                 arrayPeople[i] = temp;
@@ -97,7 +98,8 @@ namespace EIGApp.Controllers
                     CreationDate         = lista2[i].CreationDate,
                     CreationHourZone     = lista2[i].CreationHourZone,
                     Avatar               = lista2[i].Avatar,
-                    Type                 = true
+                    Type                 = "Otros perfiles",
+                    Username             = lista[i].Username
                 };
 
                 arrayPeople[j] = temp;
