@@ -154,7 +154,7 @@ function putAvatar(num, downloadURL)
     $.ajax
     (
         {
-            url: '../api/parametroOtherPerson',
+            url: '../api/putAvatarOP',
             type: 'POST',
             data: JSON.stringify(parametrosPutAvatar),
             contentType: "application/json;charset=utf-8",
@@ -169,7 +169,7 @@ function putAvatar(num, downloadURL)
                     $('#createOtherPerson').css('color','white');
                     $('#createOtherPerson').text('Perfil ingresado con éxito!');
                     
-                    setTimeout(recargar, 2500);
+                    setTimeout(recargar, 1800);
                 }
             }
         }
