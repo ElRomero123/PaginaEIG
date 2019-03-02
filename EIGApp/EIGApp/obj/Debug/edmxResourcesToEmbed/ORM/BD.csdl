@@ -222,6 +222,16 @@
     <Property Name="IdUser" Type="Int64" Nullable="false" />
     <NavigationProperty Name="User" Relationship="Self.FK_Suggestion_User" FromRole="Suggestion" ToRole="User" />
   </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
   <EntityType Name="User">
     <Key>
       <PropertyRef Name="Id" />
@@ -469,6 +479,7 @@
     <EntitySet Name="People" EntityType="Self.Person" />
     <EntitySet Name="Products" EntityType="Self.Product" />
     <EntitySet Name="Suggestions" EntityType="Self.Suggestion" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
     <EntitySet Name="Users" EntityType="Self.User" />
     <AssociationSet Name="FK_Business_Package" Association="Self.FK_Business_Package">
       <End Role="Package" EntitySet="Packages" />
