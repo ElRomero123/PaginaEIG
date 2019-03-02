@@ -39,24 +39,26 @@ function createUser()
 
 function validate()
 {
-    if($('#campoPassword').val() == $('#campoPasswordAgain').val())
+    var pass1 = $('#cPass1').val();
+    var pass2 = $('#cPass2').val()
+
+    if(pass1.equals(pass2))
     {
         if(navigator.onLine)
         {
             var usuario =
             {
-                username: $('#campoUsername').val(),
-                password: $('#campoPassword').val(),
-                name: $('#campoName').val(),
-                email: $('#campoEmail').val(),
-                phone: $('#campoAddress').val(),
-                address: $('#campoAddress').val()
+                username: $('#cUsername').val(),
+                password: $('#cPass1').val(),
+                name: $('#cName').val(),
+                email: $('#cEmail').val(),
+                address: $('#cAddress').val()
             };
     
             $('#register').css('background','yellow');
             $('#register').css('border','2px solid yellow');
             $('#register').css('color','black');
-            $('#register').text('Agregando usuario ...');
+            $('#register').text('Registrando usuario ...');
     
             $.ajax
             (
@@ -98,10 +100,9 @@ function validate()
     {
         $('#register').css('background','red');
         $('#register').css('border','2px solid red');
-        $('#register').text('Las contraseñas son diferentes!');
+        $('#register').text('Contraseñas NO coincidcen!');
     }
 }
-
 
 function toMenu()
 {
