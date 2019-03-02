@@ -29,19 +29,66 @@
 
             <div>
                 <p>Nombre completo (50 caracteres)</p>
-                <input type='text' maxlength='50' id='campoFullName'>
+                <input type='text' maxlength='50' id='campoName'>
 
                 <p>Nombre de su profesión específica (50 caracteres)</p>
-                <input type='text' maxlength='50' id='campoProfesion'>
+                <input type='text' maxlength='50' id='cProfesion'>
 
                 <p>Describa a lo que usted se dedica brevemente (100 caracteres)</p>
-                <input type='text' maxlength="100" id='campoProfesionDescription'>
+                <input type='text' maxlength="100" id='cDescription'>
 
                 <p>Correo electrónico/Email (80 caracteres)</p>
-                <input type='text' maxlength='80' id='campoEmail'>
+                <input type='text' maxlength='80' id='cEmail'>
 
-                <p>Número telefónico Celular/Fijo</p>
-                <input type='number' max='9999999999999999999999999' id='campoPhone'>
+                <p>Número telefónico Celular (Mínimo 5 digitos)</p>
+                <div id='infoPhone'>
+                        <p>Indicativo</p>
+                        <input list='countries' id='cIndex'>
+        
+                        <datalist id='countries'>
+                            <option value='+93 Afganistan'>
+                            <option value='+355 Albania'>
+                            <option value='+49 Alemania'>
+                            <option value='+376 Andorra'>
+                            <option value='+244 Angola'>
+                            <option value='+1  Anguila'>
+                            <option value='+1  Antigua y Barbuda'>
+                            <option value='+966 Arabia Saudí'>
+                            <option value='+213 Argelia'>
+                            <option value='+54 Argentina'>
+                            <option value='+374 Armenia'>
+                            <option value='+297 Aruba'>
+                            <option value='+61 Australia'>
+                            <option value='+43 Austria'>
+                            <option value='+994 Azerbaiyán'>
+                            <option value='+1  Bahamas'>
+                            <option value='+880 Bangladés'>
+                            <option value='+1  Barbados'>
+                                
+                            <option value='+973 Baréin'>
+                            <option value='+32 Bélgica'>
+                            <option value='+501 Belice'>
+                            <option value='+229 Benín'>
+                            <option value='+1  Bermudas'>
+                            <option value='+375 Bielorrusia'>
+                            <option value='+591 Bolivia'>
+                            <option value='+387 Bosnia-Herzegovina'>
+                            <option value='+267 Botsuana'>
+                            <option value='+55 Brasil'>
+                            <option value='+673 Brunéi'>
+                            <option value='+359 Bulgaria'>
+                            <option value='+226 Burkina Faso'>
+                            <option value='+257 Burundi'>
+                            <option value='+975 Bután'>
+                            <option value='+238 Cabo Verde'>
+                            <option value='+855 Camboya'>
+                            <option value='+237 Camerún'>
+                        
+                        </datalist>
+        
+                        <p>Número</p>
+                        <input type='number' max='9999999999999999999999999' id='cPhone'>
+                </div>
 
                 <p>Por favor, indique en el mapa ¿Donde se encuentra ubicado?</p>
                 

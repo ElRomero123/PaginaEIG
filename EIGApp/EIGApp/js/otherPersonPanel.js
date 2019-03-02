@@ -50,26 +50,27 @@ function createOtherPerson()
     {
         if(validateAvatar())
         {
+            var IdUser = localStorage.getItem('User');
+
             var otraPersona =
             {
-                name:                 $('#campoFullName').val(),
-                profesion:            $('#campoProfesion').val(),
-                profesionDescription: $('#campoProfesionDescription').val(),
-                email:                $('#campoEmail').val(),
-                phone:                $('#campoPhone').val(),
+                name:                 $('#cName').val(),
+                profesion:            $('#cProfesion').val(),
+                profesionDescription: $('#cDescription').val(),
+                email:                $('#Email').val(),
+                phone:                $('#cIndex').val().substr(0,4).trim() + ' ' + $('#cPhone').val(),
                 latitude:             latitude,
                 longitude:            longitude,
-                ciprin:               0,
-                active:               0,
-                approved:             false,
+                ciprin:               false,
+                active:               false,
                 avatar:               '',
-                idUser:               localStorage.getItem('User')
+                idUser:               IdUser
             };
 
             $('#createOtherPerson').css('background','yellow');
             $('#createOtherPerson').css('border','2px solid yellow');
             $('#createOtherPerson').css('color','black');
-            $('#createOtherPerson').text('Creando perfil de usuario...');
+            $('#createOtherPerson').text('Registrando ...');
     
             $.ajax
             (
@@ -92,7 +93,7 @@ function createOtherPerson()
         {
             $('#createOtherPerson').css('background','red');
             $('#createOtherPerson').css('border','2px solid red');
-            $('#createOtherPerson').text('NO existe foto de usuario!');
+            $('#createOtherPerson').text('Debe seleccionar una FOTO de Avatar!');
         }
     }
 
@@ -193,11 +194,11 @@ document.getElementById('otherPersonAvatar').onchange = function(e)
 
 function validateText()
 {
-    var c1 = $('#campoFullName').val().length >= 8;
-    var c2 = $('#campoProfesion').val().length >= 8;
-    var c3 = $('#campoProfesionDescription').val().length >= 8;
-    var c4 = $('#campoEmail').val().length >= 8;
-    var c5 = $('#campoPhone').val().length >= 8;
+    var c1 = $('#cName').val().length >= 8;
+    var c2 = $('#cProfesion').val().length >= 8;
+    var c3 = $('#cDescription').val().length >= 8;
+    var c4 = $('#cEmail').val().length >= 8;
+    var c5 = $('#cPhone').val().length >= 8;
 
     return c1 && c2 && c3 && c4 && c5;
 }
@@ -215,10 +216,11 @@ function recargar()
 function startMap()
 {
     navigator.geolocation.getCurrentPosition(function(position)
-    { 
-        console.log(position);
-        mapa = new google.maps.Map(document.getElementById('maps2'), {zoom: 5, center: {lat: position.coords.latitude, lng: position.coords.longitude}});
-        marker = new google.maps.Marker({draggable: true, animation: google.maps.Animation.DROP, position: {lat: position.coords.latitude, lng: position.coords.longitude}, map: mapa});
+    {
+        latitude = position.coords.latitude;
+        longitude = position.coords.longitude;
+        mapa = new google.maps.Map(document.getElementById('maps2'), {zoom: 5, center: {lat: latitude, lng: longitude}});
+        marker = new google.maps.Marker({draggable: true, animation: google.maps.Animation.DROP, position: {lat: latitude, lng: longitude}, map: mapa});
 
         marker.addListener
         (

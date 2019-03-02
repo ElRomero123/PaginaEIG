@@ -45,31 +45,32 @@ namespace EIGApp.Controllers
 
         public long Post(M.OtherPerson otraPersona)
         {
-            long id = 0;
-
-            try
+            O.OtherPerson BDOtherPerson = new O.OtherPerson
             {
-                O.OtherPerson BDOtherPerson = new O.OtherPerson
-                {
-                    CreationDate = System.DateTime.Now
-                };
+                Name                 = otraPersona.Name,
+                Profesion            = otraPersona.Profesion,
+                ProfesionDescription = otraPersona.ProfesionDescription,
+                Email                = otraPersona.Email,
+                Phone                = otraPersona.Phone,
+                Latitude             = otraPersona.Latitude,
+                Longitude            = otraPersona.Longitude,
+                Ciprin               = otraPersona.Ciprin,
+                Active               = otraPersona.Active,
+                CreationDate         = System.DateTime.Now,
+                CreationHourZone     = System.TimeZoneInfo.Local.ToString(),
+                Avatar               = otraPersona.Avatar,
+                IdUser               = otraPersona.IdUser
+            };
 
-                BD.OtherPersons.Add(BDOtherPerson);
-                BD.SaveChanges();
+            BD.OtherPersons.Add(BDOtherPerson);
+            BD.SaveChanges();
 
-                id = BDOtherPerson.Id;
-            }
-
-            catch
-            {
-                id = 0;
-            }
-
-            return id;
+            return BDOtherPerson.Id;
         }
 
-        public int Post(long id)
+        public void Post(long id)
         {
+            /*
             int c = 0;
 
             try
@@ -96,6 +97,7 @@ namespace EIGApp.Controllers
             }
 
             return c;
+            */
         }
 
         public bool Post(int idOtherPerson)
