@@ -13,7 +13,7 @@ function createUser()
         $.ajax
         (
             {
-                url: '../api/user/?username=' + $('#campoUsername').val(),
+                url: '../api/user/?username=' + username,
                 type: 'GET',
                 contentType: "application/json;charset=utf-8",
     
@@ -47,9 +47,9 @@ function createUser()
 function confirm()
 {
     var pass1 = $('#cPass1').val();
-    var pass2 = $('#cPass2').val()
+    var pass2 = $('#cPass2').val();
 
-    if(pass1.equals(pass2))
+    if(pass1 == pass2)
     {
         if(navigator.onLine)
         {
@@ -65,7 +65,7 @@ function confirm()
             $('#register').css('background','yellow');
             $('#register').css('border','2px solid yellow');
             $('#register').css('color','black');
-            $('#register').text('Registrando usuario ...');
+            $('#register').text('Registrando ...');
     
             $.ajax
             (
@@ -80,7 +80,7 @@ function confirm()
                     {
                         if (data)
                         {
-                            location.href = 'managePackage.html';    
+                            location.href = 'index.html';    
                         }
     
                         else
