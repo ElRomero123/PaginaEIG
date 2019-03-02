@@ -71,14 +71,11 @@ namespace EIGApp.Controllers
 
         public bool Get(string username)
         {
-            bool result = false;
-
             var query = from U in BD.Users
                         where (U.Username.Equals(username))
                         select new { U.Id };
 
-            result = query.ToArray().Length == 0;
-            return result;
+            return query.ToArray().Length == 0;
         }
 
         public bool Post(M.User usuario)
