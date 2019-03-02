@@ -12,7 +12,7 @@ namespace EIGApp.Controllers
         public M.Person[] Get(string criterio)
         {
             var query = from P in BD.People
-                        where (P.Name.Contains(criterio) || P.ProfesionDescription.Contains(criterio) || P.Active)
+                        where ((P.Name.Contains(criterio) || P.ProfesionDescription.Contains(criterio)) && P.Active)
                         select new {P.Id, P.Name, P.ProfesionDescription, P.Email, P.Phone, P.Latitude, P.Longitude, P.Ciprin, P.Active, P.CreationDate, P.CreationHourZone, P.Avatar, P.User.Username};
 
             var lista = query.ToArray();
@@ -43,16 +43,15 @@ namespace EIGApp.Controllers
             return arrayPeople;
         }
 
-        public void Get(long idUser)
+        public M.Person[] Get(long idUser)
         {
-            /*
             var query = from P in BD.People
                         where (P.IdUser.Equals(idUser))
-                        select new {P.Id, P.Name, P.ProfesionDescription, P.Email, P.Phone, P.Latitude, P.Longitude, P.Ciprin, P.Active, P.CreationDate, P.Avatar};
+                        select new {P.Id, P.Name, P.ProfesionDescription, P.Email, P.Phone, P.Ciprin, P.Active, P.CreationDate, P.CreationHourZone, P.Avatar};
 
             var query2 = from P in BD.OtherPersons
                         where (P.IdUser.Equals(idUser))
-                        select new {P.Id, P.Name, P.ProfesionDescription, P.Email, P.Phone, P.Latitude, P.Longitude, P.Ciprin, P.Active, P.CreationDate, P.Avatar};
+                        select new {P.Id, P.Name, P.Profesion, P.Email, P.Phone, P.Ciprin, P.Active, P.CreationDate, P.CreationHourZone, P.Avatar};
 
             var lista = query.ToArray();
             var lista2 = query2.ToArray();
@@ -72,11 +71,10 @@ namespace EIGApp.Controllers
                     ProfesionDescription = lista[i].ProfesionDescription,
                     Email                = lista[i].Email,
                     Phone                = lista[i].Phone,
-                    Latitude             = lista[i].Latitude,
-                    Longitude            = lista[i].Longitude,
                     Ciprin               = lista[i].Ciprin,
                     Active               = lista[i].Active,
                     CreationDate         = lista[i].CreationDate,
+                    CreationHourZone     = lista[i].CreationHourZone,
                     Avatar               = lista[i].Avatar,
                     Type                 = false
                 };
@@ -91,14 +89,13 @@ namespace EIGApp.Controllers
                 {
                     Id                   = lista2[i].Id,
                     Name                 = lista2[i].Name,
-                    ProfesionDescription = lista2[i].ProfesionDescription,
+                    ProfesionDescription = lista2[i].Profesion,
                     Email                = lista2[i].Email,
                     Phone                = lista2[i].Phone,
-                    Latitude             = lista2[i].Latitude,
-                    Longitude            = lista2[i].Longitude,
                     Ciprin               = lista2[i].Ciprin,
                     Active               = lista2[i].Active,
                     CreationDate         = lista2[i].CreationDate,
+                    CreationHourZone     = lista2[i].CreationHourZone,
                     Avatar               = lista2[i].Avatar,
                     Type                 = true
                 };
@@ -108,7 +105,6 @@ namespace EIGApp.Controllers
             }
 
             return arrayPeople;
-            */
         }
 
         public long Post(M.Person persona)

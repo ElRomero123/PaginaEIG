@@ -91,11 +91,12 @@ function search()
 
                     else
                     {
-                        hideMap();
-
                         $('#bannerState').css('background','red');
                         $('#bannerState').css('color','white');
                         $('#bannerState').text('Sin resultados!');
+
+                        startMap();
+                        hideMap();
                     }
                 }
             }

@@ -136,9 +136,10 @@
           <Property Name="Phone" Type="nvarchar" MaxLength="255" Nullable="false" />
           <Property Name="Latitude" Type="real" Nullable="false" />
           <Property Name="Longitude" Type="real" Nullable="false" />
-          <Property Name="Ciprin" Type="int" Nullable="false" />
-          <Property Name="Active" Type="int" Nullable="false" />
-          <Property Name="CreationDate" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="Ciprin" Type="bit" Nullable="false" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+          <Property Name="CreationDate" Type="datetime" Nullable="false" />
+          <Property Name="CreationHourZone" Type="nvarchar" MaxLength="255" Nullable="false" />
           <Property Name="Avatar" Type="nvarchar(max)" Nullable="false" />
           <Property Name="IdUser" Type="bigint" Nullable="false" />
         </EntityType>
@@ -667,9 +668,10 @@
           <Property Name="Phone" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Latitude" Type="Single" Nullable="false" />
           <Property Name="Longitude" Type="Single" Nullable="false" />
-          <Property Name="Ciprin" Type="Int32" Nullable="false" />
-          <Property Name="Active" Type="Int32" Nullable="false" />
-          <Property Name="CreationDate" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Ciprin" Type="Boolean" Nullable="false" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreationHourZone" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Avatar" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="IdUser" Type="Int64" Nullable="false" />
           <NavigationProperty Name="MediaOtherPersons" Relationship="Self.FK_MediaOtherPerson_OtherPerson" FromRole="OtherPerson" ToRole="MediaOtherPerson" />
@@ -1216,6 +1218,7 @@
                 <ScalarProperty Name="Ciprin" ColumnName="Ciprin" />
                 <ScalarProperty Name="Active" ColumnName="Active" />
                 <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="CreationHourZone" ColumnName="CreationHourZone" />
                 <ScalarProperty Name="Avatar" ColumnName="Avatar" />
                 <ScalarProperty Name="IdUser" ColumnName="IdUser" />
               </MappingFragment>
