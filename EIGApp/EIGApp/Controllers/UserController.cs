@@ -41,6 +41,34 @@ namespace EIGApp.Controllers
             return temp;
         }
 
+        public M.User[] Get()
+        {
+            var query = from U in BD.Users
+                        where (true)
+                        select new { U.Id, U.Name, U.Username, U.Email, U.JoinDate };
+
+            var lista = query.ToArray();
+            int rsize = lista.Length;
+
+            M.User[] arrayUser = new M.User[rsize];
+
+            for (int i = 0; i < rsize; i++)
+            {
+                M.User temp = new M.User
+                {
+                    Id = lista[i].Id,
+                    Name = lista[i].Name,
+                    Username = lista[i].Username,
+                    Email = lista[i].Email,
+                    JoinDate = lista[i].JoinDate
+                };
+
+                arrayUser[i] = temp;
+            }
+
+            return arrayUser;
+        }
+
         public bool Get(string username)
         {
             int size = 0;
@@ -53,59 +81,32 @@ namespace EIGApp.Controllers
             return size == 0;
         }
 
-        public M.User[] Get()
-        {
-            var query = from U in BD.Users
-                        where (true)
-                        select new {U.Id, U.Name, U.Username, U.Email, U.JoinDate};
-
-            var lista = query.ToArray();
-            int rsize = lista.Length;
-
-            M.User[] arrayUser = new M.User[rsize];
-
-            for (int i = 0; i < rsize; i++)
-            {
-                M.User temp = new M.User
-                {
-                    Id       = lista[i].Id,
-                    Name     = lista[i].Name,
-                    Username = lista[i].Username,
-                    Email    = lista[i].Email,
-                    JoinDate = lista[i].JoinDate
-
-                };
-
-                arrayUser[i] = temp;
-            }
-
-            return arrayUser;
-        }
-
         public bool Post(M.User usuario)
         {
-            bool state;
-            string password = SHA256Encrypt(usuario.Password);
-            usuario.Password = password;
-
+            bool S;
             try
             {
-                #pragma warning disable CS0618
-                AutoMapper.Mapper.CreateMap<M.User, O.User>();
-                #pragma warning restore CS0618
-                O.User BDUser = AutoMapper.Mapper.Map<O.User>(usuario);
-                BDUser.JoinDate = System.DateTime.Now.ToString("g");
-                BD.Users.Add(BDUser);
+                O.User newUser = new O.User
+                {
+                    Username = usuario.Username,
+                    Password = SHA256Encrypt(usuario.Password),
+                    Name     = usuario.Name,
+                    Email    = usuario.Email,
+                    Address  = usuario.Address,
+                    JoinDate = System.DateTime.Now
+                };
+
+                BD.Users.Add(newUser);
                 BD.SaveChanges();
-                state = true;
+                S = true;
             }
 
             catch
             {
-                state = false;
+                S = false;
             }
 
-            return state;
+            return S;
         }
 
         private string SHA256Encrypt(string input)

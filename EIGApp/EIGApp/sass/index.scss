@@ -1,5 +1,25 @@
 body
 {
+    footer
+    {
+        div
+        {
+            color: red;
+            font-family: acephimere;
+            font-size: 10px;
+            margin: 2px auto;
+        }
+
+        text-align: center;
+        padding: 5px;
+        position: fixed;
+        bottom: 0px;
+        left: 0px;
+        height: 100px;
+        width: 100%;
+        background: white;
+    }
+
     div
     {
         .costosYear
@@ -470,7 +490,7 @@ body
         background-color: transparent;
         border-radius: 10px;
         padding: 10px;
-        margin: 220px auto 95px auto;
+        margin: 235px auto 150px auto;
         height: auto;
         width: 90%;
     }

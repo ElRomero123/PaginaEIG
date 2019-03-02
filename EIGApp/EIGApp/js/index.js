@@ -74,3 +74,8 @@ function validate()
         }
     );
 }
+
+function visible()
+{
+    alert('Has introducido: ' + $('#boxPassword').val());
+}

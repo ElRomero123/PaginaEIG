@@ -53,7 +53,7 @@ function validate()
             {
                 if(data.Name != null)
                 {
-                    localStorage.setItem('User', data.Id);
+                    localStorage.setItem('Admin', data.Id);
                     localStorage.setItem('Name', data.Name);
                     localStorage.setItem('Email', data.Email);
                     location.href = 'menuAdministrator.html'; 
@@ -68,4 +68,9 @@ function validate()
             }
         }
     );
+}
+
+function visible()
+{
+    alert('Has introducido: ' + $('#boxPassword').val());
 }

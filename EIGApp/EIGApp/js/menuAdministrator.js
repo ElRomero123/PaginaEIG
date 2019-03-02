@@ -17,7 +17,6 @@ function initUser()
     }
 }
 
-
 function to(num)
 {
     switch(num)
