@@ -11,22 +11,22 @@ namespace EIGApp.Controllers
 
         public bool Post(M.ParametrosPutAvatar parametrosPutAvatar)
         {
-            bool state = false;
+            bool S = false;
 
             try
             {
                 O.Person persona = BD.People.FirstOrDefault(x => x.Id == parametrosPutAvatar.Id);
                 persona.Avatar = parametrosPutAvatar.DownloadURL;
                 BD.SaveChanges();
-                state = true;
+                S = true;
             }
 
             catch
             {
-                state = false;
+                S = false;
             }
 
-            return state;
+            return S;
         }
     }
 }

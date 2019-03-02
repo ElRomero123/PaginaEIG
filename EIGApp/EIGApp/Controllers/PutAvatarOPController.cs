@@ -5,28 +5,28 @@ using System.Linq;
 
 namespace EIGApp.Controllers
 {
-    public class ParametroOtherPersonController : ApiController
+    public class PutAvatarOPController : ApiController
     {
         private O.BDEIGEntities BD = new O.BDEIGEntities();
 
         public bool Post(M.ParametrosPutAvatar parametrosPutAvatar)
         {
-            bool state = false;
+            bool S = false;
 
             try
             {
                 O.OtherPerson otraPersona = BD.OtherPersons.FirstOrDefault(x => x.Id == parametrosPutAvatar.Id);
                 otraPersona.Avatar = parametrosPutAvatar.DownloadURL;
                 BD.SaveChanges();
-                state = true;
+                S = true;
             }
 
             catch
             {
-                state = false;
+                S = false;
             }
 
-            return state;
+            return S;
         }
     }
 }
