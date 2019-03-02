@@ -124,7 +124,7 @@ namespace EIGApp.Controllers
                 Ciprin               = persona.Ciprin,
                 Active               = persona.Active,
                 CreationDate         = System.DateTime.Now,
-                HourZone             = System.TimeZoneInfo.Local.ToString(),
+                CreationHourZone     = System.TimeZoneInfo.Local.ToString(),
                 Avatar               = persona.Avatar,
                 IdUser               = persona.IdUser
             };
@@ -133,26 +133,6 @@ namespace EIGApp.Controllers
             BD.SaveChanges();
 
             return BDPerson.Id;
-        }
-
-        public bool Post(M.ParametrosPutAvatar parametrosPutAvatar)
-        {
-            bool state = false;
-
-            try
-            {
-                O.Person persona = BD.People.FirstOrDefault(x => x.Id == parametrosPutAvatar.Id);
-                persona.Avatar = parametrosPutAvatar.DownloadURL;
-                BD.SaveChanges();
-                state = true;
-            }
-
-            catch
-            {
-                state = false;
-            }
-
-            return state;
         }
 
         /*

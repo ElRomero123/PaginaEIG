@@ -162,9 +162,10 @@
     <Property Name="Phone" Type="nvarchar" MaxLength="255" Nullable="false" />
     <Property Name="Latitude" Type="real" Nullable="false" />
     <Property Name="Longitude" Type="real" Nullable="false" />
-    <Property Name="Ciprin" Type="int" Nullable="false" />
-    <Property Name="Active" Type="int" Nullable="false" />
-    <Property Name="CreationDate" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="Ciprin" Type="bit" Nullable="false" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+    <Property Name="CreationDate" Type="datetime" Nullable="false" />
+    <Property Name="CreationHourZone" Type="nvarchar" MaxLength="255" Nullable="false" />
     <Property Name="Avatar" Type="nvarchar(max)" Nullable="false" />
     <Property Name="IdUser" Type="bigint" Nullable="false" />
   </EntityType>
@@ -220,6 +221,7 @@
     <Property Name="Email" Type="nvarchar" MaxLength="255" Nullable="false" />
     <Property Name="Address" Type="nvarchar" MaxLength="255" Nullable="false" />
     <Property Name="JoinDate" Type="datetime" Nullable="false" />
+    <Property Name="JoinHourZone" Type="nvarchar" MaxLength="255" Nullable="false" />
   </EntityType>
   <Association Name="FK_Business_Package">
     <End Role="Package" Type="Self.Package" Multiplicity="1">

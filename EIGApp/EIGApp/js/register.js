@@ -5,7 +5,10 @@ var g = 'https://plus.google.com/u/0/109910140252090488175';
 
 function createUser()
 {
-    if($('#campoUsername').val().length >= 8 && $('#campoName').val().length >= 8)
+    var username = $('#cUsername').val();
+    var name     = $('#cName').val();
+
+    if(username.length >= 8 && name.length >= 8)
     {
         $.ajax
         (
@@ -19,8 +22,7 @@ function createUser()
                 {
                     if(data)
                     {
-                        
-                        validate();
+                        confirm();
                     }
     
                     else
@@ -38,11 +40,11 @@ function createUser()
     {
         $('#register').css('background','red');
         $('#register').css('border','2px solid red');
-        $('#register').text('<Username> y <Nombre Completo> deben tener por lo menos 8 caracteres!');
+        $('#register').text('<Username> y/o <Nombre Completo> deben tener por lo menos 8 caracteres!');
     }
 }
 
-function validate()
+function confirm()
 {
     var pass1 = $('#cPass1').val();
     var pass2 = $('#cPass2').val()

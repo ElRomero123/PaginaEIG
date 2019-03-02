@@ -170,7 +170,7 @@
           <Property Name="Ciprin" Type="bit" Nullable="false" />
           <Property Name="Active" Type="bit" Nullable="false" />
           <Property Name="CreationDate" Type="datetime" Nullable="false" />
-          <Property Name="HourZone" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="CreationHourZone" Type="nvarchar" MaxLength="255" Nullable="false" />
           <Property Name="Avatar" Type="nvarchar(max)" Nullable="false" />
           <Property Name="IdUser" Type="bigint" Nullable="false" />
         </EntityType>
@@ -226,6 +226,7 @@
           <Property Name="Email" Type="nvarchar" MaxLength="255" Nullable="false" />
           <Property Name="Address" Type="nvarchar" MaxLength="255" Nullable="false" />
           <Property Name="JoinDate" Type="datetime" Nullable="false" />
+          <Property Name="JoinHourZone" Type="nvarchar" MaxLength="255" Nullable="false" />
         </EntityType>
         <Association Name="FK_Business_Package">
           <End Role="Package" Type="Self.Package" Multiplicity="1">
@@ -705,7 +706,7 @@
           <Property Name="Ciprin" Type="Boolean" Nullable="false" />
           <Property Name="Active" Type="Boolean" Nullable="false" />
           <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="HourZone" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CreationHourZone" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Avatar" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="IdUser" Type="Int64" Nullable="false" />
           <NavigationProperty Name="MediaPersons" Relationship="Self.FK_MediaPerson_Person" FromRole="Person" ToRole="MediaPerson" />
@@ -766,6 +767,7 @@
           <Property Name="Email" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Address" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="JoinDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="JoinHourZone" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Cases" Relationship="Self.FK_Case_User" FromRole="User" ToRole="Case" />
           <NavigationProperty Name="Donations" Relationship="Self.FK_Donation_User" FromRole="User" ToRole="Donation" />
           <NavigationProperty Name="JobApplications" Relationship="Self.FK_JobApplication_User" FromRole="User" ToRole="JobApplication" />
@@ -1247,7 +1249,7 @@
                 <ScalarProperty Name="Ciprin" ColumnName="Ciprin" />
                 <ScalarProperty Name="Active" ColumnName="Active" />
                 <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
-                <ScalarProperty Name="HourZone" ColumnName="HourZone" />
+                <ScalarProperty Name="CreationHourZone" ColumnName="CreationHourZone" />
                 <ScalarProperty Name="Avatar" ColumnName="Avatar" />
                 <ScalarProperty Name="IdUser" ColumnName="IdUser" />
               </MappingFragment>
@@ -1307,6 +1309,7 @@
                 <ScalarProperty Name="Email" ColumnName="Email" />
                 <ScalarProperty Name="Address" ColumnName="Address" />
                 <ScalarProperty Name="JoinDate" ColumnName="JoinDate" />
+                <ScalarProperty Name="JoinHourZone" ColumnName="JoinHourZone" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

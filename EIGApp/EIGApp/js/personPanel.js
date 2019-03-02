@@ -168,7 +168,7 @@ function putAvatar(num, downloadURL)
     $.ajax
     (
         {
-            url: '../api/person',
+            url: '../api/putAvatar',
             type: 'POST',
             data: JSON.stringify(parametrosPutAvatar),
             contentType: "application/json;charset=utf-8",
@@ -181,8 +181,8 @@ function putAvatar(num, downloadURL)
                     $('#createPerson').css('background','darkgreen');
                     $('#createPerson').css('border','2px solid darkgreen');
                     $('#createPerson').css('color','white');
-                    $('#createPerson').text('Persona agregada!');
-                    setTimeout(recargar, 2500);
+                    $('#createPerson').text('Registro exitoso!');
+                    setTimeout(recargar, 1800);
                 }
             }
         }

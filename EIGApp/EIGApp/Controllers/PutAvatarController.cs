@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace EIGApp.Controllers
 {
-    public class ParametroPersonController : ApiController
+    public class PutAvatarController : ApiController
     {
         private O.BDEIGEntities BD = new O.BDEIGEntities();
 

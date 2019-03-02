@@ -71,14 +71,11 @@ namespace EIGApp.Controllers
 
         public bool Get(string username)
         {
-            int size = 0;
-
             var query = from U in BD.Users
                         where (U.Username.Equals(username))
                         select new { U.Id };
 
-            size = query.ToArray().Length;
-            return size == 0;
+            return query.ToArray().Length == 0;
         }
 
         public bool Post(M.User usuario)
@@ -88,12 +85,13 @@ namespace EIGApp.Controllers
             {
                 O.User newUser = new O.User
                 {
-                    Username = usuario.Username,
-                    Password = SHA256Encrypt(usuario.Password),
-                    Name     = usuario.Name,
-                    Email    = usuario.Email,
-                    Address  = usuario.Address,
-                    JoinDate = System.DateTime.Now
+                    Username     = usuario.Username,
+                    Password     = SHA256Encrypt(usuario.Password),
+                    Name         = usuario.Name,
+                    Email        = usuario.Email,
+                    Address      = usuario.Address,
+                    JoinDate     = System.DateTime.Now,
+                    JoinHourZone = System.TimeZoneInfo.Local.ToString()
                 };
 
                 BD.Users.Add(newUser);

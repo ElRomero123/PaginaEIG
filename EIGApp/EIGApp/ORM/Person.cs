@@ -30,7 +30,7 @@ namespace EIGApp.ORM
         public bool Ciprin { get; set; }
         public bool Active { get; set; }
         public System.DateTime CreationDate { get; set; }
-        public string HourZone { get; set; }
+        public string CreationHourZone { get; set; }
         public string Avatar { get; set; }
         public long IdUser { get; set; }
     

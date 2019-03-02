@@ -33,6 +33,7 @@ namespace EIGApp.ORM
         public string Email { get; set; }
         public string Address { get; set; }
         public System.DateTime JoinDate { get; set; }
+        public string JoinHourZone { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Case> Cases { get; set; }
