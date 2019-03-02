@@ -50,24 +50,26 @@ function createPerson()
     {
         if(validateAvatar())
         {
+            var IdUser = localStorage.getItem('User');
+
             var persona =
             {
-                name: $('#campoFullName').val(),
-                profesionDescription: $('#campoProfesionDescription').val(),
-                email: $('#campoEmail').val(),
-                phone: $('#campoPhone').val(),
-                latitude: latitude,
-                longitude: longitude,
-                ciprin: 0,
-                active: 0,
-                avatar: '',
-                idUser: localStorage.getItem('User')
+                name:                 $('#cName').val(),
+                profesionDescription: $('#cDescription').val(),
+                email:                $('#cEmail').val(),
+                phone:                $('#cPhone').val(),
+                latitude:             latitude,
+                longitude:            longitude,
+                ciprin:               false,
+                active:               false,
+                avatar:               '',
+                idUser:               IdUser
             };
 
             $('#createPerson').css('background','yellow');
             $('#createPerson').css('border','2px solid yellow');
             $('#createPerson').css('color','black');
-            $('#createPerson').text('Agregando persona ...');
+            $('#createPerson').text('Registrando ...');
     
             $.ajax
             (
@@ -90,7 +92,7 @@ function createPerson()
         {
             $('#createPerson').css('background','red');
             $('#createPerson').css('border','2px solid red');
-            $('#createPerson').text('No has seleccionado una FOTO!');
+            $('#createPerson').text('Debe seleccionar una FOTO de Avatar!');
         }
     }
 
@@ -104,10 +106,10 @@ function createPerson()
 
 function validateText()
 {
-    var c1 = $('#campoFullName').val().length >= 8;
-    var c2 = $('#campoProfesionDescription').val().length >= 8;
-    var c3 = $('#campoEmail').val().length >= 8;
-    var c4 = $('#campoPhone').val().length >= 8;
+    var c1 = $('#cName').val().length >= 8;
+    var c2 = $('#cDescription').val().length >= 8;
+    var c3 = $('#cEmail').val().length >= 8;
+    var c4 = $('#cPhone').val().length >= 5;
 
     return c1 && c2 && c3 && c4;
 }
@@ -166,7 +168,7 @@ function putAvatar(num, downloadURL)
     $.ajax
     (
         {
-            url: '../api/parametroPerson',
+            url: '../api/person',
             type: 'POST',
             data: JSON.stringify(parametrosPutAvatar),
             contentType: "application/json;charset=utf-8",

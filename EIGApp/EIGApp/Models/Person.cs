@@ -1,4 +1,6 @@
-﻿namespace EIGApp.Models
+﻿using System;
+
+namespace EIGApp.Models
 {
     public class Person
     {
@@ -9,11 +11,14 @@
         public string Phone { get; set; }
         public float Latitude { get; set; }
         public float Longitude { get; set; }
-        public int Ciprin { get; set; }
-        public int Active { get; set; }
-        public string CreationDate { get; set; }
-        public bool Type { get; set; }
+        public bool Ciprin { get; set; }
+        public bool Active { get; set; }
+        public DateTime CreationDate { get; set; }
+        public string HourZone { get; set; }
         public string Avatar { get; set; }
         public long IdUser { get; set; }
+
+        /* Otros */
+        public bool Type { get; set; }
     }
 }

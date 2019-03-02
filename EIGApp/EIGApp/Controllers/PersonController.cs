@@ -43,8 +43,9 @@ namespace EIGApp.Controllers
             return arrayPeople;
         }
 
-        public M.Person[] Get(long idUser)
+        public void Get(long idUser)
         {
+            /*
             var query = from P in BD.People
                         where (P.IdUser.Equals(idUser))
                         select new {P.Id, P.Name, P.ProfesionDescription, P.Email, P.Phone, P.Latitude, P.Longitude, P.Ciprin, P.Active, P.CreationDate, P.Avatar};
@@ -107,65 +108,85 @@ namespace EIGApp.Controllers
             }
 
             return arrayPeople;
+            */
         }
 
-        public int Post(long id)
+        public long Post(M.Person persona)
+        { 
+            O.Person BDPerson = new O.Person
+            {
+                Name                 = persona.Name,
+                ProfesionDescription = persona.ProfesionDescription,
+                Email                = persona.Email,
+                Phone                = persona.Phone,
+                Latitude             = persona.Latitude,
+                Longitude            = persona.Longitude,
+                Ciprin               = persona.Ciprin,
+                Active               = persona.Active,
+                CreationDate         = System.DateTime.Now,
+                HourZone             = System.TimeZoneInfo.Local.ToString(),
+                Avatar               = persona.Avatar,
+                IdUser               = persona.IdUser
+            };
+
+            BD.People.Add(BDPerson);
+            BD.SaveChanges();
+
+            return BDPerson.Id;
+        }
+
+        public bool Post(M.ParametrosPutAvatar parametrosPutAvatar)
         {
-            int c = 0;
+            bool state = false;
+
+            try
+            {
+                O.Person persona = BD.People.FirstOrDefault(x => x.Id == parametrosPutAvatar.Id);
+                persona.Avatar = parametrosPutAvatar.DownloadURL;
+                BD.SaveChanges();
+                state = true;
+            }
+
+            catch
+            {
+                state = false;
+            }
+
+            return state;
+        }
+
+        /*
+        public bool Post(long id)
+        {
+            bool state = false;
 
             try
             {
                 O.Person BDPerson = BD.People.FirstOrDefault(x => x.Id == id);
 
-                if (BDPerson.Active == 1)
+                if (BDPerson.Active)
                 {
-                    BDPerson.Active = 0;
-                    c = 0;
+                    BDPerson.Active = false;
+                    state = false;
                 }
 
                 else
                 {
-                    BDPerson.Active = 1;
-                    c = 1;
+                    BDPerson.Active = true;
+                    state = true;
                 }
 
                 BD.SaveChanges();
             }
-                
-            catch
-            { 
-            }
 
-            return c;
+            catch { }
+            return state;
         }
+        */
 
-        public long Post(M.Person persona)
+        public void Post(int idPerson)
         {
-            long id = 0;
-
-            try
-            {
-                #pragma warning disable CS0618
-                AutoMapper.Mapper.CreateMap<M.Person, O.Person>();
-                #pragma warning restore CS0618
-                O.Person BDPerson = AutoMapper.Mapper.Map<O.Person>(persona);
-                BDPerson.CreationDate = System.DateTime.Now.ToString("g");
-                BD.People.Add(BDPerson);
-                BD.SaveChanges();
-
-                id = BDPerson.Id;
-            }
-
-            catch
-            {
-                id = 0;
-            }
-
-            return id;
-        }
-
-        public bool Post(int idPerson)
-        {
+            /*
             bool result = false;
 
             try
@@ -177,11 +198,9 @@ namespace EIGApp.Controllers
                 result = true;
             }
 
-            catch
-            {
-            }
-
+            catch { }
             return result;
+            */
         }
     }
 }
