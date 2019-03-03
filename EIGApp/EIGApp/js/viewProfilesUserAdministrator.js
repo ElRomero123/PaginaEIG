@@ -54,12 +54,12 @@ function loadProfilesUser()
                         {
                             if(data[i].Active)
                             {
-                                cadena += "<div class='result'> <div class='avatar' id='" + i + "'></div> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].ProfesionDescription + "</p> <p class='pf3'>" + data[i].Email + "</p> <p class='pf4'>" + data[i].Phone + "</p> <p class='pf4'> <p class='pf4'> Ciprin: " + data[i].Ciprin + "</p> <p class='pf4'>" + 'Unido el ' + data[i].CreationDate + ' ' + data[i].CreationHourZone +  "</p> <button class='moreResult' id='" + data[i].Id + "' onclick='flipOP(this)'>Desactivar</button> </div> </div>";
+                                cadena += "<div class='result'> <div class='avatar' id='" + i + "'></div> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].ProfesionDescription + "</p> <p class='pf3'>" + data[i].Email + "</p> <p class='pf4'>" + data[i].Phone + "</p> <p class='pf4'> <p class='pf4'> Ciprin: " + data[i].Ciprin + "</p> <p class='pf4'>" + 'Unido el ' + data[i].CreationDate + ' ' + data[i].CreationHourZone +  "</p> <button class='moreResult' id='" + data[i].Id + "' onclick='change(this, 1)'>Desactivar</button> </div> </div>";
                             }
 
                             else
                             {
-                                cadena += "<div class='result'> <div class='avatar' id='" + i + "'></div> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].ProfesionDescription + "</p> <p class='pf3'>" + data[i].Email + "</p> <p class='pf4'>" + data[i].Phone + "</p> <p class='pf4'> <p class='pf4'> Ciprin: " + data[i].Ciprin + "</p> <p class='pf4'>" +  'Unido el ' + data[i].CreationDate + ' ' + data[i].CreationHourZone +  "</p> <button class='moreResult' id='" + data[i].Id + "' onclick='flip(this)'>Activar</button> </div> </div>";
+                                cadena += "<div class='result'> <div class='avatar' id='" + i + "'></div> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].ProfesionDescription + "</p> <p class='pf3'>" + data[i].Email + "</p> <p class='pf4'>" + data[i].Phone + "</p> <p class='pf4'> <p class='pf4'> Ciprin: " + data[i].Ciprin + "</p> <p class='pf4'>" +  'Unido el ' + data[i].CreationDate + ' ' + data[i].CreationHourZone +  "</p> <button class='moreResult' id='" + data[i].Id + "' onclick='change(this, 2)'>Activar</button> </div> </div>";
                             }
                         }
 
@@ -126,72 +126,70 @@ function to(num)
     }
 }
 
-function flip(e)
+function change(opt, e)
 {
     $('#' + e.id).css('background','yellow');
     $('#' + e.id).css('color','black');
     $('#' + e.id).text('Cambiando ...');
 
-    $.ajax
-    (
-        {
-            url: '../api/person?id=' + e.id,
-            type: 'POST',
-            contentType: "application/json;charset=utf-8",
-
-            success:
-            function (data) 
+    switch(opt)
+    {
+        case 1:
+        $.ajax
+        (
             {
-                if(data == 1)
+                url: '../api/person?idPerson=' + e.id,
+                type: 'POST',
+                contentType: "application/json;charset=utf-8",
+    
+                success:
+                function (data) 
                 {
-                    $('#' + e.id).css('background','green');
-                    $('#' + e.id).css('color','white');
-                    $('#' + e.id).text('Desactivar');
-                }
-
-                else
-                {
-                    $('#' + e.id).css('background','red');
-                    $('#' + e.id).css('color','white');
-                    $('#' + e.id).text('Activar');
+                    if(data)
+                    {
+                        $('#' + e.id).css('background','green');
+                        $('#' + e.id).css('color','white');
+                        $('#' + e.id).text('Desactivar');
+                    }
+    
+                    else
+                    {
+                        $('#' + e.id).css('background','red');
+                        $('#' + e.id).css('color','white');
+                        $('#' + e.id).text('Activar');
+                    }
                 }
             }
-        }
-    );
-}
-
-function flipOP(e)
-{
-    $('#' + e.id).css('background','yellow');
-    $('#' + e.id).css('color','black');
-    $('#' + e.id).text('Cambiando ...');
-
-    $.ajax
-    (
-        {
-            url: '../api/otherPerson?id=' + e.id,
-            type: 'POST',
-            contentType: "application/json;charset=utf-8",
-
-            success:
-            function (data) 
+        );
+        break;
+        default:
+        $.ajax
+        (
             {
-                if(data == 1)
-                {
-                    $('#' + e.id).css('background','green');
-                    $('#' + e.id).css('color','white');
-                    $('#' + e.id).text('Desactivar');
-                }
+                url: '../api/otherPerson?idOtherPerson=' + e.id,
+                type: 'POST',
+                contentType: "application/json;charset=utf-8",
 
-                else
+                success:
+                function (data) 
                 {
-                    $('#' + e.id).css('background','red');
-                    $('#' + e.id).css('color','white');
-                    $('#' + e.id).text('Activar');
+                    if(data)
+                    {
+                        $('#' + e.id).css('background','green');
+                        $('#' + e.id).css('color','white');
+                        $('#' + e.id).text('Desactivar');
+                    }
+
+                    else
+                    {
+                        $('#' + e.id).css('background','red');
+                        $('#' + e.id).css('color','white');
+                        $('#' + e.id).text('Activar');
+                    }
                 }
             }
-        }
-    );
+        );
+    }    
 }
 
 function social(op)

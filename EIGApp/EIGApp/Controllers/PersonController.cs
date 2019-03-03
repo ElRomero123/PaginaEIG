@@ -134,34 +134,32 @@ namespace EIGApp.Controllers
             return BDPerson.Id;
         }
 
-        /*
-        public bool Post(long id)
+       
+        public bool Post(long idPerson)
         {
-            bool state = false;
-
+            bool S = false;
             try
             {
-                O.Person BDPerson = BD.People.FirstOrDefault(x => x.Id == id);
+                O.Person BDPerson = BD.People.FirstOrDefault(x => x.Id == idPerson);
 
                 if (BDPerson.Active)
                 {
                     BDPerson.Active = false;
-                    state = false;
+                    S = false;
                 }
 
                 else
                 {
                     BDPerson.Active = true;
-                    state = true;
+                    S = true;
                 }
 
                 BD.SaveChanges();
             }
 
             catch { }
-            return state;
+            return S;
         }
-        */
 
         public string Post(int idPerson)
         {
