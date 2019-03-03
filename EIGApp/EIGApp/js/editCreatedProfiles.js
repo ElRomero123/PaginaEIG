@@ -167,9 +167,6 @@ function deleteOP(e)
                 if(data)
                 {
                     deleteFile(data);
-                    $('#bannerState').css('background','brown');
-                    $('#bannerState').text('Tu perfil ha sido eliminado!');
-                    setTimeout(recargar, 500);
                 }
 
                 else
@@ -193,10 +190,11 @@ function deleteFile(fileName)
         function() 
         {
             $('#bannerState').css('background','brown');
-            $('#bannerState').text('El archivo ha sido eliminado!');
-            setTimeout(recargar, 800);
+            $('#bannerState').text('Tu perfil ha sido eliminado!');
+            setTimeout(recargar, 500);
         }
-    ).catch(
+    ).catch
+    (
         function(error) 
         {
         }
