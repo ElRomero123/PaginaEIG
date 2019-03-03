@@ -12,8 +12,8 @@ namespace EIGApp.Controllers
         public M.OtherPerson[] Get(string cadena)
         {
             var query = from OP in BD.OtherPersons
-                        where (OP.Name.Contains(cadena) || OP.Profesion.Contains(cadena) || OP.ProfesionDescription.Contains(cadena))
-                        select new {OP.Name, OP.Profesion, OP.ProfesionDescription, OP.Email, OP.Phone, OP.Latitude, OP.Longitude, OP.Ciprin, OP.Active, OP.CreationDate, OP.Avatar};
+                        where ((OP.Name.Contains(cadena) || OP.Profesion.Contains(cadena) || OP.ProfesionDescription.Contains(cadena)) && OP.Active)
+                        select new {OP.Id, OP.Name, OP.Profesion, OP.ProfesionDescription, OP.Email, OP.Phone, OP.Latitude, OP.Longitude, OP.Ciprin, OP.Active, OP.CreationDate, OP.CreationHourZone, OP.Avatar, OP.User.Username};
 
             var lista = query.ToArray();
 
@@ -23,18 +23,19 @@ namespace EIGApp.Controllers
             {
                 M.OtherPerson temp = new M.OtherPerson
                 {
-                    Name                 = lista[i].Name,
-                    Profesion            = lista[i].Profesion,
-                    ProfesionDescription = lista[i].ProfesionDescription,
-                    Email                = lista[i].Email,
-                    Phone                = lista[i].Phone,
+                    Id                   = lista[i].Id, //
+                    Name                 = lista[i].Name, //
+                    Profesion            = lista[i].Profesion, //
+                    ProfesionDescription = lista[i].ProfesionDescription, //
+                    Email                = lista[i].Email, //
+                    Phone                = lista[i].Phone, //
                     Latitude             = lista[i].Latitude,
                     Longitude            = lista[i].Longitude,
-                    Ciprin               = lista[i].Ciprin,
-                    Active               = lista[i].Active,
-                    CreationDate         = lista[i].CreationDate,
-                    Avatar               = lista[i].Avatar
-                    
+                    Ciprin               = lista[i].Ciprin, //
+                    CreationDate         = lista[i].CreationDate, //
+                    CreationHourZone     = lista[i].CreationHourZone, //
+                    Avatar               = lista[i].Avatar,
+                    Username             = lista[i].Username //
                 };
 
                 arrayOtherPersons[i] = temp;

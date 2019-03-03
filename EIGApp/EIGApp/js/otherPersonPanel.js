@@ -57,7 +57,7 @@ function createOtherPerson()
                 name:                 $('#cName').val(),
                 profesion:            $('#cProfesion').val(),
                 profesionDescription: $('#cDescription').val(),
-                email:                $('#Email').val(),
+                email:                $('#cEmail').val(),
                 phone:                $('#cIndex').val().substr(0,4).trim() + ' ' + $('#cPhone').val(),
                 latitude:             latitude,
                 longitude:            longitude,

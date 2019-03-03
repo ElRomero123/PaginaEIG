@@ -16,5 +16,8 @@
         public string CreationHourZone { get; set; }
         public string Avatar { get; set; }
         public long IdUser { get; set; }
+
+        /* Otras */
+        public string Username { get; set; }
     }
 }
