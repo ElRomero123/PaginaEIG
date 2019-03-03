@@ -171,7 +171,7 @@ function putAvatar(num, fileName, downloadURL)
                     $('#createOtherPerson').css('background','darkgreen');
                     $('#createOtherPerson').css('border','2px solid darkgreen');
                     $('#createOtherPerson').css('color','white');
-                    $('#createOtherPerson').text('Perfil ingresado con éxito!');
+                    $('#createOtherPerson').text('Registro exitoso!');
                     
                     setTimeout(recargar, 1800);
                 }

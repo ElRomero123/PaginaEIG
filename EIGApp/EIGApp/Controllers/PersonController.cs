@@ -76,7 +76,7 @@ namespace EIGApp.Controllers
                     CreationDate         = lista[i].CreationDate,
                     CreationHourZone     = lista[i].CreationHourZone,
                     Avatar               = lista[i].Avatar,
-                    Type                 = "Investigador privado",
+                    Type                 = false,
                     Username             = lista[i].Username
                 };
 
@@ -98,7 +98,7 @@ namespace EIGApp.Controllers
                     CreationDate         = lista2[i].CreationDate,
                     CreationHourZone     = lista2[i].CreationHourZone,
                     Avatar               = lista2[i].Avatar,
-                    Type                 = "Otros perfiles",
+                    Type                 = true,
                     Username             = lista2[i].Username
                 };
 

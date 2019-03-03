@@ -1,5 +1,4 @@
 window.onload = initUser;
-var config;
 
 var f = 'https://www.facebook.com/Elite-Intelligence-Group-260263604734008/';
 var t = 'https://twitter.com/EliteIntellige1?lang=es';
@@ -15,16 +14,6 @@ function initUser()
     {
         $('#infoName').text(name);
         $('#infoUsername').text(username);
-
-        config = 
-        {
-            apiKey: "AIzaSyA4F7aYKhXv5zEWabtUYABA-4lJJdAgyW4",
-            authDomain: "eliteintelligencegroup-719d3.firebaseapp.com",
-            databaseURL: "https://eliteintelligencegroup-719d3.firebaseio.com",
-            projectId: "eliteintelligencegroup-719d3",
-            storageBucket: "eliteintelligencegroup-719d3.appspot.com",
-            messagingSenderId: "567347907651"
-        };
     }
 
     else
@@ -64,7 +53,14 @@ function loadProfiles()
 
                         for(var i = 0; i < data.length; i++)
                         {
-                            cadena += "<div class='result'> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].ProfesionDescription + "</p> <p class='pf3'>" + data[i].Email + "</p> <p class='pf3'>" + data[i].Phone + "</p> <p class='pf4'>El perfil está activado: " + data[i].Active + "</p> <p class='pf4'>Pertenece a CIPRIN: " + data[i].Ciprin + "</p> <p class='pf4'> <p hidden id='A" + data[i].Id + "'class='pf4'>" + data[i].Avatar + "</p> <p id='T" + data[i].Id + "' class='pf4'>" + data[i].Type + "</p> <button id='" + data[i].Id + "' class='deleteResult' onclick='elim(this)'>Eliminar</button> <button id='" + data[i].Id + "' class='moreResult' onclick='toEdit(this)'>Files</button> <button id='" + data[i].Id + "' class='moreResult' onclick='avatar(this)'>Avatar</button> </div> </div>";
+                            if(data[i].Type)
+                            {
+                                cadena += "<div class='result'> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].ProfesionDescription + "</p> <p class='pf3'>" + data[i].Email + "</p> <p class='pf3'>" + data[i].Phone + "</p> <p class='pf4'>El perfil está activado: " + data[i].Active + "</p> <p class='pf4'>Profesional afín</p> <p class='pf4'>Pertenece a CIPRIN: " + data[i].Ciprin + "</p> <button id='" + data[i].Id + "' class='deleteResult' onclick='elim(2, this)'>Eliminar</button> <button id='" + data[i].Id + "' class='moreResult' onclick='toEdit(2, this)'>Files</button> </div> </div>";
+                            }
+                            else
+                            {
+                                cadena += "<div class='result'> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].ProfesionDescription + "</p> <p class='pf3'>" + data[i].Email + "</p> <p class='pf3'>" + data[i].Phone + "</p> <p class='pf4'>El perfil está activado: " + data[i].Active + "</p> <p class='pf4'>Investigador Privado</p> <p class='pf4'>Pertenece a CIPRIN: " + data[i].Ciprin + "</p> <button id='" + data[i].Id + "' class='deleteResult' onclick='elim(1, this)'>Eliminar</button> <button id='" + data[i].Id + "' class='moreResult' onclick='toEdit(1, this)'>Files</button> </div> </div>";
+                            }
                         }
                         
                         $('#listResults').append(cadena);
@@ -115,29 +111,25 @@ function to(num)
     }
 }
 
-function toEdit(e)
-{
-    var cOption = document.getElementById('T' + e.id).innerHTML;
-    
-    if(cOption == "Investigador privado")
+function toEdit(opc, e)
+{   
+    switch(opc)
     {
+        case 1:
         localStorage.setItem('ID', e.id);
         location.href = 'editMediaPerson.html';
-    }
-
-    else
-    {
+        break;
+        default:
         localStorage.setItem('ID', e.id);
         location.href = 'editMediaOtherPerson.html';
     }
 }
 
-function elim(e)
+function elim(opc, e)
 {
-    var cOption = document.getElementById('T' + e.id).innerHTML;
-
-    if(cOption == "Investigador privado")
+    switch(opc)
     {
+        case 1:
         $.ajax
         (
             {
@@ -148,22 +140,12 @@ function elim(e)
                 success:
                 function (data) 
                 {
-                    if(data)
-                    {
-                        deleteFile(data);
-                    }
-
-                    else
-                    {
-                        alert('NO se pudo eliminar el pefil!');
-                    }
+                    deleteFile(data, 1);
                 }
             }
         );
-    }
-
-    else
-    {
+        break;
+        default:
         $.ajax
         (
             {
@@ -174,28 +156,38 @@ function elim(e)
                 success:
                 function (data) 
                 {
-                    if(data)
-                    {
-                        deleteFile(data);
-                    }
-    
-                    else
-                    {
-                        alert('NO se pudo eliminar el pefil!');
-                    }
+                    deleteFile(data, 2);
                 }
             }
         );
-    }
+    }  
 }
 
-function deleteFile(fileName)
+function deleteFile(fileName, opt)
 {
+    var config = 
+    {
+        apiKey: "AIzaSyA4F7aYKhXv5zEWabtUYABA-4lJJdAgyW4",
+        authDomain: "eliteintelligencegroup-719d3.firebaseapp.com",
+        databaseURL: "https://eliteintelligencegroup-719d3.firebaseio.com",
+        projectId: "eliteintelligencegroup-719d3",
+        storageBucket: "eliteintelligencegroup-719d3.appspot.com",
+        messagingSenderId: "567347907651"
+    };
+
     firebase.initializeApp(config);
 
     var storageRef = firebase.storage().ref();
-    var desertRef = storageRef.child(fileName);
 
+    switch(opt)
+    {
+        case 1:
+            var desertRef = storageRef.child('avatarP/' + fileName);
+        break;
+        default:
+            var desertRef = storageRef.child('avatarOP/' + fileName);
+    }
+    
     desertRef.delete().then
     (
         function() 
@@ -208,14 +200,9 @@ function deleteFile(fileName)
     (
         function(error) 
         {
+            alert('NO se pudo eliminar el pefil! ' + error);
         }
     );
-}
-
-function avatar(e)
-{
-    var url = document.getElementById('A' + e.id).innerHTML;
-    window.open(url, '_blank');
 }
 
 function recargar()
