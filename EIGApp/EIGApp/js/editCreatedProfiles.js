@@ -53,14 +53,8 @@ function loadProfiles()
 
                         for(var i = 0; i < data.length; i++)
                         {
-                            if(data[i].Type)
-                            {
-                                cadena += "<div class='result'> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].ProfesionDescription + "</p> <p class='pf3'> Publicado el " + data[i].Email + "</p> <p class='pf3'>" + data[i].Phone + "</p> <p class='pf4'>El perfil está activado: " + data[i].Active + "</p> <p class='pf4'>Pertenece a CIPRIN: " + data[i].Ciprin + "</p> <p class='pf4'>Profesional afín</p> <button id='" + data[i].Id + "' class='deleteResult' onclick='deleteOP(this)'>Eliminar</button> <button id='" + data[i].Id + "' class='moreResult' onclick='toEditOP(this)'>Multimedia</button> </div> </div>";
-                            }
-                            else
-                            {
-                                cadena += "<div class='result'> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].ProfesionDescription + "</p> <p class='pf3'> Publicado el " + data[i].Email + "</p> <p class='pf3'>" + data[i].Phone + "</p> <p class='pf4'>El perfil está activado: " + data[i].Active + "</p> <p class='pf4'>Pertenece a CIPRIN: " + data[i].Ciprin + "</p> <p class='pf4'>Investigador Privado</p> <button id='" + data[i].Id + "' class='deleteResult' onclick='deleteP(this)'>Eliminar</button> <button id='" + data[i].Id + "' class='moreResult' onclick='toEditP(this)'>Multimedia</button> </div> </div>";
-                            }
+                            
+                            cadena += "<div class='result'> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].ProfesionDescription + "</p> <p class='pf3'>" + data[i].Email + "</p> <p class='pf3'>" + data[i].Phone + "</p> <p class='pf4'>El perfil está activado: " + data[i].Active + "</p> <p class='pf4'>Pertenece a CIPRIN: " + data[i].Ciprin + "</p> <p class='pf4'> <p hidden id='A" + data[i].Id + "'class='pf4'>" + data[i].Avatar + "</p> <p class='pf4'>" + data[i].Type + "</p> <button id='" + data[i].Id + "' class='deleteResult' onclick='deleteOP(this)'>Eliminar</button> <button id='" + data[i].Id + "' class='moreResult' onclick='toEditOP(this)'>Files</button> <button id='" + data[i].Id + "' class='moreResult' onclick='avatar(this)'>Avatar</button> </div> </div>";
                         }
                         
                         $('#listResults').append(cadena);
@@ -169,6 +163,12 @@ function deleteOP(e)
             }
         }
     );
+}
+
+function avatar(e)
+{
+    var url = document.getElementById('A' + e.id).innerHTML;
+    window.open(url, '_blank');
 }
 
 function recargar()

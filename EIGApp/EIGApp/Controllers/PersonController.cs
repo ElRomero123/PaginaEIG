@@ -99,7 +99,7 @@ namespace EIGApp.Controllers
                     CreationHourZone     = lista2[i].CreationHourZone,
                     Avatar               = lista2[i].Avatar,
                     Type                 = "Otros perfiles",
-                    Username             = lista[i].Username
+                    Username             = lista2[i].Username
                 };
 
                 arrayPeople[j] = temp;
