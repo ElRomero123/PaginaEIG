@@ -11,5 +11,6 @@ namespace EIGApp.Models
         public string Email { get; set; }
         public string Address { get; set; }
         public DateTime JoinDate { get; set; }
+        public string JoinHourZone { get; set; }
     }
 }

@@ -51,7 +51,7 @@ function loadUsers()
 
                         for(var i = 0; i < data.length; i++)
                         {
-                            cadena += "<div class='result'> <div class='text'> <p class='pf1'>" + data[i].Username + "</p> <p class='pf2'>" + data[i].Name + "</p> <p class='pf3'>" + data[i].Email + "</p> <p class='pf4'> Unido el " + data[i].JoinDate + "</p> <button id='" + data[i].Id + "' class='moreResult' onclick='toMoreUser(this)'>Mas</button> </div> </div>";  
+                            cadena += "<div class='result'> <div class='text'> <p class='pf1'>" + data[i].Username + "</p> <p class='pf2'>" + data[i].Name + "</p> <p class='pf3'>" + data[i].Email + "</p> <p class='pf4'>" + data[i].Address + "</p> <p class='pf4'> Unido el " + data[i].JoinDate + ' ' + data[i].JoinHourZone + "</p> <button id='" + data[i].Id + "' class='moreResult' onclick='toMoreUser(this)'>Mas</button> </div> </div>";  
                         }
                         
                         $('#listResults').append(cadena);

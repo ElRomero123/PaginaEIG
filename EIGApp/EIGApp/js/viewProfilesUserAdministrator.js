@@ -54,12 +54,12 @@ function loadProfilesUser()
                         {
                             if(data[i].Active)
                             {
-                                cadena += "<div class='result'> <div class='avatar' id='" + i + "'></div> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].ProfesionDescription + "</p> <p class='pf3'>" + data[i].Email + "</p> <p class='pf4'>" + data[i].Phone + "</p> <p class='pf4'> <p class='pf4'>" + data[i].Ciprin + "</p> <p class='pf4'>" + data[i].Type + "</p> <p class='pf4'>" + 'Unido el ' + data[i].CreationDate + ' ' + data[i].CreationHourZone + ' por ' +  data[i].Username + "</p> <button class='moreResult' id='" + data[i].Id + "' onclick='flipOP(this)'>Desactivar</button> </div> </div>";
+                                cadena += "<div class='result'> <div class='avatar' id='" + i + "'></div> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].ProfesionDescription + "</p> <p class='pf3'>" + data[i].Email + "</p> <p class='pf4'>" + data[i].Phone + "</p> <p class='pf4'> <p class='pf4'> Ciprin: " + data[i].Ciprin + "</p> <p class='pf4'>" + 'Unido el ' + data[i].CreationDate + ' ' + data[i].CreationHourZone +  "</p> <button class='moreResult' id='" + data[i].Id + "' onclick='flipOP(this)'>Desactivar</button> </div> </div>";
                             }
 
                             else
                             {
-                                cadena += "<div class='result'> <div class='avatar' id='" + i + "'></div> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].ProfesionDescription + "</p> <p class='pf3'>" + data[i].Email + "</p> <p class='pf4'>" + data[i].Phone + "</p> <p class='pf4'> <p class='pf4'>" + data[i].Ciprin + "</p> <p class='pf4'>" + data[i].Type + "</p> <p class='pf4'>" +  'Unido el ' + data[i].CreationDate + ' ' + data[i].CreationHourZone + ' por ' + data[i].Username + "</p> <button class='moreResult' id='" + data[i].Id + "' onclick='flip(this)'>Activar</button> </div> </div>";
+                                cadena += "<div class='result'> <div class='avatar' id='" + i + "'></div> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].ProfesionDescription + "</p> <p class='pf3'>" + data[i].Email + "</p> <p class='pf4'>" + data[i].Phone + "</p> <p class='pf4'> <p class='pf4'> Ciprin: " + data[i].Ciprin + "</p> <p class='pf4'>" +  'Unido el ' + data[i].CreationDate + ' ' + data[i].CreationHourZone +  "</p> <button class='moreResult' id='" + data[i].Id + "' onclick='flip(this)'>Activar</button> </div> </div>";
                             }
                         }
 

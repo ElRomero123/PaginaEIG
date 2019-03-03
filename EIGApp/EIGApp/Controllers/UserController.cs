@@ -45,7 +45,7 @@ namespace EIGApp.Controllers
         {
             var query = from U in BD.Users
                         where (true)
-                        select new { U.Id, U.Name, U.Username, U.Email, U.JoinDate };
+                        select new {U.Id, U.Username, U.Name, U.Email, U.Address, U.JoinDate, U.JoinHourZone};
 
             var lista = query.ToArray();
             int rsize = lista.Length;
@@ -57,10 +57,12 @@ namespace EIGApp.Controllers
                 M.User temp = new M.User
                 {
                     Id = lista[i].Id,
-                    Name = lista[i].Name,
                     Username = lista[i].Username,
+                    Name = lista[i].Name,
                     Email = lista[i].Email,
-                    JoinDate = lista[i].JoinDate
+                    Address = lista[i].Address,
+                    JoinDate = lista[i].JoinDate,
+                    JoinHourZone = lista[i].JoinHourZone
                 };
 
                 arrayUser[i] = temp;
