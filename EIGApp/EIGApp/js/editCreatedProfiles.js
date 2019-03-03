@@ -53,8 +53,7 @@ function loadProfiles()
 
                         for(var i = 0; i < data.length; i++)
                         {
-                            
-                            cadena += "<div class='result'> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].ProfesionDescription + "</p> <p class='pf3'>" + data[i].Email + "</p> <p class='pf3'>" + data[i].Phone + "</p> <p class='pf4'>El perfil está activado: " + data[i].Active + "</p> <p class='pf4'>Pertenece a CIPRIN: " + data[i].Ciprin + "</p> <p class='pf4'> <p hidden id='A" + data[i].Id + "'class='pf4'>" + data[i].Avatar + "</p> <p class='pf4'>" + data[i].Type + "</p> <button id='" + data[i].Id + "' class='deleteResult' onclick='deleteOP(this)'>Eliminar</button> <button id='" + data[i].Id + "' class='moreResult' onclick='toEditOP(this)'>Files</button> <button id='" + data[i].Id + "' class='moreResult' onclick='avatar(this)'>Avatar</button> </div> </div>";
+                            cadena += "<div class='result'> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].ProfesionDescription + "</p> <p class='pf3'>" + data[i].Email + "</p> <p class='pf3'>" + data[i].Phone + "</p> <p class='pf4'>El perfil está activado: " + data[i].Active + "</p> <p class='pf4'>Pertenece a CIPRIN: " + data[i].Ciprin + "</p> <p class='pf4'> <p hidden id='A" + data[i].Id + "'class='pf4'>" + data[i].Avatar + "</p> <p id='T" + data[i].Id + "' class='pf4'>" + data[i].Type + "</p> <button id='" + data[i].Id + "' class='deleteResult' onclick='delete(this)'>Eliminar</button> <button id='" + data[i].Id + "' class='moreResult' onclick='toEdit(this)'>Files</button> <button id='" + data[i].Id + "' class='moreResult' onclick='avatar(this)'>Avatar</button> </div> </div>";
                         }
                         
                         $('#listResults').append(cadena);
@@ -97,16 +96,21 @@ function to(num)
     }
 }
 
-function toEditP(e)
+function toEdit(e)
 {
-    localStorage.setItem('IdPerson', e.id);
-    location.href = 'editMediaPerson.html';
-}
+    var cOption = document.getElementById('T' + e.id).innerHTML;
+    
+    if(cOption == "Investigador privado")
+    {
+        localStorage.setItem('IdPerson', e.id);
+        location.href = 'editMediaPerson.html';
+    }
 
-function toEditOP(e)
-{
-    localStorage.setItem('IdOtherPerson', e.id);
-    location.href = 'editMediaOtherPerson.html';
+    else
+    {
+        localStorage.setItem('IdOtherPerson', e.id);
+        location.href = 'editMediaOtherPerson.html';
+    }
 }
 
 function deleteP(e)
