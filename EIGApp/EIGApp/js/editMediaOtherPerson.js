@@ -1,5 +1,5 @@
 window.onload = initUser;
-var FileCase;
+var FileOtherPerson;
 
 var f = 'https://www.facebook.com/Elite-Intelligence-Group-260263604734008/';
 var t = 'https://twitter.com/EliteIntellige1?lang=es';
@@ -15,7 +15,7 @@ function initUser()
     {
         $('#infoName').text(name);
         $('#infoUsername').text(username);
-        loadMediaPerson();
+        loadMediaOtherPerson();
     }
 
     else
@@ -37,7 +37,7 @@ function to(num)
     }
 }
 
-function loadMediaPerson()
+function loadMediaOtherPerson()
 {
     if(navigator.onLine)
     {
@@ -48,12 +48,12 @@ function loadMediaPerson()
         $('#bannerState').css('color','black');
         $('#bannerState').text('Cargando ...');
 
-        var idPerson = localStorage.getItem('IdPerson');
+        var idOtherPerson = localStorage.getItem('ID');
 
         $.ajax
         (
             {
-                url: '../api/mediaPerson/?idPerson=' + idPerson,
+                url: '../api/mediaOtherPerson/?idOtherPerson=' + idOtherPerson,
                 type: 'GET',
                 contentType: "application/json;charset=utf-8",
 
@@ -81,7 +81,7 @@ function loadMediaPerson()
                     {
                         $('#bannerState').css('background','red');
                         $('#bannerState').css('color','white');
-                        $('#bannerState').text('El perfil NO tiene anexos!');
+                        $('#bannerState').text('Sin archivos!');
                     }
                 }
             }
@@ -96,36 +96,30 @@ function loadMediaPerson()
     }
 }
 
-function download(e)
+function loadFileOtherPerson()
 {
-    var download = document.getElementById('DL' + e.id).innerHTML;
-    window.open(download, '_blank');
-}
-
-function loadFilePerson()
-{
-    FileCase =  document.getElementById('fileCase');
+    FileOtherPerson =  document.getElementById('fileOtherPerson');
 
     if(validateFile())
     {
-        var mediaPerson =
+        var mediaOtherPerson =
         {
             fileName: '',
             downloadLink: '',
-            idPerson: localStorage.getItem('IdPerson')
+            idOtherPerson: localStorage.getItem('ID')
         };
     
         $('#loadFC').css('background','yellow');
         $('#loadFC').css('border','2px solid yellow');
         $('#loadFC').css('color','black');
-        $('#loadFC').text('Anexando archivo ...');
+        $('#loadFC').text('Subiendo archivo ...');
 
         $.ajax
         (
             {
-                url: '../api/mediaPerson',
+                url: '../api/mediaOtherPerson',
                 type: 'POST',
-                data: JSON.stringify(mediaPerson),
+                data: JSON.stringify(mediaOtherPerson),
                 contentType: "application/json;charset=utf-8",
 
                 success:
@@ -141,8 +135,13 @@ function loadFilePerson()
     {
         $('#loadFC').css('background','red');
         $('#loadFC').css('border','2px solid red');
-        $('#loadFC').text('Debe seleccionar un fichero!');
+        $('#loadFC').text('Debe seleccionar un archivo!');
     }
+}
+
+function validateFile()
+{
+    return FileOtherPerson.files[0] != null;
 }
 
 function loadFile(num)
@@ -160,8 +159,8 @@ function loadFile(num)
     firebase.initializeApp(config);
 
     var storageRef = firebase.storage().ref();
-    var fileName = num + FileCase.files[0].name;
-    var uploadTask = storageRef.child('anexosCase/' + fileName).put(FileCase.files[0]);
+    var fileName = num + FileOtherPerson.files[0].name;
+    var uploadTask = storageRef.child('filesOtherPerson/' + fileName).put(FileOtherPerson.files[0]);
 
     uploadTask.on
     (   
@@ -196,7 +195,7 @@ function putFile(num, fileName, downloadURL)
     $.ajax
     (
         {
-            url: '../api/parametroFileCase',
+            url: '../api/parametroFileOP',
             type: 'POST',
             data: JSON.stringify(parametroPutFile),
             contentType: "application/json;charset=utf-8",
@@ -209,7 +208,7 @@ function putFile(num, fileName, downloadURL)
                     $('#loadFC').css('background','darkgreen');
                     $('#loadFC').css('border','2px solid darkgreen');
                     $('#loadFC').css('color','white');
-                    $('#loadFC').text('Archivo anexado con éxito!');
+                    $('#loadFC').text('Archivo subido!');
                     setTimeout(recargar, 200);
                 }
             }
@@ -217,14 +216,10 @@ function putFile(num, fileName, downloadURL)
     );
 }
 
-function validateFile()
+function download(e)
 {
-    return FileCase.files[0] != null;
-}
-
-function recargar()
-{
-    location.reload();
+    var download = document.getElementById('DL' + e.id).innerHTML;
+    window.open(download, '_blank');
 }
 
 function eliminar(e)
@@ -232,7 +227,7 @@ function eliminar(e)
     $.ajax
     (
         {
-            url: '../api/mediaPerson/?idMediaPerson=' + e.id,
+            url: '../api/mediaOtherPerson/?idMediaOtherPerson=' + e.id,
             type: 'POST',
             contentType: "application/json;charset=utf-8",
 
@@ -253,6 +248,11 @@ function eliminar(e)
             }
         }
     );
+}
+
+function recargar()
+{
+    location.reload();
 }
 
 function social(op)

@@ -1,5 +1,6 @@
 window.onload = initUser;
-var FileCase;
+var FilePerson;
+var config;
 
 var f = 'https://www.facebook.com/Elite-Intelligence-Group-260263604734008/';
 var t = 'https://twitter.com/EliteIntellige1?lang=es';
@@ -15,6 +16,17 @@ function initUser()
     {
         $('#infoName').text(name);
         $('#infoUsername').text(username);
+
+        config = 
+        {
+            apiKey: "AIzaSyA4F7aYKhXv5zEWabtUYABA-4lJJdAgyW4",
+            authDomain: "eliteintelligencegroup-719d3.firebaseapp.com",
+            databaseURL: "https://eliteintelligencegroup-719d3.firebaseio.com",
+            projectId: "eliteintelligencegroup-719d3",
+            storageBucket: "eliteintelligencegroup-719d3.appspot.com",
+            messagingSenderId: "567347907651"
+        };
+
         loadMediaPerson();
     }
 
@@ -48,7 +60,7 @@ function loadMediaPerson()
         $('#bannerState').css('color','black');
         $('#bannerState').text('Cargando ...');
 
-        var idPerson = localStorage.getItem('IdPerson');
+        var idPerson = localStorage.getItem('ID');
 
         $.ajax
         (
@@ -81,7 +93,7 @@ function loadMediaPerson()
                     {
                         $('#bannerState').css('background','red');
                         $('#bannerState').css('color','white');
-                        $('#bannerState').text('El perfil NO tiene anexos!');
+                        $('#bannerState').text('Sin archivos!');
                     }
                 }
             }
@@ -96,15 +108,9 @@ function loadMediaPerson()
     }
 }
 
-function download(e)
-{
-    var download = document.getElementById('DL' + e.id).innerHTML;
-    window.open(download, '_blank');
-}
-
 function loadFilePerson()
 {
-    FileCase =  document.getElementById('fileCase');
+    FilePerson =  document.getElementById('filePerson');
 
     if(validateFile())
     {
@@ -112,13 +118,13 @@ function loadFilePerson()
         {
             fileName: '',
             downloadLink: '',
-            idPerson: localStorage.getItem('IdPerson')
+            idPerson: localStorage.getItem('ID')
         };
     
         $('#loadFC').css('background','yellow');
         $('#loadFC').css('border','2px solid yellow');
         $('#loadFC').css('color','black');
-        $('#loadFC').text('Anexando archivo ...');
+        $('#loadFC').text('Subiendo archivo ...');
 
         $.ajax
         (
@@ -147,21 +153,11 @@ function loadFilePerson()
 
 function loadFile(num)
 {    
-    var config = 
-    {
-        apiKey: "AIzaSyA4F7aYKhXv5zEWabtUYABA-4lJJdAgyW4",
-        authDomain: "eliteintelligencegroup-719d3.firebaseapp.com",
-        databaseURL: "https://eliteintelligencegroup-719d3.firebaseio.com",
-        projectId: "eliteintelligencegroup-719d3",
-        storageBucket: "eliteintelligencegroup-719d3.appspot.com",
-        messagingSenderId: "567347907651"
-    };
-    
     firebase.initializeApp(config);
 
     var storageRef = firebase.storage().ref();
-    var fileName = num + FileCase.files[0].name;
-    var uploadTask = storageRef.child('anexosCase/' + fileName).put(FileCase.files[0]);
+    var fileName = num + FilePerson.files[0].name;
+    var uploadTask = storageRef.child('filesPerson/' + fileName).put(FilePerson.files[0]);
 
     uploadTask.on
     (   
@@ -196,7 +192,7 @@ function putFile(num, fileName, downloadURL)
     $.ajax
     (
         {
-            url: '../api/parametroFileCase',
+            url: '../api/parametroFileP',
             type: 'POST',
             data: JSON.stringify(parametroPutFile),
             contentType: "application/json;charset=utf-8",
@@ -209,7 +205,7 @@ function putFile(num, fileName, downloadURL)
                     $('#loadFC').css('background','darkgreen');
                     $('#loadFC').css('border','2px solid darkgreen');
                     $('#loadFC').css('color','white');
-                    $('#loadFC').text('Archivo anexado con éxito!');
+                    $('#loadFC').text('Archivo subido!');
                     setTimeout(recargar, 200);
                 }
             }
@@ -219,12 +215,13 @@ function putFile(num, fileName, downloadURL)
 
 function validateFile()
 {
-    return FileCase.files[0] != null;
+    return FilePerson.files[0] != null;
 }
 
-function recargar()
+function download(e)
 {
-    location.reload();
+    var download = document.getElementById('DL' + e.id).innerHTML;
+    window.open(download, '_blank');
 }
 
 function eliminar(e)
@@ -241,9 +238,7 @@ function eliminar(e)
             {
                 if(data)
                 {
-                    $('#bannerState').css('background','brown');
-                    $('#bannerState').text('El archivo ha sido eliminado!');
-                    setTimeout(recargar, 800);
+                    deleteFile(data);
                 }
 
                 else
@@ -253,6 +248,33 @@ function eliminar(e)
             }
         }
     );
+}
+
+function deleteFile(fileName)
+{
+    firebase.initializeApp(config);
+
+    var storageRef = firebase.storage().ref();
+    var desertRef = storageRef.child('filesPerson/' + fileName);
+
+    desertRef.delete().then
+    (
+        function() 
+        {
+            $('#bannerState').css('background','brown');
+            $('#bannerState').text('El archivo ha sido eliminado!');
+            setTimeout(recargar, 800);
+        }
+    ).catch(
+        function(error) 
+        {
+        }
+    );
+}
+
+function recargar()
+{
+    location.reload();
 }
 
 function social(op)

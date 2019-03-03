@@ -1,4 +1,5 @@
 window.onload = initUser;
+var config;
 
 var f = 'https://www.facebook.com/Elite-Intelligence-Group-260263604734008/';
 var t = 'https://twitter.com/EliteIntellige1?lang=es';
@@ -14,6 +15,16 @@ function initUser()
     {
         $('#infoName').text(name);
         $('#infoUsername').text(username);
+
+        config = 
+        {
+            apiKey: "AIzaSyA4F7aYKhXv5zEWabtUYABA-4lJJdAgyW4",
+            authDomain: "eliteintelligencegroup-719d3.firebaseapp.com",
+            databaseURL: "https://eliteintelligencegroup-719d3.firebaseio.com",
+            projectId: "eliteintelligencegroup-719d3",
+            storageBucket: "eliteintelligencegroup-719d3.appspot.com",
+            messagingSenderId: "567347907651"
+        };
     }
 
     else
@@ -102,13 +113,13 @@ function toEdit(e)
     
     if(cOption == "Investigador privado")
     {
-        localStorage.setItem('IdPerson', e.id);
+        localStorage.setItem('ID', e.id);
         location.href = 'editMediaPerson.html';
     }
 
     else
     {
-        localStorage.setItem('IdOtherPerson', e.id);
+        localStorage.setItem('ID', e.id);
         location.href = 'editMediaOtherPerson.html';
     }
 }
@@ -155,6 +166,7 @@ function deleteOP(e)
             {
                 if(data)
                 {
+                    deleteFile(data);
                     $('#bannerState').css('background','brown');
                     $('#bannerState').text('Tu perfil ha sido eliminado!');
                     setTimeout(recargar, 500);
@@ -165,6 +177,28 @@ function deleteOP(e)
                     alert('NO se pudo eliminar el pefil!');
                 }
             }
+        }
+    );
+}
+
+function deleteFile(fileName)
+{
+    firebase.initializeApp(config);
+
+    var storageRef = firebase.storage().ref();
+    var desertRef = storageRef.child('avatar/' + fileName);
+
+    desertRef.delete().then
+    (
+        function() 
+        {
+            $('#bannerState').css('background','brown');
+            $('#bannerState').text('El archivo ha sido eliminado!');
+            setTimeout(recargar, 800);
+        }
+    ).catch(
+        function(error) 
+        {
         }
     );
 }

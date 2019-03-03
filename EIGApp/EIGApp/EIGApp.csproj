@@ -239,6 +239,8 @@
     <Compile Include="Controllers\ParametroBusinessController.cs" />
     <Compile Include="Controllers\ParametroFileCaseController.cs" />
     <Compile Include="Controllers\ParametroFileJAController.cs" />
+    <Compile Include="Controllers\ParametroFileOPController.cs" />
+    <Compile Include="Controllers\ParametroFilePController.cs" />
     <Compile Include="Controllers\PutAvatarOPController.cs" />
     <Compile Include="Controllers\PutAvatarController.cs" />
     <Compile Include="Controllers\ParametroProductController.cs" />

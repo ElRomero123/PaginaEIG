@@ -34,5 +34,38 @@ namespace EIGApp.Controllers
 
             return arrayMediaOtherPerson;
         }
+
+        public long Post(M.MediaOtherPerson mediaOtherPerson)
+        {
+            O.MediaOtherPerson BDMediaOtherPerson = new O.MediaOtherPerson
+            {
+                FileName      = mediaOtherPerson.FileName,
+                DownloadLink  = mediaOtherPerson.DownloadLink,
+                LoadDate      = System.DateTime.Now.ToString("g"),
+                IdOtherPerson = mediaOtherPerson.IdOtherPerson
+            };
+
+            BD.MediaOtherPersons.Add(BDMediaOtherPerson);
+            BD.SaveChanges();
+
+            return BDMediaOtherPerson.Id;
+        }
+
+        public bool Post(int idMediaOtherPerson)
+        {
+            bool result = false;
+
+            try
+            {
+                O.MediaOtherPerson BDMediaOtherPerson = BD.MediaOtherPersons.FirstOrDefault(x => x.Id == idMediaOtherPerson);
+                BD.MediaOtherPersons.Remove(BDMediaOtherPerson);
+                BD.SaveChanges();
+                result = true;
+            }
+
+            catch{}
+
+            return result;
+        }
     }
 }
