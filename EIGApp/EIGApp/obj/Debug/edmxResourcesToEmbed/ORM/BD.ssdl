@@ -22,10 +22,12 @@
     <Property Name="Phone" Type="nvarchar" MaxLength="255" Nullable="false" />
     <Property Name="Latitude" Type="real" Nullable="false" />
     <Property Name="Longitude" Type="real" Nullable="false" />
-    <Property Name="Ciprin" Type="int" Nullable="false" />
-    <Property Name="Active" Type="int" Nullable="false" />
-    <Property Name="CreationDate" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="Ciprin" Type="bit" Nullable="false" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+    <Property Name="CreationDate" Type="datetime" Nullable="false" />
+    <Property Name="CreationHourZone" Type="nvarchar" MaxLength="255" Nullable="false" />
     <Property Name="Avatar" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="NameAvatar" Type="nvarchar" MaxLength="255" Nullable="false" />
     <Property Name="IdPackage" Type="bigint" Nullable="false" />
   </EntityType>
   <EntityType Name="Case">
@@ -187,10 +189,11 @@
     <Property Name="Latitude" Type="real" Nullable="false" />
     <Property Name="Longitude" Type="real" Nullable="false" />
     <Property Name="Date" Type="nvarchar" MaxLength="255" Nullable="false" />
-    <Property Name="Ciprin" Type="int" Nullable="false" />
-    <Property Name="Active" Type="int" Nullable="false" />
-    <Property Name="CreationDate" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+    <Property Name="CreationDate" Type="datetime" Nullable="false" />
+    <Property Name="CreationHourZone" Type="nvarchar" MaxLength="255" Nullable="false" />
     <Property Name="Avatar" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="NameAvatar" Type="nvarchar" MaxLength="255" Nullable="false" />
     <Property Name="IdPackage" Type="bigint" Nullable="false" />
   </EntityType>
   <EntityType Name="Suggestion">

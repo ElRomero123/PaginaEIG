@@ -9,6 +9,84 @@ namespace EIGApp.Controllers
     {
         private O.BDEIGEntities BD = new O.BDEIGEntities();
 
+        public M.Product[] Get(long idPackage)
+        {
+            var query = from PR in BD.Products
+                        where (PR.IdPackage.Equals(idPackage))
+                        select new {PR.Name, PR.Type, PR.TypeDescription, PR.AttendantName, PR.AttendantWebPage, PR.AttendantEmail, PR.AttendantPhone, PR.Date, PR.Active, PR.CreationDate, PR.CreationHourZone};
+
+            var lista = query.ToArray();
+
+            M.Product[] arrayProducts = new M.Product[lista.Length];
+
+            for (int i = 0; i < lista.Length; i++)
+            {
+                M.Product temp = new M.Product
+                {
+                    Name = lista[i].Name,
+                    Type = lista[i].Type,
+                    TypeDescription = lista[i].TypeDescription,
+                    AttendantName = lista[i].AttendantName,
+                    AttendantWebPage = lista[i].AttendantWebPage,
+                    AttendantEmail = lista[i].AttendantEmail,
+                    AttendantPhone = lista[i].AttendantPhone,
+                    Date = lista[i].Date,
+                    Active = lista[i].Active,              
+                    CreationDate = lista[i].CreationDate,
+                    CreationHourZone = lista[i].CreationHourZone
+
+                };
+
+                arrayProducts[i] = temp;
+            }
+
+            return arrayProducts;
+        }
+
+        public long Post(M.Product producto)
+        {
+            O.Product BDProduct = new O.Product
+            {
+                Name             = producto.Name,
+                Type             = producto.Type,
+                TypeDescription  = producto.TypeDescription,
+                AttendantName    = producto.AttendantName,
+                AttendantWebPage = producto.AttendantWebPage,
+                AttendantEmail   = producto.AttendantEmail,
+                AttendantPhone   = producto.AttendantPhone,
+                Latitude         = producto.Latitude,
+                Longitude        = producto.Longitude,
+                Date             = producto.Date,
+                Active           = producto.Active,
+                CreationDate     = System.DateTime.Now,
+                CreationHourZone = System.TimeZoneInfo.Local.ToString(),
+                Avatar           = producto.Avatar,
+                NameAvatar       = producto.NameAvatar,
+                IdPackage        = producto.IdPackage
+            };
+
+            BD.Products.Add(BDProduct);
+            BD.SaveChanges();
+
+            return BDProduct.Id;
+        }
+
+        public string Post(long idProduct)
+        {
+            string S = "";
+            try
+            {
+                O.Product BDProduct = BD.Products.FirstOrDefault(x => x.Id == idProduct);
+                BD.Products.Remove(BDProduct);
+                BD.SaveChanges();
+                S = BDProduct.NameAvatar;
+            }
+
+            catch { }
+            return S;
+        }
+
+        /*
         public M.Product[] Get(string cadena)
         {
             var query = from PR in BD.Products
@@ -75,30 +153,8 @@ namespace EIGApp.Controllers
             return c;
         }
 
-        public long Post(M.Product producto)
-        {
-            long id = 0;
-
-            try
-            {
-                #pragma warning disable CS0618
-                AutoMapper.Mapper.CreateMap<M.Product, O.Product>();
-                #pragma warning restore CS0618
-                O.Product BDProduct = AutoMapper.Mapper.Map<O.Product>(producto);
-                BDProduct.CreationDate = System.DateTime.Now.ToString("g");
-                BD.Products.Add(BDProduct);
-                BD.SaveChanges();
-
-                id = BDProduct.Id;
-            }
-
-            catch
-            {
-                id = 0;
-            }
-
-            return id;
-        }
+        
+        */
     }
 }
  

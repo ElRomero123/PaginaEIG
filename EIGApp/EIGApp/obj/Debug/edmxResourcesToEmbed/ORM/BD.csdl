@@ -22,10 +22,12 @@
     <Property Name="Phone" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="Latitude" Type="Single" Nullable="false" />
     <Property Name="Longitude" Type="Single" Nullable="false" />
-    <Property Name="Ciprin" Type="Int32" Nullable="false" />
-    <Property Name="Active" Type="Int32" Nullable="false" />
-    <Property Name="CreationDate" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Ciprin" Type="Boolean" Nullable="false" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreationHourZone" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="Avatar" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="NameAvatar" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="IdPackage" Type="Int64" Nullable="false" />
     <NavigationProperty Name="Package" Relationship="Self.FK_Business_Package" FromRole="Business" ToRole="Package" />
     <NavigationProperty Name="MediaBusinesses" Relationship="Self.FK_MediaBusiness_Business" FromRole="Business" ToRole="MediaBusiness" />
@@ -207,10 +209,11 @@
     <Property Name="Latitude" Type="Single" Nullable="false" />
     <Property Name="Longitude" Type="Single" Nullable="false" />
     <Property Name="Date" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Ciprin" Type="Int32" Nullable="false" />
-    <Property Name="Active" Type="Int32" Nullable="false" />
-    <Property Name="CreationDate" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreationHourZone" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="Avatar" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="NameAvatar" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="IdPackage" Type="Int64" Nullable="false" />
     <NavigationProperty Name="MediaProducts" Relationship="Self.FK_MediaProduct_Product" FromRole="Product" ToRole="MediaProduct" />
     <NavigationProperty Name="Package" Relationship="Self.FK_Product_Package" FromRole="Product" ToRole="Package" />

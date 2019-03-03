@@ -1,0 +1,34 @@
+Username: ElRomero123
+Pass:     ElRomero123
+Name:     Juan Pablo Romero Londoño
+E-mail:   juan.romerol@upb.edu.co
+Address:  Carrera 70 # 31-71 Apto 201
+
+:::::::::::::::::::::::::::::::::::::::::::::::
+
+Username: luzma@123
+Pass:     123456
+Name:     Luz Marina Londoño Betancur
+E-mail:   fotoerom@gmail.com
+Address:  Carrera 6 # 9-05 Apto 201
+
+:::::::::::::::::::::::::::::::::::::::::::::
+Personas
+
+Nombre completo (8 a 50 caracteres)
+José Evelio Romero Mejía
+Describa a lo que usted se dedica brevemente (20 a 100 caracteres)
+Fotográfo profesional, me dedico a tomar eventos 
+Correo electrónico/Email (8 a 80 caracteres)
+fotoerom@gmail.com
+Número telefónico Celular/Fijo (Mínimo 5 digitos)
+3113216772
+Por favor, indique en el mapa ¿Donde se encuentra ubicado?
+
+
+Luz Marina Londoño Betancur
+Docente humanidades
+Docente humanidades nivel bachillerato
+fotoerom@gmail.com
+3137406846
+

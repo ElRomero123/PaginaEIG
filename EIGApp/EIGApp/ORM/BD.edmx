@@ -27,10 +27,12 @@
           <Property Name="Phone" Type="nvarchar" MaxLength="255" Nullable="false" />
           <Property Name="Latitude" Type="real" Nullable="false" />
           <Property Name="Longitude" Type="real" Nullable="false" />
-          <Property Name="Ciprin" Type="int" Nullable="false" />
-          <Property Name="Active" Type="int" Nullable="false" />
-          <Property Name="CreationDate" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="Ciprin" Type="bit" Nullable="false" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+          <Property Name="CreationDate" Type="datetime" Nullable="false" />
+          <Property Name="CreationHourZone" Type="nvarchar" MaxLength="255" Nullable="false" />
           <Property Name="Avatar" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="NameAvatar" Type="nvarchar" MaxLength="255" Nullable="false" />
           <Property Name="IdPackage" Type="bigint" Nullable="false" />
         </EntityType>
         <EntityType Name="Case">
@@ -192,10 +194,11 @@
           <Property Name="Latitude" Type="real" Nullable="false" />
           <Property Name="Longitude" Type="real" Nullable="false" />
           <Property Name="Date" Type="nvarchar" MaxLength="255" Nullable="false" />
-          <Property Name="Ciprin" Type="int" Nullable="false" />
-          <Property Name="Active" Type="int" Nullable="false" />
-          <Property Name="CreationDate" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+          <Property Name="CreationDate" Type="datetime" Nullable="false" />
+          <Property Name="CreationHourZone" Type="nvarchar" MaxLength="255" Nullable="false" />
           <Property Name="Avatar" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="NameAvatar" Type="nvarchar" MaxLength="255" Nullable="false" />
           <Property Name="IdPackage" Type="bigint" Nullable="false" />
         </EntityType>
         <EntityType Name="Suggestion">
@@ -548,10 +551,12 @@
           <Property Name="Phone" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Latitude" Type="Single" Nullable="false" />
           <Property Name="Longitude" Type="Single" Nullable="false" />
-          <Property Name="Ciprin" Type="Int32" Nullable="false" />
-          <Property Name="Active" Type="Int32" Nullable="false" />
-          <Property Name="CreationDate" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Ciprin" Type="Boolean" Nullable="false" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreationHourZone" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Avatar" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NameAvatar" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="IdPackage" Type="Int64" Nullable="false" />
           <NavigationProperty Name="Package" Relationship="Self.FK_Business_Package" FromRole="Business" ToRole="Package" />
           <NavigationProperty Name="MediaBusinesses" Relationship="Self.FK_MediaBusiness_Business" FromRole="Business" ToRole="MediaBusiness" />
@@ -733,10 +738,11 @@
           <Property Name="Latitude" Type="Single" Nullable="false" />
           <Property Name="Longitude" Type="Single" Nullable="false" />
           <Property Name="Date" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Ciprin" Type="Int32" Nullable="false" />
-          <Property Name="Active" Type="Int32" Nullable="false" />
-          <Property Name="CreationDate" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreationHourZone" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Avatar" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NameAvatar" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="IdPackage" Type="Int64" Nullable="false" />
           <NavigationProperty Name="MediaProducts" Relationship="Self.FK_MediaProduct_Product" FromRole="Product" ToRole="MediaProduct" />
           <NavigationProperty Name="Package" Relationship="Self.FK_Product_Package" FromRole="Product" ToRole="Package" />
@@ -1103,7 +1109,9 @@
                 <ScalarProperty Name="Ciprin" ColumnName="Ciprin" />
                 <ScalarProperty Name="Active" ColumnName="Active" />
                 <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="CreationHourZone" ColumnName="CreationHourZone" />
                 <ScalarProperty Name="Avatar" ColumnName="Avatar" />
+                <ScalarProperty Name="NameAvatar" ColumnName="NameAvatar" />
                 <ScalarProperty Name="IdPackage" ColumnName="IdPackage" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -1278,10 +1286,11 @@
                 <ScalarProperty Name="Latitude" ColumnName="Latitude" />
                 <ScalarProperty Name="Longitude" ColumnName="Longitude" />
                 <ScalarProperty Name="Date" ColumnName="Date" />
-                <ScalarProperty Name="Ciprin" ColumnName="Ciprin" />
                 <ScalarProperty Name="Active" ColumnName="Active" />
                 <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="CreationHourZone" ColumnName="CreationHourZone" />
                 <ScalarProperty Name="Avatar" ColumnName="Avatar" />
+                <ScalarProperty Name="NameAvatar" ColumnName="NameAvatar" />
                 <ScalarProperty Name="IdPackage" ColumnName="IdPackage" />
               </MappingFragment>
             </EntityTypeMapping>

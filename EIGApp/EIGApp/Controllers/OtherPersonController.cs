@@ -12,7 +12,7 @@ namespace EIGApp.Controllers
         public M.OtherPerson[] Get(string criterio)
         {
             var query = from OP in BD.OtherPersons
-                        where ((OP.Name.Contains(criterio) || OP.Profesion.Contains(criterio) || OP.ProfesionDescription.Contains(criterio)))
+                        where ((OP.Name.Contains(criterio) || OP.Profesion.Contains(criterio) || OP.ProfesionDescription.Contains(criterio)) && OP.Active)
                         select new {OP.Id, OP.Name, OP.Profesion, OP.ProfesionDescription, OP.Email, OP.Phone, OP.Latitude, OP.Longitude, OP.Ciprin, OP.Active, OP.CreationDate, OP.CreationHourZone, OP.Avatar, OP.User.Username};
 
             var lista = query.ToArray();
@@ -70,12 +70,12 @@ namespace EIGApp.Controllers
             return BDOtherPerson.Id;
         }
 
-        public bool Post(long idOtherPerson)
+        public bool Post(long idOtherPersonA)
         {
             bool S = false;
             try
             {
-                O.OtherPerson BDOtherPerson = BD.OtherPersons.FirstOrDefault(x => x.Id == idOtherPerson);
+                O.OtherPerson BDOtherPerson = BD.OtherPersons.FirstOrDefault(x => x.Id == idOtherPersonA);
 
                 if (BDOtherPerson.Active)
                 {
@@ -95,13 +95,13 @@ namespace EIGApp.Controllers
             return S;
         }
 
-        public string Post(int idOtherPerson)
+        public string Post(int idOtherPersonR)
         {
             string R = "";
 
             try
             {
-                O.OtherPerson BDOtherPerson = BD.OtherPersons.FirstOrDefault(x => x.Id == idOtherPerson);
+                O.OtherPerson BDOtherPerson = BD.OtherPersons.FirstOrDefault(x => x.Id == idOtherPersonR);
                 BD.OtherPersons.Remove(BDOtherPerson);
                 BD.SaveChanges();
                 R = BDOtherPerson.NameAvatar;

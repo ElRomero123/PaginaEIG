@@ -6,7 +6,7 @@ var g = 'https://plus.google.com/u/0/109910140252090488175';
 
 function initUser()
 {
-    var name     = localStorage.getItem('Name');
+    var name  = localStorage.getItem('Name');
     var email = localStorage.getItem('Email');
     
     if(name != null)
@@ -54,16 +54,14 @@ function loadProfilesUser()
                         {
                             if(data[i].Active)
                             {
-                                
-
                                 if(data[i].Type)
                                 {
-                                    cadena += "<div class='result'> <div class='avatar' id='" + i + "'></div> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].ProfesionDescription + "</p> <p class='pf3'>" + data[i].Email + "</p> <p class='pf4'>" + data[i].Phone + "</p> <p class='pf4'> <p class='pf4'> Ciprin: " + data[i].Ciprin + "</p> <p class='pf4'>" + 'Unido el ' + data[i].CreationDate + ' ' + data[i].CreationHourZone +  "</p> <button class='moreResult' id='" + data[i].Id + "' onclick='change(this, 2)'>Desactivar</button> </div> </div>";
+                                    cadena += "<div class='result'> <div class='avatar' id='" + i + "'></div> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].ProfesionDescription + "</p> <p class='pf3'>" + data[i].Email + "</p> <p class='pf4'>" + data[i].Phone + "</p> <p class='pf4'> <p class='pf4'> Ciprin: " + data[i].Ciprin + "</p> <p class='pf4'>" + 'Unido el ' + data[i].CreationDate + ' ' + data[i].CreationHourZone +  "</p> <button class='moreResult' id='" + data[i].Id + "' onclick='changeOP(this)'>Desactivar</button> </div> </div>";
                                 }
 
                                 else
                                 {
-                                    cadena += "<div class='result'> <div class='avatar' id='" + i + "'></div> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].ProfesionDescription + "</p> <p class='pf3'>" + data[i].Email + "</p> <p class='pf4'>" + data[i].Phone + "</p> <p class='pf4'> <p class='pf4'> Ciprin: " + data[i].Ciprin + "</p> <p class='pf4'>" + 'Unido el ' + data[i].CreationDate + ' ' + data[i].CreationHourZone +  "</p> <button class='moreResult' id='" + data[i].Id + "' onclick='change(this, 1)'>Desactivar</button> </div> </div>";
+                                    cadena += "<div class='result'> <div class='avatar' id='" + i + "'></div> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].ProfesionDescription + "</p> <p class='pf3'>" + data[i].Email + "</p> <p class='pf4'>" + data[i].Phone + "</p> <p class='pf4'> <p class='pf4'> Ciprin: " + data[i].Ciprin + "</p> <p class='pf4'>" + 'Unido el ' + data[i].CreationDate + ' ' + data[i].CreationHourZone +  "</p> <button class='moreResult' id='" + data[i].Id + "' onclick='changeP(this)'>Desactivar</button> </div> </div>";
                                 }
                             }
 
@@ -71,12 +69,12 @@ function loadProfilesUser()
                             {
                                 if(data[i].Type)
                                 {
-                                    cadena += "<div class='result'> <div class='avatar' id='" + i + "'></div> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].ProfesionDescription + "</p> <p class='pf3'>" + data[i].Email + "</p> <p class='pf4'>" + data[i].Phone + "</p> <p class='pf4'> <p class='pf4'> Ciprin: " + data[i].Ciprin + "</p> <p class='pf4'>" +  'Unido el ' + data[i].CreationDate + ' ' + data[i].CreationHourZone +  "</p> <button class='moreResult' id='" + data[i].Id + "' onclick='change(this, 2)'>Activar</button> </div> </div>";
+                                    cadena += "<div class='result'> <div class='avatar' id='" + i + "'></div> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].ProfesionDescription + "</p> <p class='pf3'>" + data[i].Email + "</p> <p class='pf4'>" + data[i].Phone + "</p> <p class='pf4'> <p class='pf4'> Ciprin: " + data[i].Ciprin + "</p> <p class='pf4'>" +  'Unido el ' + data[i].CreationDate + ' ' + data[i].CreationHourZone +  "</p> <button class='moreResult' id='" + data[i].Id + "' onclick='changeOP(this)'>Activar</button> </div> </div>";
                                 }
 
                                 else
                                 {
-                                    cadena += "<div class='result'> <div class='avatar' id='" + i + "'></div> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].ProfesionDescription + "</p> <p class='pf3'>" + data[i].Email + "</p> <p class='pf4'>" + data[i].Phone + "</p> <p class='pf4'> <p class='pf4'> Ciprin: " + data[i].Ciprin + "</p> <p class='pf4'>" +  'Unido el ' + data[i].CreationDate + ' ' + data[i].CreationHourZone +  "</p> <button class='moreResult' id='" + data[i].Id + "' onclick='change(this, 1)'>Activar</button> </div> </div>";
+                                    cadena += "<div class='result'> <div class='avatar' id='" + i + "'></div> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].ProfesionDescription + "</p> <p class='pf3'>" + data[i].Email + "</p> <p class='pf4'>" + data[i].Phone + "</p> <p class='pf4'> <p class='pf4'> Ciprin: " + data[i].Ciprin + "</p> <p class='pf4'>" +  'Unido el ' + data[i].CreationDate + ' ' + data[i].CreationHourZone +  "</p> <button class='moreResult' id='" + data[i].Id + "' onclick='changeP(this)'>Activar</button> </div> </div>";
                                 }
                             }
                         }
@@ -144,73 +142,68 @@ function to(num)
     }
 }
 
-function change(opt, e)
+function changeP(e)
 {
     $('#' + e.id).css('background','yellow');
     $('#' + e.id).css('color','black');
     $('#' + e.id).text('Cambiando ...');
 
-    switch(opt)
-    {
-       
-        case 1:
-        var id = e.id;
-        $.ajax
-        (
+    $.ajax
+    (
+        {
+            url: '../api/person?idPersonA=' + e.id,
+            type: 'POST',
+            contentType: "application/json;charset=utf-8",
+
+            success:
+            function (data) 
             {
-                url: '../api/person?idPerson=' + id,
-                type: 'POST',
-                contentType: "application/json;charset=utf-8",
-    
-                success:
-                function (data) 
+                if(data)
                 {
-                    if(data)
-                    {
-                        $('#' + e.id).css('background','green');
-                        $('#' + e.id).css('color','white');
-                        $('#' + e.id).text('Desactivar');
-                    }
-    
-                    else
-                    {
-                        $('#' + e.id).css('background','red');
-                        $('#' + e.id).css('color','white');
-                        $('#' + e.id).text('Activar');
-                    }
+                    $('#' + e.id).css('background','green');
+                    $('#' + e.id).css('color','white');
+                    $('#' + e.id).text('Desactivar');
+                }
+
+                else
+                {
+                    $('#' + e.id).css('background','red');
+                    $('#' + e.id).css('color','white');
+                    $('#' + e.id).text('Activar');
                 }
             }
-        );
-        break;
-        default:
-        var id = e.id
-        $.ajax
-        (
+        }
+    );
+}
+
+function changeOP(e)
+{
+    $.ajax
+    (
+        {
+            url: '../api/otherPerson?idOtherPersonA=' + e.id,
+            type: 'POST',
+            contentType: "application/json;charset=utf-8",
+
+            success:
+            function (data) 
             {
-                url: '../api/otherPerson?idOtherPerson=' + id,
-                type: 'POST',
-                contentType: "application/json;charset=utf-8",
-
-                success:
-                function (data) 
+                if(data)
                 {
-                    if(data)
-                    {
-                        $('#' + e.id).css('background','green');
-                        $('#' + e.id).css('color','white');
-                        $('#' + e.id).text('Desactivar');
-                    }
+                    $('#' + e.id).css('background','green');
+                    $('#' + e.id).css('color','white');
+                    $('#' + e.id).text('Desactivar');
+                }
 
-                    else
-                    {
-                        $('#' + e.id).css('background','red');
-                        $('#' + e.id).css('color','white');
-                        $('#' + e.id).text('Activar');
-                    }
+                else
+                {
+                    $('#' + e.id).css('background','red');
+                    $('#' + e.id).css('color','white');
+                    $('#' + e.id).text('Activar');
                 }
             }
-        );
-    }    
+        }
+    );
 }
 
 function social(op)

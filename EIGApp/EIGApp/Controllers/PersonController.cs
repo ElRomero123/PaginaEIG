@@ -135,12 +135,12 @@ namespace EIGApp.Controllers
         }
 
        
-        public bool Post(long idPerson)
+        public bool Post(long idPersonA)
         {
             bool S = false;
             try
             {
-                O.Person BDPerson = BD.People.FirstOrDefault(x => x.Id == idPerson);
+                O.Person BDPerson = BD.People.FirstOrDefault(x => x.Id == idPersonA);
 
                 if (BDPerson.Active)
                 {
@@ -161,13 +161,13 @@ namespace EIGApp.Controllers
             return S;
         }
 
-        public string Post(int idPerson)
+        public string Post(int idPersonR)
         {
             string R = " ";
 
             try
             {
-                O.Person BDPerson = BD.People.FirstOrDefault(x => x.Id == idPerson);
+                O.Person BDPerson = BD.People.FirstOrDefault(x => x.Id == idPersonR);
                 BD.People.Remove(BDPerson);
                 BD.SaveChanges();
                 R = BDPerson.NameAvatar;

@@ -34,9 +34,13 @@ function to(num)
         localStorage.clear();
         location.href = 'index.html';
         break;
+        case 2:
+        location.href = 'manageProductPackage.html';
+        break;
         default:
         localStorage.removeItem('IdPackage');
         location.href = 'managePackage.html';
+        
     }
 }
 
@@ -48,28 +52,30 @@ function createProduct()
     {
         if(validateAvatar())
         {
+            var IdPackage = localStorage.getItem('IdPackage');
+
             var producto =
             {
-                name: $('#campoName').val(),
-                type: $('#campoType').val(),
-                typeDescription: $('#campoTypeDescription').val(),
-                attendantName: $('#campoAttendantName').val(),
-                attendantWebPage: $('#campoAttendantWebPage').val(),
-                attendantEmail: $('#campoAttendantEmail').val(),
-                attendantPhone: $('#campoAttendantPhone').val(),
-                latitude: latitude,
-                longitude: longitude,
-                date: $('#campoDate').val(),
-                avatar: '',
-                ciprin: 0,
-                active: 0,
-                idPackage: localStorage.getItem('IdPackage')
+                name:             $('#cName').val(),
+                type:             $('#cType').val(),
+                typeDescription:  $('#cDescription').val(),
+                attendantName:    $('#cAttendantName').val(),
+                attendantWebPage: $('#cAttendantWebPage').val(),
+                attendantEmail:   $('#cAttendantEmail').val(),
+                attendantPhone:   $('#cIndex').val().substr(0,4).trim() + ' ' + $('#cPhone').val(),
+                latitude:         latitude,
+                longitude:        longitude,
+                date:             $('#cDate').val(),
+                active:           false,
+                avatar:           '',
+                nameAvatar:       '',
+                idPackage:        IdPackage
             };
         
             $('#createProduct').css('background','yellow');
             $('#createProduct').css('border','2px solid yellow');
             $('#createProduct').css('color','black');
-            $('#createProduct').text('Agregando producto ...');
+            $('#createProduct').text('Registrando ...');
     
             $.ajax
             (
@@ -92,7 +98,7 @@ function createProduct()
         {
             $('#createProduct').css('background','red');
             $('#createProduct').css('border','2px solid red');
-            $('#createProduct').text('No has seleccionado una FOTO!');
+            $('#createProduct').text('Debe seleccionar una FOTO de Avatar!');
         }
     }
 
@@ -106,14 +112,14 @@ function createProduct()
 
 function validateText()
 {
-    var c1 = $('#campoName').val().length >= 8;
-    var c2 = $('#campoType').val().length >= 8;
-    var c3 = $('#campoTypeDescription').val().length >= 8;
-    var c4 = $('#campoAttendantName').val().length >= 8;
-    var c5 = $('#campoAttendantWebPage').val().length >= 8;
-    var c6 = $('#campoAttendantEmail').val().length >= 8;
-    var c7 = $('#campoAttendantPhone').val().length >= 8;
-    var c8 = $('#campoDate').val().length >= 8;
+    var c1 = $('#cName').val().length >= 8;
+    var c2 = $('#cType').val().length >= 8;
+    var c3 = $('#cDescription').val().length >= 8;
+    var c4 = $('#cAttendantName').val().length >= 8;
+    var c5 = $('#cAttendantWebPage').val().length >= 8;
+    var c6 = $('#cAttendantEmail').val().length >= 8;
+    var c7 = $('#cPhone').val().length >= 5;
+    var c8 = $('#cDate').val().length >= 8;
 
     return c1 && c2 && c3 && c4 && c5 && c6 && c7 && c8;
 }
@@ -138,7 +144,8 @@ function loadAvatar(num)
     firebase.initializeApp(config);
 
     var storageRef     = firebase.storage().ref();
-    var uploadTask = storageRef.child('avatar/' + 'PR' + num).put(ProductAvatar.files[0]);
+    var fileName = 'PR' + num;
+    var uploadTask = storageRef.child('avatarPR/' + fileName).put(ProductAvatar.files[0]);
 
     uploadTask.on
     (   
@@ -155,17 +162,18 @@ function loadAvatar(num)
         {
             uploadTask.snapshot.ref.getDownloadURL().then(function(downloadURL) 
             {    
-                putAvatar(num, downloadURL);
+                putAvatar(num, fileName, downloadURL);
             });
         }
     );
 }
 
-function putAvatar(num, downloadURL)
+function putAvatar(num, fileName, downloadURL)
 {
     var parametrosPutAvatar =
     {
-        id: num,
+        id         : num,
+        fileName   : fileName,
         downloadURL: downloadURL
     };
 
@@ -185,8 +193,8 @@ function putAvatar(num, downloadURL)
                     $('#createProduct').css('background','darkgreen');
                     $('#createProduct').css('border','2px solid darkgreen');
                     $('#createProduct').css('color','white');
-                    $('#createProduct').text('Producto agregado!');    
-                    setTimeout(recargar, 2500);
+                    $('#createProduct').text('Registro exitoso!');    
+                    setTimeout(recargar, 1800);
                 }
             }
         }
@@ -216,9 +224,11 @@ function recargar()
 function startMap()
 {
     navigator.geolocation.getCurrentPosition(function(position)
-    { 
-        mapa = new google.maps.Map(document.getElementById('maps2'), {zoom: 5, center: {lat: position.coords.latitude, lng: position.coords.longitude}});
-        marker = new google.maps.Marker({draggable: true, animation: google.maps.Animation.DROP, position: {lat: position.coords.latitude, lng: position.coords.longitude}, map: mapa});
+    {
+        latitude = position.coords.latitude;
+        longitude = position.coords.longitude;
+        mapa = new google.maps.Map(document.getElementById('maps2'), {zoom: 5, center: {lat: latitude, lng: longitude}});
+        marker = new google.maps.Marker({draggable: true, animation: google.maps.Animation.DROP, position: {lat: latitude, lng: longitude}, map: mapa});
 
         marker.addListener
         (

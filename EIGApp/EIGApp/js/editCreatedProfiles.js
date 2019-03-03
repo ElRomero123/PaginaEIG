@@ -104,9 +104,17 @@ function to(num)
         {
             location.href = 'personPanel.html';
         }
-        else
+        else if (call == 2)
         {
             location.href = 'otherPersonPanel.html';
+        }
+        else if (call == 3)
+        {
+            location.href = 'personPanelC.html';
+        }
+        else
+        {
+            location.href = 'otherPersonPanelC.html';
         }
     }
 }

@@ -6,7 +6,7 @@ var g = 'https://plus.google.com/u/0/109910140252090488175';
 
 function initUser()
 {
-    var name     = localStorage.getItem('Name');
+    var name  = localStorage.getItem('Name');
     var email = localStorage.getItem('Email');
     
     if(name != null)
@@ -20,11 +20,10 @@ function initUser()
         location.href = 'index.html';
     }
 
-    loadProfilesUser();
+    loadProfilesPackage();
 }
 
-
-function loadProfilesUser()
+function loadProfilesPackage()
 {
     if(navigator.onLine)
     {
@@ -53,16 +52,16 @@ function loadProfilesUser()
 
                         for(var i = 0; i < data.length; i++)
                         {
-                            if(data[i].Active == 1)
+                            if(data[i].Active)
                             {
                                 if(data[i].Type)
                                 {
-                                    cadena += "<div class='result'> <div class='avatar' id='" + i + "'></div> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].Specialism + "</p> <p class='pf3'>" + data[i].WebPage + "</p> <p class='pf4'>" + data[i].Phone + "</p> <p class='pf4'>" + 'Unido el ' + data[i].CreationDate + "</p> <button class='moreResult' id='" + data[i].Id + "' onclick='flipP(this)'>Desactivar</button> </div> </div>";
+                                    cadena += "<div class='result'> <div class='avatar' id='" + i + "'></div> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].Specialism + "</p> <p class='pf3'>" + data[i].WebPage + "</p> <p class='pf4'>" + data[i].Phone + "</p> <p class='pf4'>" + 'Unido el ' + data[i].CreationDate + "</p> <button class='moreResult' id='" + data[i].Id + "' onclick='changePR(this)'>Desactivar</button> </div> </div>";
                                 }
 
                                 else
                                 {
-                                    cadena += "<div class='result'> <div class='avatar' id='" + i + "'></div> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].Specialism + "</p> <p class='pf3'>" + data[i].WebPage + "</p> <p class='pf4'>" + data[i].Phone + "</p> <p class='pf4'>" + 'Unido el ' + data[i].CreationDate + "</p> <button class='moreResult' id='" + data[i].Id + "' onclick='flipB(this)'>Desactivar</button> </div> </div>";
+                                    cadena += "<div class='result'> <div class='avatar' id='" + i + "'></div> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].Specialism + "</p> <p class='pf3'>" + data[i].WebPage + "</p> <p class='pf4'>" + data[i].Phone + "</p> <p class='pf4'>" + 'Unido el ' + data[i].CreationDate + "</p> <button class='moreResult' id='" + data[i].Id + "' onclick='changeB(this)'>Desactivar</button> </div> </div>";
                                 }
                             }
 
@@ -70,12 +69,12 @@ function loadProfilesUser()
                             {
                                 if(data[i].Type)
                                 {
-                                    cadena += "<div class='result'> <div class='avatar' id='" + i + "'></div> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].Specialism + "</p> <p class='pf3'>" + data[i].WebPage + "</p> <p class='pf4'>" + data[i].Phone + "</p> <p class='pf4'>" + 'Unido el ' + data[i].CreationDate + "</p> <button class='moreResult' id='" + data[i].Id + "' onclick='flipP(this)'>Activar</button> </div> </div>";
+                                    cadena += "<div class='result'> <div class='avatar' id='" + i + "'></div> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].Specialism + "</p> <p class='pf3'>" + data[i].WebPage + "</p> <p class='pf4'>" + data[i].Phone + "</p> <p class='pf4'>" + 'Unido el ' + data[i].CreationDate + "</p> <button class='moreResult' id='" + data[i].Id + "' onclick='changePR(this)'>Activar</button> </div> </div>";
                                 }
 
                                 else
                                 {
-                                    cadena += "<div class='result'> <div class='avatar' id='" + i + "'></div> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].Specialism + "</p> <p class='pf3'>" + data[i].WebPage + "</p> <p class='pf4'>" + data[i].Phone + "</p> <p class='pf4'>" + 'Unido el ' + data[i].CreationDate + "</p> <button class='moreResult' id='" + data[i].Id + "' onclick='flipB(this)'>Activar</button> </div> </div>";
+                                    cadena += "<div class='result'> <div class='avatar' id='" + i + "'></div> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].Specialism + "</p> <p class='pf3'>" + data[i].WebPage + "</p> <p class='pf4'>" + data[i].Phone + "</p> <p class='pf4'>" + 'Unido el ' + data[i].CreationDate + "</p> <button class='moreResult' id='" + data[i].Id + "' onclick='changeB(this)'>Activar</button> </div> </div>";
                                 } 
                             }
                         }
@@ -138,7 +137,7 @@ function to(num)
     }
 }
 
-function flipB(e)
+function changeB(e)
 {
     $('#' + e.id).css('background','yellow');
     $('#' + e.id).css('color','black');
@@ -172,7 +171,7 @@ function flipB(e)
     );
 }
 
-function flipP(e)
+function changePR(e)
 {
     $('#' + e.id).css('background','yellow');
     $('#' + e.id).css('color','black');

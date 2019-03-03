@@ -150,8 +150,8 @@ function putAvatar(num, fileName, downloadURL)
 {
     var parametrosPutAvatar =
     {
-        id: num,
-        fileName: fileName,
+        id         : num,
+        fileName   : fileName,
         downloadURL: downloadURL
     };
 
@@ -202,7 +202,7 @@ function validateText()
     var c2 = $('#cProfesion').val().length >= 8;
     var c3 = $('#cDescription').val().length >= 8;
     var c4 = $('#cEmail').val().length >= 8;
-    var c5 = $('#cPhone').val().length >= 8;
+    var c5 = $('#cPhone').val().length >= 5;
 
     return c1 && c2 && c3 && c4 && c5;
 }

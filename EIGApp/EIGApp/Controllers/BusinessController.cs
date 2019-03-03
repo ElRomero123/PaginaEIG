@@ -47,62 +47,77 @@ namespace EIGApp.Controllers
         {
             var query = from B in BD.Businesses
                         where (B.IdPackage.Equals(idPackage))
-                        select new {B.Id, B.Name, B.Specialism, B.WebPage, B.Phone, B.CreationDate, B.Active, B.Avatar};
-
-            var query2 = from PR in BD.Products
-                         where (PR.IdPackage.Equals(idPackage))
-                         select new {PR.Id, PR.Name, PR.AttendantName, PR.Date, PR.AttendantPhone, PR.CreationDate, PR.Active, PR.Avatar};
+                        select new {B.Id, B.Name, B.Specialism, B.WebPage, B.Phone, B.CreationDate, B.CreationHourZone, B.Ciprin, B.Active, B.Avatar};
 
             var lista = query.ToArray();
-            var lista2 = query2.ToArray();
-
             int size1 = lista.Length;
-            int size2 = lista2.Length;
-
-            M.Business[] arrayBusiness = new M.Business[size1 + size2];
+            M.Business[] arrayBusiness = new M.Business[size1];
 
             int i;
             for (i = 0; i < size1; i++)
             {
                 M.Business temp = new M.Business
                 {
-                    Id           = lista[i].Id,
-                    Name         = lista[i].Name,
-                    Specialism   = lista[i].Specialism,
-                    WebPage      = lista[i].WebPage,
-                    Phone        = lista[i].Phone,
-                    CreationDate = lista[i].CreationDate,
-                    Active       = lista[i].Active,
-                    Avatar       = lista[i].Avatar,
-                    Type         = false
+                    Id               = lista[i].Id,
+                    Name             = lista[i].Name,
+                    Specialism       = lista[i].Specialism,
+                    WebPage          = lista[i].WebPage,
+                    Phone            = lista[i].Phone,
+                    CreationDate     = lista[i].CreationDate,
+                    CreationHourZone = lista[i].CreationHourZone,
+                    Ciprin           = lista[i].Ciprin,
+                    Active           = lista[i].Active,
+                    Avatar           = lista[i].Avatar
                 };
 
                 arrayBusiness[i] = temp;
             }
 
-            i = 0;
-            for (int j = size1; j < size1 + size2; j++)
-            {
-                M.Business temp = new M.Business
-                {
-                    Id           = lista2[i].Id,
-                    Name         = lista2[i].Name,
-                    Specialism   = lista2[i].AttendantName,
-                    Phone        = lista2[i].Date,
-                    WebPage      = lista2[i].AttendantPhone,
-                    CreationDate = lista2[i].CreationDate,
-                    Active       = lista2[i].Active,
-                    Avatar       = lista2[i].Avatar,
-                    Type         = true
-                };
-
-                arrayBusiness[j] = temp;
-                i++;
-            }
-
             return arrayBusiness;
         }
 
+        public long Post(M.Business negocio)
+        {
+            O.Business BDBusiness = new O.Business
+            {
+                Name                  = negocio.Name,
+                Specialism            = negocio.Specialism,
+                SpecialismDescription = negocio.SpecialismDescription,
+                WebPage               = negocio.WebPage,
+                Phone                 = negocio.Phone,
+                Latitude              = negocio.Latitude,
+                Longitude             = negocio.Longitude,
+                Ciprin                = negocio.Ciprin,
+                Active                = negocio.Active,
+                CreationDate          = System.DateTime.Now,
+                CreationHourZone      = System.TimeZoneInfo.Local.ToString(),
+                Avatar                = negocio.Avatar,
+                NameAvatar            = negocio.NameAvatar,
+                IdPackage             = negocio.IdPackage
+            };
+
+            BD.Businesses.Add(BDBusiness);
+            BD.SaveChanges();
+
+            return BDBusiness.Id;
+        }
+
+        public string Post(long idBusiness)
+        {
+            string S = "";
+            try
+            {
+                O.Business BDBusiness = BD.Businesses.FirstOrDefault(x => x.Id == idBusiness);
+                BD.Businesses.Remove(BDBusiness);
+                BD.SaveChanges();
+                S = BDBusiness.NameAvatar;
+            }
+
+            catch { }
+            return S;
+        }
+
+        /*
         public int Post(long id)
         {
             int c = 0;
@@ -157,6 +172,7 @@ namespace EIGApp.Controllers
 
             return id;
         }
+        */
     }
 }
  

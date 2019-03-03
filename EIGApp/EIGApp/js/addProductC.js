@@ -34,9 +34,13 @@ function to(num)
         localStorage.clear();
         location.href = 'index.html';
         break;
-        default:
+        case 2:
         localStorage.removeItem('IdPackage');
         location.href = 'managePackage.html';
+        break;
+        default:
+        location.href = 'manageProfilesPackage.html';
+        
     }
 }
 

@@ -26,7 +26,9 @@
           <ScalarProperty Name="Ciprin" ColumnName="Ciprin" />
           <ScalarProperty Name="Active" ColumnName="Active" />
           <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="CreationHourZone" ColumnName="CreationHourZone" />
           <ScalarProperty Name="Avatar" ColumnName="Avatar" />
+          <ScalarProperty Name="NameAvatar" ColumnName="NameAvatar" />
           <ScalarProperty Name="IdPackage" ColumnName="IdPackage" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -201,10 +203,11 @@
           <ScalarProperty Name="Latitude" ColumnName="Latitude" />
           <ScalarProperty Name="Longitude" ColumnName="Longitude" />
           <ScalarProperty Name="Date" ColumnName="Date" />
-          <ScalarProperty Name="Ciprin" ColumnName="Ciprin" />
           <ScalarProperty Name="Active" ColumnName="Active" />
           <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="CreationHourZone" ColumnName="CreationHourZone" />
           <ScalarProperty Name="Avatar" ColumnName="Avatar" />
+          <ScalarProperty Name="NameAvatar" ColumnName="NameAvatar" />
           <ScalarProperty Name="IdPackage" ColumnName="IdPackage" />
         </MappingFragment>
       </EntityTypeMapping>

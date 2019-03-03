@@ -16,7 +16,8 @@ namespace EIGApp.Controllers
             try
             {
                 O.Business negocio = BD.Businesses.FirstOrDefault(x => x.Id == parametrosPutAvatar.Id);
-                negocio.Avatar = parametrosPutAvatar.DownloadURL;
+                negocio.Avatar     = parametrosPutAvatar.DownloadURL;
+                negocio.NameAvatar = parametrosPutAvatar.FileName;
                 BD.SaveChanges();
                 state = true;
             }
