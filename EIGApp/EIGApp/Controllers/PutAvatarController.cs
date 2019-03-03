@@ -16,7 +16,8 @@ namespace EIGApp.Controllers
             try
             {
                 O.Person persona = BD.People.FirstOrDefault(x => x.Id == parametrosPutAvatar.Id);
-                persona.Avatar = parametrosPutAvatar.DownloadURL;
+                persona.Avatar     = parametrosPutAvatar.DownloadURL;
+                persona.NameAvatar = parametrosPutAvatar.FileName;
                 BD.SaveChanges();
                 S = true;
             }

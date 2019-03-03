@@ -138,9 +138,7 @@ function deleteP(e)
             {
                 if(data)
                 {
-                    $('#bannerState').css('background','brown');
-                    $('#bannerState').text('Tu perfil ha sido eliminado!');
-                    setTimeout(recargar, 500);
+                    deleteFile(data);
                 }
 
                 else
@@ -183,7 +181,7 @@ function deleteFile(fileName)
     firebase.initializeApp(config);
 
     var storageRef = firebase.storage().ref();
-    var desertRef = storageRef.child('avatar/' + fileName);
+    var desertRef = storageRef.child(fileName);
 
     desertRef.delete().then
     (

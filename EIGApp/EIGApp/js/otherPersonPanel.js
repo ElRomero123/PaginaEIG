@@ -120,7 +120,8 @@ function loadAvatar(num)
     firebase.initializeApp(config);
 
     var storageRef = firebase.storage().ref();
-    var uploadTask = storageRef.child('avatar/' + 'OP' + num).put(OtherPersonAvatar.files[0]);
+    var fileName = 'OP' + num;
+    var uploadTask = storageRef.child('avatarOP/' + fileName).put(OtherPersonAvatar.files[0]);
 
     uploadTask.on
     (   
@@ -137,17 +138,18 @@ function loadAvatar(num)
         {
             uploadTask.snapshot.ref.getDownloadURL().then(function(downloadURL) 
             {    
-                putAvatar(num, downloadURL);
+                putAvatar(num, fileName, downloadURL);
             });
         }
     );
 }
 
-function putAvatar(num, downloadURL)
+function putAvatar(num, fileName, downloadURL)
 {
     var parametrosPutAvatar =
     {
         id: num,
+        fileName: fileName,
         downloadURL: downloadURL
     };
 

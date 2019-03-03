@@ -162,23 +162,20 @@ namespace EIGApp.Controllers
         }
         */
 
-        public void Post(int idPerson)
+        public string Post(int idPerson)
         {
-            /*
-            bool result = false;
+            string result = " ";
 
             try
             {
                 O.Person BDPerson = BD.People.FirstOrDefault(x => x.Id == idPerson);
                 BD.People.Remove(BDPerson);
-                BDPerson.Active = 0;
                 BD.SaveChanges();
-                result = true;
+                result = BDPerson.Avatar;
             }
 
             catch { }
             return result;
-            */
         }
     }
 }
