@@ -35,6 +35,7 @@ function to(num)
         location.href = 'index.html';
         break;
         case 2:
+        localStorage.setItem('Call', 1);
         location.href = 'editCreatedProfiles.html';
         break;
         default: 

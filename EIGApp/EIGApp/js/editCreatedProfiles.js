@@ -64,7 +64,7 @@ function loadProfiles()
 
                         for(var i = 0; i < data.length; i++)
                         {
-                            cadena += "<div class='result'> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].ProfesionDescription + "</p> <p class='pf3'>" + data[i].Email + "</p> <p class='pf3'>" + data[i].Phone + "</p> <p class='pf4'>El perfil está activado: " + data[i].Active + "</p> <p class='pf4'>Pertenece a CIPRIN: " + data[i].Ciprin + "</p> <p class='pf4'> <p hidden id='A" + data[i].Id + "'class='pf4'>" + data[i].Avatar + "</p> <p id='T" + data[i].Id + "' class='pf4'>" + data[i].Type + "</p> <button id='" + data[i].Id + "' class='deleteResult' onclick='delete(this)'>Eliminar</button> <button id='" + data[i].Id + "' class='moreResult' onclick='toEdit(this)'>Files</button> <button id='" + data[i].Id + "' class='moreResult' onclick='avatar(this)'>Avatar</button> </div> </div>";
+                            cadena += "<div class='result'> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].ProfesionDescription + "</p> <p class='pf3'>" + data[i].Email + "</p> <p class='pf3'>" + data[i].Phone + "</p> <p class='pf4'>El perfil está activado: " + data[i].Active + "</p> <p class='pf4'>Pertenece a CIPRIN: " + data[i].Ciprin + "</p> <p class='pf4'> <p hidden id='A" + data[i].Id + "'class='pf4'>" + data[i].Avatar + "</p> <p id='T" + data[i].Id + "' class='pf4'>" + data[i].Type + "</p> <button id='" + data[i].Id + "' class='deleteResult' onclick='elim(this)'>Eliminar</button> <button id='" + data[i].Id + "' class='moreResult' onclick='toEdit(this)'>Files</button> <button id='" + data[i].Id + "' class='moreResult' onclick='avatar(this)'>Avatar</button> </div> </div>";
                         }
                         
                         $('#listResults').append(cadena);
@@ -103,7 +103,15 @@ function to(num)
         location.href = 'index.html';
         break;
         default:
-        location.href = 'menu.html';
+        var call = localStorage.getItem('Call');
+        if(call == 1)
+        {
+            location.href = 'personPanel.html';
+        }
+        else
+        {
+            location.href = 'otherPersonPanel.html';
+        }
     }
 }
 
@@ -124,56 +132,61 @@ function toEdit(e)
     }
 }
 
-function deleteP(e)
+function elim(e)
 {
-    $.ajax
-    (
-        {
-            url: '../api/person/?idPerson=' + e.id,
-            type: 'POST',
-            contentType: "application/json;charset=utf-8",
+    var cOption = document.getElementById('T' + e.id).innerHTML;
 
-            success:
-            function (data) 
+    if(cOption == "Investigador privado")
+    {
+        $.ajax
+        (
             {
-                if(data)
-                {
-                    deleteFile(data);
-                }
+                url: '../api/person/?idPerson=' + e.id,
+                type: 'POST',
+                contentType: "application/json;charset=utf-8",
 
-                else
+                success:
+                function (data) 
                 {
-                    alert('NO se pudo eliminar el pefil!');
+                    if(data)
+                    {
+                        deleteFile(data);
+                    }
+
+                    else
+                    {
+                        alert('NO se pudo eliminar el pefil!');
+                    }
                 }
             }
-        }
-    );
-}
+        );
+    }
 
-function deleteOP(e)
-{
-    $.ajax
-    (
-        {
-            url: '../api/otherPerson/?idOtherPerson=' + e.id,
-            type: 'POST',
-            contentType: "application/json;charset=utf-8",
-
-            success:
-            function (data) 
+    else
+    {
+        $.ajax
+        (
             {
-                if(data)
+                url: '../api/otherPerson/?idOtherPerson=' + e.id,
+                type: 'POST',
+                contentType: "application/json;charset=utf-8",
+    
+                success:
+                function (data) 
                 {
-                    deleteFile(data);
-                }
-
-                else
-                {
-                    alert('NO se pudo eliminar el pefil!');
+                    if(data)
+                    {
+                        deleteFile(data);
+                    }
+    
+                    else
+                    {
+                        alert('NO se pudo eliminar el pefil!');
+                    }
                 }
             }
-        }
-    );
+        );
+    }
 }
 
 function deleteFile(fileName)
