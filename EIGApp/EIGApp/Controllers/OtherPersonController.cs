@@ -9,10 +9,10 @@ namespace EIGApp.Controllers
     {
         private O.BDEIGEntities BD = new O.BDEIGEntities();
 
-        public M.OtherPerson[] Get(string cadena)
+        public M.OtherPerson[] Get(string criterio)
         {
             var query = from OP in BD.OtherPersons
-                        where ((OP.Name.Contains(cadena) || OP.Profesion.Contains(cadena) || OP.ProfesionDescription.Contains(cadena)) && OP.Active)
+                        where ((OP.Name.Contains(criterio) || OP.Profesion.Contains(criterio) || OP.ProfesionDescription.Contains(criterio)))
                         select new {OP.Id, OP.Name, OP.Profesion, OP.ProfesionDescription, OP.Email, OP.Phone, OP.Latitude, OP.Longitude, OP.Ciprin, OP.Active, OP.CreationDate, OP.CreationHourZone, OP.Avatar, OP.User.Username};
 
             var lista = query.ToArray();
@@ -23,19 +23,19 @@ namespace EIGApp.Controllers
             {
                 M.OtherPerson temp = new M.OtherPerson
                 {
-                    Id                   = lista[i].Id, //
-                    Name                 = lista[i].Name, //
-                    Profesion            = lista[i].Profesion, //
-                    ProfesionDescription = lista[i].ProfesionDescription, //
-                    Email                = lista[i].Email, //
-                    Phone                = lista[i].Phone, //
+                    Id                   = lista[i].Id, 
+                    Name                 = lista[i].Name,
+                    Profesion            = lista[i].Profesion, 
+                    ProfesionDescription = lista[i].ProfesionDescription, 
+                    Email                = lista[i].Email, 
+                    Phone                = lista[i].Phone, 
                     Latitude             = lista[i].Latitude,
                     Longitude            = lista[i].Longitude,
-                    Ciprin               = lista[i].Ciprin, //
-                    CreationDate         = lista[i].CreationDate, //
-                    CreationHourZone     = lista[i].CreationHourZone, //
+                    Ciprin               = lista[i].Ciprin, 
+                    CreationDate         = lista[i].CreationDate, 
+                    CreationHourZone     = lista[i].CreationHourZone, 
                     Avatar               = lista[i].Avatar,
-                    Username             = lista[i].Username //
+                    Username             = lista[i].Username 
                 };
 
                 arrayOtherPersons[i] = temp;
