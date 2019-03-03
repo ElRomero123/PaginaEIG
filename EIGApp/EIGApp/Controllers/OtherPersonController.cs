@@ -70,36 +70,29 @@ namespace EIGApp.Controllers
             return BDOtherPerson.Id;
         }
 
-        public void Post(long id)
+        public bool Post(long idOtherPerson)
         {
-            /*
-            int c = 0;
-
+            bool S = false;
             try
             {
-                O.OtherPerson BDOtherPerson = BD.OtherPersons.FirstOrDefault(x => x.Id == id);
+                O.OtherPerson BDOtherPerson = BD.OtherPersons.FirstOrDefault(x => x.Id == idOtherPerson);
 
-                if (BDOtherPerson.Active == 1)
+                if (BDOtherPerson.Active)
                 {
-                    BDOtherPerson.Active = 0;
-                    c = 0;
+                    BDOtherPerson.Active = false;
+                    S = false;
                 }
 
                 else
                 {
-                    BDOtherPerson.Active = 1;
-                    c = 1;
+                    BDOtherPerson.Active = true;
+                    S = true;
                 }
 
                 BD.SaveChanges();
             }
-
-            catch
-            {
-            }
-
-            return c;
-            */
+            catch { }
+            return S;
         }
 
         public string Post(int idOtherPerson)
