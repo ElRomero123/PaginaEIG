@@ -16,6 +16,7 @@ namespace EIGApp.Models
         public DateTime CreationDate { get; set; }
         public string CreationHourZone { get; set; }
         public string Avatar { get; set; }
+        public string NameAvatar { get; set; }
         public long IdUser { get; set; }
 
         /* Otros */

@@ -60,6 +60,7 @@ namespace EIGApp.Controllers
                 CreationDate         = System.DateTime.Now,
                 CreationHourZone     = System.TimeZoneInfo.Local.ToString(),
                 Avatar               = otraPersona.Avatar,
+                NameAvatar           = otraPersona.NameAvatar,
                 IdUser               = otraPersona.IdUser
             };
 

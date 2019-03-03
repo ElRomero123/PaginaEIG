@@ -124,6 +124,7 @@ namespace EIGApp.Controllers
                 CreationDate         = System.DateTime.Now,
                 CreationHourZone     = System.TimeZoneInfo.Local.ToString(),
                 Avatar               = persona.Avatar,
+                NameAvatar           = persona.NameAvatar,
                 IdUser               = persona.IdUser
             };
 

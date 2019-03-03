@@ -149,6 +149,7 @@
     <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="CreationHourZone" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="Avatar" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="NameAvatar" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="IdUser" Type="Int64" Nullable="false" />
     <NavigationProperty Name="MediaOtherPersons" Relationship="Self.FK_MediaOtherPerson_OtherPerson" FromRole="OtherPerson" ToRole="MediaOtherPerson" />
     <NavigationProperty Name="User" Relationship="Self.FK_OtherPerson_User" FromRole="OtherPerson" ToRole="User" />
@@ -186,6 +187,7 @@
     <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="CreationHourZone" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="Avatar" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="NameAvatar" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="IdUser" Type="Int64" Nullable="false" />
     <NavigationProperty Name="MediaPersons" Relationship="Self.FK_MediaPerson_Person" FromRole="Person" ToRole="MediaPerson" />
     <NavigationProperty Name="User" Relationship="Self.FK_Person_User" FromRole="Person" ToRole="User" />

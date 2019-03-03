@@ -103,7 +103,7 @@ function to(num)
         location.href = 'index.html';
         break;
         default:
-        location.href = 'personPanel.html';
+        location.href = 'menu.html';
     }
 }
 

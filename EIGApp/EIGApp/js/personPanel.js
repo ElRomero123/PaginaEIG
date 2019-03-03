@@ -63,6 +63,7 @@ function createPerson()
                 ciprin:               false,
                 active:               false,
                 avatar:               '',
+                nameAvatar:           '',
                 idUser:               IdUser
             };
 
@@ -135,7 +136,7 @@ function loadAvatar(num)
 
     var storageRef = firebase.storage().ref();
     var fileName = 'P' + num;
-    var uploadTask = storageRef.child('avatar/' + fileName).put(PersonAvatar.files[0]);
+    var uploadTask = storageRef.child('avatarP/' + fileName).put(PersonAvatar.files[0]);
 
     uploadTask.on
     (   

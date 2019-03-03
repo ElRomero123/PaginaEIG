@@ -64,6 +64,7 @@ function createOtherPerson()
                 ciprin:               false,
                 active:               false,
                 avatar:               '',
+                nameAvatar:           '',
                 idUser:               IdUser
             };
 
