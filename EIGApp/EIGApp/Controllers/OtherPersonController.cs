@@ -101,23 +101,21 @@ namespace EIGApp.Controllers
             */
         }
 
-        public bool Post(int idOtherPerson)
+        public string Post(int idOtherPerson)
         {
-            bool result = false;
+            string R = "";
 
             try
             {
                 O.OtherPerson BDOtherPerson = BD.OtherPersons.FirstOrDefault(x => x.Id == idOtherPerson);
                 BD.OtherPersons.Remove(BDOtherPerson);
                 BD.SaveChanges();
-                result = true;
+                R = BDOtherPerson.NameAvatar;
             }
 
-            catch
-            {
-            }
+            catch{}
 
-            return result;
+            return R;
         }
     }
 }

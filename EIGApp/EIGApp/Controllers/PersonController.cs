@@ -164,18 +164,18 @@ namespace EIGApp.Controllers
 
         public string Post(int idPerson)
         {
-            string result = " ";
+            string R = " ";
 
             try
             {
                 O.Person BDPerson = BD.People.FirstOrDefault(x => x.Id == idPerson);
                 BD.People.Remove(BDPerson);
                 BD.SaveChanges();
-                result = BDPerson.Avatar;
+                R = BDPerson.NameAvatar;
             }
 
             catch { }
-            return result;
+            return R;
         }
     }
 }
