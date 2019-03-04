@@ -32,7 +32,13 @@
                 <input type='text' maxlength='50' id='cName'>
 
                 <p>Tipo de producto</p>
-                <input type='text' maxlength="100" id='cType'>
+                <input list = 'typeProduct' maxlength="100" id='cType'>
+
+                <datalist id='typeProduct'>
+                    <option value='Curso'>
+                    <option value='Promoción'>
+                    <option value='Evento'>
+                </datalist>
 
                 <p>Describa el tipo del producto</p>
                 <input type='text' maxlength="80" id='cDescription'>

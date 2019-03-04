@@ -13,7 +13,7 @@ namespace EIGApp.Controllers
         {
             var query = from PR in BD.Products
                         where (PR.IdPackage.Equals(idPackage))
-                        select new {PR.Name, PR.Type, PR.TypeDescription, PR.AttendantName, PR.AttendantWebPage, PR.AttendantEmail, PR.AttendantPhone, PR.Date, PR.Active, PR.CreationDate, PR.CreationHourZone};
+                        select new {PR.Id, PR.Name, PR.Type, PR.TypeDescription, PR.AttendantName, PR.AttendantWebPage, PR.AttendantEmail, PR.AttendantPhone, PR.Date, PR.Active, PR.CreationDate, PR.CreationHourZone};
 
             var lista = query.ToArray();
 
@@ -23,16 +23,17 @@ namespace EIGApp.Controllers
             {
                 M.Product temp = new M.Product
                 {
-                    Name = lista[i].Name,
-                    Type = lista[i].Type,
-                    TypeDescription = lista[i].TypeDescription,
-                    AttendantName = lista[i].AttendantName,
+                    Id               = lista[i].Id,
+                    Name             = lista[i].Name,
+                    Type             = lista[i].Type,
+                    TypeDescription  = lista[i].TypeDescription,
+                    AttendantName    = lista[i].AttendantName,
                     AttendantWebPage = lista[i].AttendantWebPage,
-                    AttendantEmail = lista[i].AttendantEmail,
-                    AttendantPhone = lista[i].AttendantPhone,
-                    Date = lista[i].Date,
-                    Active = lista[i].Active,              
-                    CreationDate = lista[i].CreationDate,
+                    AttendantEmail   = lista[i].AttendantEmail,
+                    AttendantPhone   = lista[i].AttendantPhone,
+                    Date             = lista[i].Date,
+                    Active           = lista[i].Active,              
+                    CreationDate     = lista[i].CreationDate,
                     CreationHourZone = lista[i].CreationHourZone
 
                 };

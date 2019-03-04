@@ -53,14 +53,14 @@ function loadProfiles()
 
                         for(var i = 0; i < data.length; i++)
                         {
-                            cadena += "<div class='result'> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].Type + "</p> <p class='pf2'>" + data[i].TypeDescription + "</p> <p class='pf2'>" + data[i].AttendantName + "</p> <p class='pf2'>" + data[i].AttendantWebPage + "</p> <p class='pf2'>" + data[i].AttendantEmail + "</p> <p class='pf2'>" + data[i].AttendantPhone + "</p> <p class='pf2'>Fecha: " + data[i].Date + "</p> <p class='pf2'>" + data[i].AttendantPhone + "</p> <p class='pf3'>" + data[i].CreationDate + ' ' +  data[i].CreationHourZone + "</p> <p class='pf4'>Pertenece a CIPRIN: " + data[i].Ciprin + "</p> <p class='pf4'>El perfil está activado: " + data[i].Active + "</p> <p class='pf4'>Profesional afín</p> <p class='pf4'>Pertenece a CIPRIN: " + data[i].Ciprin + "</p> <button id='" + data[i].Id + "' class='deleteResult' onclick='elim(this)'>Eliminar</button> <button id='" + data[i].Id + "' class='moreResult' onclick='toEdit(this)'>Files</button> </div> </div>";
+                            cadena += "<div class='result'> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].Type + "</p> <p class='pf2'>" + data[i].TypeDescription + "</p> <p class='pf2'>" + data[i].AttendantName + "</p> <p class='pf2'>" + data[i].AttendantWebPage + "</p> <p class='pf2'>" + data[i].AttendantEmail + "</p> <p class='pf2'>" + data[i].AttendantPhone + "</p> <p class='pf2'>Fecha: " + data[i].Date  + "</p> <p class='pf3'>Creado el: " + data[i].CreationDate + ' ' +  data[i].CreationHourZone + "</p> <p class='pf4'>Pertenece a CIPRIN: " + data[i].Ciprin + "</p> <p class='pf4'>Perfil activado: " + data[i].Active + "</p> <button id='" + data[i].Id + "' class='deleteResult' onclick='elim(this)'>Eliminar</button> <button id='" + data[i].Id + "' class='moreResult' onclick='toEdit(this)'>Files</button> </div> </div>";
                         }
                         
                         $('#listResults').append(cadena);
 
                         $('#bannerState').css('background','green');
                         $('#bannerState').css('color','white');
-                        $('#bannerState').text('El paquete tiene ' + i + ' curso/promoción/evento!');
+                        $('#bannerState').text('El paquete tiene ' + i + ' artículos!');
                         $('#listResults').css('display','flex');
                     }
 
@@ -68,7 +68,7 @@ function loadProfiles()
                     {
                         $('#bannerState').css('background','red');
                         $('#bannerState').css('color','white');
-                        $('#bannerState').text('El paquete NO tiene curso/promoción/evento!');
+                        $('#bannerState').text('Paquete vacío!');
                     }
                 }
             }
@@ -99,7 +99,7 @@ function to(num)
 function toEdit(e)
 {   
     localStorage.setItem('ID', e.id);
-    location.href = 'editMediaBusiness.html';
+    location.href = 'editMediaProductPackage.html';
 }
 
 function elim(e)
@@ -149,7 +149,6 @@ function deleteFile(fileName)
     (
         function(error) 
         {
-            alert('NO se pudo eliminar el pefil! ' + error);
         }
     );
 }
