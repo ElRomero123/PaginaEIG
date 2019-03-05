@@ -1,5 +1,5 @@
 window.onload = initUser;
-var FileOtherPerson;
+var FileOtherPerson, config;
 
 var f = 'https://www.facebook.com/Elite-Intelligence-Group-260263604734008/';
 var t = 'https://twitter.com/EliteIntellige1?lang=es';
@@ -146,7 +146,7 @@ function validateFile()
 
 function loadFile(num)
 {    
-    var config = 
+    config = 
     {
         apiKey: "AIzaSyA4F7aYKhXv5zEWabtUYABA-4lJJdAgyW4",
         authDomain: "eliteintelligencegroup-719d3.firebaseapp.com",
@@ -222,6 +222,7 @@ function download(e)
     window.open(download, '_blank');
 }
 
+
 function eliminar(e)
 {
     $.ajax
@@ -236,9 +237,7 @@ function eliminar(e)
             {
                 if(data)
                 {
-                    $('#bannerState').css('background','brown');
-                    $('#bannerState').text('El archivo ha sido eliminado!');
-                    setTimeout(recargar, 800);
+                    deleteFile(data);
                 }
 
                 else
@@ -246,6 +245,29 @@ function eliminar(e)
                     alert('NO se pudo eliminar el archivo!');
                 }
             }
+        }
+    );
+}
+
+function deleteFile(fileName)
+{
+    firebase.initializeApp(config);
+
+    var storageRef = firebase.storage().ref();
+    var desertRef = storageRef.child('filesOtherPerson/' + fileName);
+
+    desertRef.delete().then
+    (
+        function() 
+        {
+            $('#bannerState').css('background','brown');
+            $('#bannerState').text('El archivo ha sido eliminado!');
+            setTimeout(recargar, 800);
+        }
+    ).catch
+    (
+        function(error) 
+        {
         }
     );
 }
