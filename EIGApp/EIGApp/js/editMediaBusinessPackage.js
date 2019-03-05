@@ -1,5 +1,6 @@
 window.onload = initUser;
-var FileProduct;
+var FileBusiness;
+var config;
 
 var f = 'https://www.facebook.com/Elite-Intelligence-Group-260263604734008/';
 var t = 'https://twitter.com/EliteIntellige1?lang=es';
@@ -15,6 +16,17 @@ function initUser()
     {
         $('#infoName').text(name);
         $('#infoUsername').text(username);
+
+        config = 
+        {
+            apiKey: "AIzaSyA4F7aYKhXv5zEWabtUYABA-4lJJdAgyW4",
+            authDomain: "eliteintelligencegroup-719d3.firebaseapp.com",
+            databaseURL: "https://eliteintelligencegroup-719d3.firebaseio.com",
+            projectId: "eliteintelligencegroup-719d3",
+            storageBucket: "eliteintelligencegroup-719d3.appspot.com",
+            messagingSenderId: "567347907651"
+        };
+
         loadMediaBusiness();
     }
 
@@ -73,7 +85,7 @@ function loadMediaBusiness()
 
                         $('#bannerState').css('background','green');
                         $('#bannerState').css('color','white');
-                        $('#bannerState').text('El artículo tiene ' + i + ' archivos!');
+                        $('#bannerState').text('El negocio tiene ' + i + ' archivos!');
                         $('#listResults').css('display','flex');
                     }
 
@@ -96,20 +108,19 @@ function loadMediaBusiness()
     }
 }
 
-function loadFileProduct()
+function loadFileBusiness()
 {
-    FileProduct =  document.getElementById('fileProduct');
+    FileBusiness =  document.getElementById('fileBusiness');
 
     if(validateFile())
     {
-        var IdProduct = localStorage.getItem('ID');
-        alert(IdProduct);
+        var IdBusiness = localStorage.getItem('ID');
 
-        var mediaProduct =
+        var mediaBusiness =
         {
             fileName    : '',
             downloadLink: '',
-            idProduct   : IdProduct
+            idBusiness  : IdProduct
         };
     
         $('#loadFC').css('background','yellow');
@@ -120,9 +131,9 @@ function loadFileProduct()
         $.ajax
         (
             {
-                url: '../api/mediaProduct',
+                url: '../api/mediaBusiness',
                 type: 'POST',
-                data: JSON.stringify(mediaProduct),
+                data: JSON.stringify(mediaBusiness),
                 contentType: "application/json;charset=utf-8",
 
                 success:
@@ -143,17 +154,7 @@ function loadFileProduct()
 }
 
 function loadFile(num)
-{    
-    var config = 
-    {
-        apiKey: "AIzaSyA4F7aYKhXv5zEWabtUYABA-4lJJdAgyW4",
-        authDomain: "eliteintelligencegroup-719d3.firebaseapp.com",
-        databaseURL: "https://eliteintelligencegroup-719d3.firebaseio.com",
-        projectId: "eliteintelligencegroup-719d3",
-        storageBucket: "eliteintelligencegroup-719d3.appspot.com",
-        messagingSenderId: "567347907651"
-    };
-
+{
     firebase.initializeApp(config);
 
     var storageRef = firebase.storage().ref();
