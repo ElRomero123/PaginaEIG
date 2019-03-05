@@ -120,7 +120,7 @@ function loadFileBusiness()
         {
             fileName    : '',
             downloadLink: '',
-            idBusiness  : IdProduct
+            idBusiness  : IdBusiness
         };
     
         $('#loadFC').css('background','yellow');
@@ -158,8 +158,8 @@ function loadFile(num)
     firebase.initializeApp(config);
 
     var storageRef = firebase.storage().ref();
-    var fileName = num + FileProduct.files[0].name;
-    var uploadTask = storageRef.child('filesProduct/' + fileName).put(FileProduct.files[0]);
+    var fileName = num + FileBusiness.files[0].name;
+    var uploadTask = storageRef.child('filesBusiness/' + fileName).put(FileBusiness.files[0]);
 
     uploadTask.on
     (   
@@ -194,7 +194,7 @@ function putFile(num, fileName, downloadURL)
     $.ajax
     (
         {
-            url: '../api/parametroFilePR',
+            url: '../api/parametroFileB',
             type: 'POST',
             data: JSON.stringify(parametroPutFile),
             contentType: "application/json;charset=utf-8",
@@ -217,7 +217,7 @@ function putFile(num, fileName, downloadURL)
 
 function validateFile()
 {
-    return FileProduct.files[0] != null;
+    return FileBusiness.files[0] != null;
 }
 
 function download(e)
@@ -231,7 +231,7 @@ function elim(e)
     $.ajax
     (
         {
-            url: '../api/mediaProduct/?idMediaProduct=' + e.id,
+            url: '../api/mediaBusiness/?idMediaBusiness=' + e.id,
             type: 'POST',
             contentType: "application/json;charset=utf-8",
 
@@ -245,7 +245,8 @@ function elim(e)
 
                 else
                 {
-                    alert('NO se pudo eliminar el archivo!');
+                    $('#bannerState').css('background','brown');
+                    $('#bannerState').text('NO se pudo eliminar el archivo!');
                 }
             }
         }
@@ -254,20 +255,10 @@ function elim(e)
 
 function deleteFile(fileName)
 {
-    var config = 
-    {
-        apiKey: "AIzaSyA4F7aYKhXv5zEWabtUYABA-4lJJdAgyW4",
-        authDomain: "eliteintelligencegroup-719d3.firebaseapp.com",
-        databaseURL: "https://eliteintelligencegroup-719d3.firebaseio.com",
-        projectId: "eliteintelligencegroup-719d3",
-        storageBucket: "eliteintelligencegroup-719d3.appspot.com",
-        messagingSenderId: "567347907651"
-    };
-
     firebase.initializeApp(config);
 
     var storageRef = firebase.storage().ref();
-    var desertRef = storageRef.child('filesProduct/' + fileName);
+    var desertRef = storageRef.child('filesBusiness/' + fileName);
   
     desertRef.delete().then
     (
