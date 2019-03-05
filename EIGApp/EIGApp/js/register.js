@@ -5,43 +5,31 @@ var g = 'https://plus.google.com/u/0/109910140252090488175';
 
 function createUser()
 {
-    var username = $('#cUsername').val();
-    var name     = $('#cName').val();
+    var Username = $('#cUsername').val();
+    $.ajax
+    (
+        {
+            url: '../api/user/?username=' + Username,
+            type: 'GET',
+            contentType: "application/json;charset=utf-8",
 
-    if(username.length >= 8 && name.length >= 8)
-    {
-        $.ajax
-        (
+            success:
+            function (data) 
             {
-                url: '../api/user/?username=' + username,
-                type: 'GET',
-                contentType: "application/json;charset=utf-8",
-    
-                success:
-                function (data) 
+                if(data)
                 {
-                    if(data)
-                    {
-                        confirm();
-                    }
-    
-                    else
-                    {
-                        $('#register').css('background','red');
-                        $('#register').css('border','2px solid red');
-                        $('#register').text('USERNAME ya existente!');
-                    }
+                    confirm();
+                }
+
+                else
+                {
+                    $('#register').css('background','red');
+                    $('#register').css('border','2px solid red');
+                    $('#register').text('USERNAME ya existente!');
                 }
             }
-        );
-    }
-
-    else
-    {
-        $('#register').css('background','red');
-        $('#register').css('border','2px solid red');
-        $('#register').text('<Username> y/o <Nombre Completo> deben tener por lo menos 8 caracteres!');
-    }
+        }
+    );
 }
 
 function confirm()
@@ -61,38 +49,48 @@ function confirm()
                 email: $('#cEmail').val(),
                 address: $('#cAddress').val()
             };
-    
-            $('#register').css('background','yellow');
-            $('#register').css('border','2px solid yellow');
-            $('#register').css('color','black');
-            $('#register').text('Registrando ...');
-    
-            $.ajax
-            (
-                {
-                    url: '../api/user',
-                    type: 'POST',
-                    data: JSON.stringify(usuario),
-                    contentType: "application/json;charset=utf-8",
+
+            if(check(usuario))
+            {
+                $('#register').css('background','yellow');
+                $('#register').css('border','2px solid yellow');
+                $('#register').css('color','black');
+                $('#register').text('Registrando ...');
         
-                    success:
-                    function (data)
+                $.ajax
+                (
                     {
-                        if (data)
+                        url: '../api/user',
+                        type: 'POST',
+                        data: JSON.stringify(usuario),
+                        contentType: "application/json;charset=utf-8",
+            
+                        success:
+                        function (data)
                         {
-                            location.href = 'index.html';    
-                        }
-    
-                        else
-                        {
-                            $('#register').css('background','red');
-                            $('#register').css('border','2px solid red');
-                            $('#register').css('color','white');
-                            $('#register').text('Error en el registro!');
+                            if (data)
+                            {
+                                location.href = 'index.html';    
+                            }
+        
+                            else
+                            {
+                                $('#register').css('background','red');
+                                $('#register').css('border','2px solid red');
+                                $('#register').css('color','white');
+                                $('#register').text('Error en el registro!');
+                            }
                         }
                     }
-                }
-            );
+                );
+            }
+
+            else
+            {
+                $('#register').css('background','red');
+                $('#register').css('border','2px solid red');
+                $('#register').text('Entradas invalidas!');
+            }
         }
 
         else
@@ -109,6 +107,17 @@ function confirm()
         $('#register').css('border','2px solid red');
         $('#register').text('Contraseñas NO coincidcen!');
     }
+}
+
+function check(user)
+{
+    var c1 = user.username.length >= 8;
+    var c2 = user.password.length >= 6;
+    var c3 = user.name.length >= 8;
+    var c4 = user.email.length >= 8;
+    var c5 = user.address.length >= 5;
+
+    return c1 & c2 & c3 & c4 & c5;
 }
 
 function toMenu()

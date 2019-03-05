@@ -28,16 +28,22 @@
             </div>
 
             <div>
-                <p>Nombre completo (50 caracteres)</p>
+                <p>Nombre completo (8 - 50 caracteres)</p>
                 <input type='text' maxlength='50' id='cName'>
 
-                <p>Nombre de su profesión específica (50 caracteres)</p>
-                <input type='text' maxlength='50' id='cProfesion'>
+                <p>Nombre de su profesión específica (8 - 50 caracteres)</p>
+                <input list='listKind' maxlength='50' id='cProfesion'>
 
-                <p>Describa a lo que usted se dedica brevemente (100 caracteres)</p>
+                <datalist id='listKind'>
+                    <option value='Peritología'>
+                    <option value='Detective especializado'>
+                    <option value='Abogado/a'>
+                </datalist>
+
+                <p>Describa a lo que usted se dedica brevemente (8 - 100 caracteres)</p>
                 <input type='text' maxlength="100" id='cDescription'>
 
-                <p>Correo electrónico/Email (80 caracteres)</p>
+                <p>Correo electrónico/Email (8 - 80 caracteres)</p>
                 <input type='text' maxlength='80' id='cEmail'>
 
                 <p>Número telefónico Celular (Mínimo 5 digitos)</p>
