@@ -54,28 +54,12 @@ function loadProductPackage()
                         {
                             if(data[i].Active)
                             {
-                                if(data[i].Type)
-                                {
-                                    cadena += "<div class='result'> <div class='avatar' id='" + i + "'></div> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].ProfesionDescription + "</p> <p class='pf3'>" + data[i].Email + "</p> <p class='pf4'>" + data[i].Phone + "</p> <p class='pf4'> <p class='pf4'> Ciprin: " + data[i].Ciprin + "</p> <p class='pf4'>" + 'Unido el ' + data[i].CreationDate + ' ' + data[i].CreationHourZone +  "</p> <button class='moreResult' id='" + data[i].Id + "' onclick='changeOP(this)'>Desactivar</button> </div> </div>";
-                                }
-
-                                else
-                                {
-                                    cadena += "<div class='result'> <div class='avatar' id='" + i + "'></div> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].ProfesionDescription + "</p> <p class='pf3'>" + data[i].Email + "</p> <p class='pf4'>" + data[i].Phone + "</p> <p class='pf4'> <p class='pf4'> Ciprin: " + data[i].Ciprin + "</p> <p class='pf4'>" + 'Unido el ' + data[i].CreationDate + ' ' + data[i].CreationHourZone +  "</p> <button class='moreResult' id='" + data[i].Id + "' onclick='changeP(this)'>Desactivar</button> </div> </div>";
-                                }
+                                cadena += "<div class='result'> <div class='avatar' id='" + i + "'></div> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].Type + "</p> <p class='pf2'>" + data[i].TypeDescription + "</p> <p class='pf3'>" + data[i].AttendantName + "</p> <p class='pf3'>" + data[i].AttendantWebPage + "</p> <p class='pf3'>" + data[i].AttendantEmail + "</p> <p class='pf3'>" + data[i].AttendantPhone + "</p> <p class='pf4'> Fecha: " + data[i].Date + "</p> <p class='pf4'>" + 'Unido el ' + data[i].CreationDate + ' ' + data[i].CreationHourZone +  "</p> <button class='moreResult' id='" + data[i].Id + "' onclick='change(this)'>Desactivar</button> </div> </div>";
                             }
 
                             else
                             {
-                                if(data[i].Type)
-                                {
-                                    cadena += "<div class='result'> <div class='avatar' id='" + i + "'></div> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].ProfesionDescription + "</p> <p class='pf3'>" + data[i].Email + "</p> <p class='pf4'>" + data[i].Phone + "</p> <p class='pf4'> <p class='pf4'> Ciprin: " + data[i].Ciprin + "</p> <p class='pf4'>" +  'Unido el ' + data[i].CreationDate + ' ' + data[i].CreationHourZone +  "</p> <button class='moreResult' id='" + data[i].Id + "' onclick='changeOP(this)'>Activar</button> </div> </div>";
-                                }
-
-                                else
-                                {
-                                    cadena += "<div class='result'> <div class='avatar' id='" + i + "'></div> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].ProfesionDescription + "</p> <p class='pf3'>" + data[i].Email + "</p> <p class='pf4'>" + data[i].Phone + "</p> <p class='pf4'> <p class='pf4'> Ciprin: " + data[i].Ciprin + "</p> <p class='pf4'>" +  'Unido el ' + data[i].CreationDate + ' ' + data[i].CreationHourZone +  "</p> <button class='moreResult' id='" + data[i].Id + "' onclick='changeP(this)'>Activar</button> </div> </div>";
-                                }
+                                cadena += "<div class='result'> <div class='avatar' id='" + i + "'></div> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].Type + "</p> <p class='pf2'>" + data[i].TypeDescription + "</p> <p class='pf3'>" + data[i].AttendantName + "</p> <p class='pf3'>" + data[i].AttendantWebPage + "</p> <p class='pf3'>" + data[i].AttendantEmail + "</p> <p class='pf3'>" + data[i].AttendantPhone + "</p> <p class='pf4'> Fecha: " + data[i].Date + "</p> <p class='pf4'>" + 'Unido el ' + data[i].CreationDate + ' ' + data[i].CreationHourZone +  "</p> <button class='moreResult' id='" + data[i].Id + "' onclick='change(this)'>Activar</button> </div> </div>";
                             }
                         }
 
@@ -83,7 +67,7 @@ function loadProductPackage()
 
                         for(var i = 0; i < data.length; i++)
                         {
-                            if(data[i].Active == 1)
+                            if(data[i].Active)
                             {
                                 $('#' + data[i].Id).css('background','green');
                                 $('#' + data[i].Id).css('color','white');
@@ -137,41 +121,7 @@ function to(num)
     }
 }
 
-function changeB(e)
-{
-    $('#' + e.id).css('background','yellow');
-    $('#' + e.id).css('color','black');
-    $('#' + e.id).text('Cambiando ...');
-
-    $.ajax
-    (
-        {
-            url: '../api/business?id=' + e.id,
-            type: 'POST',
-            contentType: "application/json;charset=utf-8",
-
-            success:
-            function (data) 
-            {
-                if(data == 1)
-                {
-                    $('#' + e.id).css('background','green');
-                    $('#' + e.id).css('color','white');
-                    $('#' + e.id).text('Desactivar');
-                }
-
-                else
-                {
-                    $('#' + e.id).css('background','red');
-                    $('#' + e.id).css('color','white');
-                    $('#' + e.id).text('Activar');
-                }
-            }
-        }
-    );
-}
-
-function changePR(e)
+function change(e)
 {
     $('#' + e.id).css('background','yellow');
     $('#' + e.id).css('color','black');

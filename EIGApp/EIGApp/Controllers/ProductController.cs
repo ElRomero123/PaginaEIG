@@ -35,7 +35,6 @@ namespace EIGApp.Controllers
                     Active           = lista[i].Active,              
                     CreationDate     = lista[i].CreationDate,
                     CreationHourZone = lista[i].CreationHourZone
-
                 };
 
                 arrayProducts[i] = temp;
@@ -85,6 +84,33 @@ namespace EIGApp.Controllers
 
             catch { }
             return S;
+        }
+
+        public bool Post(int id)
+        {
+            bool R = false;
+
+            try
+            {
+                O.Product BDProduct = BD.Products.FirstOrDefault(x => x.Id == id);
+
+                if (BDProduct.Active)
+                {
+                    BDProduct.Active = false;
+                    R = false;
+                }
+
+                else
+                {
+                    BDProduct.Active = true;
+                    R = true;
+                }
+
+                BD.SaveChanges();
+            }
+
+            catch { }
+            return R;
         }
 
         /*

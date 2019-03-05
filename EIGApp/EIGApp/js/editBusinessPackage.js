@@ -155,42 +155,6 @@ function change(e)
     );
 }
 
-/*
-function changePR(e)
-{
-    $('#' + e.id).css('background','yellow');
-    $('#' + e.id).css('color','black');
-    $('#' + e.id).text('Cambiando ...');
-
-    $.ajax
-    (
-        {
-            url: '../api/product?id=' + e.id,
-            type: 'POST',
-            contentType: "application/json;charset=utf-8",
-
-            success:
-            function (data) 
-            {
-                if(data == 1)
-                {
-                    $('#' + e.id).css('background','green');
-                    $('#' + e.id).css('color','white');
-                    $('#' + e.id).text('Desactivar');
-                }
-
-                else
-                {
-                    $('#' + e.id).css('background','red');
-                    $('#' + e.id).css('color','white');
-                    $('#' + e.id).text('Activar');
-                }
-            }
-        }
-    );
-}
-*/
-
 function social(op)
 {
     switch(op)
