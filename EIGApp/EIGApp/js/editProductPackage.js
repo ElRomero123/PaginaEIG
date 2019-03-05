@@ -39,7 +39,7 @@ function loadProductPackage()
         $.ajax
         (
             {
-                url: '../api/business/?idPackage=' + idPackage,
+                url: '../api/product/?idPackage=' + idPackage,
                 type: 'GET',
                 contentType: "application/json;charset=utf-8",
 
@@ -56,12 +56,12 @@ function loadProductPackage()
                             {
                                 if(data[i].Type)
                                 {
-                                    cadena += "<div class='result'> <div class='avatar' id='" + i + "'></div> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].Specialism + "</p> <p class='pf3'>" + data[i].WebPage + "</p> <p class='pf4'>" + data[i].Phone + "</p> <p class='pf4'>" + 'Unido el ' + data[i].CreationDate + "</p> <button class='moreResult' id='" + data[i].Id + "' onclick='changePR(this)'>Desactivar</button> </div> </div>";
+                                    cadena += "<div class='result'> <div class='avatar' id='" + i + "'></div> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].ProfesionDescription + "</p> <p class='pf3'>" + data[i].Email + "</p> <p class='pf4'>" + data[i].Phone + "</p> <p class='pf4'> <p class='pf4'> Ciprin: " + data[i].Ciprin + "</p> <p class='pf4'>" + 'Unido el ' + data[i].CreationDate + ' ' + data[i].CreationHourZone +  "</p> <button class='moreResult' id='" + data[i].Id + "' onclick='changeOP(this)'>Desactivar</button> </div> </div>";
                                 }
 
                                 else
                                 {
-                                    cadena += "<div class='result'> <div class='avatar' id='" + i + "'></div> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].Specialism + "</p> <p class='pf3'>" + data[i].WebPage + "</p> <p class='pf4'>" + data[i].Phone + "</p> <p class='pf4'>" + 'Unido el ' + data[i].CreationDate + "</p> <button class='moreResult' id='" + data[i].Id + "' onclick='changeB(this)'>Desactivar</button> </div> </div>";
+                                    cadena += "<div class='result'> <div class='avatar' id='" + i + "'></div> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].ProfesionDescription + "</p> <p class='pf3'>" + data[i].Email + "</p> <p class='pf4'>" + data[i].Phone + "</p> <p class='pf4'> <p class='pf4'> Ciprin: " + data[i].Ciprin + "</p> <p class='pf4'>" + 'Unido el ' + data[i].CreationDate + ' ' + data[i].CreationHourZone +  "</p> <button class='moreResult' id='" + data[i].Id + "' onclick='changeP(this)'>Desactivar</button> </div> </div>";
                                 }
                             }
 
@@ -69,13 +69,13 @@ function loadProductPackage()
                             {
                                 if(data[i].Type)
                                 {
-                                    cadena += "<div class='result'> <div class='avatar' id='" + i + "'></div> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].Specialism + "</p> <p class='pf3'>" + data[i].WebPage + "</p> <p class='pf4'>" + data[i].Phone + "</p> <p class='pf4'>" + 'Unido el ' + data[i].CreationDate + "</p> <button class='moreResult' id='" + data[i].Id + "' onclick='changePR(this)'>Activar</button> </div> </div>";
+                                    cadena += "<div class='result'> <div class='avatar' id='" + i + "'></div> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].ProfesionDescription + "</p> <p class='pf3'>" + data[i].Email + "</p> <p class='pf4'>" + data[i].Phone + "</p> <p class='pf4'> <p class='pf4'> Ciprin: " + data[i].Ciprin + "</p> <p class='pf4'>" +  'Unido el ' + data[i].CreationDate + ' ' + data[i].CreationHourZone +  "</p> <button class='moreResult' id='" + data[i].Id + "' onclick='changeOP(this)'>Activar</button> </div> </div>";
                                 }
 
                                 else
                                 {
-                                    cadena += "<div class='result'> <div class='avatar' id='" + i + "'></div> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].Specialism + "</p> <p class='pf3'>" + data[i].WebPage + "</p> <p class='pf4'>" + data[i].Phone + "</p> <p class='pf4'>" + 'Unido el ' + data[i].CreationDate + "</p> <button class='moreResult' id='" + data[i].Id + "' onclick='changeB(this)'>Activar</button> </div> </div>";
-                                } 
+                                    cadena += "<div class='result'> <div class='avatar' id='" + i + "'></div> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].ProfesionDescription + "</p> <p class='pf3'>" + data[i].Email + "</p> <p class='pf4'>" + data[i].Phone + "</p> <p class='pf4'> <p class='pf4'> Ciprin: " + data[i].Ciprin + "</p> <p class='pf4'>" +  'Unido el ' + data[i].CreationDate + ' ' + data[i].CreationHourZone +  "</p> <button class='moreResult' id='" + data[i].Id + "' onclick='changeP(this)'>Activar</button> </div> </div>";
+                                }
                             }
                         }
 

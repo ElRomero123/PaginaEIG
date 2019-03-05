@@ -54,28 +54,12 @@ function loadBusinessPackage()
                         {
                             if(data[i].Active)
                             {
-                                if(data[i].Type)
-                                {
-                                    cadena += "<div class='result'> <div class='avatar' id='" + i + "'></div> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].Specialism + "</p> <p class='pf3'>" + data[i].WebPage + "</p> <p class='pf4'>" + data[i].Phone + "</p> <p class='pf4'>" + 'Unido el ' + data[i].CreationDate + "</p> <button class='moreResult' id='" + data[i].Id + "' onclick='changePR(this)'>Desactivar</button> </div> </div>";
-                                }
-
-                                else
-                                {
-                                    cadena += "<div class='result'> <div class='avatar' id='" + i + "'></div> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].Specialism + "</p> <p class='pf3'>" + data[i].WebPage + "</p> <p class='pf4'>" + data[i].Phone + "</p> <p class='pf4'>" + 'Unido el ' + data[i].CreationDate + "</p> <button class='moreResult' id='" + data[i].Id + "' onclick='changeB(this)'>Desactivar</button> </div> </div>";
-                                }
+                                cadena += "<div class='result'> <div class='avatar' id='" + i + "'></div> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].Specialism + "</p> <p class='pf3'>" + data[i].WebPage + "</p> <p class='pf4'>" + data[i].Phone + "</p> <p class='pf4'> Ciprin: " + data[i].Ciprin + "</p> <p class='pf4'>" + 'Unido el ' + data[i].CreationDate + ' ' + data[i].CreationHourZone +  "</p> <button class='moreResult' id='" + data[i].Id + "' onclick='change(this)'>Desactivar</button> </div> </div>";
                             }
 
                             else
                             {
-                                if(data[i].Type)
-                                {
-                                    cadena += "<div class='result'> <div class='avatar' id='" + i + "'></div> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].Specialism + "</p> <p class='pf3'>" + data[i].WebPage + "</p> <p class='pf4'>" + data[i].Phone + "</p> <p class='pf4'>" + 'Unido el ' + data[i].CreationDate + "</p> <button class='moreResult' id='" + data[i].Id + "' onclick='changePR(this)'>Activar</button> </div> </div>";
-                                }
-
-                                else
-                                {
-                                    cadena += "<div class='result'> <div class='avatar' id='" + i + "'></div> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].Specialism + "</p> <p class='pf3'>" + data[i].WebPage + "</p> <p class='pf4'>" + data[i].Phone + "</p> <p class='pf4'>" + 'Unido el ' + data[i].CreationDate + "</p> <button class='moreResult' id='" + data[i].Id + "' onclick='changeB(this)'>Activar</button> </div> </div>";
-                                } 
+                                cadena += "<div class='result'> <div class='avatar' id='" + i + "'></div> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].Specialism + "</p> <p class='pf3'>" + data[i].WebPage + "</p> <p class='pf4'>" + data[i].Phone + "</p> <p class='pf4'> Ciprin: " + data[i].Ciprin + "</p> <p class='pf4'>" + 'Unido el ' + data[i].CreationDate + ' ' + data[i].CreationHourZone +  "</p> <button class='moreResult' id='" + data[i].Id + "' onclick='change(this)'>Activar</button> </div> </div>";
                             }
                         }
 
@@ -83,7 +67,7 @@ function loadBusinessPackage()
 
                         for(var i = 0; i < data.length; i++)
                         {
-                            if(data[i].Active == 1)
+                            if(data[i].Active)
                             {
                                 $('#' + data[i].Id).css('background','green');
                                 $('#' + data[i].Id).css('color','white');
@@ -137,7 +121,7 @@ function to(num)
     }
 }
 
-function changeB(e)
+function change(e)
 {
     $('#' + e.id).css('background','yellow');
     $('#' + e.id).css('color','black');
@@ -171,6 +155,7 @@ function changeB(e)
     );
 }
 
+/*
 function changePR(e)
 {
     $('#' + e.id).css('background','yellow');
@@ -204,6 +189,7 @@ function changePR(e)
         }
     );
 }
+*/
 
 function social(op)
 {

@@ -117,62 +117,33 @@ namespace EIGApp.Controllers
             return S;
         }
 
-        /*
-        public int Post(long id)
+       
+        public bool Post(int id)
         {
-            int c = 0;
+            bool R = false;
 
             try
             {
                 O.Business BDBusiness = BD.Businesses.FirstOrDefault(x => x.Id == id);
 
-                if (BDBusiness.Active == 1)
+                if (BDBusiness.Active)
                 {
-                    BDBusiness.Active = 0;
-                    c = 0;
+                    BDBusiness.Active = false;
+                    R = false;
                 }
 
                 else
                 {
-                    BDBusiness.Active = 1;
-                    c = 1;
+                    BDBusiness.Active = true;
+                    R = true;
                 }
 
                 BD.SaveChanges();
             }
 
-            catch
-            {
-            }
-
-            return c;
+            catch{}
+            return R;
         }
-
-        public long Post(M.Business negocio)
-        {
-            long id = 0;
-
-            try
-            {
-                #pragma warning disable CS0618
-                AutoMapper.Mapper.CreateMap<M.Business, O.Business>();
-                #pragma warning restore CS0618
-                O.Business BDBusiness = AutoMapper.Mapper.Map<O.Business>(negocio);
-                BDBusiness.CreationDate = System.DateTime.Now.ToString("g");
-                BD.Businesses.Add(BDBusiness);
-                BD.SaveChanges();
-
-                id = BDBusiness.Id;
-            }
-
-            catch
-            {
-                id = 0;
-            }
-
-            return id;
-        }
-        */
     }
 }
  
