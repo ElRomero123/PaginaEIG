@@ -254,6 +254,7 @@ function elim(e)
 function deleteFile(fileName)
 {
     firebase.initializeApp(config);
+
     var storageRef = firebase.storage().ref();
     var desertRef = storageRef.child('filesOtherPerson/' + fileName);
 

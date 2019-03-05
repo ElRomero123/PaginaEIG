@@ -51,21 +51,21 @@ namespace EIGApp.Controllers
             return BDMediaOtherPerson.Id;
         }
 
-        public bool Post(int idMediaOtherPerson)
+        public string Post(int idMediaOtherPerson)
         {
-            bool result = false;
+            string R = "";
 
             try
             {
                 O.MediaOtherPerson BDMediaOtherPerson = BD.MediaOtherPersons.FirstOrDefault(x => x.Id == idMediaOtherPerson);
                 BD.MediaOtherPersons.Remove(BDMediaOtherPerson);
                 BD.SaveChanges();
-                result = true;
+                R = BDMediaOtherPerson.FileName;
             }
 
             catch{}
 
-            return result;
+            return R;
         }
     }
 }

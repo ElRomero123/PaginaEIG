@@ -53,21 +53,19 @@ namespace EIGApp.Controllers
 
         public string Post(int idMediaPerson)
         {
-            string result = "";
+            string R = "";
 
             try
             {
                 O.MediaPerson BDMediaPerson = BD.MediaPersons.FirstOrDefault(x => x.Id == idMediaPerson);
                 BD.MediaPersons.Remove(BDMediaPerson);
                 BD.SaveChanges();
-                result = BDMediaPerson.FileName;
+                R = BDMediaPerson.FileName;
             }
 
-            catch
-            {
-            }
+            catch{}
 
-            return result;
+            return R;
         }
     }
 }
