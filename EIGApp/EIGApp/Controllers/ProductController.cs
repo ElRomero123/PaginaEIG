@@ -13,7 +13,7 @@ namespace EIGApp.Controllers
         {
             var query = from PR in BD.Products
                         where (PR.IdPackage.Equals(idPackage))
-                        select new {PR.Id, PR.Name, PR.Type, PR.TypeDescription, PR.AttendantName, PR.AttendantWebPage, PR.AttendantEmail, PR.AttendantPhone, PR.Date, PR.Active, PR.CreationDate, PR.CreationHourZone};
+                        select new {PR.Id, PR.Name, PR.Type, PR.TypeDescription, PR.AttendantName, PR.AttendantWebPage, PR.AttendantEmail, PR.AttendantPhone, PR.Date, PR.Active, PR.CreationDate, PR.CreationHourZone, PR.Avatar};
 
             var lista = query.ToArray();
 
@@ -34,7 +34,8 @@ namespace EIGApp.Controllers
                     Date             = lista[i].Date,
                     Active           = lista[i].Active,              
                     CreationDate     = lista[i].CreationDate,
-                    CreationHourZone = lista[i].CreationHourZone
+                    CreationHourZone = lista[i].CreationHourZone,
+                    Avatar           = lista[i].Avatar
                 };
 
                 arrayProducts[i] = temp;
