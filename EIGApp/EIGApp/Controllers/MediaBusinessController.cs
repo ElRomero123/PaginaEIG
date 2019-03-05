@@ -34,5 +34,38 @@ namespace EIGApp.Controllers
 
             return arrayMediaBusiness;
         }
+
+        public long Post(M.MediaBusiness mediaBusiness)
+        {
+            O.MediaBusiness BDMediaBusiness = new O.MediaBusiness
+            {
+                FileName     = mediaBusiness.FileName,
+                DownloadLink = mediaBusiness.DownloadLink,
+                LoadDate     = System.DateTime.Now.ToString("g"),
+                IdBusiness   = mediaBusiness.IdBusiness
+            };
+
+            BD.MediaBusinesses.Add(BDMediaBusiness);
+            BD.SaveChanges();
+
+            return BDMediaBusiness.Id;
+        }
+
+        public string Post(int idMediaBusiness)
+        {
+            string R = "";
+
+            try
+            {
+                O.MediaBusiness BDMediaBusiness = BD.MediaBusinesses.FirstOrDefault(x => x.Id == idMediaBusiness);
+                BD.MediaBusinesses.Remove(BDMediaBusiness);
+                BD.SaveChanges();
+                R = BDMediaBusiness.FileName;
+            }
+
+            catch { }
+
+            return R;
+        }
     }
 }
