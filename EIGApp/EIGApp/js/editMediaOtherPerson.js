@@ -1,5 +1,6 @@
 window.onload = initUser;
-var FileOtherPerson, config;
+var FileOtherPerson
+var config;
 
 var f = 'https://www.facebook.com/Elite-Intelligence-Group-260263604734008/';
 var t = 'https://twitter.com/EliteIntellige1?lang=es';
@@ -15,6 +16,17 @@ function initUser()
     {
         $('#infoName').text(name);
         $('#infoUsername').text(username);
+
+        config = 
+        {
+            apiKey: "AIzaSyA4F7aYKhXv5zEWabtUYABA-4lJJdAgyW4",
+            authDomain: "eliteintelligencegroup-719d3.firebaseapp.com",
+            databaseURL: "https://eliteintelligencegroup-719d3.firebaseio.com",
+            projectId: "eliteintelligencegroup-719d3",
+            storageBucket: "eliteintelligencegroup-719d3.appspot.com",
+            messagingSenderId: "567347907651"
+        };
+
         loadMediaOtherPerson();
     }
 
@@ -66,7 +78,7 @@ function loadMediaOtherPerson()
 
                         for(var i = 0; i < data.length; i++)
                         {
-                            cadena += "<div class='result'> <div class='text'> <p class='pf2'>" + data[i].FileName + "</p> <p class='pf4'>Anexado el " + data[i].LoadDate + "</p> <button id='" + data[i].Id + "' class='deleteResult' onclick='eliminar(this)'>Eliminar</button> <button id='" + data[i].Id + "' class='moreResult' onclick='download(this)'>Descargar</button> <p hidden class='pf4' id='DL" + data[i].Id + "'>" + data[i].DownloadLink + "</p> </div> </div>";  
+                            cadena += "<div class='result'> <div class='text'> <p class='pf2'>" + data[i].FileName + "</p> <p class='pf4'>Anexado el " + data[i].LoadDate + "</p> <button id='" + data[i].Id + "' class='deleteResult' onclick='elim(this)'>Eliminar</button> <button id='" + data[i].Id + "' class='moreResult' onclick='download(this)'>Descargar</button> <p hidden class='pf4' id='DL" + data[i].Id + "'>" + data[i].DownloadLink + "</p> </div> </div>";  
                         }
                         
                         $('#listResults').append(cadena);
@@ -146,16 +158,6 @@ function validateFile()
 
 function loadFile(num)
 {    
-    config = 
-    {
-        apiKey: "AIzaSyA4F7aYKhXv5zEWabtUYABA-4lJJdAgyW4",
-        authDomain: "eliteintelligencegroup-719d3.firebaseapp.com",
-        databaseURL: "https://eliteintelligencegroup-719d3.firebaseio.com",
-        projectId: "eliteintelligencegroup-719d3",
-        storageBucket: "eliteintelligencegroup-719d3.appspot.com",
-        messagingSenderId: "567347907651"
-    };
-    
     firebase.initializeApp(config);
 
     var storageRef = firebase.storage().ref();
@@ -223,7 +225,7 @@ function download(e)
 }
 
 
-function eliminar(e)
+function elim(e)
 {
     $.ajax
     (
@@ -242,7 +244,7 @@ function eliminar(e)
 
                 else
                 {
-                    alert('NO se pudo eliminar el archivo!');
+                    $('#bannerState').text('NO se pudo eliminar el archivo!');
                 }
             }
         }
@@ -252,7 +254,6 @@ function eliminar(e)
 function deleteFile(fileName)
 {
     firebase.initializeApp(config);
-
     var storageRef = firebase.storage().ref();
     var desertRef = storageRef.child('filesOtherPerson/' + fileName);
 
