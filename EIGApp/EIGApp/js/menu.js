@@ -81,7 +81,10 @@ function search()
                         {
                             avatar = data[i].Avatar;
                             document.getElementById(i).style.background = 'url("' + avatar + '")';
-                            putMarket({lat: data[i].Latitude, lng: data[i].Longitude}, avatar);
+                            //putMarket({lat: data[i].Latitude, lng: data[i].Longitude}, avatar);
+                            marker = new google.maps.Marker({position: {lat: data[i].Latitude, lng: data[i].Longitude}, title: "Hola"});
+                            marker.setMap(mapa);
+                            alert(data[i].Latitude + ' ' + data[i].Longitude);
                         }
 
                         $('#bannerState').css('background','green');
@@ -178,7 +181,8 @@ function putMarket(loc, avatar)
         scaledSize: new google.maps.Size(35, 35)
     };
 
-    marker = new google.maps.Marker({position: loc, map: mapa, icon: image});
+    marker = new google.maps.Marker({position: loc, map: mapa});
+    //marker = new google.maps.Marker({position: loc, map: mapa, icon: image});
 }
 
 function hideMap()
