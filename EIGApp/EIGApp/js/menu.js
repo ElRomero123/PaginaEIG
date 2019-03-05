@@ -59,6 +59,8 @@ function search()
                     {
                         var cadena = "";
 
+                        startMap();
+
                         for(var i = 0; i < data.length; i++)
                         {
                             if(data[i].Ciprin)
@@ -79,15 +81,11 @@ function search()
                         {
                             avatar = data[i].Avatar;
                             document.getElementById(i).style.background = 'url("' + avatar + '")';
-
-
-                            //putMarket({lat: data[i].Latitude, lng: data[i].Longitude}, avatar);
+                            /*
                             var marker = new google.maps.Marker({position: {lat: data[i].Latitude, lng: data[i].Longitude}});
                             marker.setMap(mapa);
-                            //alert(data[i].Latitude + ' ' + data[i].Longitude);
+                            */
                         }
-
-                        startMap();
 
                         $('#bannerState').css('background','green');
                         $('#bannerState').css('color','white');
@@ -164,6 +162,7 @@ function to(num)
     }
 }
 
+/*
 function startMap()
 {
     gmaps = document.getElementById('maps');
@@ -171,20 +170,29 @@ function startMap()
     navigator.geolocation.getCurrentPosition(function(position)
     { 
         mapa = new google.maps.Map(gmaps, {zoom: 15, center: {lat: position.coords.latitude, lng: position.coords.longitude}});
+        for(var i = 0; i < 10; i++)
+        {
+            var marker = new google.maps.Marker({position: {lat: position.coords.latitude + i/2, lng: position.coords.longitude + i/2}});
+            marker.setMap(mapa);
+        }
     });
 }
+*/
 
-function putMarket(loc, avatar)
-{
-    var image = 
-    {
-        url: avatar,
-        scaledSize: new google.maps.Size(35, 35)
-    };
-
-    marker = new google.maps.Marker({position: loc, map: mapa});
-    //marker = new google.maps.Marker({position: loc, map: mapa, icon: image});
-}
+function startMap() {
+    var myLatLng = {lat: -25.363, lng: 131.044};
+  
+    var map = new google.maps.Map(document.getElementById('maps'), {
+      zoom: 4,
+      center: myLatLng
+    });
+  
+    var marker = new google.maps.Marker({
+      position: myLatLng,
+      map: map,
+      title: 'Hello World!'
+    });
+  }
 
 function hideMap()
 {
