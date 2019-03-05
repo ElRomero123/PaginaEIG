@@ -162,23 +162,29 @@ function to(num)
     }
 }
 
-/*
+
 function startMap()
 {
+    var lat, log;
     gmaps = document.getElementById('maps');
     gmaps.style = 'display: block';
     navigator.geolocation.getCurrentPosition(function(position)
     { 
-        mapa = new google.maps.Map(gmaps, {zoom: 15, center: {lat: position.coords.latitude, lng: position.coords.longitude}});
-        for(var i = 0; i < 10; i++)
-        {
-            var marker = new google.maps.Marker({position: {lat: position.coords.latitude + i/2, lng: position.coords.longitude + i/2}});
-            marker.setMap(mapa);
-        }
+        lat = position.coords.latitude;
+        log = position.coords.longitude;
+        mapa = new google.maps.Map(gmaps, {zoom: 15, center: {lat: lat, lng: log}});
+        
     });
-}
-*/
 
+    for(var i = 0; i < 10; i++)
+    {
+        var marker = new google.maps.Marker({position: {lat: lat + i/100, lng: log + i/100}});
+        alert(i);
+        marker.setMap(mapa);
+    }
+}
+
+/*
 function startMap() {
     var myLatLng = {lat: -25.363, lng: 131.044};
   
@@ -193,6 +199,7 @@ function startMap() {
       title: 'Hello World!'
     });
   }
+*/
 
 function hideMap()
 {
