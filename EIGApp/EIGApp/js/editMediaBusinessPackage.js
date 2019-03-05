@@ -45,7 +45,7 @@ function to(num)
         location.href = 'index.html';
         break;
         default:
-        location.href = 'editCreatedProfiles.html';
+        location.href = 'manageBusinessPackage.html';
     }
 }
 

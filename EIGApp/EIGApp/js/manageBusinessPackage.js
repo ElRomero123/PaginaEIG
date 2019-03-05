@@ -99,7 +99,7 @@ function to(num)
 function toEdit(e)
 {   
     localStorage.setItem('ID', e.id);
-    location.href = 'editMediaBusiness.html';
+    location.href = 'editMediaBusinessPackage.html';
 }
 
 function elim(e)
