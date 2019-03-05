@@ -99,11 +99,16 @@
     <Content Include="businessPanelC.html" />
     <Content Include="confirm.html" />
     <Content Include="css\index.css" />
+    <Content Include="editBusinessPackage.html" />
     <Content Include="editCase.html" />
     <Content Include="editCreatedProfiles.html" />
     <Content Include="editJA.html" />
+    <Content Include="editMediaBusinessPackage.html" />
     <Content Include="editMediaOtherPerson.html" />
     <Content Include="editMediaPerson.html" />
+    <Content Include="editMediaProductPackage.html" />
+    <Content Include="editProductPackage.html" />
+    <Content Include="js\editProductPackage.js" />
     <Content Include="error.html" />
     <Content Include="Global.asax" />
     <Content Include="img\f.png" />
@@ -137,11 +142,14 @@
     <Content Include="js\businessPanel.js" />
     <Content Include="js\businessPanelC.js" />
     <Content Include="js\confirm.js" />
+    <Content Include="js\editBusinessPackage.js" />
     <Content Include="js\editCase.js" />
     <Content Include="js\editCreatedProfiles.js" />
     <Content Include="js\editJA.js" />
+    <Content Include="js\editMediaBusinessPackage.js" />
     <Content Include="js\editMediaOtherPerson.js" />
     <Content Include="js\editMediaPerson.js" />
+    <Content Include="js\editMediaProductPackage.js" />
     <Content Include="js\error.js" />
     <Content Include="js\loginAdministrator.js" />
     <Content Include="js\manageBusinessPackage.js" />
@@ -178,7 +186,6 @@
     <Content Include="js\viewMediaOtherPerson.js" />
     <Content Include="js\viewMediaPerson.js" />
     <Content Include="js\viewMediaProduct.js" />
-    <Content Include="js\viewProfilesPackageAdministrator.js" />
     <Content Include="js\viewProfilesUserAdministrator.js" />
     <Content Include="loginAdministrator.html" />
     <Content Include="manageBusinessPackage.html" />
@@ -227,7 +234,6 @@
     <Content Include="viewMediaOtherPerson.html" />
     <Content Include="viewMediaPerson.html" />
     <Content Include="viewMediaProduct.html" />
-    <Content Include="viewProfilesPackageAdministrator.html" />
     <Content Include="viewProfilesUserAdministrator.html" />
     <Content Include="Web.config" />
   </ItemGroup>

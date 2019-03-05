@@ -52,7 +52,14 @@ function loadPackages()
 
                         for(var i = 0; i < data.length; i++)
                         {
-                            cadena += "<div class='result'> <div class='text'> <p class='pf1'>" + data[i].Producto + "</p> <p class='pf2'>" + data[i].Linea + "</p> <p class='pf3'>" + data[i].Cantidad + "</p> <p class='pf3'>" + data[i].TiempoCubrimiento + "</p> <p class='pf3'>" + data[i].Precio + "</p> <p class='pf3'> Comprado el " + data[i].FechaCompra + " por " + data[i].Username + "</p> <button id='" + data[i].Id + "' class='moreResult' onclick='toMorePackage(this)'>Mas</button> </div> </div>";  
+                            if(data[i].Kind == 1)
+                            {
+                                cadena += "<div class='result'> <div class='text'> <p class='pf1'>" + data[i].Producto + "</p> <p class='pf2'>" + data[i].Linea + "</p> <p class='pf3'>" + data[i].Cantidad + "</p> <p class='pf3'>" + data[i].TiempoCubrimiento + "</p> <p class='pf3'>" + data[i].Precio + "</p> <p class='pf3'>Empresas</p> <p class='pf3'> Comprado el " + data[i].FechaCompra + " por " + data[i].Username + "</p> <button id='" + data[i].Id + "' class='moreResult' onclick='toMorePackageB(this)'>Mas</button> </div> </div>";  
+                            }
+                            else
+                            {
+                                cadena += "<div class='result'> <div class='text'> <p class='pf1'>" + data[i].Producto + "</p> <p class='pf2'>" + data[i].Linea + "</p> <p class='pf3'>" + data[i].Cantidad + "</p> <p class='pf3'>" + data[i].TiempoCubrimiento + "</p> <p class='pf3'>" + data[i].Precio + "</p> <p class='pf3'>Productos</p> <p class='pf3'> Comprado el " + data[i].FechaCompra + " por " + data[i].Username + "</p> <button id='" + data[i].Id + "' class='moreResult' onclick='toMorePackagePR(this)'>Mas</button> </div> </div>";  
+                            }
                         }
         
                         $('#listResults').append(cadena);
@@ -96,10 +103,16 @@ function to(num)
 }
 
 
-function toMorePackage(e)
+function toMorePackageB(e)
 {
     localStorage.setItem('IdPackage', e.id);
-    location.href = 'viewProfilesPackageAdministrator.html';
+    location.href = 'editBusinessPackage.html';
+}
+
+function toMorePackagePR(e)
+{
+    localStorage.setItem('IdPackage', e.id);
+    location.href = 'editProductPackage.html';
 }
 
 function social(op)
