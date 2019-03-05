@@ -82,9 +82,12 @@ function search()
                             avatar = data[i].Avatar;
                             document.getElementById(i).style.background = 'url("' + avatar + '")';
                             //putMarket({lat: data[i].Latitude, lng: data[i].Longitude}, avatar);
-                            marker = new google.maps.Marker({position: {lat: data[i].Latitude, lng: data[i].Longitude}, title: "Hola"});
+                            //var p = new google.maps.LatLng(data[i].Latitude,data[i].Longitude);
+
+                            marker = new google.maps.Marker({animation: google.maps.Animation.DROP, position: {lat: data[i].Latitude, lng: data[i].Longitude}});
                             marker.setMap(mapa);
-                            alert(data[i].Latitude + ' ' + data[i].Longitude);
+                            
+                            //alert(data[i].Latitude + ' ' + data[i].Longitude);
                         }
 
                         $('#bannerState').css('background','green');
@@ -170,6 +173,10 @@ function startMap()
     { 
         console.log(position);
         mapa = new google.maps.Map(gmaps, {zoom: 15, center: {lat: position.coords.latitude, lng: position.coords.longitude}});
+        
+        //marker = new google.maps.Marker({animation: google.maps.Animation.DROP, position: {lat: position.coords.latitude, lng: position.coords.longitude}});
+        //marker.setMap(mapa);
+
     });
 }
 
