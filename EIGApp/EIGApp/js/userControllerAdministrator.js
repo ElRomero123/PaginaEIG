@@ -59,7 +59,7 @@ function loadUsers()
                     
                     $('#bannerState').css('background','green');
                     $('#bannerState').css('color','white');
-                    $('#bannerState').text(i + ' Usuarios!');
+                    $('#bannerState').text('Usuarios: ' + i);
                     $('#listResults').css('display','flex');
                     $('#listResults').append(chain.toString());
                     chain.clear();
