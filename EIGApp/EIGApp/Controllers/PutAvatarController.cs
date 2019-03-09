@@ -39,7 +39,12 @@ namespace EIGApp.Controllers
                 O.Person BDPerson = BD.People.FirstOrDefault(x => x.Id == idPerson);
                 BD.People.Remove(BDPerson);
                 BD.SaveChanges();
-                R = BDPerson.NameAvatar;
+
+                O.User BDUser = BD.Users.FirstOrDefault(x => x.Id == BDPerson.IdUser);
+                BDUser.CountProfiles = BDUser.CountProfiles - 1;
+                BD.SaveChanges();
+
+                R = BDPerson.NameAvatar;   
             }
             catch { }
             return R;

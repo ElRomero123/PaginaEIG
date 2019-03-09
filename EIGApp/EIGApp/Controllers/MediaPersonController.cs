@@ -27,7 +27,8 @@ namespace EIGApp.Controllers
                     Id           = item.Id,
                     FileName     = item.FileName,
                     DownloadLink = item.DownloadLink,
-                    LoadDate     = item.LoadDate
+                    LoadDate     = item.LoadDate,
+                    LoadHourZone = item.LoadHourZone
                 };
                 arrayMediaPerson[i] = temp;
                 i++;

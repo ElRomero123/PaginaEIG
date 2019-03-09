@@ -34,6 +34,11 @@ namespace EIGApp.Controllers
                 O.OtherPerson BDOtherPerson = BD.OtherPersons.FirstOrDefault(x => x.Id == idOtherPerson);
                 BD.OtherPersons.Remove(BDOtherPerson);
                 BD.SaveChanges();
+
+                O.User BDUser = BD.Users.FirstOrDefault(x => x.Id == BDOtherPerson.IdUser);
+                BDUser.CountProfiles = BDUser.CountProfiles - 1;
+                BD.SaveChanges();
+
                 R = BDOtherPerson.NameAvatar;
             }
             catch { }
