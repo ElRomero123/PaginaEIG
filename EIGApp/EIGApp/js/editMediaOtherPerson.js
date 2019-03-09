@@ -222,7 +222,6 @@ function download(e)
     window.open(download, '_blank');
 }
 
-
 function elim(e)
 {
     $.ajax
