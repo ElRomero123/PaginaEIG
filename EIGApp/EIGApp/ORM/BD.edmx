@@ -140,10 +140,11 @@
           <Property Name="Longitude" Type="real" Nullable="false" />
           <Property Name="Ciprin" Type="bit" Nullable="false" />
           <Property Name="Active" Type="bit" Nullable="false" />
-          <Property Name="CreationDate" Type="datetime" Nullable="false" />
+          <Property Name="CreationDate" Type="nvarchar" MaxLength="255" Nullable="false" />
           <Property Name="CreationHourZone" Type="nvarchar" MaxLength="255" Nullable="false" />
           <Property Name="Avatar" Type="nvarchar(max)" Nullable="false" />
           <Property Name="NameAvatar" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="Views" Type="bigint" Nullable="false" />
           <Property Name="IdUser" Type="bigint" Nullable="false" />
         </EntityType>
         <EntityType Name="Package">
@@ -173,10 +174,11 @@
           <Property Name="Longitude" Type="real" Nullable="false" />
           <Property Name="Ciprin" Type="bit" Nullable="false" />
           <Property Name="Active" Type="bit" Nullable="false" />
-          <Property Name="CreationDate" Type="datetime" Nullable="false" />
+          <Property Name="CreationDate" Type="nvarchar" MaxLength="255" Nullable="false" />
           <Property Name="CreationHourZone" Type="nvarchar" MaxLength="255" Nullable="false" />
           <Property Name="Avatar" Type="nvarchar(max)" Nullable="false" />
           <Property Name="NameAvatar" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="Views" Type="bigint" Nullable="false" />
           <Property Name="IdUser" Type="bigint" Nullable="false" />
         </EntityType>
         <EntityType Name="Product">
@@ -678,10 +680,11 @@
           <Property Name="Longitude" Type="Single" Nullable="false" />
           <Property Name="Ciprin" Type="Boolean" Nullable="false" />
           <Property Name="Active" Type="Boolean" Nullable="false" />
-          <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreationDate" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="CreationHourZone" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Avatar" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="NameAvatar" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Views" Type="Int64" Nullable="false" />
           <Property Name="IdUser" Type="Int64" Nullable="false" />
           <NavigationProperty Name="MediaOtherPersons" Relationship="Self.FK_MediaOtherPerson_OtherPerson" FromRole="OtherPerson" ToRole="MediaOtherPerson" />
           <NavigationProperty Name="User" Relationship="Self.FK_OtherPerson_User" FromRole="OtherPerson" ToRole="User" />
@@ -716,10 +719,11 @@
           <Property Name="Longitude" Type="Single" Nullable="false" />
           <Property Name="Ciprin" Type="Boolean" Nullable="false" />
           <Property Name="Active" Type="Boolean" Nullable="false" />
-          <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreationDate" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="CreationHourZone" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Avatar" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="NameAvatar" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Views" Type="Int64" Nullable="false" />
           <Property Name="IdUser" Type="Int64" Nullable="false" />
           <NavigationProperty Name="MediaPersons" Relationship="Self.FK_MediaPerson_Person" FromRole="Person" ToRole="MediaPerson" />
           <NavigationProperty Name="User" Relationship="Self.FK_Person_User" FromRole="Person" ToRole="User" />
@@ -1235,6 +1239,7 @@
                 <ScalarProperty Name="CreationHourZone" ColumnName="CreationHourZone" />
                 <ScalarProperty Name="Avatar" ColumnName="Avatar" />
                 <ScalarProperty Name="NameAvatar" ColumnName="NameAvatar" />
+                <ScalarProperty Name="Views" ColumnName="Views" />
                 <ScalarProperty Name="IdUser" ColumnName="IdUser" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -1270,6 +1275,7 @@
                 <ScalarProperty Name="CreationHourZone" ColumnName="CreationHourZone" />
                 <ScalarProperty Name="Avatar" ColumnName="Avatar" />
                 <ScalarProperty Name="NameAvatar" ColumnName="NameAvatar" />
+                <ScalarProperty Name="Views" ColumnName="Views" />
                 <ScalarProperty Name="IdUser" ColumnName="IdUser" />
               </MappingFragment>
             </EntityTypeMapping>

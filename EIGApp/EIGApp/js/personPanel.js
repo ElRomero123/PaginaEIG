@@ -1,23 +1,31 @@
 window.onload = initUser;
-var PersonAvatar, longitude, latitude, IdUser, f, t, y, g;
+var PersonAvatar, longitude, latitude, IdUser, f, t, y, g, config;
 
 f = 'https://www.facebook.com/Elite-Intelligence-Group-260263604734008/';
 t = 'https://twitter.com/EliteIntellige1?lang=es';
 y = 'https://www.youtube.com/channel/UCOvdAjzfv4WlwxKc1fi5JYQ';
 g = 'https://plus.google.com/u/0/109910140252090488175';
 
+config = 
+{
+    apiKey            : "AIzaSyA4F7aYKhXv5zEWabtUYABA-4lJJdAgyW4",
+    authDomain        : "eliteintelligencegroup-719d3.firebaseapp.com",
+    databaseURL       : "https://eliteintelligencegroup-719d3.firebaseio.com",
+    projectId         : "eliteintelligencegroup-719d3",
+    storageBucket     : "eliteintelligencegroup-719d3.appspot.com",
+    messagingSenderId : "567347907651"
+};
+
 function initUser()
 {
     var name     = localStorage.getItem('Name');
     var username = localStorage.getItem('Username');
-    
     if(name != null)
     {
         $('#infoName').text(name);
         $('#infoUsername').text(username);
         startMap();
     }
-
     else
     {
         location.href = 'index.html';
@@ -116,19 +124,8 @@ function validateAvatar()
 }
 
 function loadAvatar(num)
-{    
-    var config = 
-    {
-        apiKey: "AIzaSyA4F7aYKhXv5zEWabtUYABA-4lJJdAgyW4",
-        authDomain: "eliteintelligencegroup-719d3.firebaseapp.com",
-        databaseURL: "https://eliteintelligencegroup-719d3.firebaseio.com",
-        projectId: "eliteintelligencegroup-719d3",
-        storageBucket: "eliteintelligencegroup-719d3.appspot.com",
-        messagingSenderId: "567347907651"
-    };
-    
+{
     firebase.initializeApp(config);
-
     var storageRef = firebase.storage().ref();
     var fileName = 'P' + num;
     var uploadTask = storageRef.child('avatarP/' + fileName).put(PersonAvatar.files[0]);
@@ -208,6 +205,11 @@ function updateCountUser()
     );
 }
 
+function recargar()
+{
+    location.reload();
+}
+
 document.getElementById('personAvatar').onchange = function(e) 
 {
     let reader = new FileReader();
@@ -221,11 +223,6 @@ document.getElementById('personAvatar').onchange = function(e)
         preview.innerHTML = '';
         preview.append(image);
     };
-}
-
-function recargar()
-{
-    location.reload();
 }
 
 function startMap()

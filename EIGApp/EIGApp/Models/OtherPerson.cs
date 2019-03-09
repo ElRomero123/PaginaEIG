@@ -12,10 +12,11 @@
         public float Longitude { get; set; }
         public bool Ciprin { get; set; }
         public bool Active { get; set; }
-        public System.DateTime CreationDate { get; set; }
+        public string CreationDate { get; set; }
         public string CreationHourZone { get; set; }
         public string Avatar { get; set; }
         public string NameAvatar { get; set; }
+        public long Views { get; set; }
         public long IdUser { get; set; }
 
         /* Otras */

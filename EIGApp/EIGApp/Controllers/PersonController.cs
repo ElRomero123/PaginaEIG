@@ -109,6 +109,7 @@ namespace EIGApp.Controllers
             return arrayPeople;
         }
 
+        /* Agregar un Investigador Privado */
         public long Post(M.Person persona)
         { 
             O.Person BDPerson = new O.Person
@@ -121,18 +122,18 @@ namespace EIGApp.Controllers
                 Longitude            = persona.Longitude,
                 Ciprin               = persona.Ciprin,
                 Active               = false,
-                CreationDate         = System.DateTime.Now,
+                CreationDate         = System.DateTime.Now.ToString(),
                 CreationHourZone     = System.TimeZoneInfo.Local.ToString(),
                 Avatar               = "",
                 NameAvatar           = "",
+                Views                = 0,
                 IdUser               = persona.IdUser
             };
-
             BD.People.Add(BDPerson);
             BD.SaveChanges();
-
             return BDPerson.Id;
         }
+        /* Agregar un Investigador Privado */
 
         public bool Post(long idPersonA)
         {

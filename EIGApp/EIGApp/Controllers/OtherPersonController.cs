@@ -44,6 +44,7 @@ namespace EIGApp.Controllers
             return arrayOtherPersons;
         }
 
+        /* Agregar un Profesional Afín */
         public long Post(M.OtherPerson otraPersona)
         {
             O.OtherPerson BDOtherPerson = new O.OtherPerson
@@ -56,19 +57,19 @@ namespace EIGApp.Controllers
                 Latitude             = otraPersona.Latitude,
                 Longitude            = otraPersona.Longitude,
                 Ciprin               = otraPersona.Ciprin,
-                Active               = otraPersona.Active,
-                CreationDate         = System.DateTime.Now,
+                Active               = false,
+                CreationDate         = System.DateTime.Now.ToString("g"),
                 CreationHourZone     = System.TimeZoneInfo.Local.ToString(),
-                Avatar               = otraPersona.Avatar,
-                NameAvatar           = otraPersona.NameAvatar,
+                Avatar               = "",
+                NameAvatar           = "",
+                Views                = 0,
                 IdUser               = otraPersona.IdUser
             };
-
             BD.OtherPersons.Add(BDOtherPerson);
             BD.SaveChanges();
-
             return BDOtherPerson.Id;
         }
+        /* Agregar un Profesional Afín */
 
         public bool Post(long idOtherPersonA)
         {

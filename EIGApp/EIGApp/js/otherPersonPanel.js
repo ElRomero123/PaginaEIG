@@ -1,25 +1,31 @@
 window.onload = initUser;
-var OtherPersonAvatar;
-var longitude;
-var latitude;
+var OtherPersonAvatar, longitude, latitude, IdUser, f, t, y, g, config;
 
-var f = 'https://www.facebook.com/Elite-Intelligence-Group-260263604734008/';
-var t = 'https://twitter.com/EliteIntellige1?lang=es';
-var y = 'https://www.youtube.com/channel/UCOvdAjzfv4WlwxKc1fi5JYQ';
-var g = 'https://plus.google.com/u/0/109910140252090488175';
+f = 'https://www.facebook.com/Elite-Intelligence-Group-260263604734008/';
+t = 'https://twitter.com/EliteIntellige1?lang=es';
+y = 'https://www.youtube.com/channel/UCOvdAjzfv4WlwxKc1fi5JYQ';
+g = 'https://plus.google.com/u/0/109910140252090488175';
+
+config = 
+{
+    apiKey            : "AIzaSyA4F7aYKhXv5zEWabtUYABA-4lJJdAgyW4",
+    authDomain        : "eliteintelligencegroup-719d3.firebaseapp.com",
+    databaseURL       : "https://eliteintelligencegroup-719d3.firebaseio.com",
+    projectId         : "eliteintelligencegroup-719d3",
+    storageBucket     : "eliteintelligencegroup-719d3.appspot.com",
+    messagingSenderId : "567347907651"
+};
 
 function initUser()
 {
     var name     = localStorage.getItem('Name');
     var username = localStorage.getItem('Username');
-    
     if(name != null)
     {
         $('#infoName').text(name);
         $('#infoUsername').text(username);
         startMap();
     }
-
     else
     {
         location.href = 'index.html';
@@ -51,7 +57,7 @@ function createOtherPerson()
     {
         if(validateAvatar())
         {
-            var IdUser = localStorage.getItem('User');
+            IdUser = localStorage.getItem('User');
 
             var otraPersona =
             {
@@ -63,9 +69,6 @@ function createOtherPerson()
                 latitude:             latitude,
                 longitude:            longitude,
                 ciprin:               false,
-                active:               false,
-                avatar:               '',
-                nameAvatar:           '',
                 idUser:               IdUser
             };
 
@@ -108,19 +111,8 @@ function createOtherPerson()
 }
 
 function loadAvatar(num)
-{    
-    var config = 
-    {
-        apiKey: "AIzaSyA4F7aYKhXv5zEWabtUYABA-4lJJdAgyW4",
-        authDomain: "eliteintelligencegroup-719d3.firebaseapp.com",
-        databaseURL: "https://eliteintelligencegroup-719d3.firebaseio.com",
-        projectId: "eliteintelligencegroup-719d3",
-        storageBucket: "eliteintelligencegroup-719d3.appspot.com",
-        messagingSenderId: "567347907651"
-    };
-    
+{   
     firebase.initializeApp(config);
-
     var storageRef = firebase.storage().ref();
     var fileName = 'OP' + num;
     var uploadTask = storageRef.child('avatarOP/' + fileName).put(OtherPersonAvatar.files[0]);
@@ -168,11 +160,31 @@ function putAvatar(num, fileName, downloadURL)
             {
                 if(data)
                 {
+                    updateCountUser();
+                }
+            }
+        }
+    );
+}
+
+function updateCountUser()
+{
+    $.ajax
+    (
+        {
+            url: '../api/user?id' + IdUser,
+            type: 'POST',
+            contentType: "application/json;charset=utf-8",
+
+            success:
+            function (data)
+            {
+                if(data)
+                {
                     $('#createOtherPerson').css('background','darkgreen');
                     $('#createOtherPerson').css('border','2px solid darkgreen');
                     $('#createOtherPerson').css('color','white');
                     $('#createOtherPerson').text('Registro exitoso!');
-                    
                     setTimeout(recargar, 1800);
                 }
             }
