@@ -74,6 +74,7 @@
           <ScalarProperty Name="FileName" ColumnName="FileName" />
           <ScalarProperty Name="DownloadLink" ColumnName="DownloadLink" />
           <ScalarProperty Name="LoadDate" ColumnName="LoadDate" />
+          <ScalarProperty Name="LoadHourZone" ColumnName="LoadHourZone" />
           <ScalarProperty Name="IdBusiness" ColumnName="IdBusiness" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -85,6 +86,7 @@
           <ScalarProperty Name="FileName" ColumnName="FileName" />
           <ScalarProperty Name="DownloadLink" ColumnName="DownloadLink" />
           <ScalarProperty Name="LoadDate" ColumnName="LoadDate" />
+          <ScalarProperty Name="LoadHourZone" ColumnName="LoadHourZone" />
           <ScalarProperty Name="IdOtherPerson" ColumnName="IdOtherPerson" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -96,6 +98,7 @@
           <ScalarProperty Name="FileName" ColumnName="FileName" />
           <ScalarProperty Name="DownloadLink" ColumnName="DownloadLink" />
           <ScalarProperty Name="LoadDate" ColumnName="LoadDate" />
+          <ScalarProperty Name="LoadHourZone" ColumnName="LoadHourZone" />
           <ScalarProperty Name="IdPerson" ColumnName="IdPerson" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -107,6 +110,7 @@
           <ScalarProperty Name="FileName" ColumnName="FileName" />
           <ScalarProperty Name="DownloadLink" ColumnName="DownloadLink" />
           <ScalarProperty Name="LoadDate" ColumnName="LoadDate" />
+          <ScalarProperty Name="LoadHourZone" ColumnName="LoadHourZone" />
           <ScalarProperty Name="IdProduct" ColumnName="IdProduct" />
         </MappingFragment>
       </EntityTypeMapping>

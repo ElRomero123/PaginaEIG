@@ -216,7 +216,7 @@ function download(e)
     window.open(download, '_blank');
 }
 
-function eliminar(e)
+function elim(e)
 {
     $.ajax
     (

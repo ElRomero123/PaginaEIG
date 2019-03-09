@@ -39,9 +39,10 @@ namespace EIGApp.Controllers
         {
             O.MediaOtherPerson BDMediaOtherPerson = new O.MediaOtherPerson
             {
-                FileName      = mediaOtherPerson.FileName,
-                DownloadLink  = mediaOtherPerson.DownloadLink,
+                FileName      = "",
+                DownloadLink  = "",
                 LoadDate      = System.DateTime.Now.ToString("g"),
+                LoadHourZone  = System.TimeZoneInfo.Local.ToString(),
                 IdOtherPerson = mediaOtherPerson.IdOtherPerson
             };
 

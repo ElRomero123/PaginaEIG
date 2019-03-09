@@ -114,8 +114,6 @@ function loadFileOtherPerson()
     {
         var mediaOtherPerson =
         {
-            fileName: '',
-            downloadLink: '',
             idOtherPerson: localStorage.getItem('ID')
         };
     

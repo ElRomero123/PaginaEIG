@@ -69,6 +69,7 @@
     <Property Name="FileName" Type="nvarchar" MaxLength="255" Nullable="false" />
     <Property Name="DownloadLink" Type="nvarchar(max)" Nullable="false" />
     <Property Name="LoadDate" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="LoadHourZone" Type="nvarchar" MaxLength="255" Nullable="false" />
     <Property Name="IdBusiness" Type="bigint" Nullable="false" />
   </EntityType>
   <EntityType Name="MediaOtherPerson">
@@ -79,6 +80,7 @@
     <Property Name="FileName" Type="nvarchar" MaxLength="255" Nullable="false" />
     <Property Name="DownloadLink" Type="nvarchar(max)" Nullable="false" />
     <Property Name="LoadDate" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="LoadHourZone" Type="nvarchar" MaxLength="255" Nullable="false" />
     <Property Name="IdOtherPerson" Type="bigint" Nullable="false" />
   </EntityType>
   <EntityType Name="MediaPerson">
@@ -89,6 +91,7 @@
     <Property Name="FileName" Type="nvarchar" MaxLength="255" Nullable="false" />
     <Property Name="DownloadLink" Type="nvarchar(max)" Nullable="false" />
     <Property Name="LoadDate" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="LoadHourZone" Type="nvarchar" MaxLength="255" Nullable="false" />
     <Property Name="IdPerson" Type="bigint" Nullable="false" />
   </EntityType>
   <EntityType Name="MediaProduct">
@@ -99,6 +102,7 @@
     <Property Name="FileName" Type="nvarchar" MaxLength="255" Nullable="false" />
     <Property Name="DownloadLink" Type="nvarchar(max)" Nullable="false" />
     <Property Name="LoadDate" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="LoadHourZone" Type="nvarchar" MaxLength="255" Nullable="false" />
     <Property Name="IdProduct" Type="bigint" Nullable="false" />
   </EntityType>
   <EntityType Name="MultimediaCase">

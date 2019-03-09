@@ -8,11 +8,9 @@ namespace EIGApp.Controllers
     public class ParametroFilePController : ApiController
     {
         private O.BDEIGEntities BD = new O.BDEIGEntities();
-
         public bool Post(M.ParametroPutFile parametroPutFile)
         {
             bool state = false;
-
             try
             {
                 O.MediaPerson mediaPerson = BD.MediaPersons.FirstOrDefault(x => x.Id == parametroPutFile.Id);
@@ -21,12 +19,7 @@ namespace EIGApp.Controllers
                 BD.SaveChanges();
                 state = true;
             }
-
-            catch
-            {
-                state = false;
-            }
-
+            catch{state = false;}
             return state;
         }
     }
