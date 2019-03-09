@@ -181,6 +181,7 @@ function putAvatar(num, fileName, downloadURL)
             {
                 if(data)
                 {
+                    updateProfilesUser();
                     $('#createPerson').css('background','darkgreen');
                     $('#createPerson').css('border','2px solid darkgreen');
                     $('#createPerson').css('color','white');
@@ -190,6 +191,11 @@ function putAvatar(num, fileName, downloadURL)
             }
         }
     );
+}
+
+function updateProfilesUser()
+{
+    
 }
 
 document.getElementById('personAvatar').onchange = function(e) 
