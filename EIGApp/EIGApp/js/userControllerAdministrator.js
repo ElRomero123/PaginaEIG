@@ -48,12 +48,12 @@ function loadUsers()
                     {
                         if(data[i].CountProfiles > 0)
                         {
-                            chain.append("<div class='result'> <div class='text'> <p class='pf1'>" + data[i].Username + "</p> <p class='pf2'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].Email + "</p> <p class='pf2'>" + data[i].Address + "</p> <p class='pf2'>Unido el " + data[i].JoinDate + "</p> <p class='pf4'>" + data[i].JoinHourZone + "</p> <button id='" + data[i].Id + "' class='moreResult' onclick='profilesUser(this)'>Mas</button> <p class='pf2'>Perfiles: " + data[i].CountProfiles + "</p> </div> </div>");
+                            chain.append("<div class='result'> <div class='text'> <p class='pf1'>" + data[i].Username + "</p> <p class='pf2'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].Email + "</p> <p class='pf2'>" + data[i].Address + "</p> <p class='pf2'>Unido el " + data[i].JoinDate + "</p> <p class='pf4'>" + data[i].JoinHourZone + "</p> <button id='" + data[i].Id + "' class='moreResult' onclick='profilesUser(this)'>Ver Perfiles</button> <p class='pf2'>Perfiles: " + data[i].CountProfiles + "</p> </div> </div>");
                         }
 
                         else
                         {
-                            chain.append("<div class='result'> <div class='text'> <p class='pf1'>" + data[i].Username + "</p> <p class='pf2'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].Email + "</p> <p class='pf2'>" + data[i].Address + "</p> <p class='pf2'>Unido el " + data[i].JoinDate + "</p> <p class='pf4'>" + data[i].JoinHourZone + "</p> <button id='" + data[i].Id + "' class='moreResult' onclick='profilesUser(this)'>Mas</button> <p class='pf2'>Sin perfiles</p> </div> </div>");
+                            chain.append("<div class='result'> <div class='text'> <p class='pf1'>" + data[i].Username + "</p> <p class='pf2'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].Email + "</p> <p class='pf2'>" + data[i].Address + "</p> <p class='pf2'>Unido el " + data[i].JoinDate + "</p> <p class='pf4'>" + data[i].JoinHourZone + "</p> <p class='pf2' style='background:orange; padding: 3px;'>Sin perfiles</p> </div> </div>");
                         }
                     }
                     
