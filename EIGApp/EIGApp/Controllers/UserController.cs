@@ -10,16 +10,7 @@ namespace EIGApp.Controllers
     public class UserController : ApiController
     {
         private O.BDEIGEntities BD = new O.BDEIGEntities();
-        /* Verifica que al crear un Usuario, NO exista el Username */
-        public bool Get(string username)
-        {
-            var query = from U in BD.Users
-                        where (U.Username.Equals(username))
-                        select new { U.Id };
-            return query.ToArray().Length == 0;
-        }
-        /* Verifica que al crear un Usuario, NO exista el Username */
-
+        
         /* Crea un Usuario */
         public bool Post(M.User usuario)
         {
@@ -45,7 +36,7 @@ namespace EIGApp.Controllers
             catch{R = false;}
             return R;
         }
-        
+
         /* Genera el encriptado SHA256 de una cadena */
         private string SHA256Encrypt(string input)
         {
@@ -59,6 +50,16 @@ namespace EIGApp.Controllers
         }
         /* Genera el encriptado SHA256 de una cadena */
         /* Crea un Usuario */
+
+        /* Verifica que al crear un Usuario, NO exista el Username */
+        public bool Get(string username)
+        {
+            var query = from U in BD.Users
+                        where (U.Username.Equals(username))
+                        select new { U.Id };
+            return query.ToArray().Length == 0;
+        }
+        /* Verifica que al crear un Usuario, NO exista el Username */
 
         /* Obtiene el Consolidado de Usuarios Creados */
         public M.User[] Get()
@@ -98,6 +99,22 @@ namespace EIGApp.Controllers
             return AU;
         }
         /* Obtiene el Consolidado de Usuarios Creados */
+
+        /* Actualiza CountProfiles de un Usuario */
+        public bool Post(long id)
+        {
+            bool R = false;
+            try
+            {
+                O.User BDUser = BD.Users.FirstOrDefault(x => x.Id == id);
+                BDUser.CountProfiles = BDUser.CountProfiles + 1;
+                BD.SaveChanges();
+                R = true;
+            }
+            catch { }
+            return R;
+        }
+        /* Actualiza CountProfiles de un Usuario */
 
         public M.User Get(string username, string password)
         {

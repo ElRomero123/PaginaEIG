@@ -2,6 +2,7 @@ window.onload = initUser;
 var PersonAvatar;
 var longitude;
 var latitude;
+var IdUser;
 
 var f = 'https://www.facebook.com/Elite-Intelligence-Group-260263604734008/';
 var t = 'https://twitter.com/EliteIntellige1?lang=es';
@@ -51,7 +52,7 @@ function createPerson()
     {
         if(validateAvatar())
         {
-            var IdUser = localStorage.getItem('User');
+            IdUser = localStorage.getItem('User');
 
             var persona =
             {
@@ -181,7 +182,27 @@ function putAvatar(num, fileName, downloadURL)
             {
                 if(data)
                 {
-                    updateProfilesUser();
+                    updateCountUser();
+                }
+            }
+        }
+    );
+}
+
+function updateCountUser()
+{
+    $.ajax
+    (
+        {
+            url: '../api/user?id' + IdUser,
+            type: 'POST',
+            contentType: "application/json;charset=utf-8",
+
+            success:
+            function (data)
+            {
+                if(data)
+                {
                     $('#createPerson').css('background','darkgreen');
                     $('#createPerson').css('border','2px solid darkgreen');
                     $('#createPerson').css('color','white');
@@ -191,11 +212,6 @@ function putAvatar(num, fileName, downloadURL)
             }
         }
     );
-}
-
-function updateProfilesUser()
-{
-    
 }
 
 document.getElementById('personAvatar').onchange = function(e) 
