@@ -6,16 +6,6 @@ t = 'https://twitter.com/EliteIntellige1?lang=es';
 y = 'https://www.youtube.com/channel/UCOvdAjzfv4WlwxKc1fi5JYQ';
 g = 'https://plus.google.com/u/0/109910140252090488175';
 
-config = 
-{
-    apiKey            : "AIzaSyA4F7aYKhXv5zEWabtUYABA-4lJJdAgyW4",
-    authDomain        : "eliteintelligencegroup-719d3.firebaseapp.com",
-    databaseURL       : "https://eliteintelligencegroup-719d3.firebaseio.com",
-    projectId         : "eliteintelligencegroup-719d3",
-    storageBucket     : "eliteintelligencegroup-719d3.appspot.com",
-    messagingSenderId : "567347907651"
-};
-
 function initUser()
 {
     var name     = localStorage.getItem('Name');
@@ -24,6 +14,15 @@ function initUser()
     {
         $('#infoName').text(name);
         $('#infoUsername').text(username);
+        config = 
+        {
+            apiKey            : "AIzaSyA4F7aYKhXv5zEWabtUYABA-4lJJdAgyW4",
+            authDomain        : "eliteintelligencegroup-719d3.firebaseapp.com",
+            databaseURL       : "https://eliteintelligencegroup-719d3.firebaseio.com",
+            projectId         : "eliteintelligencegroup-719d3",
+            storageBucket     : "eliteintelligencegroup-719d3.appspot.com",
+            messagingSenderId : "567347907651"
+        };
         startMap();
     }
     else
@@ -32,44 +31,29 @@ function initUser()
     }
 }
 
-function to(num)
-{
-    switch(num)
-    {
-        case 1: 
-        localStorage.clear();
-        location.href = 'index.html';
-        break;
-        case 2:
-        localStorage.setItem('Call', 1);
-        location.href = 'editCreatedProfiles.html';
-        break;
-        default: 
-        location.href = 'menu.html';
-    }
-}
-
 function createPerson()
 {
+    IdUser = localStorage.getItem('User');
     PersonAvatar = document.getElementById('personAvatar');
 
-    if(validateText())
+    var persona =
+    {
+        name:                 $('#cName').val(),
+        profesionDescription: $('#cDescription').val(),
+        email:                $('#cEmail').val(),
+        phone:                $('#cPhone').val(),
+        latitude:             latitude,
+        longitude:            longitude,
+        ciprin:               false,
+        idUser:               IdUser
+    };
+
+    if(validateText(persona))
     {
         if(validateAvatar())
         {
             IdUser = localStorage.getItem('User');
-
-            var persona =
-            {
-                name:                 $('#cName').val(),
-                profesionDescription: $('#cDescription').val(),
-                email:                $('#cEmail').val(),
-                phone:                $('#cIndex').val().substr(0,4).trim() + ' ' + $('#cPhone').val(),
-                latitude:             latitude,
-                longitude:            longitude,
-                ciprin:               false,
-                idUser:               IdUser
-            };
+            persona.phone =  $('#cIndex').val().substr(0,4).trim() + ' ' + persona.phone;
 
             $('#createPerson').css('background','yellow');
             $('#createPerson').css('border','2px solid yellow');
@@ -109,12 +93,12 @@ function createPerson()
     }
 }
 
-function validateText()
+function validateText(input)
 {
-    var c1 = $('#cName').val().length >= 8;
-    var c2 = $('#cDescription').val().length >= 8;
-    var c3 = $('#cEmail').val().length >= 8;
-    var c4 = $('#cPhone').val().length >= 5;
+    var c1 = input.name.length                 >= 8;
+    var c2 = input.profesionDescription.length >= 8;
+    var c3 = input.email.length                >= 8;
+    var c4 = input.phone.length                >= 5;
     return c1 && c2 && c3 && c4;
 }
 
@@ -244,6 +228,23 @@ function startMap()
             }
         );
     });
+}
+
+function to(num)
+{
+    switch(num)
+    {
+        case 1: 
+        localStorage.clear();
+        location.href = 'index.html';
+        break;
+        case 2:
+        localStorage.setItem('Call', 1);
+        location.href = 'editCreatedProfiles.html';
+        break;
+        default: 
+        location.href = 'menu.html';
+    }
 }
 
 function social(op)
