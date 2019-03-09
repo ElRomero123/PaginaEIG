@@ -3,13 +3,15 @@ var t = 'https://twitter.com/EliteIntellige1?lang=es';
 var y = 'https://www.youtube.com/channel/UCOvdAjzfv4WlwxKc1fi5JYQ';
 var g = 'https://plus.google.com/u/0/109910140252090488175';
 
+/* Crear usuario */
 function createUser()
 {
-    var Username = $('#cUsername').val();
+    /* Verifica que no exista el Username */
+    var username = $('#cUsername').val();
     $.ajax
     (
         {
-            url: '../api/user/?username=' + Username,
+            url: '../api/user/?username=' + username,
             type: 'GET',
             contentType: "application/json;charset=utf-8",
 
@@ -30,8 +32,10 @@ function createUser()
             }
         }
     );
+    /* Verifica que no exista el Username */
 }
 
+/* Registra el usuario */
 function confirm()
 {
     var pass1 = $('#cPass1').val();
@@ -108,6 +112,7 @@ function confirm()
         $('#register').text('Contraseñas NO coincidcen!');
     }
 }
+/* Registra el usuario */
 
 function check(user)
 {
@@ -119,6 +124,7 @@ function check(user)
 
     return c1 & c2 & c3 & c4 & c5;
 }
+/* Crear usuario */
 
 function toMenu()
 {
