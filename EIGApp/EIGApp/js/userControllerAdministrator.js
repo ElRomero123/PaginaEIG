@@ -48,12 +48,12 @@ function loadUsers()
                     {
                         if(data[i].CountProfiles > 0)
                         {
-                            chain.append("<div class='result'> <div class='text'> <p class='pf1'>" + data[i].Username + "</p> <p class='pf2'>" + data[i].Name + "</p> <p class='pf3'>" + data[i].Email + "</p> <p class='pf3'>" + data[i].Address + "</p> <p class='pf3'>Unido el " + data[i].JoinDate + "</p> <p class='pf4'>" + data[i].JoinHourZone + "</p> <button id='" + data[i].Id + "' class='moreResult' onclick='profilesUser(this)'>Mas</button> <p class='pf2'>Perfiles: " + data[i].CountProfiles + "</p> </div> </div>");
+                            chain.append("<div class='result'> <div class='text'> <p class='pf1'>" + data[i].Username + "</p> <p class='pf2'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].Email + "</p> <p class='pf2'>" + data[i].Address + "</p> <p class='pf2'>Unido el " + data[i].JoinDate + "</p> <p class='pf4'>" + data[i].JoinHourZone + "</p> <button id='" + data[i].Id + "' class='moreResult' onclick='profilesUser(this)'>Mas</button> <p class='pf2'>Perfiles: " + data[i].CountProfiles + "</p> </div> </div>");
                         }
 
                         else
                         {
-                            chain.append("<div class='result'> <div class='text'> <p class='pf1'>" + data[i].Username + "</p> <p class='pf2'>" + data[i].Name + "</p> <p class='pf3'>" + data[i].Email + "</p> <p class='pf3'>" + data[i].Address + "</p> <p class='pf3'>Unido el " + data[i].JoinDate + "</p> <p class='pf4'>" + data[i].JoinHourZone + "</p> <button id='" + data[i].Id + "' class='moreResult' onclick='profilesUser(this)'>Mas</button> <p class='pf2'>Sin perfiles</p> </div> </div>");
+                            chain.append("<div class='result'> <div class='text'> <p class='pf1'>" + data[i].Username + "</p> <p class='pf2'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].Email + "</p> <p class='pf2'>" + data[i].Address + "</p> <p class='pf2'>Unido el " + data[i].JoinDate + "</p> <p class='pf4'>" + data[i].JoinHourZone + "</p> <button id='" + data[i].Id + "' class='moreResult' onclick='profilesUser(this)'>Mas</button> <p class='pf2'>Sin perfiles</p> </div> </div>");
                         }
                     }
                     
@@ -111,4 +111,28 @@ function social(op)
         default:
         window.open(g, '_blank');
     }
+}
+
+function StringBuilder(value) 
+{
+    this.strings = new Array();
+    this.append(value);
+}
+
+StringBuilder.prototype.append = function (value) 
+{
+    if (value) 
+    {
+        this.strings.push(value);
+    }
+}
+
+StringBuilder.prototype.clear = function () 
+{
+    this.strings.length = 0;
+}
+
+StringBuilder.prototype.toString = function () 
+{
+    return this.strings.join("");
 }
