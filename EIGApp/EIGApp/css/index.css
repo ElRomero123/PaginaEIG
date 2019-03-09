@@ -477,11 +477,28 @@ body header div {
   background: gray;
 }
 /* line 550, ../sass/index.scss */
+body header div .closeR:hover {
+  color: green;
+  background: white;
+}
+/* line 556, ../sass/index.scss */
+body header div .closeR {
+  transition: 0.2s;
+  color: white;
+  background: green;
+  outline: 0px;
+  border: 0px;
+  font-size: 12px;
+  font-family: acephimere;
+  margin: 7px;
+  padding: 10px;
+}
+/* line 569, ../sass/index.scss */
 body header div .close:hover {
   color: black;
   background: white;
 }
-/* line 556, ../sass/index.scss */
+/* line 575, ../sass/index.scss */
 body header div .close {
   transition: 0.2s;
   outline: 0px;
@@ -493,20 +510,20 @@ body header div .close {
   margin: 7px;
   padding: 10px;
 }
-/* line 569, ../sass/index.scss */
+/* line 588, ../sass/index.scss */
 body header div #infoUsername {
   font-size: 12px;
 }
-/* line 574, ../sass/index.scss */
+/* line 593, ../sass/index.scss */
 body header div #infoName {
   font-size: 16px;
 }
-/* line 579, ../sass/index.scss */
+/* line 598, ../sass/index.scss */
 body header div p {
   display: flex;
   font-family: acephimere;
 }
-/* line 589, ../sass/index.scss */
+/* line 608, ../sass/index.scss */
 body header .headerLogo {
   background: url("../img/logo.png");
   margin: 10px auto 10px auto;

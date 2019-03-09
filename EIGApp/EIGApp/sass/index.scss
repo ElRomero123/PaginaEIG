@@ -547,6 +547,25 @@ body
     {
         div
         {
+            .closeR:hover
+            {
+                color: green;
+                background: white;
+            }
+
+            .closeR
+            {
+                transition: 0.2s;
+                color: white;
+                background: green;
+                outline: 0px;
+                border: 0px;
+                font-size: 12px;
+                font-family: acephimere;
+                margin: 7px;
+                padding: 10px;
+            }
+
             .close:hover
             {
                 color: black;
