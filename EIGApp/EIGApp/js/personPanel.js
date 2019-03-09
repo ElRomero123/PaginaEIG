@@ -1,10 +1,20 @@
 window.onload = initUser;
-var PersonAvatar, longitude, latitude, IdUser, f, t, y, g, config;
+var PersonAvatar, longitude, latitude, f, t, y, g, config;
 
 f = 'https://www.facebook.com/Elite-Intelligence-Group-260263604734008/';
 t = 'https://twitter.com/EliteIntellige1?lang=es';
 y = 'https://www.youtube.com/channel/UCOvdAjzfv4WlwxKc1fi5JYQ';
 g = 'https://plus.google.com/u/0/109910140252090488175';
+
+config = 
+{
+    apiKey            : "AIzaSyA4F7aYKhXv5zEWabtUYABA-4lJJdAgyW4",
+    authDomain        : "eliteintelligencegroup-719d3.firebaseapp.com",
+    databaseURL       : "https://eliteintelligencegroup-719d3.firebaseio.com",
+    projectId         : "eliteintelligencegroup-719d3",
+    storageBucket     : "eliteintelligencegroup-719d3.appspot.com",
+    messagingSenderId : "567347907651"
+};
 
 function initUser()
 {
@@ -14,15 +24,6 @@ function initUser()
     {
         $('#infoName').text(name);
         $('#infoUsername').text(username);
-        config = 
-        {
-            apiKey            : "AIzaSyA4F7aYKhXv5zEWabtUYABA-4lJJdAgyW4",
-            authDomain        : "eliteintelligencegroup-719d3.firebaseapp.com",
-            databaseURL       : "https://eliteintelligencegroup-719d3.firebaseio.com",
-            projectId         : "eliteintelligencegroup-719d3",
-            storageBucket     : "eliteintelligencegroup-719d3.appspot.com",
-            messagingSenderId : "567347907651"
-        };
         startMap();
     }
     else
@@ -33,7 +34,7 @@ function initUser()
 
 function createPerson()
 {
-    IdUser = localStorage.getItem('User');
+    var IdUser   = localStorage.getItem('User');
     PersonAvatar = document.getElementById('personAvatar');
 
     var persona =
@@ -52,7 +53,6 @@ function createPerson()
     {
         if(validateAvatar())
         {
-            IdUser = localStorage.getItem('User');
             persona.phone =  $('#cIndex').val().substr(0,4).trim() + ' ' + persona.phone;
 
             $('#createPerson').css('background','yellow');
