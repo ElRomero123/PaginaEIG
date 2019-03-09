@@ -1,9 +1,20 @@
 window.onload = initUser;
+var config, f, t, y, g;
 
-var f = 'https://www.facebook.com/Elite-Intelligence-Group-260263604734008/';
-var t = 'https://twitter.com/EliteIntellige1?lang=es';
-var y = 'https://www.youtube.com/channel/UCOvdAjzfv4WlwxKc1fi5JYQ';
-var g = 'https://plus.google.com/u/0/109910140252090488175';
+f = 'https://www.facebook.com/Elite-Intelligence-Group-260263604734008/';
+t = 'https://twitter.com/EliteIntellige1?lang=es';
+y = 'https://www.youtube.com/channel/UCOvdAjzfv4WlwxKc1fi5JYQ';
+g = 'https://plus.google.com/u/0/109910140252090488175';
+
+config = 
+{
+    apiKey: "AIzaSyA4F7aYKhXv5zEWabtUYABA-4lJJdAgyW4",
+    authDomain: "eliteintelligencegroup-719d3.firebaseapp.com",
+    databaseURL: "https://eliteintelligencegroup-719d3.firebaseio.com",
+    projectId: "eliteintelligencegroup-719d3",
+    storageBucket: "eliteintelligencegroup-719d3.appspot.com",
+    messagingSenderId: "567347907651"
+};
 
 function initUser()
 {
@@ -49,26 +60,25 @@ function loadProfiles()
                 {
                     if(data.length > 0)
                     {
-                        var cadena = "";
-
+                        var chain = new StringBuilder();
                         for(var i = 0; i < data.length; i++)
                         {
                             if(data[i].Type)
                             {
-                                cadena += "<div class='result'> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].ProfesionDescription + "</p> <p class='pf3'>" + data[i].Email + "</p> <p class='pf3'>" + data[i].Phone + "</p> <p class='pf4'>El perfil está activado: " + data[i].Active + "</p> <p class='pf4'>Profesional afín</p> <p class='pf4'>Pertenece a CIPRIN: " + data[i].Ciprin + "</p> <button id='" + data[i].Id + "' class='deleteResult' onclick='elim(2, this)'>Eliminar</button> <button id='" + data[i].Id + "' class='moreResult' onclick='toEdit(2, this)'>Files</button> </div> </div>";
+                                chain.append("<div class='result'> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].ProfesionDescription + "</p> <p class='pf2'>" + data[i].Email + "</p> <p class='pf2'>" + data[i].Phone + "</p> <p class='pf2'> <p class='pf2'>Ciprin: " + data[i].Ciprin + "</p> <p class='pf2'>" + 'Unido el ' + data[i].CreationDate + "</p> <p class='pf4'>" + data[i].CreationHourZone + "</p> <button class='moreResult' id='" + data[i].Id + "' onclick='toEdit(1,this)'>Editar media</button> <button class='deleteResult' id='" + data[i].Id + "' onclick='elim(2,this)'>Eliminar</button> <p class='pf2' style='background:blue; padding:3px; color:white;'>Profesional Afín</p> <p class='pf2'>" + data[i].Views + " visitas</p> </div> </div>");
                             }
                             else
                             {
-                                cadena += "<div class='result'> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].ProfesionDescription + "</p> <p class='pf3'>" + data[i].Email + "</p> <p class='pf3'>" + data[i].Phone + "</p> <p class='pf4'>El perfil está activado: " + data[i].Active + "</p> <p class='pf4'>Investigador Privado</p> <p class='pf4'>Pertenece a CIPRIN: " + data[i].Ciprin + "</p> <button id='" + data[i].Id + "' class='deleteResult' onclick='elim(1, this)'>Eliminar</button> <button id='" + data[i].Id + "' class='moreResult' onclick='toEdit(1, this)'>Files</button> </div> </div>";
+                                chain.append("<div class='result'> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].ProfesionDescription + "</p> <p class='pf2'>" + data[i].Email + "</p> <p class='pf2'>" + data[i].Phone + "</p> <p class='pf2'> <p class='pf2'>Ciprin: " + data[i].Ciprin + "</p> <p class='pf2'>" + 'Unido el ' + data[i].CreationDate + "</p> <p class='pf4'>" + data[i].CreationHourZone + "</p> <button class='moreResult' id='" + data[i].Id + "' onclick='toEdit(1,this)'>Editar media</button> <button class='deleteResult' id='" + data[i].Id + "' onclick='elim(1,this)'>Eliminar</button> <p class='pf2' style='background:green; padding:3px; color:white;'>Investigador Privado</p> <p class='pf2'>" + data[i].Views + " visitas</p> </div> </div>");
                             }
                         }
                         
-                        $('#listResults').append(cadena);
-
                         $('#bannerState').css('background','green');
                         $('#bannerState').css('color','white');
                         $('#bannerState').text('Tiene ' + i + ' perfiles!');
                         $('#listResults').css('display','flex');
+                        $('#listResults').append(chain.toString());
+                        chain.clear();
                     }
 
                     else
@@ -141,7 +151,7 @@ function elim(opc, e)
         $.ajax
         (
             {
-                url: '../api/person/?idPerson=' + e.id,
+                url: '../api/putAvatar/?idPerson=' + e.id,
                 type: 'POST',
                 contentType: "application/json;charset=utf-8",
 
@@ -157,7 +167,7 @@ function elim(opc, e)
         $.ajax
         (
             {
-                url: '../api/otherPerson/?idOtherPerson=' + e.id,
+                url: '../api/putAvatarOP/?idOtherPerson=' + e.id,
                 type: 'POST',
                 contentType: "application/json;charset=utf-8",
     
@@ -173,16 +183,6 @@ function elim(opc, e)
 
 function deleteFile(fileName, opt)
 {
-    var config = 
-    {
-        apiKey: "AIzaSyA4F7aYKhXv5zEWabtUYABA-4lJJdAgyW4",
-        authDomain: "eliteintelligencegroup-719d3.firebaseapp.com",
-        databaseURL: "https://eliteintelligencegroup-719d3.firebaseio.com",
-        projectId: "eliteintelligencegroup-719d3",
-        storageBucket: "eliteintelligencegroup-719d3.appspot.com",
-        messagingSenderId: "567347907651"
-    };
-
     firebase.initializeApp(config);
 
     var storageRef = firebase.storage().ref();
@@ -190,10 +190,10 @@ function deleteFile(fileName, opt)
     switch(opt)
     {
         case 1:
-            var desertRef = storageRef.child('avatarP/' + fileName);
+        var desertRef = storageRef.child('avatarP/' + fileName);
         break;
         default:
-            var desertRef = storageRef.child('avatarOP/' + fileName);
+        var desertRef = storageRef.child('avatarOP/' + fileName);
     }
     
     desertRef.delete().then
@@ -234,4 +234,28 @@ function social(op)
         default:
         window.open(g, '_blank');
     }
+}
+
+function StringBuilder(value) 
+{
+    this.strings = new Array();
+    this.append(value);
+}
+
+StringBuilder.prototype.append = function (value) 
+{
+    if (value) 
+    {
+        this.strings.push(value);
+    }
+}
+
+StringBuilder.prototype.clear = function () 
+{
+    this.strings.length = 0;
+}
+
+StringBuilder.prototype.toString = function () 
+{
+    return this.strings.join("");
 }

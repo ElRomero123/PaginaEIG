@@ -24,5 +24,21 @@ namespace EIGApp.Controllers
             return R;
         }
         /* Actualiza el avatar de un Profesional Afín */
+
+        /* Elimina un Profesional Afín */
+        public string Post(int idOtherPerson)
+        {
+            string R = "";
+            try
+            {
+                O.OtherPerson BDOtherPerson = BD.OtherPersons.FirstOrDefault(x => x.Id == idOtherPerson);
+                BD.OtherPersons.Remove(BDOtherPerson);
+                BD.SaveChanges();
+                R = BDOtherPerson.NameAvatar;
+            }
+            catch { }
+            return R;
+        }
+        /* Elimina un Profesional Afín */
     }
 }

@@ -71,46 +71,29 @@ namespace EIGApp.Controllers
         }
         /* Agregar un Profesional Afín */
 
-        public bool Post(long idOtherPersonA)
+        /* Activar/Desactivar Perfil Afín */
+        public bool Post(long idOtherPerson)
         {
-            bool S = false;
+            bool R = false;
             try
             {
-                O.OtherPerson BDOtherPerson = BD.OtherPersons.FirstOrDefault(x => x.Id == idOtherPersonA);
-
+                O.OtherPerson BDOtherPerson = BD.OtherPersons.FirstOrDefault(x => x.Id == idOtherPerson);
                 if (BDOtherPerson.Active)
                 {
                     BDOtherPerson.Active = false;
-                    S = false;
+                    R = false;
                 }
 
                 else
                 {
                     BDOtherPerson.Active = true;
-                    S = true;
+                    R = true;
                 }
-
                 BD.SaveChanges();
             }
             catch { }
-            return S;
-        }
-
-        public string Post(int idOtherPersonR)
-        {
-            string R = "";
-
-            try
-            {
-                O.OtherPerson BDOtherPerson = BD.OtherPersons.FirstOrDefault(x => x.Id == idOtherPersonR);
-                BD.OtherPersons.Remove(BDOtherPerson);
-                BD.SaveChanges();
-                R = BDOtherPerson.NameAvatar;
-            }
-
-            catch{}
-
             return R;
         }
+        /* Activar/Desactivar Perfil Afín */
     }
 }

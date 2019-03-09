@@ -74,6 +74,7 @@
           <Property Name="FileName" Type="nvarchar" MaxLength="255" Nullable="false" />
           <Property Name="DownloadLink" Type="nvarchar(max)" Nullable="false" />
           <Property Name="LoadDate" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="LoadHourZone" Type="nvarchar" MaxLength="255" Nullable="false" />
           <Property Name="IdBusiness" Type="bigint" Nullable="false" />
         </EntityType>
         <EntityType Name="MediaOtherPerson">
@@ -84,6 +85,7 @@
           <Property Name="FileName" Type="nvarchar" MaxLength="255" Nullable="false" />
           <Property Name="DownloadLink" Type="nvarchar(max)" Nullable="false" />
           <Property Name="LoadDate" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="LoadHourZone" Type="nvarchar" MaxLength="255" Nullable="false" />
           <Property Name="IdOtherPerson" Type="bigint" Nullable="false" />
         </EntityType>
         <EntityType Name="MediaPerson">
@@ -94,6 +96,7 @@
           <Property Name="FileName" Type="nvarchar" MaxLength="255" Nullable="false" />
           <Property Name="DownloadLink" Type="nvarchar(max)" Nullable="false" />
           <Property Name="LoadDate" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="LoadHourZone" Type="nvarchar" MaxLength="255" Nullable="false" />
           <Property Name="IdPerson" Type="bigint" Nullable="false" />
         </EntityType>
         <EntityType Name="MediaProduct">
@@ -104,6 +107,7 @@
           <Property Name="FileName" Type="nvarchar" MaxLength="255" Nullable="false" />
           <Property Name="DownloadLink" Type="nvarchar(max)" Nullable="false" />
           <Property Name="LoadDate" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="LoadHourZone" Type="nvarchar" MaxLength="255" Nullable="false" />
           <Property Name="IdProduct" Type="bigint" Nullable="false" />
         </EntityType>
         <EntityType Name="MultimediaCase">
@@ -608,6 +612,7 @@
           <Property Name="FileName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="DownloadLink" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="LoadDate" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LoadHourZone" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="IdBusiness" Type="Int64" Nullable="false" />
           <NavigationProperty Name="Business" Relationship="Self.FK_MediaBusiness_Business" FromRole="MediaBusiness" ToRole="Business" />
         </EntityType>
@@ -619,6 +624,7 @@
           <Property Name="FileName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="DownloadLink" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="LoadDate" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LoadHourZone" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="IdOtherPerson" Type="Int64" Nullable="false" />
           <NavigationProperty Name="OtherPerson" Relationship="Self.FK_MediaOtherPerson_OtherPerson" FromRole="MediaOtherPerson" ToRole="OtherPerson" />
         </EntityType>
@@ -630,6 +636,7 @@
           <Property Name="FileName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="DownloadLink" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="LoadDate" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LoadHourZone" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="IdPerson" Type="Int64" Nullable="false" />
           <NavigationProperty Name="Person" Relationship="Self.FK_MediaPerson_Person" FromRole="MediaPerson" ToRole="Person" />
         </EntityType>
@@ -641,6 +648,7 @@
           <Property Name="FileName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="DownloadLink" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="LoadDate" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LoadHourZone" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="IdProduct" Type="Int64" Nullable="false" />
           <NavigationProperty Name="Product" Relationship="Self.FK_MediaProduct_Product" FromRole="MediaProduct" ToRole="Product" />
         </EntityType>
@@ -1163,6 +1171,7 @@
                 <ScalarProperty Name="FileName" ColumnName="FileName" />
                 <ScalarProperty Name="DownloadLink" ColumnName="DownloadLink" />
                 <ScalarProperty Name="LoadDate" ColumnName="LoadDate" />
+                <ScalarProperty Name="LoadHourZone" ColumnName="LoadHourZone" />
                 <ScalarProperty Name="IdBusiness" ColumnName="IdBusiness" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -1174,6 +1183,7 @@
                 <ScalarProperty Name="FileName" ColumnName="FileName" />
                 <ScalarProperty Name="DownloadLink" ColumnName="DownloadLink" />
                 <ScalarProperty Name="LoadDate" ColumnName="LoadDate" />
+                <ScalarProperty Name="LoadHourZone" ColumnName="LoadHourZone" />
                 <ScalarProperty Name="IdOtherPerson" ColumnName="IdOtherPerson" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -1185,6 +1195,7 @@
                 <ScalarProperty Name="FileName" ColumnName="FileName" />
                 <ScalarProperty Name="DownloadLink" ColumnName="DownloadLink" />
                 <ScalarProperty Name="LoadDate" ColumnName="LoadDate" />
+                <ScalarProperty Name="LoadHourZone" ColumnName="LoadHourZone" />
                 <ScalarProperty Name="IdPerson" ColumnName="IdPerson" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -1196,6 +1207,7 @@
                 <ScalarProperty Name="FileName" ColumnName="FileName" />
                 <ScalarProperty Name="DownloadLink" ColumnName="DownloadLink" />
                 <ScalarProperty Name="LoadDate" ColumnName="LoadDate" />
+                <ScalarProperty Name="LoadHourZone" ColumnName="LoadHourZone" />
                 <ScalarProperty Name="IdProduct" ColumnName="IdProduct" />
               </MappingFragment>
             </EntityTypeMapping>

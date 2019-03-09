@@ -139,47 +139,30 @@ namespace EIGApp.Controllers
         }
         /* Agregar un Investigador Privado */
 
-        public bool Post(long idPersonA)
+        /* Activar/Desactivar Perfil */
+        public bool Post(long idPerson)
         {
-            bool S = false;
+            bool R = false;
             try
             {
-                O.Person BDPerson = BD.People.FirstOrDefault(x => x.Id == idPersonA);
-
+                O.Person BDPerson = BD.People.FirstOrDefault(x => x.Id == idPerson);
                 if (BDPerson.Active)
                 {
                     BDPerson.Active = false;
-                    S = false;
+                    R = false;
                 }
 
                 else
                 {
                     BDPerson.Active = true;
-                    S = true;
+                    R = true;
                 }
-
                 BD.SaveChanges();
             }
-
-            catch { }
-            return S;
-        }
-
-        public string Post(int idPersonR)
-        {
-            string R = " ";
-
-            try
-            {
-                O.Person BDPerson = BD.People.FirstOrDefault(x => x.Id == idPersonR);
-                BD.People.Remove(BDPerson);
-                BD.SaveChanges();
-                R = BDPerson.NameAvatar;
-            }
-
             catch { }
             return R;
         }
+        /* Activar/Desactivar Perfil */
     }
 }
  

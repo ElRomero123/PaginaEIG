@@ -34,12 +34,12 @@ function loadProfilesUser()
         $('#bannerState').css('color','black');
         $('#bannerState').text('Cargando ...');
 
-        var idUser = localStorage.getItem('IdUser');
+        var IdUser = localStorage.getItem('IdUser');
 
         $.ajax
         (
             {
-                url: '../api/person/?idUser=' + idUser,
+                url: '../api/person/?idUser=' + IdUser,
                 type: 'GET',
                 contentType: "application/json;charset=utf-8",
 
@@ -55,12 +55,12 @@ function loadProfilesUser()
                             {
                                 if(data[i].Type)
                                 {
-                                    chain.append("<div class='result'> <div class='avatar' id='" + i + "'></div> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].ProfesionDescription + "</p> <p class='pf2'>" + data[i].Email + "</p> <p class='pf2'>" + data[i].Phone + "</p> <p class='pf2'> <p class='pf2'>Ciprin: " + data[i].Ciprin + "</p> <p class='pf2'>" + 'Unido el ' + data[i].CreationDate + "</p> <p class='pf4'>" + data[i].CreationHourZone + "</p> <button style='background:green; color:white' class='moreResult' id='" + data[i].Id + "' onclick='changeOP(this)'>Desactivar</button> </div> </div>");
+                                    chain.append("<div class='result'> <div class='avatar' id='" + i + "'></div> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].ProfesionDescription + "</p> <p class='pf2'>" + data[i].Email + "</p> <p class='pf2'>" + data[i].Phone + "</p> <p class='pf2'> <p class='pf2'>Ciprin: " + data[i].Ciprin + "</p> <p class='pf2'>" + 'Unido el ' + data[i].CreationDate + "</p> <p class='pf4'>" + data[i].CreationHourZone + "</p> <button style='background:green; color:white' class='moreResult' id='" + data[i].Id + "' onclick='changeOP(this)'>Desactivar</button> <p class='pf2' style='background:blue; padding:3px; color:white;'>Profesional Afín</p> <p class='pf2'>" + data[i].Views + " visitas</p> </div> </div>");
                                 }
 
                                 else
                                 {
-                                    chain.append("<div class='result'> <div class='avatar' id='" + i + "'></div> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].ProfesionDescription + "</p> <p class='pf2'>" + data[i].Email + "</p> <p class='pf2'>" + data[i].Phone + "</p> <p class='pf2'> <p class='pf2'>Ciprin: " + data[i].Ciprin + "</p> <p class='pf2'>" + 'Unido el ' + data[i].CreationDate + "</p> <p class='pf4'>" + data[i].CreationHourZone + "</p> <button style='background:green; color:white' class='moreResult' id='" + data[i].Id + "' onclick='changeP(this)'>Desactivar</button> </div> </div>");
+                                    chain.append("<div class='result'> <div class='avatar' id='" + i + "'></div> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].ProfesionDescription + "</p> <p class='pf2'>" + data[i].Email + "</p> <p class='pf2'>" + data[i].Phone + "</p> <p class='pf2'> <p class='pf2'>Ciprin: " + data[i].Ciprin + "</p> <p class='pf2'>" + 'Unido el ' + data[i].CreationDate + "</p> <p class='pf4'>" + data[i].CreationHourZone + "</p> <button style='background:green; color:white' class='moreResult' id='" + data[i].Id + "' onclick='changeP(this)'>Desactivar</button> <p class='pf2' style='background:green; padding:3px; color:white;'>Investigador Privado</p> <p class='pf2'>" + data[i].Views + " visitas</p> </div> </div>");
                                 }
                             }
 
@@ -68,12 +68,12 @@ function loadProfilesUser()
                             {
                                 if(data[i].Type)
                                 {
-                                    chain.append("<div class='result'> <div class='avatar' id='" + i + "'></div> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].ProfesionDescription + "</p> <p class='pf2'>" + data[i].Email + "</p> <p class='pf2'>" + data[i].Phone + "</p> <p class='pf2'> <p class='pf2'>Ciprin: " + data[i].Ciprin + "</p> <p class='pf2'>" +  'Unido el ' + data[i].CreationDate + "</p> <p class='pf4'>" + data[i].CreationHourZone + "</p> <button style='background:red; color:white' class='moreResult' id='" + data[i].Id + "' onclick='changeOP(this)'>Activar</button> </div> </div>");
+                                    chain.append("<div class='result'> <div class='avatar' id='" + i + "'></div> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].ProfesionDescription + "</p> <p class='pf2'>" + data[i].Email + "</p> <p class='pf2'>" + data[i].Phone + "</p> <p class='pf2'> <p class='pf2'>Ciprin: " + data[i].Ciprin + "</p> <p class='pf2'>" +  'Unido el ' + data[i].CreationDate + "</p> <p class='pf4'>" + data[i].CreationHourZone + "</p> <button style='background:red; color:white' class='moreResult' id='" + data[i].Id + "' onclick='changeOP(this)'>Activar</button> <p class='pf2' style='background:blue; padding:3px; color:white;'>Profesional Afín</p> <p class='pf2''>" + data[i].Views + " visitas</p> </div> </div>");
                                 }
 
                                 else
                                 {
-                                    chain.append("<div class='result'> <div class='avatar' id='" + i + "'></div> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].ProfesionDescription + "</p> <p class='pf2'>" + data[i].Email + "</p> <p class='pf2'>" + data[i].Phone + "</p> <p class='pf2'> <p class='pf2'>Ciprin: " + data[i].Ciprin + "</p> <p class='pf2'>" +  'Unido el ' + data[i].CreationDate + "</p> <p class='pf4'>" + data[i].CreationHourZone + "</p> <button style='background:red; color:white' class='moreResult' id='" + data[i].Id + "' onclick='changeP(this)'>Activar</button> </div> </div>");
+                                    chain.append("<div class='result'> <div class='avatar' id='" + i + "'></div> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].ProfesionDescription + "</p> <p class='pf2'>" + data[i].Email + "</p> <p class='pf2'>" + data[i].Phone + "</p> <p class='pf2'> <p class='pf2'>Ciprin: " + data[i].Ciprin + "</p> <p class='pf2'>" +  'Unido el ' + data[i].CreationDate + "</p> <p class='pf4'>" + data[i].CreationHourZone + "</p> <button style='background:red; color:white' class='moreResult' id='" + data[i].Id + "' onclick='changeP(this)'>Activar</button> <p class='pf2' style='background:green; padding:3px; color:white;'>Investigador Privado</p> <p class='pf2'>" + data[i].Views + " visitas</p> </div> </div>");
                                 }
                             }
                         }
@@ -120,7 +120,7 @@ function changeP(e)
     $.ajax
     (
         {
-            url: '../api/person?idPersonA=' + e.id,
+            url: '../api/person?idPerson=' + e.id,
             type: 'POST',
             contentType: "application/json;charset=utf-8",
 
@@ -147,10 +147,14 @@ function changeP(e)
 
 function changeOP(e)
 {
+    $('#' + e.id).css('background','yellow');
+    $('#' + e.id).css('color','black');
+    $('#' + e.id).text('Cambiando ...');
+
     $.ajax
     (
         {
-            url: '../api/otherPerson?idOtherPersonA=' + e.id,
+            url: '../api/otherPerson?idOtherPerson=' + e.id,
             type: 'POST',
             contentType: "application/json;charset=utf-8",
 

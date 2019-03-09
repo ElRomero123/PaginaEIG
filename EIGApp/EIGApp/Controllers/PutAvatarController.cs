@@ -29,5 +29,21 @@ namespace EIGApp.Controllers
 
             return S;
         }
+
+        /* Elimina un Investigador Privado */
+        public string Post(int idPerson)
+        {
+            string R = "";
+            try
+            {
+                O.Person BDPerson = BD.People.FirstOrDefault(x => x.Id == idPerson);
+                BD.People.Remove(BDPerson);
+                BD.SaveChanges();
+                R = BDPerson.NameAvatar;
+            }
+            catch { }
+            return R;
+        }
+        /* Elimina un Investigador Privado */
     }
 }

@@ -1,11 +1,20 @@
 window.onload = initUser;
-var FileOtherPerson
-var config;
+var FileOtherPerson, f, t, y, g, config;
 
-var f = 'https://www.facebook.com/Elite-Intelligence-Group-260263604734008/';
-var t = 'https://twitter.com/EliteIntellige1?lang=es';
-var y = 'https://www.youtube.com/channel/UCOvdAjzfv4WlwxKc1fi5JYQ';
-var g = 'https://plus.google.com/u/0/109910140252090488175';
+f = 'https://www.facebook.com/Elite-Intelligence-Group-260263604734008/';
+t = 'https://twitter.com/EliteIntellige1?lang=es';
+y = 'https://www.youtube.com/channel/UCOvdAjzfv4WlwxKc1fi5JYQ';
+g = 'https://plus.google.com/u/0/109910140252090488175';
+
+config = 
+{
+    apiKey            : "AIzaSyA4F7aYKhXv5zEWabtUYABA-4lJJdAgyW4",
+    authDomain        : "eliteintelligencegroup-719d3.firebaseapp.com",
+    databaseURL       : "https://eliteintelligencegroup-719d3.firebaseio.com",
+    projectId         : "eliteintelligencegroup-719d3",
+    storageBucket     : "eliteintelligencegroup-719d3.appspot.com",
+    messagingSenderId : "567347907651"
+};
 
 function initUser()
 {
@@ -16,17 +25,6 @@ function initUser()
     {
         $('#infoName').text(name);
         $('#infoUsername').text(username);
-
-        config = 
-        {
-            apiKey: "AIzaSyA4F7aYKhXv5zEWabtUYABA-4lJJdAgyW4",
-            authDomain: "eliteintelligencegroup-719d3.firebaseapp.com",
-            databaseURL: "https://eliteintelligencegroup-719d3.firebaseio.com",
-            projectId: "eliteintelligencegroup-719d3",
-            storageBucket: "eliteintelligencegroup-719d3.appspot.com",
-            messagingSenderId: "567347907651"
-        };
-
         loadMediaOtherPerson();
     }
 
@@ -74,19 +72,19 @@ function loadMediaOtherPerson()
                 {
                     if(data.length > 0)
                     {
-                        var cadena = "";
+                        var chain = new StringBuilder();
 
                         for(var i = 0; i < data.length; i++)
                         {
-                            cadena += "<div class='result'> <div class='text'> <p class='pf2'>" + data[i].FileName + "</p> <p class='pf4'>Anexado el " + data[i].LoadDate + "</p> <button id='" + data[i].Id + "' class='deleteResult' onclick='elim(this)'>Eliminar</button> <button id='" + data[i].Id + "' class='moreResult' onclick='download(this)'>Descargar</button> <p hidden class='pf4' id='DL" + data[i].Id + "'>" + data[i].DownloadLink + "</p> </div> </div>";  
+                            chain.append("<div class='result'> <div class='text'> <p class='pf2'>" + data[i].FileName + "</p> <p class='pf3'>Anexado el " + data[i].LoadDate + "</p> <p class='pf4'>" + data[i].LoadHourZone + "</p> <button id='" + data[i].Id + "' class='deleteResult' onclick='elim(this)'>Eliminar</button> <button id='" + data[i].Id + "' class='moreResult' onclick='download(this)'>Descargar</button> <p hidden class='pf4' id='DL" + data[i].Id + "'>" + data[i].DownloadLink + "</p> </div> </div>");  
                         }
                         
-                        $('#listResults').append(cadena);
-
                         $('#bannerState').css('background','green');
                         $('#bannerState').css('color','white');
                         $('#bannerState').text('El perfil tiene ' + i + ' archivos!');
                         $('#listResults').css('display','flex');
+                        $('#listResults').append(chain.toString());
+                        chain.clear();
                     }
 
                     else
@@ -295,4 +293,28 @@ function social(op)
         default:
         window.open(g, '_blank');
     }
+}
+
+function StringBuilder(value) 
+{
+    this.strings = new Array();
+    this.append(value);
+}
+
+StringBuilder.prototype.append = function (value) 
+{
+    if (value) 
+    {
+        this.strings.push(value);
+    }
+}
+
+StringBuilder.prototype.clear = function () 
+{
+    this.strings.length = 0;
+}
+
+StringBuilder.prototype.toString = function () 
+{
+    return this.strings.join("");
 }

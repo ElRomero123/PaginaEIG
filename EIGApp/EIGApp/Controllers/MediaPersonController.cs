@@ -9,40 +9,42 @@ namespace EIGApp.Controllers
     {
         private O.BDEIGEntities BD = new O.BDEIGEntities();
 
+        /* Obtiene los archivos de un Investigador Privado */
         public M.MediaPerson[] Get(long idPerson)
         {
-            var query = from MP in BD.MediaPersons
+            var SMP = BD.MediaPersons;
+            var query = from MP in SMP
                         where (MP.IdPerson.Equals(idPerson))
-                        select new {MP.Id, MP.FileName, MP.DownloadLink, MP.LoadDate};
+                        select new {MP.Id, MP.FileName, MP.DownloadLink, MP.LoadDate, MP.LoadHourZone};
+           
+            M.MediaPerson[] arrayMediaPerson = new M.MediaPerson[SMP.Count()];
 
-            var lista = query.ToArray();
-
-            M.MediaPerson[] arrayMediaPerson = new M.MediaPerson[lista.Length];
-
-            for (int i = 0; i < lista.Length; i++)
+            int i = 0;
+            foreach(var item in query)
             {
                 M.MediaPerson temp = new M.MediaPerson
                 {
-                    Id = lista[i].Id,
-                    FileName = lista[i].FileName,
-                    DownloadLink = lista[i].DownloadLink,
-                    LoadDate = lista[i].LoadDate
+                    Id           = item.Id,
+                    FileName     = item.FileName,
+                    DownloadLink = item.DownloadLink,
+                    LoadDate     = item.LoadDate
                 };
-
                 arrayMediaPerson[i] = temp;
+                i++;
             }
-
             return arrayMediaPerson;
         }
+        /* Obtiene los archivos de un Investigador Privado */
 
         public long Post(M.MediaPerson mediaPerson)
         {
             O.MediaPerson BDMediaPerson = new O.MediaPerson
             {
-                FileName = mediaPerson.FileName,
-                DownloadLink = mediaPerson.DownloadLink,
-                LoadDate = System.DateTime.Now.ToString("g"),
-                IdPerson = mediaPerson.IdPerson
+                FileName     = "",
+                DownloadLink = "",
+                LoadDate     = System.DateTime.Now.ToString("g"),
+                LoadHourZone = System.TimeZoneInfo.Local.ToString(),
+                IdPerson     = mediaPerson.IdPerson
             };
 
             BD.MediaPersons.Add(BDMediaPerson);

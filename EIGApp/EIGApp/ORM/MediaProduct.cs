@@ -18,6 +18,7 @@ namespace EIGApp.ORM
         public string FileName { get; set; }
         public string DownloadLink { get; set; }
         public string LoadDate { get; set; }
+        public string LoadHourZone { get; set; }
         public long IdProduct { get; set; }
     
         public virtual Product Product { get; set; }
