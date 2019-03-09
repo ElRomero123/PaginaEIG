@@ -13,72 +13,73 @@ function initUser()
     {
         $('#infoName').text(name);
         $('#infoUsername').text(email);
+        loadUsers();
     }
 
     else
     {
         location.href = 'index.html';
-    }
-
-    loadUsers();
+    }    
 }
-
 
 function loadUsers()
 {
-    if(navigator.onLine)
-    {
-        $('#listResults').empty();
-        $('#listResults').hide();
-        $('#bannerState').css('display','block');
-        $('#bannerState').css('background','yellow');
-        $('#bannerState').css('color','black');
-        $('#bannerState').text('Cargando ...');
+    $('#listResults').empty();
+    $('#listResults').hide();
+    $('#bannerState').css('display','block');
+    $('#bannerState').css('background','yellow');
+    $('#bannerState').css('color','black');
+    $('#bannerState').text('Cargando ...');
 
-        $.ajax
-        (
+    $.ajax
+    (
+        {
+            url: '../api/user',
+            type: 'GET',
+            contentType: "application/json;charset=utf-8",
+
+            success:
+            function (data) 
             {
-                url: '../api/user',
-                type: 'GET',
-                contentType: "application/json;charset=utf-8",
-
-                success:
-                function (data) 
+                if(data.length > 0)
                 {
-                    if(data.length > 0)
+                    var chain = new StringBuilder();
+                    for(var i = 0; i < data.length; i++)
                     {
-                        var cadena = "";
-
-                        for(var i = 0; i < data.length; i++)
+                        if(data[i].CountProfiles > 0)
                         {
-                            cadena += "<div class='result'> <div class='text'> <p class='pf1'>" + data[i].Username + "</p> <p class='pf2'>" + data[i].Name + "</p> <p class='pf3'>" + data[i].Email + "</p> <p class='pf4'>" + data[i].Address + "</p> <p class='pf4'> Unido el " + data[i].JoinDate + ' ' + data[i].JoinHourZone + "</p> <button id='" + data[i].Id + "' class='moreResult' onclick='toMoreUser(this)'>Mas</button> </div> </div>";  
+                            chain.append("<div class='result'> <div class='text'> <p class='pf1'>" + data[i].Username + "</p> <p class='pf2'>" + data[i].Name + "</p> <p class='pf3'>" + data[i].Email + "</p> <p class='pf3'>" + data[i].Address + "</p> <p class='pf3'>Unido el " + data[i].JoinDate + "</p> <p class='pf4'>" + data[i].JoinHourZone + "</p> <button id='" + data[i].Id + "' class='moreResult' onclick='profilesUser(this)'>Mas</button> <p class='pf2'>Perfiles: " + data[i].CountProfiles + "</p> </div> </div>");
                         }
-                        
-                        $('#listResults').append(cadena);
 
-                        $('#bannerState').css('background','green');
-                        $('#bannerState').css('color','white');
-                        $('#bannerState').text(i + ' usuarios');
-                        $('#listResults').css('display','flex');
+                        else
+                        {
+                            chain.append("<div class='result'> <div class='text'> <p class='pf1'>" + data[i].Username + "</p> <p class='pf2'>" + data[i].Name + "</p> <p class='pf3'>" + data[i].Email + "</p> <p class='pf3'>" + data[i].Address + "</p> <p class='pf3'>Unido el " + data[i].JoinDate + "</p> <p class='pf4'>" + data[i].JoinHourZone + "</p> <button id='" + data[i].Id + "' class='moreResult' onclick='profilesUser(this)'>Mas</button> <p class='pf2'>Sin perfiles</p> </div> </div>");
+                        }
                     }
+                    
+                    $('#bannerState').css('background','green');
+                    $('#bannerState').css('color','white');
+                    $('#bannerState').text(i + ' Usuarios!');
+                    $('#listResults').css('display','flex');
+                    $('#listResults').append(chain.toString());
+                    chain.clear();
+                }
 
-                    else
-                    {
-                        $('#bannerState').css('background','red');
-                        $('#bannerState').css('color','white');
-                        $('#bannerState').text('Sin usuarios!');
-                    }
+                else
+                {
+                    $('#bannerState').css('background','red');
+                    $('#bannerState').css('color','white');
+                    $('#bannerState').text('Sin Usuarios!');
                 }
             }
-        );
-    }
+        }
+    );
+}
 
-    else
-    {
-        $('#bannerState').css('background','red');
-        $('#bannerState').css('color','white');
-        $('#bannerState').text('Sin internet!');
-    }
+function profilesUser(e)
+{
+    localStorage.setItem('IdUser', e.id);
+    location.href = 'viewProfilesUserAdministrator.html';
 }
 
 function to(num)
@@ -92,13 +93,6 @@ function to(num)
         default:
         location.href = 'menuProfilesAdministrator.html';
     }
-}
-
-
-function toMoreUser(e)
-{
-    localStorage.setItem('IdUser', e.id);
-    location.href = 'viewProfilesUserAdministrator.html';
 }
 
 function social(op)

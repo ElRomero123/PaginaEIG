@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace EIGApp.Models
+﻿namespace EIGApp.Models
 {
     public class User
     {
@@ -10,7 +8,8 @@ namespace EIGApp.Models
         public string Name { get; set; }
         public string Email { get; set; }
         public string Address { get; set; }
-        public DateTime JoinDate { get; set; }
+        public long CountProfiles { get; set; }
+        public string JoinDate { get; set; }
         public string JoinHourZone { get; set; }
     }
 }

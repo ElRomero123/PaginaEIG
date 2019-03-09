@@ -231,7 +231,8 @@
           <Property Name="Name" Type="nvarchar" MaxLength="255" Nullable="false" />
           <Property Name="Email" Type="nvarchar" MaxLength="255" Nullable="false" />
           <Property Name="Address" Type="nvarchar" MaxLength="255" Nullable="false" />
-          <Property Name="JoinDate" Type="datetime" Nullable="false" />
+          <Property Name="CountProfiles" Type="bigint" Nullable="false" />
+          <Property Name="JoinDate" Type="nvarchar" MaxLength="255" Nullable="false" />
           <Property Name="JoinHourZone" Type="nvarchar" MaxLength="255" Nullable="false" />
         </EntityType>
         <Association Name="FK_Business_Package">
@@ -778,7 +779,8 @@
           <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Email" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Address" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="JoinDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CountProfiles" Type="Int64" Nullable="false" />
+          <Property Name="JoinDate" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="JoinHourZone" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Cases" Relationship="Self.FK_Case_User" FromRole="User" ToRole="Case" />
           <NavigationProperty Name="Donations" Relationship="Self.FK_Donation_User" FromRole="User" ToRole="Donation" />
@@ -1326,6 +1328,7 @@
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Email" ColumnName="Email" />
                 <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="CountProfiles" ColumnName="CountProfiles" />
                 <ScalarProperty Name="JoinDate" ColumnName="JoinDate" />
                 <ScalarProperty Name="JoinHourZone" ColumnName="JoinHourZone" />
               </MappingFragment>
