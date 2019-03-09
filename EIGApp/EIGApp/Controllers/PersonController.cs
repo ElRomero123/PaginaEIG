@@ -120,11 +120,11 @@ namespace EIGApp.Controllers
                 Latitude             = persona.Latitude,
                 Longitude            = persona.Longitude,
                 Ciprin               = persona.Ciprin,
-                Active               = persona.Active,
+                Active               = false,
                 CreationDate         = System.DateTime.Now,
                 CreationHourZone     = System.TimeZoneInfo.Local.ToString(),
-                Avatar               = persona.Avatar,
-                NameAvatar           = persona.NameAvatar,
+                Avatar               = "",
+                NameAvatar           = "",
                 IdUser               = persona.IdUser
             };
 
@@ -134,7 +134,6 @@ namespace EIGApp.Controllers
             return BDPerson.Id;
         }
 
-       
         public bool Post(long idPersonA)
         {
             bool S = false;
