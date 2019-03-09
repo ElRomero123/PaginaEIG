@@ -48,20 +48,19 @@ function loadProfilesUser()
                 {
                     if(data.length > 0)
                     {
-                        var cadena = "";
-
+                        var chain = new StringBuilder();
                         for(var i = 0; i < data.length; i++)
                         {
                             if(data[i].Active)
                             {
                                 if(data[i].Type)
                                 {
-                                    cadena += "<div class='result'> <div class='avatar' id='" + i + "'></div> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].ProfesionDescription + "</p> <p class='pf3'>" + data[i].Email + "</p> <p class='pf4'>" + data[i].Phone + "</p> <p class='pf4'> <p class='pf4'> Ciprin: " + data[i].Ciprin + "</p> <p class='pf4'>" + 'Unido el ' + data[i].CreationDate + ' ' + data[i].CreationHourZone +  "</p> <button class='moreResult' id='" + data[i].Id + "' onclick='changeOP(this)'>Desactivar</button> </div> </div>";
+                                    chain.append("<div class='result'> <div class='avatar' id='" + i + "'></div> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].ProfesionDescription + "</p> <p class='pf2'>" + data[i].Email + "</p> <p class='pf2'>" + data[i].Phone + "</p> <p class='pf2'> <p class='pf2'>Ciprin: " + data[i].Ciprin + "</p> <p class='pf2'>" + 'Unido el ' + data[i].CreationDate + "</p> <p class='pf4'>" + data[i].CreationHourZone + "</p> <button style='background:green; color:white' class='moreResult' id='" + data[i].Id + "' onclick='changeOP(this)'>Desactivar</button> </div> </div>");
                                 }
 
                                 else
                                 {
-                                    cadena += "<div class='result'> <div class='avatar' id='" + i + "'></div> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].ProfesionDescription + "</p> <p class='pf3'>" + data[i].Email + "</p> <p class='pf4'>" + data[i].Phone + "</p> <p class='pf4'> <p class='pf4'> Ciprin: " + data[i].Ciprin + "</p> <p class='pf4'>" + 'Unido el ' + data[i].CreationDate + ' ' + data[i].CreationHourZone +  "</p> <button class='moreResult' id='" + data[i].Id + "' onclick='changeP(this)'>Desactivar</button> </div> </div>";
+                                    chain.append("<div class='result'> <div class='avatar' id='" + i + "'></div> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].ProfesionDescription + "</p> <p class='pf2'>" + data[i].Email + "</p> <p class='pf2'>" + data[i].Phone + "</p> <p class='pf2'> <p class='pf2'>Ciprin: " + data[i].Ciprin + "</p> <p class='pf2'>" + 'Unido el ' + data[i].CreationDate + "</p> <p class='pf4'>" + data[i].CreationHourZone + "</p> <button style='background:green; color:white' class='moreResult' id='" + data[i].Id + "' onclick='changeP(this)'>Desactivar</button> </div> </div>");
                                 }
                             }
 
@@ -69,40 +68,28 @@ function loadProfilesUser()
                             {
                                 if(data[i].Type)
                                 {
-                                    cadena += "<div class='result'> <div class='avatar' id='" + i + "'></div> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].ProfesionDescription + "</p> <p class='pf3'>" + data[i].Email + "</p> <p class='pf4'>" + data[i].Phone + "</p> <p class='pf4'> <p class='pf4'> Ciprin: " + data[i].Ciprin + "</p> <p class='pf4'>" +  'Unido el ' + data[i].CreationDate + ' ' + data[i].CreationHourZone +  "</p> <button class='moreResult' id='" + data[i].Id + "' onclick='changeOP(this)'>Activar</button> </div> </div>";
+                                    chain.append("<div class='result'> <div class='avatar' id='" + i + "'></div> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].ProfesionDescription + "</p> <p class='pf2'>" + data[i].Email + "</p> <p class='pf2'>" + data[i].Phone + "</p> <p class='pf2'> <p class='pf2'>Ciprin: " + data[i].Ciprin + "</p> <p class='pf2'>" +  'Unido el ' + data[i].CreationDate + "</p> <p class='pf4'>" + data[i].CreationHourZone + "</p> <button style='background:red; color:white' class='moreResult' id='" + data[i].Id + "' onclick='changeOP(this)'>Activar</button> </div> </div>");
                                 }
 
                                 else
                                 {
-                                    cadena += "<div class='result'> <div class='avatar' id='" + i + "'></div> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].ProfesionDescription + "</p> <p class='pf3'>" + data[i].Email + "</p> <p class='pf4'>" + data[i].Phone + "</p> <p class='pf4'> <p class='pf4'> Ciprin: " + data[i].Ciprin + "</p> <p class='pf4'>" +  'Unido el ' + data[i].CreationDate + ' ' + data[i].CreationHourZone +  "</p> <button class='moreResult' id='" + data[i].Id + "' onclick='changeP(this)'>Activar</button> </div> </div>";
+                                    chain.append("<div class='result'> <div class='avatar' id='" + i + "'></div> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].ProfesionDescription + "</p> <p class='pf2'>" + data[i].Email + "</p> <p class='pf2'>" + data[i].Phone + "</p> <p class='pf2'> <p class='pf2'>Ciprin: " + data[i].Ciprin + "</p> <p class='pf2'>" +  'Unido el ' + data[i].CreationDate + "</p> <p class='pf4'>" + data[i].CreationHourZone + "</p> <button style='background:red; color:white' class='moreResult' id='" + data[i].Id + "' onclick='changeP(this)'>Activar</button> </div> </div>");
                                 }
                             }
                         }
 
-                        $('#listResults').append(cadena);
-
-                        for(var i = 0; i < data.length; i++)
-                        {
-                            if(data[i].Active == 1)
-                            {
-                                $('#' + data[i].Id).css('background','green');
-                                $('#' + data[i].Id).css('color','white');
-                            }
-
-                            else
-                            {
-                                $('#' + data[i].Id).css('background','red');
-                                $('#' + data[i].Id).css('color','white');
-                            }
-
-                            avatar = data[i].Avatar;
-                            document.getElementById(i).style.background = 'url("' + avatar + '")';
-                        }
                         
                         $('#bannerState').css('background','green');
                         $('#bannerState').css('color','white');
                         $('#bannerState').text('El usuario tiene ' + i + ' perfiles!');
                         $('#listResults').css('display','flex');
+                        $('#listResults').append(chain.toString());
+                        chain.clear();
+
+                        for(var i = 0; i < data.length; i++)
+                        {
+                            document.getElementById(i).style.background = 'url("' + data[i].Avatar + '")';
+                        }
                     }
 
                     else
@@ -121,24 +108,6 @@ function loadProfilesUser()
         $('#bannerState').css('background','red');
         $('#bannerState').css('color','white');
         $('#bannerState').text('Sin internet!');
-    }
-}
-
-function showMedia(e)
-{
-    alert('Ver multimedia de ' + e.id + ' funciona');
-}
-
-function to(num)
-{
-    switch(num)
-    {
-        case 1:
-        localStorage.clear();
-        location.href = 'index.html';
-        break;
-        default:
-        location.href = 'userControllerAdministrator.html';
     }
 }
 
@@ -206,6 +175,21 @@ function changeOP(e)
     );
 }
 
+function to(num)
+{
+    switch(num)
+    {
+        case 1:
+        localStorage.clear();
+        location.href = 'index.html';
+        break;
+        default:
+        location.href = 'userControllerAdministrator.html';
+    }
+}
+
+
+
 function social(op)
 {
     switch(op)
@@ -222,4 +206,28 @@ function social(op)
         default:
         window.open(g, '_blank');
     }
+}
+
+function StringBuilder(value) 
+{
+    this.strings = new Array();
+    this.append(value);
+}
+
+StringBuilder.prototype.append = function (value) 
+{
+    if (value) 
+    {
+        this.strings.push(value);
+    }
+}
+
+StringBuilder.prototype.clear = function () 
+{
+    this.strings.length = 0;
+}
+
+StringBuilder.prototype.toString = function () 
+{
+    return this.strings.join("");
 }

@@ -100,36 +100,16 @@ namespace EIGApp.Controllers
         }
         /* Obtiene el Consolidado de Usuarios Creados */
 
-        /* Actualiza CountProfiles de un Usuario */
-        public bool Post(long id)
-        {
-            bool R = false;
-            try
-            {
-                O.User BDUser = BD.Users.FirstOrDefault(x => x.Id == id);
-                BDUser.CountProfiles = BDUser.CountProfiles + 1;
-                BD.SaveChanges();
-                R = true;
-            }
-            catch { }
-            return R;
-        }
-        /* Actualiza CountProfiles de un Usuario */
-
         public M.User Get(string username, string password)
         {
             var query = from U in BD.Users
                         where (U.Username.Equals(username))
                         select new { U.Id, U.Username, U.Password, U.Name };
-
             M.User temp = new M.User();
-
             try
             {
                 var lista = query.ToArray()[0];
-
                 string hashPassword = SHA256Encrypt(password);
-
                 if (lista.Password.Equals(hashPassword))
                 {
                     temp.Id = lista.Id;
@@ -137,15 +117,8 @@ namespace EIGApp.Controllers
                     temp.Name = lista.Name;
                 }
             }
-
-            catch
-            {
-
-            }
-
+            catch{}
             return temp;
         }
-
-        
     }
 }
