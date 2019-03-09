@@ -157,27 +157,6 @@ function putAvatar(num, fileName, downloadURL)
             {
                 if(data)
                 {
-                    updateCountUser();
-                }
-            }
-        }
-    );
-}
-
-function updateCountUser()
-{
-    $.ajax
-    (
-        {
-            url: '../api/user?id' + IdUser,
-            type: 'POST',
-            contentType: "application/json;charset=utf-8",
-
-            success:
-            function (data)
-            {
-                if(data)
-                {
                     $('#createPerson').css('background','darkgreen');
                     $('#createPerson').css('border','2px solid darkgreen');
                     $('#createPerson').css('color','white');

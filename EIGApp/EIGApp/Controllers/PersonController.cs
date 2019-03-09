@@ -131,6 +131,11 @@ namespace EIGApp.Controllers
             };
             BD.People.Add(BDPerson);
             BD.SaveChanges();
+
+            O.User BDUser = BD.Users.FirstOrDefault(x => x.Id == persona.IdUser);
+            BDUser.CountProfiles = BDUser.CountProfiles + 1;
+            BD.SaveChanges();
+       
             return BDPerson.Id;
         }
         /* Agregar un Investigador Privado */
