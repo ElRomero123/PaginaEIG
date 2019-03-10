@@ -1,16 +1,16 @@
 window.onload = initUser;
-var mapa, gmaps;
+var mapa, gmaps, f, t, y, g;
 
-var f = 'https://www.facebook.com/Elite-Intelligence-Group-260263604734008/';
-var t = 'https://twitter.com/EliteIntellige1?lang=es';
-var y = 'https://www.youtube.com/channel/UCOvdAjzfv4WlwxKc1fi5JYQ';
-var g = 'https://plus.google.com/u/0/109910140252090488175';
+f = 'https://www.facebook.com/Elite-Intelligence-Group-260263604734008/';
+t = 'https://twitter.com/EliteIntellige1?lang=es';
+y = 'https://www.youtube.com/channel/UCOvdAjzfv4WlwxKc1fi5JYQ';
+g = 'https://plus.google.com/u/0/109910140252090488175';
 
 function initUser()
 {
     var name     = localStorage.getItem('Name');
     var username = localStorage.getItem('Username');
-    var email = localStorage.getItem('Email');
+    var email    = localStorage.getItem('Email');
 
     if(name != null)
     {
