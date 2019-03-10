@@ -48,7 +48,8 @@ function loadMediaPerson()
                         $('#bannerState').css('color','white');
                         $('#bannerState').text('Archivos de este perfil ' + i);
                         $('#listResults').css('display','flex');
-                        $('#listResults').append(cadena);
+                        $('#listResults').append(chain.toString());
+                        chain.clear();
                     }
 
                     else

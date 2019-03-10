@@ -110,7 +110,7 @@ function to(num)
 function showMedia(e)
 {
     localStorage.setItem('IdOtherPerson', e.id);
-    window.open('viewMediaOtherPerson.html', '_blank');
+    open('viewMediaOtherPerson.html', 'pop-up', 'width=750,height=600');
 }
 
 function social(op)
