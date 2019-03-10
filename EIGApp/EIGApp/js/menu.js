@@ -110,11 +110,12 @@ function to(num)
         location.href = 'menu2.html';
         break;
         case 3:
-        location.href = 'menu3.html';
-        alert('Estamos construyendo una experiencia inigualable. Pronto estará en funcionamiento!');
+        //location.href = 'menu3.html';
+        alert('Estamos construyendo una experiencia inigualable para empresas, esperala muy pronto!');
         break;
         case 4:
-        location.href = 'productos.html';
+        //location.href = 'productos.html';
+        alert('Estamos construyendo una experiencia inigualable para artículos, esperala muy pronto!');
         break;
         case 5:
         location.href = 'menu5.html';
@@ -123,7 +124,8 @@ function to(num)
         location.href = 'menu6.html';
         break;
         case 7:
-        location.href = 'menu7.html';
+        //location.href = 'menu7.html';
+        alert('Estamos construyendo una experiencia inigualable para CIPRIN, esperala muy pronto!');
         break;
         case 8:
         location.href = 'menu8.html';
@@ -143,7 +145,7 @@ function to(num)
 function showMedia(e)
 {
     localStorage.setItem('IdPerson', e.id);
-    window.open('viewMediaPerson.html', '_blank');
+    open('viewMediaPerson.html', 'pop-up', 'width=750,height=600');
 }
 
 function social(op)

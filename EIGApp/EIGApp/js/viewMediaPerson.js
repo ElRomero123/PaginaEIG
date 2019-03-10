@@ -1,26 +1,22 @@
 window.onload = initUser;
-var f = 'https://www.facebook.com/Elite-Intelligence-Group-260263604734008/';
-var t = 'https://twitter.com/EliteIntellige1?lang=es';
-var y = 'https://www.youtube.com/channel/UCOvdAjzfv4WlwxKc1fi5JYQ';
-var g = 'https://plus.google.com/u/0/109910140252090488175';
+var f,t,y,g;
+f = 'https://www.facebook.com/Elite-Intelligence-Group-260263604734008/';
+t = 'https://twitter.com/EliteIntellige1?lang=es';
+y = 'https://www.youtube.com/channel/UCOvdAjzfv4WlwxKc1fi5JYQ';
+g = 'https://plus.google.com/u/0/109910140252090488175';
 
 function initUser()
 {
-    var name     = localStorage.getItem('Name');
-    var email = localStorage.getItem('Email');
-    
+    var name  = localStorage.getItem('Name');
     if(name != null)
     {
-        $('#infoName').text(name);
-        $('#infoUsername').text(email);
+        loadMediaPerson();
     }
 
     else
     {
         location.href = 'index.html';
     }
-
-    loadMediaPerson();
 }
 
 function loadMediaPerson()
@@ -88,17 +84,10 @@ function download(e)
     window.open(download, '_blank');
 }
 
-function to(num)
+function to()
 {
-    switch(num)
-    {
-        case 1:
-        localStorage.clear();
-        location.href = 'index.html';
-        break;
-        default:
-        location.href = 'menu.html';
-    }
+    localStorage.clear();
+    location.href = 'index.html';
 }
 
 function social(op)
