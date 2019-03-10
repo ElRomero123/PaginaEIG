@@ -17,7 +17,7 @@ namespace EIGApp.Controllers
                         where ((P.City.Contains(criterio)) && P.Active)
                         select new {P.Id, P.Name, P.ProfesionDescription, P.Email, P.Phone, P.Latitude, P.Longitude, P.Ciprin, P.CreationDate, P.CreationHourZone, P.Avatar, P.Views, P.User.Username};
 
-            M.Person[] arrayPeople = new M.Person[SP.Count()];
+            M.Person[] arrayPeople = new M.Person[query.Count()];
             M.Person temp;
 
             long i = 0;
@@ -61,7 +61,7 @@ namespace EIGApp.Controllers
                         where (OP.IdUser.Equals(idUser))
                         select new {OP.Id, OP.Name, OP.Profesion, OP.Email, OP.Phone, OP.Ciprin, OP.Active, OP.CreationDate, OP.CreationHourZone, OP.Avatar, OP.Views};
 
-            M.Person[] arrayPeople = new M.Person[SP.Count() + SOP.Count()];
+            M.Person[] arrayPeople = new M.Person[query.Count() + query2.Count()];
             M.Person PT; 
 
             int i = 0;

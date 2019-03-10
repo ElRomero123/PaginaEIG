@@ -16,7 +16,7 @@ namespace EIGApp.Controllers
                         where ((OP.City.Contains(criterio)) && OP.Active)
                         select new {OP.Id, OP.Name, OP.Profesion, OP.ProfesionDescription, OP.Email, OP.Phone, OP.Latitude, OP.Longitude, OP.Ciprin, OP.CreationDate, OP.CreationHourZone, OP.Avatar, OP.Views, OP.User.Username};
 
-            M.OtherPerson[] arrayOtherPerson = new M.OtherPerson[SOP.Count()];
+            M.OtherPerson[] arrayOtherPerson = new M.OtherPerson[query.Count()];
             M.OtherPerson temp;
 
             long i = 0;

@@ -67,7 +67,7 @@ function search()
 
                     for(var i = 0; i < data.length; i++)
                     {
-                        document.getElementById(i).style.background = 'url("' + data[i].Avatar + '")';
+                        document.getElementById(data[i].Id).style.background = 'url("' + data[i].Avatar + '")';
                     }
 
                     $('#bannerState').css('background','green');
