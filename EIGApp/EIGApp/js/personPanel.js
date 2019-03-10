@@ -39,14 +39,15 @@ function createPerson()
 
     var persona =
     {
-        name:                 $('#cName').val(),
-        profesionDescription: $('#cDescription').val(),
-        email:                $('#cEmail').val(),
-        phone:                $('#cPhone').val(),
-        latitude:             latitude,
-        longitude:            longitude,
-        ciprin:               false,
-        idUser:               IdUser
+        name                 : $('#cName').val(),
+        profesionDescription : $('#cDescription').val(),
+        email                : $('#cEmail').val(),
+        phone                : $('#cPhone').val(),
+        city                 : $('#cCity').val(),
+        latitude             : latitude,
+        longitude            : longitude,
+        ciprin               : false,
+        idUser               : IdUser
     };
 
     if(validateText(persona))

@@ -11,7 +11,6 @@ function initUser()
     var name     = localStorage.getItem('Name');
     var username = localStorage.getItem('Username');
     var email    = localStorage.getItem('Email');
-
     if(name != null)
     {
         if(email != null)
@@ -25,7 +24,6 @@ function initUser()
             $('#infoUsername').text(username);
         }
     }
-
     else
     {
         location.href = 'index.html';
