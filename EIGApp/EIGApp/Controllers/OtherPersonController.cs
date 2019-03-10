@@ -11,37 +11,39 @@ namespace EIGApp.Controllers
 
         public M.OtherPerson[] Get(string criterio)
         {
-            var query = from OP in BD.OtherPersons
-                        where ((OP.Name.Contains(criterio) || OP.Profesion.Contains(criterio) || OP.ProfesionDescription.Contains(criterio)) && OP.Active)
-                        select new {OP.Id, OP.Name, OP.Profesion, OP.ProfesionDescription, OP.Email, OP.Phone, OP.Latitude, OP.Longitude, OP.Ciprin, OP.Active, OP.CreationDate, OP.CreationHourZone, OP.Avatar, OP.User.Username};
+            var SOP = BD.OtherPersons;
+            var query = from OP in SOP
+                        where ((OP.City.Contains(criterio)) && OP.Active)
+                        select new {OP.Id, OP.Name, OP.Profesion, OP.ProfesionDescription, OP.Email, OP.Phone, OP.City, OP.Latitude, OP.Longitude, OP.Ciprin, OP.CreationDate, OP.CreationHourZone, OP.Avatar, OP.Views, OP.User.Username};
 
-            var lista = query.ToArray();
+            M.OtherPerson[] arrayOtherPerson = new M.OtherPerson[SOP.Count()];
+            M.OtherPerson temp;
 
-            M.OtherPerson[] arrayOtherPersons = new M.OtherPerson[lista.Length];
-
-            for (int i = 0; i < lista.Length; i++)
+            long i = 0;
+            foreach (var item in query)
             {
-                M.OtherPerson temp = new M.OtherPerson
+                temp = new M.OtherPerson
                 {
-                    Id                   = lista[i].Id, 
-                    Name                 = lista[i].Name,
-                    Profesion            = lista[i].Profesion, 
-                    ProfesionDescription = lista[i].ProfesionDescription, 
-                    Email                = lista[i].Email, 
-                    Phone                = lista[i].Phone, 
-                    Latitude             = lista[i].Latitude,
-                    Longitude            = lista[i].Longitude,
-                    Ciprin               = lista[i].Ciprin, 
-                    CreationDate         = lista[i].CreationDate, 
-                    CreationHourZone     = lista[i].CreationHourZone, 
-                    Avatar               = lista[i].Avatar,
-                    Username             = lista[i].Username 
+                    Id                   = item.Id,
+                    Name                 = item.Name,
+                    Profesion            = item.Profesion,
+                    ProfesionDescription = item.ProfesionDescription,
+                    Email                = item.Email,
+                    Phone                = item.Phone,
+                    Latitude             = item.Latitude,
+                    Longitude            = item.Longitude,
+                    Ciprin               = item.Ciprin,
+                    CreationDate         = item.CreationDate,
+                    CreationHourZone     = item.CreationHourZone,
+                    Avatar               = item.Avatar,
+                    Views                = item.Views,
+                    Username             = item.Username
                 };
 
-                arrayOtherPersons[i] = temp;
+                arrayOtherPerson[i] = temp;
+                i++;
             }
-
-            return arrayOtherPersons;
+            return arrayOtherPerson;
         }
 
         /* Agregar un Profesional Afín */

@@ -18,11 +18,12 @@ namespace EIGApp.Controllers
                         select new {P.Id, P.Name, P.ProfesionDescription, P.Email, P.Phone, P.Latitude, P.Longitude, P.Ciprin, P.CreationDate, P.CreationHourZone, P.Avatar, P.Views, P.User.Username};
 
             M.Person[] arrayPeople = new M.Person[SP.Count()];
+            M.Person temp;
 
             long i = 0;
             foreach(var item in query)
             {
-                M.Person temp = new M.Person
+                temp = new M.Person
                 {
                     Id                   = item.Id,
                     Name                 = item.Name,
