@@ -34,7 +34,7 @@ function initUser()
 
 function createOtherPerson()
 {
-    var IdUser = localStorage.getItem('User');
+    var IdUser        = localStorage.getItem('User');
     OtherPersonAvatar = document.getElementById('otherPersonAvatar');
     
     var otraPersona =
@@ -111,23 +111,6 @@ function validateAvatar()
     return OtherPersonAvatar.files[0] != null;
 }
 
-function to(num)
-{
-    switch(num)
-    {
-        case 1: 
-        localStorage.clear();
-        location.href = 'index.html';
-        break;
-        case 2:
-        localStorage.setItem('Call', 2);
-        location.href = 'editCreatedProfiles.html';
-        break;
-        default: 
-        location.href = 'menu2.html';
-    }
-}
-
 function loadAvatar(num)
 {   
     firebase.initializeApp(config);
@@ -189,6 +172,27 @@ function putAvatar(num, fileName, downloadURL)
     );
 }
 
+function recargar()
+{
+    location.reload();
+}
+
+document.getElementById('otherPersonAvatar').onchange = function(e) 
+{
+    let reader = new FileReader();  
+    reader.readAsDataURL(e.target.files[0]);
+    
+    console.log(e.target.files[0]);
+    reader.onload = function()
+    {
+        let preview = document.getElementById('preview'),
+        image = document.createElement('img');
+        image.src = reader.result;
+        preview.innerHTML = '';
+        preview.append(image);
+    };
+}
+
 function startMap()
 {
     navigator.geolocation.getCurrentPosition(function(position)
@@ -210,25 +214,21 @@ function startMap()
     });
 }
 
-function recargar()
+function to(num)
 {
-    location.reload();
-}
-
-document.getElementById('otherPersonAvatar').onchange = function(e) 
-{
-    let reader = new FileReader();  
-    reader.readAsDataURL(e.target.files[0]);
-    
-    console.log(e.target.files[0]);
-    reader.onload = function()
+    switch(num)
     {
-        let preview = document.getElementById('preview'),
-        image = document.createElement('img');
-        image.src = reader.result;
-        preview.innerHTML = '';
-        preview.append(image);
-    };
+        case 1: 
+        localStorage.clear();
+        location.href = 'index.html';
+        break;
+        case 2:
+        localStorage.setItem('Call', 2);
+        location.href = 'editCreatedProfiles.html';
+        break;
+        default: 
+        location.href = 'menu2.html';
+    }
 }
 
 function social(op)
