@@ -1,5 +1,5 @@
 window.onload = initUser;
-var OtherPersonAvatar, longitude, latitude, IdUser, f, t, y, g, config;
+var OtherPersonAvatar, longitude, latitude, f, t, y, g, config;
 
 f = 'https://www.facebook.com/Elite-Intelligence-Group-260263604734008/';
 t = 'https://twitter.com/EliteIntellige1?lang=es';
@@ -52,26 +52,24 @@ function to(num)
 function createOtherPerson()
 {
     OtherPersonAvatar = document.getElementById('otherPersonAvatar');
+    var IdUser = localStorage.getItem('User');
+    var otraPersona =
+    {
+        name:                 $('#cName').val(),
+        profesion:            $('#cProfesion').val(),
+        profesionDescription: $('#cDescription').val(),
+        email:                $('#cEmail').val(),
+        phone:                $('#cIndex').val().substr(0,4).trim() + ' ' + $('#cPhone').val(),
+        latitude:             latitude,
+        longitude:            longitude,
+        ciprin:               false,
+        idUser:               IdUser
+    };
 
     if(validateText())
     {
         if(validateAvatar())
         {
-            IdUser = localStorage.getItem('User');
-
-            var otraPersona =
-            {
-                name:                 $('#cName').val(),
-                profesion:            $('#cProfesion').val(),
-                profesionDescription: $('#cDescription').val(),
-                email:                $('#cEmail').val(),
-                phone:                $('#cIndex').val().substr(0,4).trim() + ' ' + $('#cPhone').val(),
-                latitude:             latitude,
-                longitude:            longitude,
-                ciprin:               false,
-                idUser:               IdUser
-            };
-
             $('#createOtherPerson').css('background','yellow');
             $('#createOtherPerson').css('border','2px solid yellow');
             $('#createOtherPerson').css('color','black');
@@ -215,6 +213,7 @@ function validateText()
     var c3 = $('#cDescription').val().length >= 8;
     var c4 = $('#cEmail').val().length >= 8;
     var c5 = $('#cPhone').val().length >= 5;
+    var c5 = input.city.length  >= 3;
 
     return c1 && c2 && c3 && c4 && c5;
 }

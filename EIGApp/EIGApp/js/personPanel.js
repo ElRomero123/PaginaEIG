@@ -100,7 +100,8 @@ function validateText(input)
     var c2 = input.profesionDescription.length >= 8;
     var c3 = input.email.length                >= 8;
     var c4 = input.phone.length                >= 5;
-    return c1 && c2 && c3 && c4;
+    var c5 = input.city.length                 >= 3;
+    return c1 && c2 && c3 && c4 && c5;
 }
 
 function validateAvatar()
