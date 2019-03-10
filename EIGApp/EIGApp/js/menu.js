@@ -51,7 +51,8 @@ function search()
             success:
             function (data) 
             {
-                if(data.length > 0)
+                
+                if(data != null && data.length > 0)
                 {
                     var chain = new StringBuilder();
 
