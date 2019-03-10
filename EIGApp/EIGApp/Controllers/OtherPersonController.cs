@@ -67,6 +67,11 @@ namespace EIGApp.Controllers
             };
             BD.OtherPersons.Add(BDOtherPerson);
             BD.SaveChanges();
+
+            O.User BDUser = BD.Users.FirstOrDefault(x => x.Id == otraPersona.IdUser);
+            BDUser.CountProfiles = BDUser.CountProfiles + 1;
+            BD.SaveChanges();
+
             return BDOtherPerson.Id;
         }
         /* Agregar un Profesional Afín */

@@ -32,44 +32,31 @@ function initUser()
     }
 }
 
-function to(num)
-{
-    switch(num)
-    {
-        case 1: 
-        localStorage.clear();
-        location.href = 'index.html';
-        break;
-        case 2:
-        localStorage.setItem('Call', 2);
-        location.href = 'editCreatedProfiles.html';
-        break;
-        default: 
-        location.href = 'menu2.html';
-    }
-}
-
 function createOtherPerson()
 {
-    OtherPersonAvatar = document.getElementById('otherPersonAvatar');
     var IdUser = localStorage.getItem('User');
+    OtherPersonAvatar = document.getElementById('otherPersonAvatar');
+    
     var otraPersona =
     {
-        name:                 $('#cName').val(),
-        profesion:            $('#cProfesion').val(),
-        profesionDescription: $('#cDescription').val(),
-        email:                $('#cEmail').val(),
-        phone:                $('#cIndex').val().substr(0,4).trim() + ' ' + $('#cPhone').val(),
-        latitude:             latitude,
-        longitude:            longitude,
-        ciprin:               false,
-        idUser:               IdUser
+        name                 : $('#cName').val(),
+        profesion            : $('#cProfesion').val(),
+        profesionDescription : $('#cDescription').val(),
+        email                : $('#cEmail').val(),
+        phone                : $('#cPhone').val(),
+        city                 : $('#cCity').val(),
+        latitude             : latitude,
+        longitude            : longitude,
+        ciprin               : false,
+        idUser               : IdUser
     };
 
-    if(validateText())
+    if(validateText(otraPersona))
     {
         if(validateAvatar())
         {
+            otraPersona.phone =  $('#cIndex').val().substr(0,4).trim() + ' ' + otraPersona.phone;
+
             $('#createOtherPerson').css('background','yellow');
             $('#createOtherPerson').css('border','2px solid yellow');
             $('#createOtherPerson').css('color','black');
@@ -105,6 +92,39 @@ function createOtherPerson()
         $('#createOtherPerson').css('background','red');
         $('#createOtherPerson').css('border','2px solid red');
         $('#createOtherPerson').text('Entradas invalidas!');
+    }
+}
+
+function validateText(input)
+{
+    var c1 = input.name.length                 >= 8;
+    var c2 = input.profesion.length            >= 8;
+    var c3 = input.profesionDescription.length >= 8;
+    var c4 = input.email.length                >= 8;
+    var c5 = input.phone.length                >= 5;
+    var c6 = input.city.length                 >= 3;
+    return c1 && c2 && c3 && c4 && c5 && c6;
+}
+
+function validateAvatar()
+{
+    return OtherPersonAvatar.files[0] != null;
+}
+
+function to(num)
+{
+    switch(num)
+    {
+        case 1: 
+        localStorage.clear();
+        location.href = 'index.html';
+        break;
+        case 2:
+        localStorage.setItem('Call', 2);
+        location.href = 'editCreatedProfiles.html';
+        break;
+        default: 
+        location.href = 'menu2.html';
     }
 }
 
@@ -158,27 +178,6 @@ function putAvatar(num, fileName, downloadURL)
             {
                 if(data)
                 {
-                    updateCountUser();
-                }
-            }
-        }
-    );
-}
-
-function updateCountUser()
-{
-    $.ajax
-    (
-        {
-            url: '../api/user?id' + IdUser,
-            type: 'POST',
-            contentType: "application/json;charset=utf-8",
-
-            success:
-            function (data)
-            {
-                if(data)
-                {
                     $('#createOtherPerson').css('background','darkgreen');
                     $('#createOtherPerson').css('border','2px solid darkgreen');
                     $('#createOtherPerson').css('color','white');
@@ -188,44 +187,6 @@ function updateCountUser()
             }
         }
     );
-}
-
-document.getElementById('otherPersonAvatar').onchange = function(e) 
-{
-    let reader = new FileReader();  
-    reader.readAsDataURL(e.target.files[0]);
-    
-    console.log(e.target.files[0]);
-    reader.onload = function()
-    {
-        let preview = document.getElementById('preview'),
-        image = document.createElement('img');
-        image.src = reader.result;
-        preview.innerHTML = '';
-        preview.append(image);
-    };
-}
-
-function validateText()
-{
-    var c1 = $('#cName').val().length >= 8;
-    var c2 = $('#cProfesion').val().length >= 8;
-    var c3 = $('#cDescription').val().length >= 8;
-    var c4 = $('#cEmail').val().length >= 8;
-    var c5 = $('#cPhone').val().length >= 5;
-    var c5 = input.city.length  >= 3;
-
-    return c1 && c2 && c3 && c4 && c5;
-}
-
-function validateAvatar()
-{
-    return OtherPersonAvatar.files[0] != null;
-}
-
-function recargar()
-{
-    location.reload();
 }
 
 function startMap()
@@ -247,6 +208,27 @@ function startMap()
             }
         );
     });
+}
+
+function recargar()
+{
+    location.reload();
+}
+
+document.getElementById('otherPersonAvatar').onchange = function(e) 
+{
+    let reader = new FileReader();  
+    reader.readAsDataURL(e.target.files[0]);
+    
+    console.log(e.target.files[0]);
+    reader.onload = function()
+    {
+        let preview = document.getElementById('preview'),
+        image = document.createElement('img');
+        image.src = reader.result;
+        preview.innerHTML = '';
+        preview.append(image);
+    };
 }
 
 function social(op)
