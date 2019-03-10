@@ -4,25 +4,25 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="d7b52588331548ea80227b337e4ecb5d" Name="Diagram1">
+      <Diagram DiagramId="4d1f828670c845288135169af87f30a3" Name="Diagram1">
         <EntityTypeShape EntityType="BDEIGModel.Administrator" Width="1.5" PointX="5.75" PointY="5.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="BDEIGModel.Business" Width="1.5" PointX="5.25" PointY="17" IsExpanded="true" />
-        <EntityTypeShape EntityType="BDEIGModel.Case" Width="1.5" PointX="3" PointY="2.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="BDEIGModel.Donation" Width="1.5" PointX="3" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDEIGModel.Business" Width="1.5" PointX="5.25" PointY="17.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDEIGModel.Case" Width="1.5" PointX="3" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDEIGModel.Donation" Width="1.5" PointX="3" PointY="5.625" IsExpanded="true" />
         <EntityTypeShape EntityType="BDEIGModel.JobApplication" Width="1.5" PointX="3" PointY="8.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="BDEIGModel.MediaBusiness" Width="1.5" PointX="7.5" PointY="18" IsExpanded="true" />
-        <EntityTypeShape EntityType="BDEIGModel.MediaOtherPerson" Width="1.5" PointX="5.25" PointY="12.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="BDEIGModel.MediaPerson" Width="1.5" PointX="5.25" PointY="28.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="BDEIGModel.MediaProduct" Width="1.5" PointX="7.5" PointY="23.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDEIGModel.MediaBusiness" Width="1.5" PointX="7.5" PointY="18.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDEIGModel.MediaOtherPerson" Width="1.5" PointX="5.25" PointY="13" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDEIGModel.MediaPerson" Width="1.5" PointX="5.25" PointY="28.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDEIGModel.MediaProduct" Width="1.5" PointX="7.5" PointY="23.375" IsExpanded="true" />
         <EntityTypeShape EntityType="BDEIGModel.MultimediaCase" Width="1.5" PointX="5.25" PointY="2.5" IsExpanded="true" />
         <EntityTypeShape EntityType="BDEIGModel.MultimediaJobApplication" Width="1.5" PointX="5.25" PointY="8.625" IsExpanded="true" />
         <EntityTypeShape EntityType="BDEIGModel.OtherPerson" Width="1.5" PointX="3" PointY="11.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="BDEIGModel.Package" Width="1.5" PointX="3" PointY="20.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="BDEIGModel.Person" Width="1.5" PointX="3" PointY="27.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="BDEIGModel.Product" Width="1.5" PointX="5.25" PointY="22" IsExpanded="true" />
-        <EntityTypeShape EntityType="BDEIGModel.Suggestion" Width="1.5" PointX="3" PointY="32.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDEIGModel.Package" Width="1.5" PointX="3" PointY="20.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDEIGModel.Person" Width="1.5" PointX="3" PointY="27.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDEIGModel.Product" Width="1.5" PointX="5.25" PointY="22.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDEIGModel.Suggestion" Width="1.5" PointX="3" PointY="32.875" IsExpanded="true" />
         <EntityTypeShape EntityType="BDEIGModel.sysdiagram" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="BDEIGModel.User" Width="1.5" PointX="0.75" PointY="16.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDEIGModel.User" Width="1.5" PointX="0.75" PointY="16.75" IsExpanded="true" />
         <AssociationConnector Association="BDEIGModel.FK_Business_Package" ManuallyRouted="false" />
         <AssociationConnector Association="BDEIGModel.FK_MediaBusiness_Business" ManuallyRouted="false" />
         <AssociationConnector Association="BDEIGModel.FK_Case_User" ManuallyRouted="false" />

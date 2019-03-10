@@ -140,6 +140,7 @@
           <Property Name="ProfesionDescription" Type="nvarchar" MaxLength="255" Nullable="false" />
           <Property Name="Email" Type="nvarchar" MaxLength="255" Nullable="false" />
           <Property Name="Phone" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="City" Type="nvarchar" MaxLength="255" Nullable="false" />
           <Property Name="Latitude" Type="real" Nullable="false" />
           <Property Name="Longitude" Type="real" Nullable="false" />
           <Property Name="Ciprin" Type="bit" Nullable="false" />
@@ -174,6 +175,7 @@
           <Property Name="ProfesionDescription" Type="nvarchar" MaxLength="255" Nullable="false" />
           <Property Name="Email" Type="nvarchar" MaxLength="255" Nullable="false" />
           <Property Name="Phone" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="City" Type="nvarchar" MaxLength="255" Nullable="false" />
           <Property Name="Latitude" Type="real" Nullable="false" />
           <Property Name="Longitude" Type="real" Nullable="false" />
           <Property Name="Ciprin" Type="bit" Nullable="false" />
@@ -684,6 +686,7 @@
           <Property Name="ProfesionDescription" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Email" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Phone" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="City" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Latitude" Type="Single" Nullable="false" />
           <Property Name="Longitude" Type="Single" Nullable="false" />
           <Property Name="Ciprin" Type="Boolean" Nullable="false" />
@@ -723,6 +726,7 @@
           <Property Name="ProfesionDescription" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Email" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Phone" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="City" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Latitude" Type="Single" Nullable="false" />
           <Property Name="Longitude" Type="Single" Nullable="false" />
           <Property Name="Ciprin" Type="Boolean" Nullable="false" />
@@ -1243,6 +1247,7 @@
                 <ScalarProperty Name="ProfesionDescription" ColumnName="ProfesionDescription" />
                 <ScalarProperty Name="Email" ColumnName="Email" />
                 <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="City" ColumnName="City" />
                 <ScalarProperty Name="Latitude" ColumnName="Latitude" />
                 <ScalarProperty Name="Longitude" ColumnName="Longitude" />
                 <ScalarProperty Name="Ciprin" ColumnName="Ciprin" />
@@ -1279,6 +1284,7 @@
                 <ScalarProperty Name="ProfesionDescription" ColumnName="ProfesionDescription" />
                 <ScalarProperty Name="Email" ColumnName="Email" />
                 <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="City" ColumnName="City" />
                 <ScalarProperty Name="Latitude" ColumnName="Latitude" />
                 <ScalarProperty Name="Longitude" ColumnName="Longitude" />
                 <ScalarProperty Name="Ciprin" ColumnName="Ciprin" />

@@ -9,39 +9,42 @@ namespace EIGApp.Controllers
     {
         private O.BDEIGEntities BD = new O.BDEIGEntities();
 
+        /* Buscar Investigadores Privados */
         public M.Person[] Get(string criterio)
         {
-            var query = from P in BD.People
-                        where ((P.Name.Contains(criterio) || P.ProfesionDescription.Contains(criterio)) && P.Active)
-                        select new {P.Id, P.Name, P.ProfesionDescription, P.Email, P.Phone, P.Latitude, P.Longitude, P.Ciprin, P.Active, P.CreationDate, P.CreationHourZone, P.Avatar, P.User.Username};
+            var SP = BD.People;
+            var query = from P in SP
+                        where ((P.City.Contains(criterio)) && P.Active)
+                        select new {P.Id, P.Name, P.ProfesionDescription, P.Email, P.Phone, P.Latitude, P.Longitude, P.Ciprin, P.CreationDate, P.CreationHourZone, P.Avatar, P.Views, P.User.Username};
 
-            var lista = query.ToArray();
+            M.Person[] arrayPeople = new M.Person[SP.Count()];
 
-            M.Person[] arrayPeople = new M.Person[lista.Length];
-
-            for (int i = 0; i < lista.Length; i++)
+            long i = 0;
+            foreach(var item in query)
             {
                 M.Person temp = new M.Person
                 {
-                    Id                   = lista[i].Id, 
-                    Name                 = lista[i].Name,
-                    ProfesionDescription = lista[i].ProfesionDescription,
-                    Email                = lista[i].Email,
-                    Phone                = lista[i].Phone,
-                    Latitude             = lista[i].Latitude, 
-                    Longitude            = lista[i].Longitude,  
-                    Ciprin               = lista[i].Ciprin,
-                    CreationDate         = lista[i].CreationDate, 
-                    CreationHourZone     = lista[i].CreationHourZone, 
-                    Avatar               = lista[i].Avatar,
-                    Username             = lista[i].Username
+                    Id                   = item.Id,
+                    Name                 = item.Name,
+                    ProfesionDescription = item.ProfesionDescription,
+                    Email                = item.Email,
+                    Phone                = item.Phone,
+                    Latitude             = item.Latitude,
+                    Longitude            = item.Longitude,
+                    Ciprin               = item.Ciprin,
+                    CreationDate         = item.CreationDate,
+                    CreationHourZone     = item.CreationHourZone,
+                    Avatar               = item.Avatar,
+                    Views                = item.Views,
+                    Username             = item.Username
                 };
 
                 arrayPeople[i] = temp;
+                i++;
             }
-
             return arrayPeople;
         }
+        /* Buscar Investigadores Privados */
 
         /* Obtiene todos los perfiles creados por un Usuario */
         public M.Person[] Get(long idUser)

@@ -9,6 +9,7 @@ namespace EIGApp.Models
         public string ProfesionDescription { get; set; }
         public string Email { get; set; }
         public string Phone { get; set; }
+        public string City { get; set; }
         public float Latitude { get; set; }
         public float Longitude { get; set; }
         public bool Ciprin { get; set; }

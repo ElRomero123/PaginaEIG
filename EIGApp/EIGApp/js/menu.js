@@ -34,92 +34,70 @@ function initUser()
 
 function search()
 {
-    if(navigator.onLine)
-    {
-        $('#listResults').empty();
-        $('#listResults').hide();
-        $('#bannerState').css('display','block');
-        $('#bannerState').css('background','yellow');
-        $('#bannerState').css('color','black');
-        $('#bannerState').text('Buscando ...');
-    
-        var criterio = document.getElementById('criterio').value;
+    $('#listResults').empty();
+    $('#listResults').hide();
+    $('#bannerState').css('display','block');
+    $('#bannerState').css('background','yellow');
+    $('#bannerState').css('color','black');
+    $('#bannerState').text('Buscando ...');
 
-        $.ajax
-        (
+    var criterio = document.getElementById('criterio').value;
+
+    $.ajax
+    (
+        {
+            url: '../api/person/?criterio=' + criterio,
+            type: 'GET',
+            contentType: "application/json;charset=utf-8",
+
+            success:
+            function (data) 
             {
-                url: '../api/person/?criterio=' + criterio,
-                type: 'GET',
-                contentType: "application/json;charset=utf-8",
-
-                success:
-                function (data) 
+                if(data.length > 0)
                 {
-                    if(data.length > 0)
+                    var chain = new StringBuilder();
+
+                    for(var i = 0; i < data.length; i++)
                     {
-                        var cadena = "";
-
-                        startMap();
-
-                        for(var i = 0; i < data.length; i++)
+                        if(data[i].Ciprin)
                         {
-                            if(data[i].Ciprin)
-                            {
-                                cadena += "<div class='result'> <div class='avatar' id='" + i + "'></div> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].ProfesionDescription + "</p> <p class='pf3'>" + data[i].Email + "</p> <p class='pf4'>" + data[i].Phone + "</p> <p class='pf4'>Creado el " + data[i].CreationDate + ' ' + data[i].CreationHourZone + ' por ' + data[i].Username +  "</p> <button id='" + data[i].Id + "' class='moreResult' onclick='showMedia(this)'>Multimedia</button> <p class='c'>Afiliado a CIPRIN</p> </div> </div>";
-                            }
-
-                            else
-                            {
-                                cadena += "<div class='result'> <div class='avatar' id='" + i + "'></div> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].ProfesionDescription + "</p> <p class='pf3'>" + data[i].Email + "</p> <p class='pf4'>" + data[i].Phone + "</p> <p class='pf4'>Creado el " + data[i].CreationDate + ' ' + data[i].CreationHourZone + ' por ' + data[i].Username +  "</p> <button id='" + data[i].Id + "' class='moreResult' onclick='showMedia(this)'>Multimedia</button> </div> </div>";
-                            }
-                        }
-                        
-                        $('#listResults').append(cadena);
-                        $('#listResults').css('display','flex');
-
-                        for(var i = 0; i < data.length; i++)
-                        {
-                            avatar = data[i].Avatar;
-                            document.getElementById(i).style.background = 'url("' + avatar + '")';
-                            /*
-                            var marker = new google.maps.Marker({position: {lat: data[i].Latitude, lng: data[i].Longitude}});
-                            marker.setMap(mapa);
-                            */
+                            chain.append("<div class='result'> <div class='avatar' id='" + i + "'></div> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].ProfesionDescription + "</p> <p class='pf2'>" + data[i].Email + "</p> <p class='pf2'>" + data[i].Phone + "</p> <p class='pf2'>Creado el " + data[i].CreationDate + ' por ' + data[i].Username +  "</p> <p class='pf4'>" + data[i].CreationHourZone +  "</p> <button id='" + data[i].Id + "' class='moreResult' onclick='showMedia(this)'>Multimedia</button> <p style='background:green; color:white; padding: 4px;'>Afiliado a CIPRIN</p> <p class='pf3'>" + data[i].Views +  " visitas</p> </div> </div>");
                         }
 
-                        $('#bannerState').css('background','green');
-                        $('#bannerState').css('color','white');
-                        $('#bannerState').text(i + ' Resultados!');
+                        else
+                        {
+                            chain.append("<div class='result'> <div class='avatar' id='" + i + "'></div> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].ProfesionDescription + "</p> <p class='pf2'>" + data[i].Email + "</p> <p class='pf2'>" + data[i].Phone + "</p> <p class='pf2'>Creado el " + data[i].CreationDate + ' por ' + data[i].Username +  "</p> <p class='pf4'>" + data[i].CreationHourZone +  "</p> <button id='" + data[i].Id + "' class='moreResult' onclick='showMedia(this)'>Multimedia</button> <p style='background:green; color:white; padding: 4px;'>Afiliado a CIPRIN</p> <p class='pf3'>" + data[i].Views +  " visitas</p> </div> </div>");
+                        }
                     }
+                
+                    $('#listResults').css('display','flex');
+                    $('#listResults').append(chain.toString());
+                    chain.clear();
 
-                    else
+                    for(var i = 0; i < data.length; i++)
                     {
-                        $('#bannerState').css('background','red');
-                        $('#bannerState').css('color','white');
-                        $('#bannerState').text('Sin resultados!');
-
-                        startMap();
-                        hideMap();
+                        document.getElementById(i).style.background = 'url("' + data[i].Avatar + '")';
                     }
+
+                    $('#bannerState').css('background','green');
+                    $('#bannerState').css('color','white');
+                    $('#bannerState').text(i + ' Resultados!');
+                }
+
+                else
+                {
+                    $('#bannerState').css('background','red');
+                    $('#bannerState').css('color','white');
+                    $('#bannerState').text('Sin resultados!');
                 }
             }
-        );
-    }
-
-    else
-    {
-        $('#bannerState').css('background','red');
-        $('#bannerState').css('color','white');
-        $('#bannerState').text('Sin internet!');
-    }
+        }
+    );
 }
 
 function searchByEnter(e)
 {
-    if (e.keyCode === 13 && !e.shiftKey) 
-    {
-        search();
-    }
+    if (e.keyCode === 13 && !e.shiftKey){search();}
 }
 
 function to(num)
@@ -162,50 +140,6 @@ function to(num)
     }
 }
 
-
-function startMap()
-{
-    var lat, log;
-    gmaps = document.getElementById('maps');
-    gmaps.style = 'display: block';
-    navigator.geolocation.getCurrentPosition(function(position)
-    { 
-        lat = position.coords.latitude;
-        log = position.coords.longitude;
-        mapa = new google.maps.Map(gmaps, {zoom: 15, center: {lat: lat, lng: log}});
-        
-    });
-
-    for(var i = 0; i < 10; i++)
-    {
-        var marker = new google.maps.Marker({position: {lat: lat + i/100, lng: log + i/100}});
-        alert(i);
-        marker.setMap(mapa);
-    }
-}
-
-/*
-function startMap() {
-    var myLatLng = {lat: -25.363, lng: 131.044};
-  
-    var map = new google.maps.Map(document.getElementById('maps'), {
-      zoom: 4,
-      center: myLatLng
-    });
-  
-    var marker = new google.maps.Marker({
-      position: myLatLng,
-      map: map,
-      title: 'Hello World!'
-    });
-  }
-*/
-
-function hideMap()
-{
-    gmaps.style = 'display: none';
-}
-
 function showMedia(e)
 {
     localStorage.setItem('IdPerson', e.id);
@@ -229,3 +163,70 @@ function social(op)
         window.open(g, '_blank');
     }
 }
+
+function StringBuilder(value) 
+{
+    this.strings = new Array();
+    this.append(value);
+}
+
+StringBuilder.prototype.append = function (value) 
+{
+    if (value) 
+    {
+        this.strings.push(value);
+    }
+}
+
+StringBuilder.prototype.clear = function () 
+{
+    this.strings.length = 0;
+}
+
+StringBuilder.prototype.toString = function () 
+{
+    return this.strings.join("");
+}
+
+/*
+function startMap()
+{
+    var lat, log;
+    gmaps = document.getElementById('maps');
+    gmaps.style = 'display: block';
+    navigator.geolocation.getCurrentPosition(function(position)
+    { 
+        lat = position.coords.latitude;
+        log = position.coords.longitude;
+        mapa = new google.maps.Map(gmaps, {zoom: 15, center: {lat: lat, lng: log}});
+        
+    });
+
+    for(var i = 0; i < 10; i++)
+    {
+        var marker = new google.maps.Marker({position: {lat: lat + i/100, lng: log + i/100}});
+        alert(i);
+        marker.setMap(mapa);
+    }
+}
+
+function startMap() {
+    var myLatLng = {lat: -25.363, lng: 131.044};
+  
+    var map = new google.maps.Map(document.getElementById('maps'), {
+      zoom: 4,
+      center: myLatLng
+    });
+  
+    var marker = new google.maps.Marker({
+      position: myLatLng,
+      map: map,
+      title: 'Hello World!'
+    });
+  }
+
+  function hideMap()
+{
+    gmaps.style = 'display: none';
+}
+*/
