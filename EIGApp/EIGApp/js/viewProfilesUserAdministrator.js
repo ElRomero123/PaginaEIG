@@ -55,12 +55,12 @@ function loadProfilesUser()
                             {
                                 if(data[i].Type)
                                 {
-                                    chain.append("<div class='result'> <div class='avatar' id='" + i + "'></div> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].ProfesionDescription + "</p> <p class='pf2'>" + data[i].Email + "</p> <p class='pf2'>" + data[i].Phone + "</p> <p class='pf2'> <p class='pf2'>Ciprin: " + data[i].Ciprin + "</p> <p class='pf2'>" + 'Unido el ' + data[i].CreationDate + "</p> <p class='pf4'>" + data[i].CreationHourZone + "</p> <button style='background:green; color:white' class='moreResult' id='" + data[i].Id + "' onclick='changeOP(this)'>Desactivar</button> <p class='pf2' style='background:blue; padding:3px; color:white;'>Profesional Afín</p> <p class='pf2'>" + data[i].Views + " visitas</p> </div> </div>");
+                                    chain.append("<div class='result'> <div class='avatar' id='OPA" + data[i].Id + "'></div> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].ProfesionDescription + "</p> <p class='pf2'>" + data[i].Email + "</p> <p class='pf2'>" + data[i].Phone + "</p> <p class='pf2'> <p class='pf2'>Ciprin: " + data[i].Ciprin + "</p> <p class='pf2'>" + 'Unido el ' + data[i].CreationDate + "</p> <p class='pf4'>" + data[i].CreationHourZone + "</p> <button style='background:green; color:white' class='moreResult' id='OP" + data[i].Id + "' onclick='changeOP(this)'>Desactivar</button> <p class='pf2' style='background:blue; padding:3px; color:white;'>Profesional Afín</p> <p class='pf2'>" + data[i].Views + " visitas</p> </div> </div>");
                                 }
 
                                 else
                                 {
-                                    chain.append("<div class='result'> <div class='avatar' id='" + i + "'></div> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].ProfesionDescription + "</p> <p class='pf2'>" + data[i].Email + "</p> <p class='pf2'>" + data[i].Phone + "</p> <p class='pf2'> <p class='pf2'>Ciprin: " + data[i].Ciprin + "</p> <p class='pf2'>" + 'Unido el ' + data[i].CreationDate + "</p> <p class='pf4'>" + data[i].CreationHourZone + "</p> <button style='background:green; color:white' class='moreResult' id='" + data[i].Id + "' onclick='changeP(this)'>Desactivar</button> <p class='pf2' style='background:green; padding:3px; color:white;'>Investigador Privado</p> <p class='pf2'>" + data[i].Views + " visitas</p> </div> </div>");
+                                    chain.append("<div class='result'> <div class='avatar' id='PA" + data[i].Id + "'></div> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].ProfesionDescription + "</p> <p class='pf2'>" + data[i].Email + "</p> <p class='pf2'>" + data[i].Phone + "</p> <p class='pf2'> <p class='pf2'>Ciprin: " + data[i].Ciprin + "</p> <p class='pf2'>" + 'Unido el ' + data[i].CreationDate + "</p> <p class='pf4'>" + data[i].CreationHourZone + "</p> <button style='background:green; color:white' class='moreResult' id='P" + data[i].Id + "' onclick='changeP(this)'>Desactivar</button> <p class='pf2' style='background:green; padding:3px; color:white;'>Investigador Privado</p> <p class='pf2'>" + data[i].Views + " visitas</p> </div> </div>");
                                 }
                             }
 
@@ -68,12 +68,12 @@ function loadProfilesUser()
                             {
                                 if(data[i].Type)
                                 {
-                                    chain.append("<div class='result'> <div class='avatar' id='" + i + "'></div> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].ProfesionDescription + "</p> <p class='pf2'>" + data[i].Email + "</p> <p class='pf2'>" + data[i].Phone + "</p> <p class='pf2'> <p class='pf2'>Ciprin: " + data[i].Ciprin + "</p> <p class='pf2'>" +  'Unido el ' + data[i].CreationDate + "</p> <p class='pf4'>" + data[i].CreationHourZone + "</p> <button style='background:red; color:white' class='moreResult' id='" + data[i].Id + "' onclick='changeOP(this)'>Activar</button> <p class='pf2' style='background:blue; padding:3px; color:white;'>Profesional Afín</p> <p class='pf2''>" + data[i].Views + " visitas</p> </div> </div>");
+                                    chain.append("<div class='result'> <div class='avatar' id='OPA" + data[i].Id + "'></div> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].ProfesionDescription + "</p> <p class='pf2'>" + data[i].Email + "</p> <p class='pf2'>" + data[i].Phone + "</p> <p class='pf2'> <p class='pf2'>Ciprin: " + data[i].Ciprin + "</p> <p class='pf2'>" +  'Unido el ' + data[i].CreationDate + "</p> <p class='pf4'>" + data[i].CreationHourZone + "</p> <button style='background:red; color:white' class='moreResult' id='OP" + data[i].Id + "' onclick='changeOP(this)'>Activar</button> <p class='pf2' style='background:blue; padding:3px; color:white;'>Profesional Afín</p> <p class='pf2''>" + data[i].Views + " visitas</p> </div> </div>");
                                 }
 
                                 else
                                 {
-                                    chain.append("<div class='result'> <div class='avatar' id='" + i + "'></div> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].ProfesionDescription + "</p> <p class='pf2'>" + data[i].Email + "</p> <p class='pf2'>" + data[i].Phone + "</p> <p class='pf2'> <p class='pf2'>Ciprin: " + data[i].Ciprin + "</p> <p class='pf2'>" +  'Unido el ' + data[i].CreationDate + "</p> <p class='pf4'>" + data[i].CreationHourZone + "</p> <button style='background:red; color:white' class='moreResult' id='" + data[i].Id + "' onclick='changeP(this)'>Activar</button> <p class='pf2' style='background:green; padding:3px; color:white;'>Investigador Privado</p> <p class='pf2'>" + data[i].Views + " visitas</p> </div> </div>");
+                                    chain.append("<div class='result'> <div class='avatar' id='PA" + data[i].Id + "'></div> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].ProfesionDescription + "</p> <p class='pf2'>" + data[i].Email + "</p> <p class='pf2'>" + data[i].Phone + "</p> <p class='pf2'> <p class='pf2'>Ciprin: " + data[i].Ciprin + "</p> <p class='pf2'>" +  'Unido el ' + data[i].CreationDate + "</p> <p class='pf4'>" + data[i].CreationHourZone + "</p> <button style='background:red; color:white' class='moreResult' id='P" + data[i].Id + "' onclick='changeP(this)'>Activar</button> <p class='pf2' style='background:green; padding:3px; color:white;'>Investigador Privado</p> <p class='pf2'>" + data[i].Views + " visitas</p> </div> </div>");
                                 }
                             }
                         }
@@ -88,7 +88,15 @@ function loadProfilesUser()
 
                         for(var i = 0; i < data.length; i++)
                         {
-                            document.getElementById(i).style.background = 'url("' + data[i].Avatar + '")';
+                            if(data[i].Type)
+                            {
+                                document.getElementById('OPA' + data[i].Id).style.background = 'url("' + data[i].Avatar + '")';
+                            }
+                            else
+                            {
+                                document.getElementById('PA' + data[i].Id).style.background = 'url("' + data[i].Avatar + '")';
+                            }
+                            
                         }
                     }
 
@@ -120,7 +128,7 @@ function changeP(e)
     $.ajax
     (
         {
-            url: '../api/person?idPerson=' + e.id,
+            url: '../api/person?idPerson=' + e.id.substr(1,2),
             type: 'POST',
             contentType: "application/json;charset=utf-8",
 
@@ -154,7 +162,7 @@ function changeOP(e)
     $.ajax
     (
         {
-            url: '../api/otherPerson?idOtherPerson=' + e.id,
+            url: '../api/otherPerson?idOtherPerson=' + e.id.substr(2,3),
             type: 'POST',
             contentType: "application/json;charset=utf-8",
 

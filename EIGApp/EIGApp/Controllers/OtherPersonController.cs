@@ -56,6 +56,7 @@ namespace EIGApp.Controllers
                 ProfesionDescription = otraPersona.ProfesionDescription,
                 Email                = otraPersona.Email,
                 Phone                = otraPersona.Phone,
+                City                 = otraPersona.City,
                 Latitude             = otraPersona.Latitude,
                 Longitude            = otraPersona.Longitude,
                 Ciprin               = otraPersona.Ciprin,

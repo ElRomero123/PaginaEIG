@@ -121,6 +121,7 @@ namespace EIGApp.Controllers
                 ProfesionDescription = persona.ProfesionDescription,
                 Email                = persona.Email,
                 Phone                = persona.Phone,
+                City                 = persona.City,
                 Latitude             = persona.Latitude,
                 Longitude            = persona.Longitude,
                 Ciprin               = persona.Ciprin,
