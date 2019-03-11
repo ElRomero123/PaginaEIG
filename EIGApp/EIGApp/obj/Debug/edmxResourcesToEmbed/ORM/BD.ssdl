@@ -38,6 +38,7 @@
     <Property Name="Name" Type="nvarchar" MaxLength="255" Nullable="false" />
     <Property Name="DescriptionCase" Type="nvarchar" MaxLength="255" Nullable="false" />
     <Property Name="PostedDate" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="PostedHourZone" Type="nvarchar" MaxLength="255" Nullable="false" />
     <Property Name="IdUser" Type="bigint" Nullable="false" />
   </EntityType>
   <EntityType Name="Donation">
@@ -47,6 +48,7 @@
     <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Amount" Type="bigint" Nullable="false" />
     <Property Name="Date" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="HourZone" Type="nvarchar" MaxLength="255" Nullable="false" />
     <Property Name="IdUser" Type="bigint" Nullable="false" />
   </EntityType>
   <EntityType Name="JobApplication">
@@ -59,6 +61,7 @@
     <Property Name="DescriptionApplication" Type="nvarchar" MaxLength="255" Nullable="false" />
     <Property Name="Age" Type="int" Nullable="false" />
     <Property Name="PostedDate" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="PostedHourZone" Type="nvarchar" MaxLength="255" Nullable="false" />
     <Property Name="IdUser" Type="bigint" Nullable="false" />
   </EntityType>
   <EntityType Name="MediaBusiness">
@@ -71,6 +74,28 @@
     <Property Name="LoadDate" Type="nvarchar" MaxLength="255" Nullable="false" />
     <Property Name="LoadHourZone" Type="nvarchar" MaxLength="255" Nullable="false" />
     <Property Name="IdBusiness" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MediaCase">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FileName" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="DownloadLink" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="LoadDate" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="LoadHourZone" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="IdCase" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MediaJobApplication">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FileName" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="DownloadLink" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="LoadDate" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="LoadHourZone" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="IdJobApplication" Type="bigint" Nullable="false" />
   </EntityType>
   <EntityType Name="MediaOtherPerson">
     <Key>
@@ -104,26 +129,6 @@
     <Property Name="LoadDate" Type="nvarchar" MaxLength="255" Nullable="false" />
     <Property Name="LoadHourZone" Type="nvarchar" MaxLength="255" Nullable="false" />
     <Property Name="IdProduct" Type="bigint" Nullable="false" />
-  </EntityType>
-  <EntityType Name="MultimediaCase">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="FileName" Type="nvarchar" MaxLength="255" Nullable="false" />
-    <Property Name="DownloadLink" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="LoadDate" Type="nvarchar" MaxLength="255" Nullable="false" />
-    <Property Name="IdCase" Type="bigint" Nullable="false" />
-  </EntityType>
-  <EntityType Name="MultimediaJobApplication">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="FileName" Type="nvarchar" MaxLength="255" Nullable="false" />
-    <Property Name="DownloadLink" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="LoadDate" Type="nvarchar" MaxLength="255" Nullable="false" />
-    <Property Name="IdJobApplication" Type="bigint" Nullable="false" />
   </EntityType>
   <EntityType Name="OtherPerson">
     <Key>
@@ -212,6 +217,7 @@
     <Property Name="Name" Type="nvarchar" MaxLength="255" Nullable="false" />
     <Property Name="Description" Type="nvarchar" MaxLength="255" Nullable="false" />
     <Property Name="PostedDate" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="PostedHourZone" Type="nvarchar" MaxLength="255" Nullable="false" />
     <Property Name="IdUser" Type="bigint" Nullable="false" />
   </EntityType>
   <EntityType Name="sysdiagrams">
@@ -354,12 +360,12 @@
     <End Role="Case" Type="Self.Case" Multiplicity="1">
       <OnDelete Action="Cascade" />
     </End>
-    <End Role="MultimediaCase" Type="Self.MultimediaCase" Multiplicity="*" />
+    <End Role="MediaCase" Type="Self.MediaCase" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Case">
         <PropertyRef Name="Id" />
       </Principal>
-      <Dependent Role="MultimediaCase">
+      <Dependent Role="MediaCase">
         <PropertyRef Name="IdCase" />
       </Dependent>
     </ReferentialConstraint>
@@ -368,12 +374,12 @@
     <End Role="JobApplication" Type="Self.JobApplication" Multiplicity="1">
       <OnDelete Action="Cascade" />
     </End>
-    <End Role="MultimediaJobApplication" Type="Self.MultimediaJobApplication" Multiplicity="*" />
+    <End Role="MediaJobApplication" Type="Self.MediaJobApplication" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="JobApplication">
         <PropertyRef Name="Id" />
       </Principal>
-      <Dependent Role="MultimediaJobApplication">
+      <Dependent Role="MediaJobApplication">
         <PropertyRef Name="IdJobApplication" />
       </Dependent>
     </ReferentialConstraint>
@@ -455,11 +461,11 @@
     <EntitySet Name="Donation" EntityType="Self.Donation" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="JobApplication" EntityType="Self.JobApplication" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="MediaBusiness" EntityType="Self.MediaBusiness" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MediaCase" EntityType="Self.MediaCase" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MediaJobApplication" EntityType="Self.MediaJobApplication" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="MediaOtherPerson" EntityType="Self.MediaOtherPerson" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="MediaPerson" EntityType="Self.MediaPerson" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="MediaProduct" EntityType="Self.MediaProduct" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="MultimediaCase" EntityType="Self.MultimediaCase" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="MultimediaJobApplication" EntityType="Self.MultimediaJobApplication" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="OtherPerson" EntityType="Self.OtherPerson" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Package" EntityType="Self.Package" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Person" EntityType="Self.Person" Schema="dbo" store:Type="Tables" />
@@ -501,11 +507,11 @@
     </AssociationSet>
     <AssociationSet Name="FK_MultimediaCase_Case" Association="Self.FK_MultimediaCase_Case">
       <End Role="Case" EntitySet="Case" />
-      <End Role="MultimediaCase" EntitySet="MultimediaCase" />
+      <End Role="MediaCase" EntitySet="MediaCase" />
     </AssociationSet>
     <AssociationSet Name="FK_MultimediaJobApplication_JobApplication" Association="Self.FK_MultimediaJobApplication_JobApplication">
       <End Role="JobApplication" EntitySet="JobApplication" />
-      <End Role="MultimediaJobApplication" EntitySet="MultimediaJobApplication" />
+      <End Role="MediaJobApplication" EntitySet="MediaJobApplication" />
     </AssociationSet>
     <AssociationSet Name="FK_OtherPerson_User" Association="Self.FK_OtherPerson_User">
       <End Role="User" EntitySet="User" />

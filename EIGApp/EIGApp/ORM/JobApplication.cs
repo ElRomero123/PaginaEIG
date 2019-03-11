@@ -17,7 +17,7 @@ namespace EIGApp.ORM
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public JobApplication()
         {
-            this.MultimediaJobApplications = new HashSet<MultimediaJobApplication>();
+            this.MediaJobApplications = new HashSet<MediaJobApplication>();
         }
     
         public long Id { get; set; }
@@ -26,10 +26,11 @@ namespace EIGApp.ORM
         public string DescriptionApplication { get; set; }
         public int Age { get; set; }
         public string PostedDate { get; set; }
+        public string PostedHourZone { get; set; }
         public long IdUser { get; set; }
     
         public virtual User User { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<MultimediaJobApplication> MultimediaJobApplications { get; set; }
+        public virtual ICollection<MediaJobApplication> MediaJobApplications { get; set; }
     }
 }

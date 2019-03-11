@@ -321,6 +321,12 @@
     <Compile Include="ORM\MediaBusiness.cs">
       <DependentUpon>BD.tt</DependentUpon>
     </Compile>
+    <Compile Include="ORM\MediaCase.cs">
+      <DependentUpon>BD.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ORM\MediaJobApplication.cs">
+      <DependentUpon>BD.tt</DependentUpon>
+    </Compile>
     <Compile Include="ORM\MediaOtherPerson.cs">
       <DependentUpon>BD.tt</DependentUpon>
     </Compile>
@@ -328,12 +334,6 @@
       <DependentUpon>BD.tt</DependentUpon>
     </Compile>
     <Compile Include="ORM\MediaProduct.cs">
-      <DependentUpon>BD.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ORM\MultimediaCase.cs">
-      <DependentUpon>BD.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ORM\MultimediaJobApplication.cs">
       <DependentUpon>BD.tt</DependentUpon>
     </Compile>
     <Compile Include="ORM\OtherPerson.cs">

@@ -17,6 +17,7 @@ namespace EIGApp.ORM
         public long Id { get; set; }
         public long Amount { get; set; }
         public string Date { get; set; }
+        public string HourZone { get; set; }
         public long IdUser { get; set; }
     
         public virtual User User { get; set; }

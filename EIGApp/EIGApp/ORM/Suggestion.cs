@@ -18,6 +18,7 @@ namespace EIGApp.ORM
         public string Name { get; set; }
         public string Description { get; set; }
         public string PostedDate { get; set; }
+        public string PostedHourZone { get; set; }
         public long IdUser { get; set; }
     
         public virtual User User { get; set; }

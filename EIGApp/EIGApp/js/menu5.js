@@ -37,17 +37,17 @@ function to(num)
     }
 }
 
-function createC()
+function createCase()
 {
+    var caso =
+    {
+        name: $('#cCase').val(),
+        descriptionCase: $('#cDescription').val(),
+        idUser: localStorage.getItem('User')
+    };
+
     if(validateText())
     {
-        var caso =
-        {
-            name: $('#campoCase').val(),
-            descriptionCase: $('#campoDescription').val(),
-            idUser: localStorage.getItem('User')
-        };
-    
         $('#createCase').css('background','yellow');
         $('#createCase').css('border','2 px solid yellow');
         $('#createCase').css('color','black');

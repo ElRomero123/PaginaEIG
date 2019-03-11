@@ -17,17 +17,18 @@ namespace EIGApp.ORM
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Case()
         {
-            this.MultimediaCases = new HashSet<MultimediaCase>();
+            this.MediaCases = new HashSet<MediaCase>();
         }
     
         public long Id { get; set; }
         public string Name { get; set; }
         public string DescriptionCase { get; set; }
         public string PostedDate { get; set; }
+        public string PostedHourZone { get; set; }
         public long IdUser { get; set; }
     
         public virtual User User { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<MultimediaCase> MultimediaCases { get; set; }
+        public virtual ICollection<MediaCase> MediaCases { get; set; }
     }
 }

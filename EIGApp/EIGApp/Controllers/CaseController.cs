@@ -83,26 +83,17 @@ namespace EIGApp.Controllers
 
         public bool Post(M.Case caso)
         {
-            bool state;
-
-            try
+            O.Case BDCaso = new O.Case
             {
-                #pragma warning disable CS0618
-                AutoMapper.Mapper.CreateMap<M.Case, O.Case>();
-                #pragma warning restore CS0618
-                O.Case BDCase = AutoMapper.Mapper.Map<O.Case>(caso);
-                BDCase.PostedDate = System.DateTime.Now.ToString("g");
-                BD.Cases.Add(BDCase);
-                BD.SaveChanges();
-                state = true;
-            }
-
-            catch
-            {
-                state = false;
-            }
-
-            return state;
+                Name = caso.Name,
+                DescriptionCase = caso.DescriptionCase,
+                PostedDate = System.DateTime.Now.ToString("g"),
+                PostedHourZone = System.TimeZoneInfo.Local.ToString(),
+                IdUser = caso.IdUser
+            };
+            BD.Cases.Add(BDCaso);
+            BD.SaveChanges();
+            return true;
         }
     }
 }

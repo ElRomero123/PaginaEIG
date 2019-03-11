@@ -40,6 +40,7 @@
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="DescriptionCase" ColumnName="DescriptionCase" />
           <ScalarProperty Name="PostedDate" ColumnName="PostedDate" />
+          <ScalarProperty Name="PostedHourZone" ColumnName="PostedHourZone" />
           <ScalarProperty Name="IdUser" ColumnName="IdUser" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -50,6 +51,7 @@
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Amount" ColumnName="Amount" />
           <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="HourZone" ColumnName="HourZone" />
           <ScalarProperty Name="IdUser" ColumnName="IdUser" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -63,6 +65,7 @@
           <ScalarProperty Name="DescriptionApplication" ColumnName="DescriptionApplication" />
           <ScalarProperty Name="Age" ColumnName="Age" />
           <ScalarProperty Name="PostedDate" ColumnName="PostedDate" />
+          <ScalarProperty Name="PostedHourZone" ColumnName="PostedHourZone" />
           <ScalarProperty Name="IdUser" ColumnName="IdUser" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -76,6 +79,30 @@
           <ScalarProperty Name="LoadDate" ColumnName="LoadDate" />
           <ScalarProperty Name="LoadHourZone" ColumnName="LoadHourZone" />
           <ScalarProperty Name="IdBusiness" ColumnName="IdBusiness" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MediaCases">
+      <EntityTypeMapping TypeName="BDEIGModel.MediaCase">
+        <MappingFragment StoreEntitySet="MediaCase">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="FileName" ColumnName="FileName" />
+          <ScalarProperty Name="DownloadLink" ColumnName="DownloadLink" />
+          <ScalarProperty Name="LoadDate" ColumnName="LoadDate" />
+          <ScalarProperty Name="LoadHourZone" ColumnName="LoadHourZone" />
+          <ScalarProperty Name="IdCase" ColumnName="IdCase" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MediaJobApplications">
+      <EntityTypeMapping TypeName="BDEIGModel.MediaJobApplication">
+        <MappingFragment StoreEntitySet="MediaJobApplication">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="FileName" ColumnName="FileName" />
+          <ScalarProperty Name="DownloadLink" ColumnName="DownloadLink" />
+          <ScalarProperty Name="LoadDate" ColumnName="LoadDate" />
+          <ScalarProperty Name="LoadHourZone" ColumnName="LoadHourZone" />
+          <ScalarProperty Name="IdJobApplication" ColumnName="IdJobApplication" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -112,28 +139,6 @@
           <ScalarProperty Name="LoadDate" ColumnName="LoadDate" />
           <ScalarProperty Name="LoadHourZone" ColumnName="LoadHourZone" />
           <ScalarProperty Name="IdProduct" ColumnName="IdProduct" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="MultimediaCases">
-      <EntityTypeMapping TypeName="BDEIGModel.MultimediaCase">
-        <MappingFragment StoreEntitySet="MultimediaCase">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="FileName" ColumnName="FileName" />
-          <ScalarProperty Name="DownloadLink" ColumnName="DownloadLink" />
-          <ScalarProperty Name="LoadDate" ColumnName="LoadDate" />
-          <ScalarProperty Name="IdCase" ColumnName="IdCase" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="MultimediaJobApplications">
-      <EntityTypeMapping TypeName="BDEIGModel.MultimediaJobApplication">
-        <MappingFragment StoreEntitySet="MultimediaJobApplication">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="FileName" ColumnName="FileName" />
-          <ScalarProperty Name="DownloadLink" ColumnName="DownloadLink" />
-          <ScalarProperty Name="LoadDate" ColumnName="LoadDate" />
-          <ScalarProperty Name="IdJobApplication" ColumnName="IdJobApplication" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -227,6 +232,7 @@
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="Description" ColumnName="Description" />
           <ScalarProperty Name="PostedDate" ColumnName="PostedDate" />
+          <ScalarProperty Name="PostedHourZone" ColumnName="PostedHourZone" />
           <ScalarProperty Name="IdUser" ColumnName="IdUser" />
         </MappingFragment>
       </EntityTypeMapping>

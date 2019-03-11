@@ -8,7 +8,7 @@
         public string DescriptionApplication { get; set; }
         public int Age { get; set; }
         public string PostedDate { get; set; }
-        public string Username { get; set; }
+        public string PostedHourZone { get; set; }
         public long IdUser { get; set; }
     }
 }
