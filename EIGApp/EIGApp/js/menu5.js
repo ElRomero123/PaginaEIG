@@ -1,8 +1,9 @@
 window.onload = initUser;
-var f = 'https://www.facebook.com/Elite-Intelligence-Group-260263604734008/';
-var t = 'https://twitter.com/EliteIntellige1?lang=es';
-var y = 'https://www.youtube.com/channel/UCOvdAjzfv4WlwxKc1fi5JYQ';
-var g = 'https://plus.google.com/u/0/109910140252090488175';
+var f,t,y,g;
+f = 'https://www.facebook.com/Elite-Intelligence-Group-260263604734008/';
+t = 'https://twitter.com/EliteIntellige1?lang=es';
+y = 'https://www.youtube.com/channel/UCOvdAjzfv4WlwxKc1fi5JYQ';
+g = 'https://plus.google.com/u/0/109910140252090488175';
 
 function initUser()
 {
@@ -66,7 +67,10 @@ function createCase()
                 {
                     if (data)
                     {
-                        location.href = 'manageCases.html';    
+                        $('#createCase').css('background','darkgreen');
+                        $('#createCase').css('border','2px solid darkgreen');
+                        $('#createCase').css('color','white');
+                        $('#createCase').text('Caso registrado!');
                     }
     
                     else
