@@ -8,8 +8,7 @@ namespace EIGApp.Controllers
     public class MediaCaseController : ApiController
     {
         private O.BDEIGEntities BD = new O.BDEIGEntities();
-
-        /* Agrega un archivo de un Caso */
+        /* Agrega un archivo para un Caso*/
         public long Post(M.MediaCase mediaCase)
         {
             O.MediaCase BDMediaCase = new O.MediaCase
@@ -20,11 +19,11 @@ namespace EIGApp.Controllers
                 LoadHourZone = System.TimeZoneInfo.Local.ToString(),
                 IdCase       = mediaCase.IdCase
             };
-
             BD.MediaCases.Add(BDMediaCase);
             BD.SaveChanges();
             return BDMediaCase.Id;
         }
+        /* Agrega un archivo para un Caso*/
 
         /* Elimina un archivo del Caso */
         public string Post(long idMC)
