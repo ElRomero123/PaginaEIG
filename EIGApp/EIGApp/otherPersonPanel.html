@@ -28,10 +28,12 @@
             </div>
 
             <div>
-                <p>Nombre completo (8 - 50 caracteres)</p>
+                <p><b>Paso 1 </b>Nombre completo (8 - 50 caracteres)</p>
                 <input type='text' maxlength='50' id='cName'>
-
-                <p>Nombre de su profesión específica (8 - 50 caracteres)</p>
+                
+                <p><b>Paso 2 </b>Información de Profesión</p>
+                
+                <p><b>-> </b>Nombre de su profesión específica (8 - 50 caracteres)</p>
                 <input list='listKind' maxlength='50' id='cProfesion'>
 
                 <datalist id='listKind'>
@@ -40,15 +42,15 @@
                     <option value='Abogado/a'>
                 </datalist>
 
-                <p>Describa a lo que usted se dedica brevemente (8 - 100 caracteres)</p>
+                <p><b>-> </b>Describa a lo que usted se dedica brevemente (8 - 100 caracteres)</p>
                 <input type='text' maxlength="100" id='cDescription'>
 
-                <p>Correo electrónico/Email (8 - 80 caracteres)</p>
+                <p><b>Paso 3 </b>Correo electrónico/Email (8 - 80 caracteres)</p>
                 <input type='text' maxlength='80' id='cEmail'>
 
-                <p>Número telefónico Celular (Mínimo 5 digitos)</p>
+                <p><b>Paso 4 </b>Número telefónico Celular (Mínimo 5 digitos)</p>
                 <div id='infoPhone'>
-                        <p>Indicativo</p>
+                        <p><b>-> </b>Indicativo</p>
                         <input list='countries' id='cIndex'>
         
                         <datalist id='countries'>
@@ -289,21 +291,23 @@
                             <option value='+263 Zimbabue'>
                         </datalist>
         
-                        <p>Número</p>
+                        <p><b>-> </b>Número</p>
                         <input type='number' max='9999999999999999999999999' id='cPhone'>
                 </div>
 
-                <p>Nombre de la ciudad (3 a 100 caracteres)</p>
+                <p><b>Paso 5 </b>Geolocalización</p>
+                <p><b>-> </b>Nombre de la ciudad (3 a 100 caracteres)</p>
                 <input type='text' maxlength="100" id='cCity'>
 
-                <p>Por favor, indique en el mapa ¿Donde se encuentra ubicado? <p>
-                <p>Ctrl + Scroll UP Para Aumentar Mapa</p>
-                <p>Ctrl + Scroll Down Para Reducir Mapa</p>
+                <p><b>-> </b>Por favor, indique en el mapa ¿Donde se encuentra ubicado? <p>
+                <p><b>- </b>Ctrl + Scroll UP Para Aumentar Mapa</p>
+                <p><b>- </b>Ctrl + Scroll Down Para Reducir Mapa</p>
                 
                 <div id='maps2'>
                 </div>
 
-                <p>Obten una imágen y súbela a la plataforma</p>
+                <p><b>Paso 6 </b>Avatar de Identificación</p>
+                <p><b>-> </b>Obten una imágen y súbela a la plataforma</p>
                 
                 <div>
                     <input type='file' id='otherPersonAvatar' class='fileBrowser' accept=".jpg,.png">

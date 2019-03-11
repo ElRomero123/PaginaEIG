@@ -28,18 +28,18 @@
             </div>
 
             <div>
-                <p>Nombre completo (8 a 50 caracteres)</p>
+                <p><b>Paso 1 </b>Nombre completo (8 a 50 caracteres)</p>
                 <input type='text' maxlength='50' id='cName'>
 
-                <p>Describa a lo que usted se dedica brevemente (20 a 100 caracteres)</p>
+                <p><b>Paso 2 </b>Describa a lo que usted se dedica brevemente (20 a 100 caracteres)</p>
                 <input type='text' maxlength="100" id='cDescription'>
 
-                <p>Correo electrónico/Email (8 a 80 caracteres)</p>
+                <p><b>Paso 3 </b>Correo electrónico/Email (8 a 80 caracteres)</p>
                 <input type='text' maxlength="80" id='cEmail'>
 
-                <p>Número telefónico Celular (Mínimo 5 digitos)</p>
+                <p><b>Paso 4 </b>Número telefónico Celular (Mínimo 5 digitos)</p>
                 <div id='infoPhone'>
-                        <p>Indicativo</p>
+                        <p><b>-> </b>Indicativo</p>
                         <input list='countries' id='cIndex'>
         
                         <datalist id='countries'>
@@ -280,19 +280,22 @@
                             <option value='+263 Zimbabue'>
                         </datalist>
         
-                        <p>Número</p>
+                        <p><b>-> </b>Número</p>
                         <input type='number' max='9999999999999999999999999' id='cPhone'>
                 </div>
 
-                <p>Nombre de la ciudad (3 a 100 caracteres)</p>
+                <p><b>Paso 5 </b>Geolocalización</p>
+
+                <p><b>-> </b>Nombre de la ciudad (3 a 100 caracteres)</p>
                 <input type='text' maxlength="100" id='cCity'>
                 
-                <p>Por favor, indique en el mapa ¿Donde se encuentra ubicado?</p>
+                <p><b>-> </b>Por favor, indique en el mapa ¿Donde se encuentra ubicado?</p>
                 
                 <div id='maps2'>
                 </div>
 
-                <p>Obten una imágen y súbela a la plataforma</p>
+                <p><b>Paso 6 </b>Avatar de Identificación</p>
+                <p><b>-> </b>Obten una imágen y súbela a la plataforma</p>
             
                 <div>
                     <input type='file' id='personAvatar' class='fileBrowser' accept=".jpg,.png">
