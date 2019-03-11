@@ -1,6 +1,6 @@
 ﻿namespace EIGApp.Models
 {
-    public class MultimediaJobApplication
+    public class MediaJobApplication
     {
         public long Id { get; set; }
         public string FileName { get; set; }

@@ -44,11 +44,11 @@ function loadCases()
                     var chain = new StringBuilder();
                     for(var i = 0; i < data.length; i++)
                     {
-                        chain.append("<div class='result'> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].DescriptionCase + "</p> <p class='pf2'>Publicado el " + data[i].PostedDate + "</p> <p class='pf4'>" + data[i].PostedHourZone + "</p> <button id='" + data[i].Id + "' class='deleteResult' onclick='eliminar(this)'>Eliminar</button> <button id='" + data[i].Id + "' class='moreResult' onclick='toEditCase(this)'>Ver anexos</button> </div> </div>");  
+                        chain.append("<div class='result'> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].DescriptionCase + "</p> <p class='pf2'>Publicado el " + data[i].PostedDate + "</p> <p class='pf4'>" + data[i].PostedHourZone + "</p> <button id='" + data[i].Id + "' class='deleteResult' onclick='elim(this)'>Eliminar</button> <button id='" + data[i].Id + "' class='moreResult' onclick='toEditCase(this)'>Ver anexos</button> </div> </div>");  
                     }
                     $('#bannerState').css('background','green');
                     $('#bannerState').css('color','white');
-                    $('#bannerState').text('Usted tiene ' + i + ' casos!');
+                    $('#bannerState').text(i + ' Casos!');
                     $('#listResults').css('display','flex');
                     $('#listResults').append(chain.toString());
                     chain.clear();
@@ -83,8 +83,12 @@ function toEditCase(e)
     location.href = 'editCase.html';
 }
 
-function eliminar(e)
+function elim(e)
 {
+    $('#bannerState').css('display','block');
+    $('#bannerState').css('background','yellow');
+    $('#bannerState').css('color','black');
+    $('#bannerState').text('Eliminando ...');
     $.ajax
     (
         {
@@ -98,7 +102,7 @@ function eliminar(e)
                 if(data)
                 {
                     $('#bannerState').css('background','brown');
-                    $('#bannerState').text('Tu caso ha sido eliminado!');
+                    $('#bannerState').text('Eliminado con éxito!');
                     setTimeout(recargar, 800);
                 }
 

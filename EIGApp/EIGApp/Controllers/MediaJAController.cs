@@ -5,18 +5,18 @@ using System.Linq;
 
 namespace EIGApp.Controllers
 {
-    public class MultimediaJobApplicationController : ApiController
+    public class MediaJAController : ApiController
     {
         private O.BDEIGEntities BD = new O.BDEIGEntities();
 
-        public long Post(M.MultimediaJobApplication multimediaJobApplication)
+        public long Post(M.MediaJobApplication multimediaJobApplication)
         {
             long id;
 
             try
             {
                 #pragma warning disable CS0618
-                AutoMapper.Mapper.CreateMap<M.MultimediaJobApplication, O.MultimediaJobApplication>();
+                AutoMapper.Mapper.CreateMap<M.MediaJobApplication, O.MultimediaJobApplication>();
                 #pragma warning restore CS0618
                 O.MultimediaJobApplication BDMultimediaJobApplication = AutoMapper.Mapper.Map<O.MultimediaJobApplication>(multimediaJobApplication);
                 BDMultimediaJobApplication.LoadDate = System.DateTime.Now.ToString("g");
@@ -52,7 +52,7 @@ namespace EIGApp.Controllers
             return result;
         }
 
-        public M.MultimediaJobApplication[] Get(long idJA)
+        public M.MediaJobApplication[] Get(long idJA)
         {
             var query = from MJA in BD.MultimediaJobApplications
                         where (MJA.IdJobApplication.Equals(idJA))
@@ -60,11 +60,11 @@ namespace EIGApp.Controllers
 
             var lista = query.ToArray();
 
-            M.MultimediaJobApplication[] arrayMultimediaJobApplication = new M.MultimediaJobApplication[lista.Length];
+            M.MediaJobApplication[] arrayMultimediaJobApplication = new M.MediaJobApplication[lista.Length];
 
             for (int i = 0; i < lista.Length; i++)
             {
-                M.MultimediaJobApplication temp = new M.MultimediaJobApplication
+                M.MediaJobApplication temp = new M.MediaJobApplication
                 {
                     Id = lista[i].Id,
                     FileName = lista[i].FileName,

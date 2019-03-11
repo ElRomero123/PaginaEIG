@@ -1,28 +1,80 @@
 window.onload = initUser;
-var FileJA;
+var FileJA,f,t,y,g,config;
 
-var f = 'https://www.facebook.com/Elite-Intelligence-Group-260263604734008/';
-var t = 'https://twitter.com/EliteIntellige1?lang=es';
-var y = 'https://www.youtube.com/channel/UCOvdAjzfv4WlwxKc1fi5JYQ';
-var g = 'https://plus.google.com/u/0/109910140252090488175';
+f = 'https://www.facebook.com/Elite-Intelligence-Group-260263604734008/';
+t = 'https://twitter.com/EliteIntellige1?lang=es';
+y = 'https://www.youtube.com/channel/UCOvdAjzfv4WlwxKc1fi5JYQ';
+g = 'https://plus.google.com/u/0/109910140252090488175';
+
+config = 
+{
+    apiKey: "AIzaSyA4F7aYKhXv5zEWabtUYABA-4lJJdAgyW4",
+    authDomain: "eliteintelligencegroup-719d3.firebaseapp.com",
+    databaseURL: "https://eliteintelligencegroup-719d3.firebaseio.com",
+    projectId: "eliteintelligencegroup-719d3",
+    storageBucket: "eliteintelligencegroup-719d3.appspot.com",
+    messagingSenderId: "567347907651"
+};
 
 function initUser()
 {
     var name     = localStorage.getItem('Name');
     var username = localStorage.getItem('Username');
-    
     if(name != null)
     {
         $('#infoName').text(name);
         $('#infoUsername').text(username);
     }
-
     else
     {
         location.href = 'index.html';
     }
-
     loadAnexos();
+}
+
+function loadAnexos()
+{
+    $('#listResults').empty();
+    $('#listResults').hide();
+    $('#bannerState').css('display','block');
+    $('#bannerState').css('background','yellow');
+    $('#bannerState').css('color','black');
+    $('#bannerState').text('Cargando ...');
+    var idJA = localStorage.getItem('JA');
+    $.ajax
+    (
+        {
+            url: '../api/mediaJA/?idJA=' + idJA,
+            type: 'GET',
+            contentType: "application/json;charset=utf-8",
+
+            success:
+            function (data) 
+            {
+                if(data.length > 0)
+                {
+                    var chain = new StringBuilder();
+                    for(var i = 0; i < data.length; i++)
+                    {
+                        chain.append("<div class='result'> <div class='text'> <p class='pf2'>" + data[i].FileName + "</p> <p class='pf4'>Anexado el " + data[i].LoadDate + "</p> <button id='" + data[i].Id + "' class='deleteResult' onclick='eliminar(this)'>Eliminar</button> <button id='" + data[i].Id + "' class='moreResult' onclick='download(this)'>Descargar</button> <p hidden class='pf4' id='DL" + data[i].Id + "'>" + data[i].DownloadLink + "</p> </div> </div>");  
+                    }
+                    $('#bannerState').css('background','green');
+                    $('#bannerState').css('color','white');
+                    $('#bannerState').text(i + ' anexos!');
+                    $('#listResults').css('display','flex');
+                    $('#listResults').append(chain.toString());
+                    chain.clear();
+                }
+
+                else
+                {
+                    $('#bannerState').css('background','red');
+                    $('#bannerState').css('color','white');
+                    $('#bannerState').text('Sin anexos!');
+                }
+            }
+        }
+    );
 }
 
 function to(num)
@@ -38,64 +90,7 @@ function to(num)
     }
 }
 
-function loadAnexos()
-{
-    if(navigator.onLine)
-    {
-        $('#listResults').empty();
-        $('#listResults').hide();
-        $('#bannerState').css('display','block');
-        $('#bannerState').css('background','yellow');
-        $('#bannerState').css('color','black');
-        $('#bannerState').text('Cargando ...');
 
-        var idJA = localStorage.getItem('JA');
-
-        $.ajax
-        (
-            {
-                url: '../api/multimediaJobApplication/?idJA=' + idJA,
-                type: 'GET',
-                contentType: "application/json;charset=utf-8",
-
-                success:
-                function (data) 
-                {
-                    if(data.length > 0)
-                    {
-                        var cadena = "";
-
-                        for(var i = 0; i < data.length; i++)
-                        {
-                            cadena += "<div class='result'> <div class='text'> <p class='pf2'>" + data[i].FileName + "</p> <p class='pf4'>Anexado el " + data[i].LoadDate + "</p> <button id='" + data[i].Id + "' class='deleteResult' onclick='eliminar(this)'>Eliminar</button> <button id='" + data[i].Id + "' class='moreResult' onclick='download(this)'>Descargar</button> <p hidden class='pf4' id='DL" + data[i].Id + "'>" + data[i].DownloadLink + "</p> </div> </div>";  
-                        }
-                        
-                        $('#listResults').append(cadena);
-
-                        $('#bannerState').css('background','green');
-                        $('#bannerState').css('color','white');
-                        $('#bannerState').text('La solicitud tiene ' + i + ' anexos!');
-                        $('#listResults').css('display','flex');
-                    }
-
-                    else
-                    {
-                        $('#bannerState').css('background','red');
-                        $('#bannerState').css('color','white');
-                        $('#bannerState').text('La solicitud no tiene anexos!');
-                    }
-                }
-            }
-        );
-    }
-
-    else
-    {
-        $('#bannerState').css('background','red');
-        $('#bannerState').css('color','white');
-        $('#bannerState').text('Sin internet!');
-    }
-}
 
 function loadFileJobApplication()
 {
