@@ -9,25 +9,21 @@ namespace EIGApp.Controllers
     {
         private O.BDEIGEntities BD = new O.BDEIGEntities();
 
+        /* Sincroniza BD con FS Nube */
         public bool Post(M.ParametroPutFile parametroPutFile)
         {
-            bool state = false;
-
+            bool S = false;
             try
             {
-                O.MultimediaJobApplication multimediaJobApplication = BD.MultimediaJobApplications.FirstOrDefault(x => x.Id == parametroPutFile.Id);
-                multimediaJobApplication.FileName = parametroPutFile.FileName;
-                multimediaJobApplication.DownloadLink = parametroPutFile.DownloadURL;
+                O.MediaJobApplication mediaJobApplication = BD.MediaJobApplications.FirstOrDefault(x => x.Id == parametroPutFile.Id);
+                mediaJobApplication.FileName     = parametroPutFile.FileName;
+                mediaJobApplication.DownloadLink = parametroPutFile.DownloadURL;
                 BD.SaveChanges();
-                state = true;
+                S = true;
             }
-
-            catch
-            {
-                state = false;
-            }
-
-            return state;
+            catch { S = false; }
+            return S;
         }
+        /* Sincroniza BD con FS Nube */
     }
 }

@@ -9,73 +9,57 @@ namespace EIGApp.Controllers
     {
         private O.BDEIGEntities BD = new O.BDEIGEntities();
 
-        public long Post(M.MediaJobApplication multimediaJobApplication)
-        {
-            long id;
-
-            try
-            {
-                #pragma warning disable CS0618
-                AutoMapper.Mapper.CreateMap<M.MediaJobApplication, O.MultimediaJobApplication>();
-                #pragma warning restore CS0618
-                O.MultimediaJobApplication BDMultimediaJobApplication = AutoMapper.Mapper.Map<O.MultimediaJobApplication>(multimediaJobApplication);
-                BDMultimediaJobApplication.LoadDate = System.DateTime.Now.ToString("g");
-                BD.MultimediaJobApplications.Add(BDMultimediaJobApplication);
-                BD.SaveChanges();
-                id = BDMultimediaJobApplication.Id;
-            }
-
-            catch
-            {
-                id = 0;
-            }
-
-            return id;
-        }
-
-        public bool Post(long idMJA)
-        {
-            bool result = false;
-
-            try
-            {
-                O.MultimediaJobApplication MJA = BD.MultimediaJobApplications.FirstOrDefault(x => x.Id == idMJA);
-                BD.MultimediaJobApplications.Remove(MJA);
-                BD.SaveChanges();
-                result = true;
-            }
-            catch
-            {
-                result = false;
-            }
-
-            return result;
-        }
-
+        /* Obtiene los archivos multimedia de un Caso */
         public M.MediaJobApplication[] Get(long idJA)
         {
-            var query = from MJA in BD.MultimediaJobApplications
+            var query = from MJA in BD.MediaJobApplications
                         where (MJA.IdJobApplication.Equals(idJA))
-                        select new {MJA.Id, MJA.FileName, MJA.DownloadLink, MJA.LoadDate};
-
-            var lista = query.ToArray();
-
-            M.MediaJobApplication[] arrayMultimediaJobApplication = new M.MediaJobApplication[lista.Length];
-
-            for (int i = 0; i < lista.Length; i++)
+                        select new {MJA.Id, MJA.FileName, MJA.DownloadLink, MJA.LoadDate, MJA.LoadHourZone};
+            M.MediaJobApplication[] arrayMediaJA = new M.MediaJobApplication[query.Count()];
+            M.MediaJobApplication temp;
+            int i = 0;
+            foreach (var item in query)
             {
-                M.MediaJobApplication temp = new M.MediaJobApplication
+                temp = new M.MediaJobApplication
                 {
-                    Id = lista[i].Id,
-                    FileName = lista[i].FileName,
-                    DownloadLink = lista[i].DownloadLink,
-                    LoadDate = lista[i].LoadDate
+                    Id           = item.Id,
+                    FileName     = item.FileName,
+                    DownloadLink = item.DownloadLink,
+                    LoadDate     = item.LoadDate,
+                    LoadHourZone = item.LoadHourZone
                 };
-
-                arrayMultimediaJobApplication[i] = temp;
+                arrayMediaJA[i] = temp;
+                i++;
             }
-
-            return arrayMultimediaJobApplication;
+            return arrayMediaJA;
         }
+        /* Obtiene los archivos multimedia de un Caso */
+
+        /* Agrega un archivo para una Postulación */
+        public long Post(M.MediaJobApplication mediaJA)
+        {
+            O.MediaJobApplication BDMediaJobApplication = new O.MediaJobApplication
+            {
+                FileName         = "",
+                DownloadLink     = "",
+                LoadDate         = System.DateTime.Now.ToString(),
+                LoadHourZone     = System.TimeZoneInfo.Local.ToString(),
+                IdJobApplication = mediaJA.IdJobApplication
+            };
+            BD.MediaJobApplications.Add(BDMediaJobApplication);
+            BD.SaveChanges();
+            return BDMediaJobApplication.Id;
+        }
+        /* Agrega un archivo para una Postulación */
+
+        /* Elimina un Archivo de Solicitud de Empleo */
+        public string Post(long idMJA)
+        {
+            O.MediaJobApplication MJA = BD.MediaJobApplications.FirstOrDefault(x => x.Id == idMJA);
+            BD.MediaJobApplications.Remove(MJA);
+            BD.SaveChanges();
+            return MJA.FileName;
+        }
+        /* Elimina un Archivo de Solicitud de Empleo */
     }
 }

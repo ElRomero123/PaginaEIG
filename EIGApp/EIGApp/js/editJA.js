@@ -56,7 +56,7 @@ function loadAnexos()
                     var chain = new StringBuilder();
                     for(var i = 0; i < data.length; i++)
                     {
-                        chain.append("<div class='result'> <div class='text'> <p class='pf2'>" + data[i].FileName + "</p> <p class='pf4'>Anexado el " + data[i].LoadDate + "</p> <button id='" + data[i].Id + "' class='deleteResult' onclick='eliminar(this)'>Eliminar</button> <button id='" + data[i].Id + "' class='moreResult' onclick='download(this)'>Descargar</button> <p hidden class='pf4' id='DL" + data[i].Id + "'>" + data[i].DownloadLink + "</p> </div> </div>");  
+                        chain.append("<div class='result'> <div class='text'> <p class='pf2'>" + data[i].FileName + "</p> <p class='pf2'>Anexado el " + data[i].LoadDate + "</p> <p class='pf4'>" + data[i].LoadHourZone + "</p> <button id='" + data[i].Id + "' class='deleteResult' onclick='elim(this)'>Eliminar</button> <button id='" + data[i].Id + "' class='moreResult' onclick='download(this)'>Descargar</button> <p hidden class='pf4' id='DL" + data[i].Id + "'>" + data[i].DownloadLink + "</p> </div> </div>");  
                     }
                     $('#bannerState').css('background','green');
                     $('#bannerState').css('color','white');
@@ -77,45 +77,85 @@ function loadAnexos()
     );
 }
 
-function to(num)
+function elim(e)
 {
-    switch(num)
-    {
-        case 1:
-        localStorage.clear();
-        location.href = 'index.html';
-        break;
-        default:
-        location.href = 'manageJobApplication.html';
-    }
+    $('#bannerState').css('background','yellow');
+    $('#bannerState').css('color','black');
+    $('#bannerState').text('Eliminando ...');
+    $.ajax
+    (
+        {
+            url: '../api/mediaJA/?idMJA=' + e.id,
+            type: 'POST',
+            contentType: "application/json;charset=utf-8",
+            success:
+            function (data) 
+            {
+                if(data)
+                {
+                    deleteFile(data);
+                }
+                else
+                {
+                    $('#bannerState').css('background','red');
+                    $('#bannerState').css('border','2px solid red');
+                    $('#bannerState').text('Error!');
+                }
+            }
+        }
+    );
 }
 
+function deleteFile(fileName)
+{
+    firebase.initializeApp(config);
+    var storageRef = firebase.storage().ref();
+    var desertRef = storageRef.child('filesJA/' + fileName);
 
+    desertRef.delete().then
+    (
+        function() 
+        {
+            $('#bannerState').css('background','darkgreen');
+            $('#bannerState').css('border','2px solid darkgreen');
+            $('#bannerState').css('color','white');
+            $('#bannerState').text('Anexo eliminado!');
+            setTimeout(recargar, 800);
+        }
+    ).catch(
+        function(error) 
+        {
+        }
+    );
+}
+
+function download(e)
+{
+    var download = document.getElementById('DL' + e.id).innerHTML;
+    window.open(download, '_blank');
+}
 
 function loadFileJobApplication()
 {
     FileJA = document.getElementById('fileJA');
-
     if(validateFile())
     {
-        var multimediaJobApplication =
+        var mediaJA =
         {
-            fileName: '',
-            downloadLink: '',
             idJobApplication: localStorage.getItem('JA')
         };
     
         $('#loadFJA').css('background','yellow');
         $('#loadFJA').css('border','2px solid yellow');
         $('#loadFJA').css('color','black');
-        $('#loadFJA').text('Anexando archivo ...');
+        $('#loadFJA').text('Anexando ...');
 
         $.ajax
         (
             {
-                url: '../api/multimediaJobApplication',
+                url: '../api/mediaJA',
                 type: 'POST',
-                data: JSON.stringify(multimediaJobApplication),
+                data: JSON.stringify(mediaJA),
                 contentType: "application/json;charset=utf-8",
 
                 success:
@@ -135,23 +175,17 @@ function loadFileJobApplication()
     }
 }
 
+function validateFile()
+{
+    return FileJA.files[0] != null;
+}
+
 function loadFile(num)
 {    
-    var config = 
-    {
-        apiKey: "AIzaSyA4F7aYKhXv5zEWabtUYABA-4lJJdAgyW4",
-        authDomain: "eliteintelligencegroup-719d3.firebaseapp.com",
-        databaseURL: "https://eliteintelligencegroup-719d3.firebaseio.com",
-        projectId: "eliteintelligencegroup-719d3",
-        storageBucket: "eliteintelligencegroup-719d3.appspot.com",
-        messagingSenderId: "567347907651"
-    };
-    
     firebase.initializeApp(config);
-
     var storageRef = firebase.storage().ref();
     var fileName = num + FileJA.files[0].name;
-    var uploadTask = storageRef.child('anexosJA/' + fileName).put(FileJA.files[0]);
+    var uploadTask = storageRef.child('filesJA/' + fileName).put(FileJA.files[0]);
 
     uploadTask.on
     (   
@@ -199,7 +233,7 @@ function putFile(num, fileName, downloadURL)
                     $('#loadFJA').css('background','darkgreen');
                     $('#loadFJA').css('border','2px solid darkgreen');
                     $('#loadFJA').css('color','white');
-                    $('#loadFJA').text('Archivo anexado con éxito!');
+                    $('#loadFJA').text('Anexado con éxito!');
                     setTimeout(recargar, 200);
                 }
             }
@@ -207,43 +241,22 @@ function putFile(num, fileName, downloadURL)
     );
 }
 
-function validateFile()
-{
-    return FileJA.files[0] != null;
-}
-
 function recargar()
 {
     location.reload();
 }
 
-function eliminar(e)
+function to(num)
 {
-    $.ajax
-    (
-        {
-            url: '../api/multimediaJobApplication/?idMJA=' + e.id,
-            type: 'POST',
-            contentType: "application/json;charset=utf-8",
-
-            success:
-            function (data) 
-            {
-                if(data)
-                {
-                    $('#bannerState').css('background','brown');
-                    $('#bannerState').text('El anexo ha sido eliminado!');
-                    setTimeout(recargar, 800);
-                }
-            }
-        }
-    );
-}
-
-function download(e)
-{
-    var download = document.getElementById('DL' + e.id).innerHTML;
-    window.open(download, '_blank');
+    switch(num)
+    {
+        case 1:
+        localStorage.clear();
+        location.href = 'index.html';
+        break;
+        default:
+        location.href = 'manageJobApplication.html';
+    }
 }
 
 function social(op)
@@ -262,4 +275,22 @@ function social(op)
         default:
         window.open(g, '_blank');
     }
+}
+
+StringBuilder.prototype.append = function (value) 
+{
+    if (value) 
+    {
+        this.strings.push(value);
+    }
+}
+
+StringBuilder.prototype.clear = function () 
+{
+    this.strings.length = 0;
+}
+
+StringBuilder.prototype.toString = function () 
+{
+    return this.strings.join("");
 }

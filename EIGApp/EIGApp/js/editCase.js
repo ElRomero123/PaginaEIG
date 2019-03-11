@@ -92,7 +92,6 @@ function to(num)
 
 function elim(e)
 {
-    $('#loadFC').css('display','block');
     $('#loadFC').css('background','yellow');
     $('#loadFC').css('color','black');
     $('#loadFC').text('Eliminando ...');
@@ -164,7 +163,7 @@ function loadFileCase()
         $('#loadFC').css('background','yellow');
         $('#loadFC').css('border','2px solid yellow');
         $('#loadFC').css('color','black');
-        $('#loadFC').text('Anexando archivo ...');
+        $('#loadFC').text('Anexando ...');
 
         $.ajax
         (
