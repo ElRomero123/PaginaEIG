@@ -52,7 +52,7 @@ function createCase()
         $('#createCase').css('background','yellow');
         $('#createCase').css('border','2 px solid yellow');
         $('#createCase').css('color','black');
-        $('#createCase').text('Subiendo caso ...');
+        $('#createCase').text('Subiendo ...');
     
         $.ajax
         (
@@ -70,7 +70,7 @@ function createCase()
                         $('#createCase').css('background','darkgreen');
                         $('#createCase').css('border','2px solid darkgreen');
                         $('#createCase').css('color','white');
-                        $('#createCase').text('Caso registrado!');
+                        $('#createCase').text('Registrado con éxito!');
                     }
     
                     else
@@ -78,7 +78,7 @@ function createCase()
                         $('#createCase').css('background','red');
                         $('#createCase').css('border','2px solid red');
                         $('#createCase').css('color','white');
-                        $('#createCase').text('Error creando caso!');
+                        $('#createCase').text('Error!');
                     }
                 }
             }

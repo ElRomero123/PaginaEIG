@@ -66,30 +66,6 @@ namespace EIGApp.Controllers
             return arrayJobApplication;
         }
 
-        public bool Post(M.JobApplication jobApplication)
-        {
-            bool state;
-
-            try
-            {
-                #pragma warning disable CS0618
-                AutoMapper.Mapper.CreateMap<M.JobApplication, O.JobApplication>();
-                #pragma warning restore CS0618
-                O.JobApplication BDJobApplication = AutoMapper.Mapper.Map<O.JobApplication>(jobApplication);
-                BDJobApplication.PostedDate = System.DateTime.Now.ToString("g");
-                BD.JobApplications.Add(BDJobApplication);
-                BD.SaveChanges();
-                state = true;
-            }
-
-            catch
-            {
-                state = false;
-            }
-
-            return state;
-        }
-
         public bool Post(long idJA)
         {
             bool result = false;
@@ -108,5 +84,23 @@ namespace EIGApp.Controllers
 
             return result;
         }
+
+        /* Agrega una Postulación */
+        public bool Post(M.JobApplication jobApplication)
+        {
+            O.JobApplication BDJobApplication = new O.JobApplication
+            {
+                Name                   = jobApplication.Name,
+                DocumentNumber         = jobApplication.DocumentNumber,
+                DescriptionApplication = jobApplication.DescriptionApplication,
+                PostedDate             = System.DateTime.Now.ToString("g"),
+                PostedHourZone         = System.TimeZoneInfo.Local.ToString(),
+                IdUser                 = jobApplication.IdUser
+            };
+            BD.JobApplications.Add(BDJobApplication);
+            BD.SaveChanges();
+            return true;
+        }
+        /* Agrega una Postulación */
     }
 }

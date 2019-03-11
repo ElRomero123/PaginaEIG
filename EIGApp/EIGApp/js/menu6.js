@@ -54,7 +54,7 @@ function createJA()
         $('#createJobApplication').css('background','yellow');
         $('#createJobApplication').css('border','2 px solid yellow');
         $('#createJobApplication').css('color','black');
-        $('#createJobApplication').text('Subiendo postulación ...');
+        $('#createJobApplication').text('Subiendo ...');
     
         $.ajax
         (
@@ -72,7 +72,7 @@ function createJA()
                         $('#createJobApplication').css('background','darkgreen');
                         $('#createJobApplication').css('border','2px solid darkgreen');
                         $('#createJobApplication').css('color','white');
-                        $('#createJobApplication').text('Postulación registrado!');
+                        $('#createJobApplication').text('Registrado con éxito!');
                     }
     
                     else
@@ -80,7 +80,7 @@ function createJA()
                         $('#createJobApplication').css('background','red');
                         $('#createJobApplication').css('border','2px solid red');
                         $('#createJobApplication').css('color','white');
-                        $('#createJobApplication').text('Error creando postulación!');
+                        $('#createJobApplication').text('Error!');
                     }
                 }
             }

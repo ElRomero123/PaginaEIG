@@ -9,37 +9,13 @@ namespace EIGApp.Controllers
     {
         private O.BDEIGEntities BD = new O.BDEIGEntities();
 
-        public M.Case[] Get(long idUser)
-        {
-            var query = from C in BD.Cases
-                        where (C.IdUser.Equals(idUser))
-                        select new {C.Id, C.Name, C.DescriptionCase, C.PostedDate};
 
-            var lista = query.ToArray();
-
-            M.Case[] arrayCase = new M.Case[lista.Length];
-
-            for (int i = 0; i < lista.Length; i++)
-            {
-                M.Case temp = new M.Case
-                {
-                    Id              = lista[i].Id,
-                    Name            = lista[i].Name,
-                    DescriptionCase = lista[i].DescriptionCase,
-                    PostedDate      = lista[i].PostedDate
-                };
-
-                arrayCase[i] = temp;
-            }
-
-            return arrayCase;
-        }
 
         public M.Case[] Get()
         {
             var query = from C in BD.Cases
                         where (true)
-                        select new {C.Id, C.Name, C.DescriptionCase, C.PostedDate, C.User.Username};
+                        select new { C.Id, C.Name, C.DescriptionCase, C.PostedDate, C.User.Username };
 
             var lista = query.ToArray();
 
@@ -49,11 +25,11 @@ namespace EIGApp.Controllers
             {
                 M.Case temp = new M.Case
                 {
-                    Id              = lista[i].Id,
-                    Name            = lista[i].Name,
+                    Id = lista[i].Id,
+                    Name = lista[i].Name,
                     DescriptionCase = lista[i].DescriptionCase,
-                    PostedDate      = lista[i].PostedDate,
-                    Username        = lista[i].Username
+                    PostedDate = lista[i].PostedDate,
+                    Username = lista[i].Username
                 };
 
                 arrayCase[i] = temp;
@@ -77,23 +53,50 @@ namespace EIGApp.Controllers
             {
                 result = false;
             }
-            
+
             return result;
         }
+    
+        /* Obtiene los casos de un Usuario */
+        public M.Case[] Get(long idUser)
+        {
+            var query = from C in BD.Cases
+                        where (C.IdUser.Equals(idUser))
+                        select new {C.Id, C.Name, C.DescriptionCase, C.PostedDate, C.PostedHourZone};
+            M.Case[] arrayCase = new M.Case[query.Count()];
+            int i = 0;
+            foreach (var item in query)
+            {
+                M.Case temp = new M.Case
+                {
+                    Id              = item.Id,
+                    Name            = item.Name,
+                    DescriptionCase = item.DescriptionCase,
+                    PostedDate      = item.PostedDate,
+                    PostedHourZone =  item.PostedHourZone
+                };
+                arrayCase[i] = temp;
+                i++;
+            }
+            return arrayCase;
+        }
+        /* Obtiene los casos de un Usuario */
 
+        /* Agrega un Caso */
         public bool Post(M.Case caso)
         {
             O.Case BDCaso = new O.Case
             {
-                Name = caso.Name,
+                Name            = caso.Name,
                 DescriptionCase = caso.DescriptionCase,
-                PostedDate = System.DateTime.Now.ToString("g"),
-                PostedHourZone = System.TimeZoneInfo.Local.ToString(),
-                IdUser = caso.IdUser
+                PostedDate      = System.DateTime.Now.ToString("g"),
+                PostedHourZone  = System.TimeZoneInfo.Local.ToString(),
+                IdUser          = caso.IdUser
             };
             BD.Cases.Add(BDCaso);
             BD.SaveChanges();
             return true;
         }
+        /* Agrega un Caso */
     }
 }
