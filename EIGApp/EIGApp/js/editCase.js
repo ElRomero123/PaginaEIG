@@ -154,13 +154,10 @@ function download(e)
 function loadFileCase()
 {
     FileCase =  document.getElementById('fileCase');
-
     if(validateFile())
     {
-        var multimediaCase =
+        var mediaCase =
         {
-            fileName: '',
-            downloadLink: '',
             idCase: localStorage.getItem('Case')
         };
     
@@ -172,9 +169,9 @@ function loadFileCase()
         $.ajax
         (
             {
-                url: '../api/multimediaCase',
+                url: '../api/mediaCase',
                 type: 'POST',
-                data: JSON.stringify(multimediaCase),
+                data: JSON.stringify(mediaCase),
                 contentType: "application/json;charset=utf-8",
 
                 success:
@@ -194,15 +191,17 @@ function loadFileCase()
     }
 }
 
+function validateFile()
+{
+    return FileCase.files[0] != null;
+}
+
 function loadFile(num)
 {    
-    
-    
     firebase.initializeApp(config);
-
     var storageRef = firebase.storage().ref();
     var fileName = num + FileCase.files[0].name;
-    var uploadTask = storageRef.child('anexosCase/' + fileName).put(FileCase.files[0]);
+    var uploadTask = storageRef.child('filesCase/' + fileName).put(FileCase.files[0]);
 
     uploadTask.on
     (   
@@ -250,7 +249,7 @@ function putFile(num, fileName, downloadURL)
                     $('#loadFC').css('background','darkgreen');
                     $('#loadFC').css('border','2px solid darkgreen');
                     $('#loadFC').css('color','white');
-                    $('#loadFC').text('Archivo anexado con éxito!');
+                    $('#loadFC').text('Anexado con éxito!');
                     setTimeout(recargar, 200);
                 }
             }
@@ -258,17 +257,10 @@ function putFile(num, fileName, downloadURL)
     );
 }
 
-function validateFile()
-{
-    return FileCase.files[0] != null;
-}
-
 function recargar()
 {
     location.reload();
 }
-
-
 
 function social(op)
 {

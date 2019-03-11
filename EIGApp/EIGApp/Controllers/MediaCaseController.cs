@@ -9,28 +9,21 @@ namespace EIGApp.Controllers
     {
         private O.BDEIGEntities BD = new O.BDEIGEntities();
 
-        public long Post(M.MediaCase multimediaCase)
+        /* Agrega un archivo de un Caso */
+        public long Post(M.MediaCase mediaCase)
         {
-            long id;
-
-            try
+            O.MediaCase BDMediaCase = new O.MediaCase
             {
-                #pragma warning disable CS0618
-                AutoMapper.Mapper.CreateMap<M.MediaCase, O.MultimediaCase>();
-                #pragma warning restore CS0618
-                O.MultimediaCase BDMultimediaCase = AutoMapper.Mapper.Map<O.MultimediaCase>(multimediaCase);
-                BDMultimediaCase.LoadDate = System.DateTime.Now.ToString("g");
-                BD.MultimediaCases.Add(BDMultimediaCase);
-                BD.SaveChanges();
-                id = BDMultimediaCase.Id;
-            }
+                FileName     = "",
+                DownloadLink = "",
+                LoadDate     = System.DateTime.Now.ToString(),
+                LoadHourZone = System.TimeZoneInfo.Local.ToString(),
+                IdCase       = mediaCase.IdCase
+            };
 
-            catch
-            {
-                id = 0;
-            }
-
-            return id;
+            BD.MediaCases.Add(BDMediaCase);
+            BD.SaveChanges();
+            return BDMediaCase.Id;
         }
 
         /* Elimina un archivo del Caso */
@@ -50,10 +43,11 @@ namespace EIGApp.Controllers
                         where (MC.IdCase.Equals(idCase))
                         select new {MC.Id, MC.FileName, MC.DownloadLink, MC.LoadDate, MC.LoadHourZone};
             M.MediaCase[] arrayMultimediaCase = new M.MediaCase[query.Count()];
+            M.MediaCase temp;
             int i = 0;
             foreach(var item in query)
             {
-                M.MediaCase temp = new M.MediaCase
+                temp = new M.MediaCase
                 {
                     Id           = item.Id,
                     FileName     = item.FileName,

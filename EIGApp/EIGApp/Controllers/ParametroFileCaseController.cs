@@ -11,23 +11,18 @@ namespace EIGApp.Controllers
 
         public bool Post(M.ParametroPutFile parametroPutFile)
         {
-            bool state = false;
-
+            bool S = false;
             try
             {
-                O.MultimediaCase multimediaCase = BD.MultimediaCases.FirstOrDefault(x => x.Id == parametroPutFile.Id);
-                multimediaCase.FileName     = parametroPutFile.FileName;
-                multimediaCase.DownloadLink = parametroPutFile.DownloadURL;
+                O.MediaCase mediaCase = BD.MediaCases.FirstOrDefault(x => x.Id == parametroPutFile.Id);
+                mediaCase.FileName     = parametroPutFile.FileName;
+                mediaCase.DownloadLink = parametroPutFile.DownloadURL;
                 BD.SaveChanges();
-                state = true;
+                S = true;
             }
 
-            catch
-            {
-                state = false;
-            }
-
-            return state;
+            catch{S = false;}
+            return S;
         }
     }
 }
