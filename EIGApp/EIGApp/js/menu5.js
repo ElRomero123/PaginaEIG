@@ -46,7 +46,7 @@ function createCase()
         idUser: localStorage.getItem('User')
     };
 
-    if(validateText())
+    if(validateText(caso))
     {
         $('#createCase').css('background','yellow');
         $('#createCase').css('border','2 px solid yellow');
@@ -89,9 +89,12 @@ function createCase()
     }
 }
 
-function validateText()
+function validateText(input)
 {
-    return true;
+    var c1,c2;
+    c1 = input.name.length            >= 8;
+    c2 = input.descriptionCase.length >= 15;
+    return c1 & c2;
 }
 
 function social(op)
