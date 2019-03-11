@@ -346,7 +346,8 @@ body
                 background: url('../img/menu/1N.png');
             }
 
-            .category:hover
+            #c1:hover, #c2:hover, #c5:hover, #c6:hover, #c8:hover, #c9:hover, #c10:hover, 
+            #c11:hover, #c12:hover, #c13:hover, #c14:hover, #c15:hover, #c16:hover, #c17:hover
             {
                 filter: invert(100%);
             }

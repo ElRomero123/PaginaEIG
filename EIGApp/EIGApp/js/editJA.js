@@ -277,6 +277,12 @@ function social(op)
     }
 }
 
+function StringBuilder(value) 
+{
+    this.strings = new Array();
+    this.append(value);
+}
+
 StringBuilder.prototype.append = function (value) 
 {
     if (value) 

@@ -249,7 +249,7 @@
     <Compile Include="Controllers\MediaPersonController.cs" />
     <Compile Include="Controllers\MediaProductController.cs" />
     <Compile Include="Controllers\MediaCaseController.cs" />
-    <Compile Include="Controllers\MultimediaJobApplicationController.cs" />
+    <Compile Include="Controllers\MediaJAController.cs" />
     <Compile Include="Controllers\OtherPersonController.cs" />
     <Compile Include="Controllers\PackageController.cs" />
     <Compile Include="Controllers\ParametroBusinessController.cs" />
@@ -279,7 +279,7 @@
     <Compile Include="Models\MediaPerson.cs" />
     <Compile Include="Models\MediaProduct.cs" />
     <Compile Include="Models\MediaCase.cs" />
-    <Compile Include="Models\MultimediaJobApplication.cs" />
+    <Compile Include="Models\MediaJobApplication.cs" />
     <Compile Include="Models\OtherPerson.cs" />
     <Compile Include="Models\Package.cs" />
     <Compile Include="Models\ParametroPutFile.cs" />

@@ -92,9 +92,9 @@ function to(num)
 
 function elim(e)
 {
-    $('#loadFC').css('background','yellow');
-    $('#loadFC').css('color','black');
-    $('#loadFC').text('Eliminando ...');
+    $('#bannerState').css('background','yellow');
+    $('#bannerState').css('color','black');
+    $('#bannerState').text('Eliminando ...');
 
     $.ajax
     (
@@ -112,9 +112,9 @@ function elim(e)
                 }
                 else
                 {
-                    $('#loadFC').css('background','red');
-                    $('#loadFC').css('border','2px solid red');
-                    $('#loadFC').text('Error!');
+                    $('#bannerState').css('background','red');
+                    $('#bannerState').css('border','2px solid red');
+                    $('#bannerState').text('Error!');
                 }
             }
         }
@@ -131,10 +131,10 @@ function deleteFile(fileName)
     (
         function() 
         {
-            $('#loadFC').css('background','darkgreen');
-            $('#loadFC').css('border','2px solid darkgreen');
-            $('#loadFC').css('color','white');
-            $('#loadFC').text('Anexo eliminado!');
+            $('#bannerState').css('background','darkgreen');
+            $('#bannerState').css('border','2px solid darkgreen');
+            $('#bannerState').css('color','white');
+            $('#bannerState').text('Anexo eliminado!');
             setTimeout(recargar, 800);
         }
     ).catch(
@@ -277,6 +277,12 @@ function social(op)
         default:
         window.open(g, '_blank');
     }
+}
+
+function StringBuilder(value) 
+{
+    this.strings = new Array();
+    this.append(value);
 }
 
 StringBuilder.prototype.append = function (value) 
