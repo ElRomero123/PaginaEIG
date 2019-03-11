@@ -23,59 +23,45 @@ function initUser()
 
 function loadCases()
 {
-    if(navigator.onLine)
-    {
-        $('#listResults').empty();
-        $('#listResults').hide();
-        $('#bannerState').css('display','block');
-        $('#bannerState').css('background','yellow');
-        $('#bannerState').css('color','black');
-        $('#bannerState').text('Cargando ...');
-
-        var idUser = localStorage.getItem('User');
-
-        $.ajax
-        (
+    $('#listResults').empty();
+    $('#listResults').hide();
+    $('#bannerState').css('display','block');
+    $('#bannerState').css('background','yellow');
+    $('#bannerState').css('color','black');
+    $('#bannerState').text('Cargando ...');
+    var idUser = localStorage.getItem('User');
+    $.ajax
+    (
+        {
+            url: '../api/case/?idUser=' + idUser,
+            type: 'GET',
+            contentType: "application/json;charset=utf-8",
+            success:
+            function (data) 
             {
-                url: '../api/case/?idUser=' + idUser,
-                type: 'GET',
-                contentType: "application/json;charset=utf-8",
-
-                success:
-                function (data) 
+                if(data.length > 0)
                 {
-                    if(data.length > 0)
+                    var chain = new StringBuilder();
+                    for(var i = 0; i < data.length; i++)
                     {
-                        var chain = new StringBuilder();
-                        for(var i = 0; i < data.length; i++)
-                        {
-                            chain.append("<div class='result'> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].DescriptionCase + "</p> <p class='pf2'>Publicado el " + data[i].PostedDate + "</p> <p class='pf4'>" + data[i].PostedHourZone + "</p> <button id='" + data[i].Id + "' class='deleteResult' onclick='eliminar(this)'>Eliminar</button> <button id='" + data[i].Id + "' class='moreResult' onclick='toEditCase(this)'>Ver anexos</button> </div> </div>");  
-                        }
-                        $('#bannerState').css('background','green');
-                        $('#bannerState').css('color','white');
-                        $('#bannerState').text('Usted tiene ' + i + ' casos!');
-                        $('#listResults').css('display','flex');
-                        $('#listResults').append(chain.toString());
-                        chain.clear();
+                        chain.append("<div class='result'> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].DescriptionCase + "</p> <p class='pf2'>Publicado el " + data[i].PostedDate + "</p> <p class='pf4'>" + data[i].PostedHourZone + "</p> <button id='" + data[i].Id + "' class='deleteResult' onclick='eliminar(this)'>Eliminar</button> <button id='" + data[i].Id + "' class='moreResult' onclick='toEditCase(this)'>Ver anexos</button> </div> </div>");  
                     }
-
-                    else
-                    {
-                        $('#bannerState').css('background','red');
-                        $('#bannerState').css('color','white');
-                        $('#bannerState').text('Aún no has subido un caso!');
-                    }
+                    $('#bannerState').css('background','green');
+                    $('#bannerState').css('color','white');
+                    $('#bannerState').text('Usted tiene ' + i + ' casos!');
+                    $('#listResults').css('display','flex');
+                    $('#listResults').append(chain.toString());
+                    chain.clear();
+                }
+                else
+                {
+                    $('#bannerState').css('background','red');
+                    $('#bannerState').css('color','white');
+                    $('#bannerState').text('Sin casos!');
                 }
             }
-        );
-    }
-
-    else
-    {
-        $('#bannerState').css('background','red');
-        $('#bannerState').css('color','white');
-        $('#bannerState').text('Sin internet!');
-    }
+        }
+    );
 }
 
 function to(num)
