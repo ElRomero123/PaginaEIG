@@ -40,21 +40,21 @@ function to(num)
 
 function createJA()
 {
-    if(validateText())
+    var jobApplication =
     {
-        var jobApplication =
-        {
-            name: $('#cName').val(),
-            documentNumber: $('#cDNumber').val(),
-            descriptionApplication: $('#cDApplication').val(),
-            age: $('#cAge').val(),
-            idUser: localStorage.getItem('User')
-        };
-    
+        name                   : $('#cName').val(),
+        documentNumber         : $('#cDNumber').val(),
+        descriptionApplication : $('#cDApplication').val(),
+        age                    : $('#cAge').val(),
+        idUser                 : localStorage.getItem('User')
+    };
+
+    if(validateText(jobApplication))
+    {
         $('#createJobApplication').css('background','yellow');
         $('#createJobApplication').css('border','2 px solid yellow');
         $('#createJobApplication').css('color','black');
-        $('#createJobApplication').text('Creando postulación ...');
+        $('#createJobApplication').text('Subiendo postulación ...');
     
         $.ajax
         (
@@ -69,7 +69,10 @@ function createJA()
                 {
                     if (data)
                     {
-                        location.href = 'manageJobApplication.html';    
+                        $('#createJobApplication').css('background','darkgreen');
+                        $('#createJobApplication').css('border','2px solid darkgreen');
+                        $('#createJobApplication').css('color','white');
+                        $('#createJobApplication').text('Postulación registrado!');
                     }
     
                     else
@@ -92,9 +95,14 @@ function createJA()
     }
 }
 
-function validateText()
+function validateText(input)
 {
-    return true;
+    var c1,c2,c3,c4;
+    c1 = input.name.length                   >= 5;
+    c2 = input.documentNumber.length         >= 6;
+    c3 = input.descriptionApplication.length >= 20;
+    c4 = input.age.length                    >= 1;
+    return c1 & c2 && c3 && c4;
 }
 
 function social(op)

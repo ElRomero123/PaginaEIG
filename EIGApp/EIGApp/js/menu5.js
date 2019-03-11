@@ -42,9 +42,9 @@ function createCase()
 {
     var caso =
     {
-        name: $('#cCase').val(),
-        descriptionCase: $('#cDescription').val(),
-        idUser: localStorage.getItem('User')
+        name            : $('#cCase').val(),
+        descriptionCase : $('#cDescription').val(),
+        idUser          : localStorage.getItem('User')
     };
 
     if(validateText(caso))
@@ -52,7 +52,7 @@ function createCase()
         $('#createCase').css('background','yellow');
         $('#createCase').css('border','2 px solid yellow');
         $('#createCase').css('color','black');
-        $('#createCase').text('Creando caso ...');
+        $('#createCase').text('Subiendo caso ...');
     
         $.ajax
         (
