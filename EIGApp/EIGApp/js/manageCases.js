@@ -49,7 +49,7 @@ function loadCases()
                         var chain = new StringBuilder();
                         for(var i = 0; i < data.length; i++)
                         {
-                            chain.append("<div class='result'> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].DescriptionCase + "</p> <p class='pf3'> Publicado el " + data[i].PostedDate + "</p> <button id='" + data[i].Id + "' class='deleteResult' onclick='eliminar(this)'>Eliminar</button> <button id='" + data[i].Id + "' class='moreResult' onclick='toEditCase(this)'>Ver anexos</button> </div> </div>");  
+                            chain.append("<div class='result'> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].DescriptionCase + "</p> <p class='pf2'>Publicado el " + data[i].PostedDate + "</p> <p class='pf4'>" + data[i].PostedHourZone + "</p> <button id='" + data[i].Id + "' class='deleteResult' onclick='eliminar(this)'>Eliminar</button> <button id='" + data[i].Id + "' class='moreResult' onclick='toEditCase(this)'>Ver anexos</button> </div> </div>");  
                         }
                         $('#bannerState').css('background','green');
                         $('#bannerState').css('color','white');
