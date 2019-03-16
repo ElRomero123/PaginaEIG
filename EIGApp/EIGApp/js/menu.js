@@ -1,6 +1,5 @@
 window.onload = initUser;
 var map, gmaps, f, t, y, g;
-var markers = [];
 
 f = 'https://www.facebook.com/Elite-Intelligence-Group-260263604734008/';
 t = 'https://twitter.com/EliteIntellige1?lang=es';
