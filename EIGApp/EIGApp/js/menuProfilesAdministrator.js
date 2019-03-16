@@ -38,7 +38,7 @@ function to(num)
         location.href = 'userControllerAdministrator.html';
         break;
         default:
-        location.href = 'packageControllerAdministrator.html';
+        alert("Estamos creando una experiencia inigualable para Administrar Paquetes, esperalo muy pronto!");
     }
 }
 
