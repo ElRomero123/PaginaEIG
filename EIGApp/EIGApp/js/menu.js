@@ -1,5 +1,6 @@
 window.onload = initUser;
 var map, gmaps, f, t, y, g;
+var markers = [];
 
 f = 'https://www.facebook.com/Elite-Intelligence-Group-260263604734008/';
 t = 'https://twitter.com/EliteIntellige1?lang=es';
@@ -33,6 +34,8 @@ function initUser()
 
 function search()
 {
+    map = null;
+    initMap();
     $('#listResults').empty();
     $('#listResults').hide();
     $('#bannerState').css('display','block');
@@ -56,22 +59,20 @@ function search()
                 if(data.length > 0)
                 {
                     var chain = new StringBuilder();
-                    var card, card2;
+                    var card2;
                     for(var i = 0; i < data.length; i++)
                     {
                         if(data[i].Ciprin)
                         {
-                            card = "<div class='result'> <div class='avatar' id='" + data[i].Id + "'></div> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].ProfesionDescription + "</p> <p class='pf2'>" + data[i].Email + "</p> <p class='pf2'>" + data[i].Phone + "</p> <p class='pf2'>Creado el " + data[i].CreationDate + ' por ' + data[i].Username +  "</p> <p class='pf4'>" + data[i].CreationHourZone +  "</p> <button id='" + data[i].Id + "' class='moreResult' onclick='showMedia(this)'>Multimedia</button> <p style='background:green; color:white; padding: 4px;'>Afiliado a CIPRIN</p> <p class='pf3'>" + data[i].Views +  " visitas</p> </div> </div>";
                             card2 = "<div class='text' style='color: black !important'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].ProfesionDescription + "</p> <p class='pf2'>" + data[i].Email + "</p> <p class='pf2'>" + data[i].Phone + "</p> <p class='pf2'>Creado el " + data[i].CreationDate + ' por ' + data[i].Username +  "</p> <p class='pf4'>" + data[i].CreationHourZone +  "</p> <button id='" + data[i].Id + "' style='background:green' class='moreResult' onclick='showMedia(this)'>Multimedia</button> <p style='background:green; color:white; padding: 4px;'>Afiliado a CIPRIN</p> <p class='pf3'>" + data[i].Views +  " visitas</p> </div>";
-                            chain.append(card);
+                            chain.append("<div class='result'> <div class='avatar' id='" + data[i].Id + "'></div> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].ProfesionDescription + "</p> <p class='pf2'>" + data[i].Email + "</p> <p class='pf2'>" + data[i].Phone + "</p> <p class='pf2'>Creado el " + data[i].CreationDate + ' por ' + data[i].Username +  "</p> <p class='pf4'>" + data[i].CreationHourZone +  "</p> <button id='" + data[i].Id + "' class='moreResult' onclick='showMedia(this)'>Multimedia</button> <p style='background:green; color:white; padding: 4px;'>Afiliado a CIPRIN</p> <p class='pf3'>" + data[i].Views +  " visitas</p> </div> </div>");
                             putMarker({lat:data[i].Latitude,lng:data[i].Longitude}, card2, data[i].Avatar);
                         }
 
                         else
                         {
-                            card = "<div class='result'> <div class='avatar' id='" + data[i].Id + "'></div> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].ProfesionDescription + "</p> <p class='pf2'>" + data[i].Email + "</p> <p class='pf2'>" + data[i].Phone + "</p> <p class='pf2'>Creado el " + data[i].CreationDate + ' por ' + data[i].Username +  "</p> <p class='pf4'>" + data[i].CreationHourZone +  "</p> <button id='" + data[i].Id + "' class='moreResult' onclick='showMedia(this)'>Multimedia</button> <p class='pf3'>" + data[i].Views +  " visitas</p> </div> </div>"
                             card2 = "<div style='color: black; text-align:justify !important'> <p>" + data[i].Name + "</p> <p>" + data[i].ProfesionDescription + "</p> <p>" + data[i].Email + "</p> <p class='pf2'>" + data[i].Phone + "</p> <p class='pf2'>Creado el " + data[i].CreationDate + ' por ' + data[i].Username +  "</p> <p class='pf4'>" + data[i].CreationHourZone +  "</p> <button id='" + data[i].Id + "' style='background:green' onclick='showMedia(this)'>Multimedia</button> <p class='pf3'>" + data[i].Views +  " visitas</p> </div>";
-                            chain.append(card);
+                            chain.append("<div class='result'> <div class='avatar' id='" + data[i].Id + "'></div> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].ProfesionDescription + "</p> <p class='pf2'>" + data[i].Email + "</p> <p class='pf2'>" + data[i].Phone + "</p> <p class='pf2'>Creado el " + data[i].CreationDate + ' por ' + data[i].Username +  "</p> <p class='pf4'>" + data[i].CreationHourZone +  "</p> <button id='" + data[i].Id + "' class='moreResult' onclick='showMedia(this)'>Multimedia</button> <p class='pf3'>" + data[i].Views +  " visitas</p> </div> </div>");
                             putMarker({lat:data[i].Latitude,lng:data[i].Longitude}, card2, data[i].Avatar);
                         }
                     }
@@ -205,9 +206,9 @@ function initMap()
     navigator.geolocation.getCurrentPosition(success, error, options);
 }
 
-function putMarker(latLng, card)
+function putMarker(latLng, card, avatar)
 {
     var infowindow = new google.maps.InfoWindow({content: card});
-    var marker = new google.maps.Marker({position: latLng, map: map});
+    var marker= new google.maps.Marker({position: latLng, map: map, icon: {url:avatar, scaledSize: new google.maps.Size(50, 50)}});
     marker.addListener('click', function() {infowindow.open(map, marker);});
 }
