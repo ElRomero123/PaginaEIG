@@ -1,5 +1,5 @@
 window.onload = initUser;
-var mapa, gmaps, f, t, y, g;
+var map, gmaps, f, t, y, g;
 
 f = 'https://www.facebook.com/Elite-Intelligence-Group-260263604734008/';
 t = 'https://twitter.com/EliteIntellige1?lang=es';
@@ -22,6 +22,7 @@ function initUser()
         {
             $('#infoName').text(name);
             $('#infoUsername').text(username);
+            initMap();
         }
     }
     else
@@ -56,11 +57,14 @@ function search()
                 {
                     var chain = new StringBuilder();
 
+                    
+
                     for(var i = 0; i < data.length; i++)
                     {
                         if(data[i].Ciprin)
                         {
                             chain.append("<div class='result'> <div class='avatar' id='" + data[i].Id + "'></div> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].ProfesionDescription + "</p> <p class='pf2'>" + data[i].Email + "</p> <p class='pf2'>" + data[i].Phone + "</p> <p class='pf2'>Creado el " + data[i].CreationDate + ' por ' + data[i].Username +  "</p> <p class='pf4'>" + data[i].CreationHourZone +  "</p> <button id='" + data[i].Id + "' class='moreResult' onclick='showMedia(this)'>Multimedia</button> <p style='background:green; color:white; padding: 4px;'>Afiliado a CIPRIN</p> <p class='pf3'>" + data[i].Views +  " visitas</p> </div> </div>");
+                            
                         }
 
                         else
@@ -188,4 +192,41 @@ StringBuilder.prototype.clear = function ()
 StringBuilder.prototype.toString = function () 
 {
     return this.strings.join("");
+}
+
+function initMap() 
+{
+    var crd;
+    var options = {enableHighAccuracy: true, timeout: 5000, maximumAge: 0};
+    function success(pos)
+    {
+       crd = pos.coords;
+       map = new google.maps.Map(document.getElementById('maps'), {zoom: 15, center: {lat: crd.latitude, lng: crd.longitude}});
+       new google.maps.Marker({
+        position: {lat: crd.latitude, lng: crd.longitude},
+        map: map,
+        title: 'Hello World!'
+        });
+
+
+        for(var i = 0; i < 10; i++)
+        {
+            putMarker({lat: crd.latitude + i/1500, lng: crd.longitude + i/1500});
+        }
+    }
+
+
+    function error()
+    {
+
+    }
+
+    navigator.geolocation.getCurrentPosition(success, error, options);
+
+    
+}
+
+function putMarker(latLng)
+{
+    new google.maps.Marker({position: latLng, map: map, title: 'Hello World!'});
 }
