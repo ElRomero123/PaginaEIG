@@ -235,13 +235,14 @@ function deleteFile(fileName, opt)
 {
     firebase.initializeApp(config);
     var storageRef = firebase.storage().ref();
+    var desertRef;
     switch(opt)
     {
         case 1:
-        var desertRef = storageRef.child('avatarP/' + fileName);
+        desertRef = storageRef.child('avatarP/' + fileName);
         break;
         default:
-        var desertRef = storageRef.child('avatarOP/' + fileName);
+        desertRef = storageRef.child('avatarOP/' + fileName);
     }
     
     desertRef.delete().then
@@ -262,8 +263,6 @@ function deleteFile(fileName, opt)
         }
     );
 }
-
-
 
 function deleteFileMedia(fileName, opt)
 {
