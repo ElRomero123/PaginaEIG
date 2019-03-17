@@ -65,11 +65,11 @@ function loadProfiles()
                         {
                             if(data[i].Type)
                             {
-                                chain.append("<div class='result'> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].ProfesionDescription + "</p> <p class='pf2'>" + data[i].Email + "</p> <p class='pf2'>" + data[i].Phone + "</p> <p class='pf2'> <p class='pf2'>Ciprin: " + data[i].Ciprin + "</p> <p class='pf2'>" + 'Unido el ' + data[i].CreationDate + "</p> <p class='pf4'>" + data[i].CreationHourZone + "</p> <button class='moreResult' id='" + data[i].Id + "' onclick='toEdit(2,this)'>Editar media</button> <button class='deleteResult' id='" + data[i].Id + "' onclick='elim(2,this)'>Eliminar</button> <p class='pf2' style='background:blue; padding:3px; color:white;'>Profesional Afín</p> <p class='pf2'>" + data[i].Views + " visitas</p> </div> </div>");
+                                chain.append("<div class='result'> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].ProfesionDescription + "</p> <p class='pf2'>" + data[i].Email + "</p> <p class='pf2'>" + data[i].Phone + "</p> <p class='pf2'> <p class='pf2'>Ciprin: " + data[i].Ciprin + "</p> <p class='pf2'>Activo: " + data[i].Active + "</p> <p class='pf2'>" + 'Unido el ' + data[i].CreationDate + "</p> <p class='pf4'>" + data[i].CreationHourZone + "</p> <button class='moreResult' id='" + data[i].Id + "' onclick='toEdit(2,this)'>Editar media</button> <button class='deleteResult' id='" + data[i].Id + "' onclick='elim(2,this)'>Eliminar</button> <p class='pf2' style='background:blue; padding:3px; color:white;'>Profesional Afín</p> <p class='pf2'>" + data[i].Views + " visitas</p> </div> </div>");
                             }
                             else
                             {
-                                chain.append("<div class='result'> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].ProfesionDescription + "</p> <p class='pf2'>" + data[i].Email + "</p> <p class='pf2'>" + data[i].Phone + "</p> <p class='pf2'> <p class='pf2'>Ciprin: " + data[i].Ciprin + "</p> <p class='pf2'>" + 'Unido el ' + data[i].CreationDate + "</p> <p class='pf4'>" + data[i].CreationHourZone + "</p> <button class='moreResult' id='" + data[i].Id + "' onclick='toEdit(1,this)'>Editar media</button> <button class='deleteResult' id='" + data[i].Id + "' onclick='elim(1,this)'>Eliminar</button> <p class='pf2' style='background:green; padding:3px; color:white;'>Investigador Privado</p> <p class='pf2'>" + data[i].Views + " visitas</p> </div> </div>");
+                                chain.append("<div class='result'> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].ProfesionDescription + "</p> <p class='pf2'>" + data[i].Email + "</p> <p class='pf2'>" + data[i].Phone + "</p> <p class='pf2'> <p class='pf2'>Ciprin: " + data[i].Ciprin + "</p> <p class='pf2'>Activo: " + data[i].Active + "</p> <p class='pf2'>" + 'Unido el ' + data[i].CreationDate + "</p> <p class='pf4'>" + data[i].CreationHourZone + "</p> <button class='moreResult' id='" + data[i].Id + "' onclick='toEdit(1,this)'>Editar media</button> <button class='deleteResult' id='" + data[i].Id + "' onclick='elim(1,this)'>Eliminar</button> <p class='pf2' style='background:green; padding:3px; color:white;'>Investigador Privado</p> <p class='pf2'>" + data[i].Views + " visitas</p> </div> </div>");
                             }
                         }
                         
@@ -162,6 +162,23 @@ function elim(opc, e)
                 }
             }
         );
+        $.ajax
+        (
+            {
+                url: '../api/mediaPerson/?idPerson=' + e.id,
+                type: 'GET',
+                contentType: "application/json;charset=utf-8",
+    
+                success:
+                function (data) 
+                {
+                    for(var i = 0; i < data.length; i++)
+                    {
+                        deleteFile(data[i].FileName, 3);
+                    }
+                }
+            }
+        );
         break;
         default:
         $.ajax
@@ -175,6 +192,24 @@ function elim(opc, e)
                 function (data) 
                 {
                     deleteFile(data, 2);
+                }
+            }
+        );
+
+        $.ajax
+        (
+            {
+                url: '../api/mediaOtherPerson/?idOtherPerson=' + e.id,
+                type: 'GET',
+                contentType: "application/json;charset=utf-8",
+    
+                success:
+                function (data) 
+                {
+                    for(var i = 0; i < data.length; i++)
+                    {
+                        deleteFile(data[i].FileName, 4);
+                    }
                 }
             }
         );
@@ -192,8 +227,14 @@ function deleteFile(fileName, opt)
         case 1:
         var desertRef = storageRef.child('avatarP/' + fileName);
         break;
-        default:
+        case 2:
         var desertRef = storageRef.child('avatarOP/' + fileName);
+        break;
+        case 3:
+        var desertRef = storageRef.child('filesPerson/' + fileName);
+        break;
+        default:
+        var desertRef = storageRef.child('filesOtherPerson/' + fileName);
     }
     
     desertRef.delete().then
