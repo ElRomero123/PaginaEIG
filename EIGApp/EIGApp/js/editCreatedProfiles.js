@@ -160,7 +160,7 @@ function elim(opc, e)
                     success:
                     function (data) 
                     {
-                        deleteFile(data, 1, e.id);
+                        deleteFile(data, 1);
                     }
                 }
             );
@@ -176,7 +176,7 @@ function elim(opc, e)
                     success:
                     function (data) 
                     {
-                        deleteFile(data, 2, e.id);
+                        deleteFile(data, 2);
                     }
                 }
             );
@@ -231,7 +231,7 @@ function validate(opt, id)
     return R;
 }
 
-function deleteFile(fileName, opt, id)
+function deleteFile(fileName, opt)
 {
     firebase.initializeApp(config);
     var storageRef = firebase.storage().ref();
@@ -256,7 +256,9 @@ function deleteFile(fileName, opt, id)
     (
         function(error) 
         {
-            alert('NO se pudo eliminar el pefil! ' + error);
+            $('#bannerState').css('background','red');
+            $('#bannerState').css('color','white');
+            $('#bannerState').text('NO se pudo eliminar el pefil!');
         }
     );
 }
