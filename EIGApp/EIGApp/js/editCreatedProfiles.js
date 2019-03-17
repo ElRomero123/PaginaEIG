@@ -162,7 +162,6 @@ function elim(opc, e)
                 }
             }
         );
-        
         break;
         default:
         $.ajax
@@ -182,7 +181,7 @@ function elim(opc, e)
     }  
 }
 
-function deleteFile(fileName, opt)
+function deleteFile(fileName, opt, id)
 {
     firebase.initializeApp(config);
 
@@ -192,12 +191,6 @@ function deleteFile(fileName, opt)
     {
         case 1:
         var desertRef = storageRef.child('avatarP/' + fileName);
-        break;
-        case 2:
-        var desertRef = storageRef.child('avatarOP/' + fileName);
-        break;
-        case 3:
-        var desertRef = storageRef.child('filesPerson/' + fileName);
         break;
         default:
         var desertRef = storageRef.child('filesOtherPerson/' + fileName);
