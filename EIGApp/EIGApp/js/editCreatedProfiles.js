@@ -145,7 +145,7 @@ function toEdit(opc, e)
 
 function elim(opc, e)
 {
-    if(validate(opc, e))
+    if(validate(opc, e.id))
     switch(opc)
     {
         case 1:
@@ -212,7 +212,7 @@ function deleteFile(fileName, opt, id)
     );
 }
 
-function deleteMedia(id, opt)
+function validate(opt, id)
 {
     switch(opt)
     {
@@ -227,13 +227,14 @@ function deleteMedia(id, opt)
                 success:
                 function (data) 
                 {
-                    for(var i = 0; i < data.length; i++)
+                    if(data.length > 0)
                     {
-                        deleteFileMedia(data[i].FileName, opt);
+                        
                     }
+                    else
+                    {
 
-                    $('#bannerState').css('background','brown');
-                    $('#bannerState').text('Tu perfil ha sido eliminado!');
+                    }
                 }
             }
         );
@@ -249,13 +250,14 @@ function deleteMedia(id, opt)
                 success:
                 function (data) 
                 {
-                    for(var i = 0; i < data.length; i++)
+                    if(data.length > 0)
                     {
-                        deleteFileMedia(data[i].FileName, opt);
-                    }
 
-                    $('#bannerState').css('background','brown');
-                    $('#bannerState').text('Tu perfil ha sido eliminado!');
+                    }
+                    else
+                    {
+
+                    }
                 }
             }
         );
