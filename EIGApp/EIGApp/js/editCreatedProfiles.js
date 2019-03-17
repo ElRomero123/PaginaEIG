@@ -145,53 +145,6 @@ function toEdit(opc, e)
 
 function elim(opc, e)
 {
-    if(validate(opc, e.id))
-    {
-        switch(opc)
-        {
-            case 1:
-            $.ajax
-            (
-                {
-                    url: '../api/putAvatar/?idPerson=' + e.id,
-                    type: 'POST',
-                    contentType: "application/json;charset=utf-8",
-    
-                    success:
-                    function (data) 
-                    {
-                        deleteFile(data, 1);
-                    }
-                }
-            );
-            break;
-            default:
-            $.ajax
-            (
-                {
-                    url: '../api/putAvatarOP/?idOtherPerson=' + e.id,
-                    type: 'POST',
-                    contentType: "application/json;charset=utf-8",
-        
-                    success:
-                    function (data) 
-                    {
-                        deleteFile(data, 2);
-                    }
-                }
-            );
-        }  
-    }
-    else
-    {
-        $('#bannerState').css('background','red');
-        $('#bannerState').css('color','white');
-        $('#bannerState').text('Elimine Archivos, antes de eliminar Perfil!');
-    } 
-}
-
-function validate(opt, id)
-{
     var R = false;
     switch(opt)
     {
@@ -199,14 +152,23 @@ function validate(opt, id)
         $.ajax
         (
             {
-                url: '../api/mediaPerson/?idPerson=' + id,
+                url: '../api/mediaPerson/?idPerson=' + e.id,
                 type: 'GET',
                 contentType: "application/json;charset=utf-8",
     
                 success:
                 function (data) 
                 {
-                    R = data.length > 0;
+                    if(data.length > 0)
+                    {
+                        $('#bannerState').css('background','red');
+                        $('#bannerState').css('color','white');
+                        $('#bannerState').text('Elimine Archivos primero!');
+                    }
+                    else
+                    {
+                        deleteMedia(opc, e.id);
+                    }
                 }
             }
         );
@@ -215,20 +177,65 @@ function validate(opt, id)
         $.ajax
         (
             {
-                url: '../api/mediaOtherPerson/?idOtherPerson=' + id,
+                url: '../api/mediaOtherPerson/?idOtherPerson=' + e.id,
                 type: 'GET',
                 contentType: "application/json;charset=utf-8",
     
                 success:
                 function (data) 
                 {
-                    R = data.length > 0;
+                    if(data.length > 0)
+                    {
+                        $('#bannerState').css('background','red');
+                        $('#bannerState').css('color','white');
+                        $('#bannerState').text('Elimine Archivos primero!');
+                    }
+                    else
+                    {
+                        deleteMedia(opc, e.id);
+                    }
                 }
             }
         );
     }
-    alert(R);
-    return R;
+}
+
+function deleteMedia(opc, id)
+{
+    switch(opc)
+    {
+        case 1:
+        $.ajax
+        (
+            {
+                url: '../api/putAvatar/?idPerson=' + id,
+                type: 'POST',
+                contentType: "application/json;charset=utf-8",
+
+                success:
+                function (data) 
+                {
+                    deleteFile(data, 1);
+                }
+            }
+        );
+        break;
+        default:
+        $.ajax
+        (
+            {
+                url: '../api/putAvatarOP/?idOtherPerson=' + id,
+                type: 'POST',
+                contentType: "application/json;charset=utf-8",
+    
+                success:
+                function (data) 
+                {
+                    deleteFile(data, 2);
+                }
+            }
+        );
+    }  
 }
 
 function deleteFile(fileName, opt)
