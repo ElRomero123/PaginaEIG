@@ -62,7 +62,9 @@ function search()
 
                         else
                         {
+                            card2 = "<div style='color: black; text-align:justify !important'> <p>" + data[i].Name + "</p> <p>" + data[i].ProfesionDescription + "</p> <p>" + data[i].Email + "</p> <p class='pf2'>" + data[i].Phone + "</p> <p class='pf2'>Creado el " + data[i].CreationDate + ' por ' + data[i].Username +  "</p> <p class='pf4'>" + data[i].CreationHourZone +  "</p> <button id='" + data[i].Id + "' style='background:green' onclick='showMedia(this)'>Multimedia</button> <p class='pf3'>" + data[i].Views +  " visitas</p> </div>";
                             chain.append("<div class='result'> <div class='avatar' id='" + data[i].Id + "'></div> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].Profesion + "</p> <p class='pf2'>" + data[i].ProfesionDescription + "</p> <p class='pf2'>" + data[i].Email + "</p> <p class='pf2'>" + data[i].Phone + "</p> <p class='pf2'>Creado el " + data[i].CreationDate + ' por ' + data[i].Username +  "</p> <p class='pf4'>" + data[i].CreationHourZone +  "</p> <button id='" + data[i].Id + "' class='moreResult' onclick='showMedia(this)'>Multimedia</button> <p class='pf3'>" + data[i].Views +  " visitas</p> </div> </div>");
+                            putMarker({lat:data[i].Latitude,lng:data[i].Longitude}, card2, data[i].Avatar);
                         }      
                     } 
 
@@ -158,4 +160,24 @@ StringBuilder.prototype.clear = function ()
 StringBuilder.prototype.toString = function () 
 {
     return this.strings.join("");
+}
+
+function initMap() 
+{
+    var crd;
+    var options = {enableHighAccuracy: true, timeout: 5000, maximumAge: 0};
+    function success(pos)
+    {
+       crd = pos.coords;
+       map = new google.maps.Map(document.getElementById('maps'), {zoom: 15, center: {lat: crd.latitude, lng: crd.longitude}});
+    }
+    function error(){}
+    navigator.geolocation.getCurrentPosition(success, error, options);
+}
+
+function putMarker(latLng, card, avatar)
+{
+    var infowindow = new google.maps.InfoWindow({content: card});
+    var marker= new google.maps.Marker({position: latLng, map: map, icon: {url:avatar, scaledSize: new google.maps.Size(50, 50)}});
+    marker.addListener('click', function() {infowindow.open(map, marker);});
 }
