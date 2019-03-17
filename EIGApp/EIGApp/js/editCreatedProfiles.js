@@ -162,23 +162,7 @@ function elim(opc, e)
                 }
             }
         );
-        $.ajax
-        (
-            {
-                url: '../api/mediaPerson/?idPerson=' + e.id,
-                type: 'GET',
-                contentType: "application/json;charset=utf-8",
-    
-                success:
-                function (data) 
-                {
-                    for(var i = 0; i < data.length; i++)
-                    {
-                        deleteFile(data[i].FileName, 3);
-                    }
-                }
-            }
-        );
+        
         break;
         default:
         $.ajax
@@ -191,25 +175,7 @@ function elim(opc, e)
                 success:
                 function (data) 
                 {
-                    deleteFile(data, 2);
-                }
-            }
-        );
-
-        $.ajax
-        (
-            {
-                url: '../api/mediaOtherPerson/?idOtherPerson=' + e.id,
-                type: 'GET',
-                contentType: "application/json;charset=utf-8",
-    
-                success:
-                function (data) 
-                {
-                    for(var i = 0; i < data.length; i++)
-                    {
-                        deleteFile(data[i].FileName, 4);
-                    }
+                    deleteFile(data, 2, e.id);
                 }
             }
         );
@@ -241,6 +207,7 @@ function deleteFile(fileName, opt)
     (
         function() 
         {
+            deleteMedia(opt);
             $('#bannerState').css('background','brown');
             $('#bannerState').text('Tu perfil ha sido eliminado!');
             setTimeout(recargar, 500);
