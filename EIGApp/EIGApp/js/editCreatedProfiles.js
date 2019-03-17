@@ -193,14 +193,14 @@ function deleteFile(fileName, opt, id)
         var desertRef = storageRef.child('avatarP/' + fileName);
         break;
         default:
-        var desertRef = storageRef.child('filesOtherPerson/' + fileName);
+        var desertRef = storageRef.child('avatarOP/' + fileName);
     }
     
     desertRef.delete().then
     (
         function() 
         {
-            deleteMedia(opt);
+            deleteMedia(id, opt);
             $('#bannerState').css('background','brown');
             $('#bannerState').text('Tu perfil ha sido eliminado!');
             setTimeout(recargar, 500);
@@ -212,6 +212,11 @@ function deleteFile(fileName, opt, id)
             alert('NO se pudo eliminar el pefil! ' + error);
         }
     );
+}
+
+function deleteMedia()
+{
+    
 }
 
 function recargar()
