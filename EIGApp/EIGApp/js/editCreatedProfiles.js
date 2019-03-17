@@ -146,20 +146,67 @@ function toEdit(opc, e)
 function elim(opc, e)
 {
     if(validate(opc, e.id))
-    switch(opc)
+    {
+        switch(opc)
+        {
+            case 1:
+            $.ajax
+            (
+                {
+                    url: '../api/putAvatar/?idPerson=' + e.id,
+                    type: 'POST',
+                    contentType: "application/json;charset=utf-8",
+    
+                    success:
+                    function (data) 
+                    {
+                        deleteFile(data, 1, e.id);
+                    }
+                }
+            );
+            break;
+            default:
+            $.ajax
+            (
+                {
+                    url: '../api/putAvatarOP/?idOtherPerson=' + e.id,
+                    type: 'POST',
+                    contentType: "application/json;charset=utf-8",
+        
+                    success:
+                    function (data) 
+                    {
+                        deleteFile(data, 2, e.id);
+                    }
+                }
+            );
+        }  
+    }
+    else
+    {
+        $('#bannerState').css('background','red');
+        $('#bannerState').css('color','white');
+        $('#bannerState').text('Elimine Archivos, antes de eliminar Perfil!');
+    } 
+}
+
+function validate(opt, id)
+{
+    var R = false;
+    switch(opt)
     {
         case 1:
         $.ajax
         (
             {
-                url: '../api/putAvatar/?idPerson=' + e.id,
-                type: 'POST',
+                url: '../api/mediaPerson/?idPerson=' + id,
+                type: 'GET',
                 contentType: "application/json;charset=utf-8",
-
+    
                 success:
                 function (data) 
                 {
-                    deleteFile(data, 1, e.id);
+                    R = data.length > 0;
                 }
             }
         );
@@ -168,18 +215,20 @@ function elim(opc, e)
         $.ajax
         (
             {
-                url: '../api/putAvatarOP/?idOtherPerson=' + e.id,
-                type: 'POST',
+                url: '../api/mediaOtherPerson/?idOtherPerson=' + id,
+                type: 'GET',
                 contentType: "application/json;charset=utf-8",
     
                 success:
                 function (data) 
                 {
-                    deleteFile(data, 2, e.id);
+                    R = data.length > 0;
                 }
             }
         );
-    }  
+    }
+    alert(R);
+    return R;
 }
 
 function deleteFile(fileName, opt, id)
@@ -212,57 +261,7 @@ function deleteFile(fileName, opt, id)
     );
 }
 
-function validate(opt, id)
-{
-    switch(opt)
-    {
-        case 1:
-        $.ajax
-        (
-            {
-                url: '../api/mediaPerson/?idPerson=' + id,
-                type: 'GET',
-                contentType: "application/json;charset=utf-8",
-    
-                success:
-                function (data) 
-                {
-                    if(data.length > 0)
-                    {
-                        
-                    }
-                    else
-                    {
 
-                    }
-                }
-            }
-        );
-        break;
-        default:
-        $.ajax
-        (
-            {
-                url: '../api/mediaOtherPerson/?idOtherPerson=' + id,
-                type: 'GET',
-                contentType: "application/json;charset=utf-8",
-    
-                success:
-                function (data) 
-                {
-                    if(data.length > 0)
-                    {
-
-                    }
-                    else
-                    {
-
-                    }
-                }
-            }
-        );
-    }
-}
 
 function deleteFileMedia(fileName, opt)
 {
