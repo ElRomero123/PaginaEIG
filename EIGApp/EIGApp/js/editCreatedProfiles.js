@@ -145,6 +145,7 @@ function toEdit(opc, e)
 
 function elim(opc, e)
 {
+    if(validate(opc, e))
     switch(opc)
     {
         case 1:
@@ -158,7 +159,7 @@ function elim(opc, e)
                 success:
                 function (data) 
                 {
-                    deleteFile(data, 1);
+                    deleteFile(data, 1, e.id);
                 }
             }
         );
@@ -184,9 +185,7 @@ function elim(opc, e)
 function deleteFile(fileName, opt, id)
 {
     firebase.initializeApp(config);
-
     var storageRef = firebase.storage().ref();
-
     switch(opt)
     {
         case 1:
@@ -200,10 +199,9 @@ function deleteFile(fileName, opt, id)
     (
         function() 
         {
-            deleteMedia(id, opt);
             $('#bannerState').css('background','brown');
             $('#bannerState').text('Tu perfil ha sido eliminado!');
-            setTimeout(recargar, 500);
+            setInterval(800, recargar);
         }
     ).catch
     (
@@ -214,9 +212,82 @@ function deleteFile(fileName, opt, id)
     );
 }
 
-function deleteMedia()
+function deleteMedia(id, opt)
 {
+    switch(opt)
+    {
+        case 1:
+        $.ajax
+        (
+            {
+                url: '../api/mediaPerson/?idPerson=' + id,
+                type: 'GET',
+                contentType: "application/json;charset=utf-8",
     
+                success:
+                function (data) 
+                {
+                    for(var i = 0; i < data.length; i++)
+                    {
+                        deleteFileMedia(data[i].FileName, opt);
+                    }
+
+                    $('#bannerState').css('background','brown');
+                    $('#bannerState').text('Tu perfil ha sido eliminado!');
+                }
+            }
+        );
+        break;
+        default:
+        $.ajax
+        (
+            {
+                url: '../api/mediaOtherPerson/?idOtherPerson=' + id,
+                type: 'GET',
+                contentType: "application/json;charset=utf-8",
+    
+                success:
+                function (data) 
+                {
+                    for(var i = 0; i < data.length; i++)
+                    {
+                        deleteFileMedia(data[i].FileName, opt);
+                    }
+
+                    $('#bannerState').css('background','brown');
+                    $('#bannerState').text('Tu perfil ha sido eliminado!');
+                }
+            }
+        );
+    }
+}
+
+function deleteFileMedia(fileName, opt)
+{
+    firebase.initializeApp(config);
+    var storageRef = firebase.storage().ref();
+
+    switch(opt)
+    {
+        case 1:
+        var desertRef = storageRef.child('filesPerson/' + fileName);
+        break;
+        default:
+        var desertRef = storageRef.child('filesOtherPerson/' + fileName);
+    }
+    
+    desertRef.delete().then
+    (
+        function() 
+        {
+    
+        }
+    ).catch
+    (
+        function(error) 
+        {
+        }
+    );
 }
 
 function recargar()
