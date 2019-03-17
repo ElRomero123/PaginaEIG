@@ -146,7 +146,7 @@ function toEdit(opc, e)
 function elim(opc, e)
 {
     var R = false;
-    switch(opt)
+    switch(opc)
     {
         case 1:
         $.ajax
@@ -267,34 +267,6 @@ function deleteFile(fileName, opt)
             $('#bannerState').css('background','red');
             $('#bannerState').css('color','white');
             $('#bannerState').text('NO se pudo eliminar el pefil!');
-        }
-    );
-}
-
-function deleteFileMedia(fileName, opt)
-{
-    firebase.initializeApp(config);
-    var storageRef = firebase.storage().ref();
-
-    switch(opt)
-    {
-        case 1:
-        var desertRef = storageRef.child('filesPerson/' + fileName);
-        break;
-        default:
-        var desertRef = storageRef.child('filesOtherPerson/' + fileName);
-    }
-    
-    desertRef.delete().then
-    (
-        function() 
-        {
-    
-        }
-    ).catch
-    (
-        function(error) 
-        {
         }
     );
 }
