@@ -22,29 +22,39 @@
             </div>
 
             <div>
-                <p>Alias de Usuario/Username (25 caracteres)</p>
-                <input type='text' maxlength='25' id='campoUsername'>
+                <p>Alias de Usuario/Username (8 - 25 caracteres)</p>
+                <input type='text' maxlength='25' id='cUsername'>
 
-                <p>Contraseña/Password (25 caracteres)</p>
-                <input type='password' maxlength='25' id='campoPassword'>
+                <p>Contraseña/Password (6 - 25 caracteres)</p>
+                <input type='password' maxlength='25' id='cPass1'>
 
-                <p>Repetir Contraseña (25 caracteres)</p>
-                <input type='password' maxlength='25' id='campoPasswordAgain'>
+                <p>Repetir Contraseña</p>
+                <input type='password' maxlength='25' id='cPass2'>
 
-                <p>Nombre Completo (150 caracteres)</p>
-                <input type='text' maxlength='150' id='campoName'>
+                <p>Nombre Completo (8 a 150 caracteres)</p>
+                <input type='text' maxlength='150' id='cName'>
 
-                <p>E-mail (150 caracteres)</p>
-                <input type='text' maxlength='150' id='campoEmail'>
+                <p>E-mail (8 a 150 caracteres)</p>
+                <input type='text' maxlength='150' id='cEmail'>
 
-                <p>Dirección de residencia/Address (100 caracteres)</p>
-                <input type='text' maxlength='100' id='campoAddress'>
+                <p>Dirección de residencia/Address (5 a 100 caracteres)</p>
+                <input type='text' maxlength='100' id='cAddress'>
 
                 <div>
                     <button id='register' class='register' onclick='createUser()'>Envío y acepto el acuerdo</button>
                 </div>
             </div>
         </div>
+
+        <footer>
+            <div id='social'>
+                <div class='s' id='s1' onclick='social(1)'></div>
+                <div class='s' id='s2' onclick='social(2)'></div>
+                <div class='s' id='s3' onclick='social(3)'></div>
+                <div class='s' id='s4' onclick='social(4)'></div>
+            </div>
+            <div>Desarrollado por Romesoft S.A Telefono: 305 355 28 37</div>
+        </footer>
     
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src='JS/register.js'></script>

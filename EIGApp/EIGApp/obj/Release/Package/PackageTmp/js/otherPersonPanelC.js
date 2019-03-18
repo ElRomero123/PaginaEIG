@@ -3,6 +3,11 @@ var OtherPersonAvatar;
 var longitude;
 var latitude;
 
+var f = 'https://www.facebook.com/Elite-Intelligence-Group-260263604734008/';
+var t = 'https://twitter.com/EliteIntellige1?lang=es';
+var y = 'https://www.youtube.com/channel/UCOvdAjzfv4WlwxKc1fi5JYQ';
+var g = 'https://plus.google.com/u/0/109910140252090488175';
+
 function initUser()
 {
     var name     = localStorage.getItem('Name');
@@ -29,6 +34,10 @@ function to(num)
         localStorage.clear();
         location.href = 'index.html';
         break;
+        case 2:
+        localStorage.setItem('Call', 4);
+        location.href = 'editCreatedProfiles.html';
+        break;
         default: 
         location.href = 'menu7.html';
     }
@@ -42,26 +51,28 @@ function createOtherPerson()
     {
         if(validateAvatar())
         {
+            var IdUser = localStorage.getItem('User');
+
             var otraPersona =
             {
-                name:                 $('#campoFullName').val(),
-                profesion:            $('#campoProfesion').val(),
-                profesionDescription: $('#campoProfesionDescription').val(),
-                email:                $('#campoEmail').val(),
-                phone:                $('#campoPhone').val(),
+                name:                 $('#cName').val(),
+                profesion:            $('#cProfesion').val(),
+                profesionDescription: $('#cDescription').val(),
+                email:                $('#cEmail').val(),
+                phone:                $('#cIndex').val().substr(0,4).trim() + ' ' + $('#cPhone').val(),
                 latitude:             latitude,
                 longitude:            longitude,
+                ciprin:               true,
+                active:               false,
                 avatar:               '',
-                ciprin:               1,
-                active:               0,
-                approved:             false,
-                idUser:               localStorage.getItem('User')
+                nameAvatar:           '',
+                idUser:               IdUser
             };
 
             $('#createOtherPerson').css('background','yellow');
             $('#createOtherPerson').css('border','2px solid yellow');
             $('#createOtherPerson').css('color','black');
-            $('#createOtherPerson').text('Creando perfil de usuario...');
+            $('#createOtherPerson').text('Registrando ...');
     
             $.ajax
             (
@@ -84,7 +95,7 @@ function createOtherPerson()
         {
             $('#createOtherPerson').css('background','red');
             $('#createOtherPerson').css('border','2px solid red');
-            $('#createOtherPerson').text('NO existe foto de usuario!');
+            $('#createOtherPerson').text('Debe seleccionar una FOTO de Avatar!');
         }
     }
 
@@ -111,7 +122,8 @@ function loadAvatar(num)
     firebase.initializeApp(config);
 
     var storageRef = firebase.storage().ref();
-    var uploadTask = storageRef.child('avatar/' + 'OP' + num).put(OtherPersonAvatar.files[0]);
+    var fileName = 'OP' + num;
+    var uploadTask = storageRef.child('avatar/' + fileName).put(OtherPersonAvatar.files[0]);
 
     uploadTask.on
     (   
@@ -128,24 +140,25 @@ function loadAvatar(num)
         {
             uploadTask.snapshot.ref.getDownloadURL().then(function(downloadURL) 
             {    
-                putAvatar(num, downloadURL);
+                putAvatar(num, fileName, downloadURL);
             });
         }
     );
 }
 
-function putAvatar(num, downloadURL)
+function putAvatar(num, fileName, downloadURL)
 {
     var parametrosPutAvatar =
     {
-        id: num,
+        id         : num,
+        fileName   : fileName,
         downloadURL: downloadURL
     };
 
     $.ajax
     (
         {
-            url: '../api/parametroOtherPerson',
+            url: '../api/putAvatarOP',
             type: 'POST',
             data: JSON.stringify(parametrosPutAvatar),
             contentType: "application/json;charset=utf-8",
@@ -158,9 +171,9 @@ function putAvatar(num, downloadURL)
                     $('#createOtherPerson').css('background','darkgreen');
                     $('#createOtherPerson').css('border','2px solid darkgreen');
                     $('#createOtherPerson').css('color','white');
-                    $('#createOtherPerson').text('Perfil ingresado con éxito!');
+                    $('#createOtherPerson').text('Registro exitoso!');
                     
-                    setTimeout(recargar, 2500);
+                    setTimeout(recargar, 1800);
                 }
             }
         }
@@ -185,11 +198,11 @@ document.getElementById('otherPersonAvatar').onchange = function(e)
 
 function validateText()
 {
-    var c1 = $('#campoFullName').val().length >= 8;
-    var c2 = $('#campoProfesion').val().length >= 8;
-    var c3 = $('#campoProfesionDescription').val().length >= 8;
-    var c4 = $('#campoEmail').val().length >= 8;
-    var c5 = $('#campoPhone').val().length >= 8;
+    var c1 = $('#cName').val().length >= 8;
+    var c2 = $('#cProfesion').val().length >= 8;
+    var c3 = $('#cDescription').val().length >= 8;
+    var c4 = $('#cEmail').val().length >= 8;
+    var c5 = $('#cPhone').val().length >= 5;
 
     return c1 && c2 && c3 && c4 && c5;
 }
@@ -208,8 +221,10 @@ function startMap()
 {
     navigator.geolocation.getCurrentPosition(function(position)
     {
-        mapa = new google.maps.Map(document.getElementById('maps2'), {zoom: 5, center: {lat: position.coords.latitude, lng: position.coords.longitude}});
-        marker = new google.maps.Marker({draggable: true, animation: google.maps.Animation.DROP, position: {lat: position.coords.latitude, lng: position.coords.longitude}, map: mapa});
+        latitude = position.coords.latitude;
+        longitude = position.coords.longitude;
+        mapa = new google.maps.Map(document.getElementById('maps2'), {zoom: 5, center: {lat: latitude, lng: longitude}});
+        marker = new google.maps.Marker({draggable: true, animation: google.maps.Animation.DROP, position: {lat: latitude, lng: longitude}, map: mapa});
 
         marker.addListener
         (
@@ -221,4 +236,22 @@ function startMap()
             }
         );
     });
+}
+
+function social(op)
+{
+    switch(op)
+    {
+        case 1:
+        window.open(f, '_blank');
+        break;
+        case 2:
+        window.open(t, '_blank');
+        break;
+        case 3:
+        window.open(y, '_blank');
+        break;
+        default:
+        window.open(g, '_blank');
+    }
 }

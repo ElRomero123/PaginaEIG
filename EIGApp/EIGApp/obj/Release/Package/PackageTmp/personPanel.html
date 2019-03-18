@@ -15,6 +15,7 @@
                 <p id='infoName'></p>
                 <p id='infoUsername'></p>
                 <button class='close' onclick='to(1)'>Cerrar Sesión</button>
+                <button class='close' onclick='to(2)'>Mis perfiles</button>
             </div>
         </header>
 
@@ -23,28 +24,278 @@
             <p class='categorySearch'>Unirse como investigador privado a EIG</p>
 
             <div class='categories'>
-                <div id='c9' class='category' onclick="to(2)"></div>
+                <div id='c9' class='category' onclick="to(3)"></div>
             </div>
 
             <div>
-                <p>Nombre completo (8 a 50 caracteres)</p>
-                <input type='text' maxlength='50' id='campoFullName'>
+                <p><b>Paso 1 </b>Nombre completo (8 a 50 caracteres)</p>
+                <input type='text' maxlength='50' id='cName'>
 
-                <p>Describa a lo que usted se dedica brevemente (20 a 100 caracteres)</p>
-                <input type='text' maxlength="100" id='campoProfesionDescription'>
+                <p><b>Paso 2 </b>Describa a lo que usted se dedica brevemente (20 a 100 caracteres)</p>
+                <input type='text' maxlength="100" id='cDescription'>
 
-                <p>Correo electrónico/Email (8 a 80 caracteres)</p>
-                <input type='text' maxlength="80" id='campoEmail'>
+                <p><b>Paso 3 </b>Correo electrónico/Email (8 a 80 caracteres)</p>
+                <input type='text' maxlength="80" id='cEmail'>
 
-                <p>Número telefónico Celular/Fijo (Mínimo 5 digitos)</p>
-                <input type='number' max='9999999999999999999999999' id='campoPhone'>
+                <p><b>Paso 4 </b>Número telefónico Celular (Mínimo 5 digitos)</p>
+                <div id='infoPhone'>
+                        <p><b>-> </b>Indicativo</p>
+                        <input list='countries' id='cIndex'>
+        
+                        <datalist id='countries'>
+                            <option value='+93 Afganistan'>
+                            <option value='+355 Albania'>
+                            <option value='+49 Alemania'>
+                            <option value='+376 Andorra'>
+                            <option value='+244 Angola'>
+                            <option value='+1  Anguila'>
+                            <option value='+1  Antigua y Barbuda'>
+                            <option value='+966 Arabia Saudí'>
+                            <option value='+213 Argelia'>
+                            <option value='+54 Argentina'>
+                            <option value='+374 Armenia'>
+                            <option value='+297 Aruba'>
+                            <option value='+61 Australia'>
+                            <option value='+43 Austria'>
+                            <option value='+994 Azerbaiyán'>
+                            <option value='+1  Bahamas'>
+                            <option value='+880 Bangladés'>
+                            <option value='+1  Barbados'>
+                            <option value='+973 Baréin'>
+                            <option value='+32 Bélgica'>
+                            <option value='+501 Belice'>
+                            <option value='+229 Benín'>
+                            <option value='+1  Bermudas'>
+                            <option value='+375 Bielorrusia'>
+                            <option value='+591 Bolivia'>
+                            <option value='+387 Bosnia-Herzegovina'>
+                            <option value='+267 Botsuana'>
+                            <option value='+55 Brasil'>
+                            <option value='+673 Brunéi'>
+                            <option value='+359 Bulgaria'>
+                            <option value='+226 Burkina Faso'>
+                            <option value='+257 Burundi'>
+                            <option value='+975 Bután'>
+                            <option value='+238 Cabo Verde'>
+                            <option value='+855 Camboya'>
+                            <option value='+237 Camerún'>
+                            <option value='+1 Canadá'>
+                            <option value='+599 Caribe neerlandés'>
+                            <option value='+974 Catar'>
+                            <option value='+235 Chad'>
+                            <option value='+420 Chequia'>
+                            <option value='+56 Chile'>
+                            <option value='+86 China'>
+                            <option value='+357 Chipre'>
+                            <option value='+39 Ciudad del Vaticano'>
+                            <option value='+57 Colombia'>
+                            <option value='+269 Comoras'>
+                            <option value='+850 Corea del Norte'>
+                            <option value='+82 Corea del Sur'>
+                            <option value='+225 Costa de Marfil'>
+                            <option value='+506 Costa Rica'>
+                            <option value='+385 Croacia'>
+                            <option value='+53 Cuba'>
+                            <option value='+599 Curazao'>
+                            <option value='+45 Dinamarca'>
+                            <option value='+1 Dominica'>
+                            <option value='+593 Ecuador'>
+                            <option value='+20 Egipto'>
+                            <option value='+503 El Salvador'>
+                            <option value='+971 Emiratos Árabes Unidos'>
+                            <option value='+291 Eritrea'>
+                            <option value='+421 Eslovaquia'>
+                            <option value='+386 Eslovenia'>
+                            <option value='+34 España'>
+                            <option value='+1 Estados Unidos'>
+                            <option value='+372 Estonia'>
+                            <option value='+251 Etiopía'>
+                            <option value='+63 Filipinas'>
+                            <option value='+358 Finlandia'>
+                            <option value='+679 Fiyi'>
+                            <option value='+33 Francia'>
+                            <option value='+241 Gabón'>
+                            <option value='+220 Gambia'>
+                            <option value='+995 Georgia'>
+                            <option value='+233 Ghana'>
+                            <option value='+350 Gibraltar'>
+                            <option value='+1 Granada'>
+                            <option value='+30 Grecia'>
+                            <option value='+299 Groenlandia'>
+                            <option value='+590 Guadalupe'>
+                            <option value='+1 Guam'>
+                            <option value='+502 Guatemala'>
+                            <option value='+594 Guyana Francesa'>
+                            <option value='+224 Guinea'>
+                            <option value='+240 Guinea Ecuatorial'>
+                            <option value='+245 Guinea-Bisáu'>
+                            <option value='+592 Guyana'>
+                            <option value='+509 Haití'>
+                            <option value='+504 Honduras'>
+                            <option value='+852 Hong Kong'>
+                            <option value='+36 Hungría'>
+                            <option value='+91 India'>
+                            <option value='+62 Indonesia'>
+                            <option value='+964 Irak'>
+                            <option value='+98 Irán'>
+                            <option value='+353 Irlanda'>
+                            <option value='+247 Isla Ascensión'>
+                            <option value='+672 Isla Norfolk'>
+                            <option value='+354 Islandia'>
+                            <option value='+1 Islas Caimán'>
+                            <option value='+682 Islas Cook'>
+                            <option value='+298 Islas Feroe'>
+                            <option value='+500 Islas Malvinas (Islas Falkland)'>
+                            <option value='+1 Islas Marianas del Norte'>
+                            <option value='+692 Islas Marshall'>
+                            <option value='+677 Islas Salomón'>
+                            <option value='+1 Islas Turcas y Caicos'>
+                            <option value='+1 Islas Vírgenes Británicas'>
+                            <option value='+1 Islas Vírgenes de los Estados Unidos'>
+                            <option value='+972 Israel'>
+                            <option value='+39 Italia'>
+                            <option value='+1 Jamaica'>
+                            <option value='+81 Japón'>
+                            <option value='+962 Jordania'>
+                            <option value='+7 Kazajistán'>
+                            <option value='+254 Kenia'>
+                            <option value='+996 Kirguistán'>
+                            <option value='+686 Kiribati'>
+                            <option value='+383 Kosovo'>
+                            <option value='+965 Kuwait'>
+                            <option value='+856 Laos'>
+                            <option value='+266 Lesoto'>
+                            <option value='+371 Letonia'>
+                            <option value='+961 Líbano'>
+                            <option value='+231 Liberia'>
+                            <option value='+218 Libia'>
+                            <option value='+423 Liechtenstein'>
+                            <option value='+370 Lituania'>
+                            <option value='+352 Luxemburgo'>
+                            <option value='+853 Macao'>
+                            <option value='+389 Macedonia (ERYM)'>
+                            <option value='+261 Madagascar'>
+                            <option value='+60 Malasia'>
+                            <option value='+265 Malaui'>
+                            <option value='+960 Maldivas'>
+                            <option value='+223 Mali'>
+                            <option value='+356 Malta'>
+                            <option value='+212 Marruecos'>
+                            <option value='+596 Martinica'>
+                            <option value='+230 Mauricio'>
+                            <option value='+222 Mauritania'>
+                            <option value='+52 México'>
+                            <option value='+691 Micronesia'>
+                            <option value='+373 Moldavia'>
+                            <option value='+377 Mónaco'>
+                            <option value='+976 Mongolia'>
+                            <option value='+382 Montenegro'>
+                            <option value='+1 Montserrat'>
+                            <option value='+258 Mozambique'>
+                            <option value='+95 Myanmar (Birmania)'>
+                            <option value='+264 Namibia'>
+                            <option value='+674 Nauru'>
+                            <option value='+977 Nepal'>
+                            <option value='+505 Nicaragua'>
+                            <option value='+227 Níger'>
+                            <option value='+234 Nigeria'>
+                            <option value='+683 Niue'>
+                            <option value='+47 Noruega'>
+                            <option value='+687 Nueva Caledonia'>
+                            <option value='+64 Nueva Zelanda'>
+                            <option value='+968 Omán'>
+                            <option value='+31 Países Bajos'>
+                            <option value='+92 Pakistán'>
+                            <option value='+680 Palaos'>
+                            <option value='+970 Palestina'>
+                            <option value='+507 Panamá'>
+                            <option value='+675 Papúa Nueva Guinea'>
+                            <option value='+595 Paraguay'>
+                            <option value='+51 Perú'>
+                            <option value='+689 Polinesia Francesa'>
+                            <option value='+48 Polonia'>
+                            <option value='+351 Portugal'>
+                            <option value='+1 Puerto Rico'>
+                            <option value='+44 Reino Unido'>
+                            <option value='+236 República Centroafricana'>
+                            <option value='+242 República del Congo'>
+                            <option value='+243 República Democrática del Congo'>
+                            <option value='+1 República Dominicana'>
+                            <option value='+262 Reunión'>
+                            <option value='+250 Ruanda'>
+                            <option value='+40 Rumanía'>
+                            <option value='+7 Rusia'>
+                            <option value='+685 Samoa'>
+                            <option value='+1 Samoa Americana'>
+                            <option value='+590 San Bartolomé'>
+                            <option value='+1 San Cristóbal y Nieves'>
+                            <option value='+378 San Marino'>
+                            <option value='+590 San Martín'>
+                            <option value='+508 San Pedro y Miquelón'>
+                            <option value='+1 San Vicente y las Granadinas'>
+                            <option value='+290 Santa Elena'>
+                            <option value='+1 Santa Lucía'>
+                            <option value='+239 Santo Tomé y Príncipe'>
+                            <option value='+221 Senegal'>
+                            <option value='+381 Serbia'>
+                            <option value='+248 Seychelles'>
+                            <option value='+232 Sierra Leona'>
+                            <option value='+65 Singapur'>
+                            <option value='+1 Sint Maarten'>
+                            <option value='+963 Siria'>
+                            <option value='+252 Somalia'>
+                            <option value='+94 Sir Lanka'>
+                            <option value='+268 Suazilandia'>
+                            <option value='+27 Sudafrica'>
+                            <option value='+249 Sudán'>
+                            <option value='+211 Sudán del Sur'>
+                            <option value='+46 Suecia'>
+                            <option value='+41 Suiza'>
+                            <option value='+597 Surinam'>
+                            <option value='+66 Tailandia'>
+                            <option value='+886 Taiwán'>
+                            <option value='+255 Tanzania'>
+                            <option value='+992 Tayikistán'>
+                            <option value='+246 Territorio Británico del Océano Índico'>
+                            <option value='+670 Timor Oriental'>
+                            <option value='+228 Togo'>
+                            <option value='+690 Tokelau'>
+                            <option value='+676 Tonga'>
+                            <option value='+1 Trinidad y Tobago'>
+                            <option value='+216 Túnez'>
+                            <option value='+993 Turkmenistán'>
+                            <option value='+90 Turquía'>
+                            <option value='+688 Tuvalu'>
+                            <option value='+380 Ucrania'>
+                            <option value='+256 Uganda'>
+                            <option value='+598 Uruguay'>
+                            <option value='+998 Uzbekistán'>
+                            <option value='+678 Vanuatu'>
+                            <option value='+58 Venezuela'>
+                            <option value='+84 Vietnam'>
+                            <option value='+681 Wallis y Futuna'>
+                            <option value='+967 Yemen'>
+                            <option value='+253 Yibuti'>
+                            <option value='+260 Zambia'>
+                            <option value='+263 Zimbabue'>
+                        </datalist>
+        
+                        <p><b>-> </b>Número</p>
+                        <input type='number' max='9999999999999999999999999' id='cPhone'>
+                </div>
 
-                <p>Por favor, indique en el mapa ¿Donde se encuentra ubicado?</p>
+                <p><b>Paso 5 </b>Geolocalización</p>
+
+                <p><b>-> </b>Nombre de la ciudad (3 a 100 caracteres)</p>
+                <input type='text' maxlength="100" id='cCity'>
+                
+                <p><b>-> </b>Por favor, indique en el mapa ¿Donde se encuentra ubicado?</p>
                 
                 <div id='maps2'>
                 </div>
 
-                <p>Obten una imágen y súbela a la plataforma</p>
+                <p><b>Paso 6 </b>Avatar de Identificación</p>
+                <p><b>-> </b>Obten una imágen y súbela a la plataforma</p>
             
                 <div>
                     <input type='file' id='personAvatar' class='fileBrowser' accept=".jpg,.png">
@@ -59,6 +310,16 @@
                 </div> 
             </div>
         </div>
+
+        <footer>
+            <div id='social'>
+                <div class='s' id='s1' onclick='social(1)'></div>
+                <div class='s' id='s2' onclick='social(2)'></div>
+                <div class='s' id='s3' onclick='social(3)'></div>
+                <div class='s' id='s4' onclick='social(4)'></div>
+            </div>
+            <div>Desarrollado por Romesoft S.A Telefono: 305 355 28 37</div>
+        </footer>
     
         <script src="https://www.gstatic.com/firebasejs/5.7.3/firebase-app.js"></script>
         <script src="https://www.gstatic.com/firebasejs/5.7.3/firebase-storage.js"></script>

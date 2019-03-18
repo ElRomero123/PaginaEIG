@@ -28,17 +28,27 @@
             </div>
 
             <div>
-                <p>Título del caso (25 caracteres)</p>
-                <input type='text' maxlength="25" id='campoCase'>
+                <p><b>-> </b>Título del caso (8 - 25 caracteres)</p>
+                <input type='text' maxlength="25" id='cCase'>
 
-                <p>Descripción del caso (100 caracteres)</p>
-                <input type='text' maxlength="100" id='campoDescription'>
+                <p><b>-> </b>Descripción del caso (15 - 100 caracteres)</p>
+                <input type='text' maxlength="100" id='cDescription'>
 
                 <div>
-                    <button id='createCase' class='register' onclick='createC()'>Enviar caso</button>
+                    <button id='createCase' class='register' onclick='createCase()'>Enviar caso</button>
                 </div>
             </div>
         </div>
+
+        <footer>
+            <div id='social'>
+                <div class='s' id='s1' onclick='social(1)'></div>
+                <div class='s' id='s2' onclick='social(2)'></div>
+                <div class='s' id='s3' onclick='social(3)'></div>
+                <div class='s' id='s4' onclick='social(4)'></div>
+            </div>
+            <div>Desarrollado por Romesoft S.A Telefono: 305 355 28 37</div>
+        </footer>
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src='js/menu5.js'></script>

@@ -1,4 +1,9 @@
 window.onload = initUser;
+var f,t,y,g;
+f = 'https://www.facebook.com/Elite-Intelligence-Group-260263604734008/';
+t = 'https://twitter.com/EliteIntellige1?lang=es';
+y = 'https://www.youtube.com/channel/UCOvdAjzfv4WlwxKc1fi5JYQ';
+g = 'https://plus.google.com/u/0/109910140252090488175';
 
 function initUser()
 {
@@ -35,21 +40,21 @@ function to(num)
 
 function createJA()
 {
-    if(validateText())
+    var jobApplication =
     {
-        var jobApplication =
-        {
-            name: $('#campoName').val(),
-            documentNumber: $('#campoDocumentNumber').val(),
-            descriptionApplication: $('#campoDescriptionApplication').val(),
-            age: $('#campoAge').val(),
-            idUser: localStorage.getItem('User')
-        };
-    
+        name                   : $('#cName').val(),
+        documentNumber         : $('#cDNumber').val(),
+        descriptionApplication : $('#cDApplication').val(),
+        age                    : $('#cAge').val(),
+        idUser                 : localStorage.getItem('User')
+    };
+
+    if(validateText(jobApplication))
+    {
         $('#createJobApplication').css('background','yellow');
         $('#createJobApplication').css('border','2 px solid yellow');
         $('#createJobApplication').css('color','black');
-        $('#createJobApplication').text('Creando postulación ...');
+        $('#createJobApplication').text('Subiendo ...');
     
         $.ajax
         (
@@ -64,7 +69,10 @@ function createJA()
                 {
                     if (data)
                     {
-                        location.href = 'manageJobApplication.html';    
+                        $('#createJobApplication').css('background','darkgreen');
+                        $('#createJobApplication').css('border','2px solid darkgreen');
+                        $('#createJobApplication').css('color','white');
+                        $('#createJobApplication').text('Registrado con éxito!');
                     }
     
                     else
@@ -72,7 +80,7 @@ function createJA()
                         $('#createJobApplication').css('background','red');
                         $('#createJobApplication').css('border','2px solid red');
                         $('#createJobApplication').css('color','white');
-                        $('#createJobApplication').text('Error creando postulación!');
+                        $('#createJobApplication').text('Error!');
                     }
                 }
             }
@@ -87,7 +95,30 @@ function createJA()
     }
 }
 
-function validateText()
+function validateText(input)
 {
-    return true;
+    var c1,c2,c3,c4;
+    c1 = input.name.length                   >= 5;
+    c2 = input.documentNumber.length         >= 6;
+    c3 = input.descriptionApplication.length >= 20;
+    c4 = input.age.length                    >= 1;
+    return c1 & c2 && c3 && c4;
+}
+
+function social(op)
+{
+    switch(op)
+    {
+        case 1:
+        window.open(f, '_blank');
+        break;
+        case 2:
+        window.open(t, '_blank');
+        break;
+        case 3:
+        window.open(y, '_blank');
+        break;
+        default:
+        window.open(g, '_blank');
+    }
 }

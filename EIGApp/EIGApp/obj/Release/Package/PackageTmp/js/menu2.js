@@ -1,110 +1,101 @@
 window.onload = initUser;
-var mapa, gmaps;
+var map, gmaps, f, t, y, g;
+
+f = 'https://www.facebook.com/Elite-Intelligence-Group-260263604734008/';
+t = 'https://twitter.com/EliteIntellige1?lang=es';
+y = 'https://www.youtube.com/channel/UCOvdAjzfv4WlwxKc1fi5JYQ';
+g = 'https://plus.google.com/u/0/109910140252090488175';
 
 function initUser()
 {
     var name     = localStorage.getItem('Name');
     var username = localStorage.getItem('Username');
-    
     if(name != null)
     {
         $('#infoName').text(name);
         $('#infoUsername').text(username);
+        initMap();
     }
-
     else
     {
         location.href = 'index.html';
     }
 }
 
-function cerrarSesion()
-{
-    localStorage.clear();
-    location.href = 'index.html';
-}
-
 function search()
 {
-    if(navigator.onLine)
-    {
-        $('#listResults').empty();
-        $('#listResults').hide();
-        $('#bannerState').css('display','block');
-        $('#bannerState').css('background','yellow');
-        $('#bannerState').css('color','black');
-        $('#bannerState').text('Buscando otros perfiles ...');
-    
-        var criterio = document.getElementById('criterio').value;
+    map = null;
+    initMap();
+    $('#listResults').empty();
+    $('#listResults').hide();
+    $('#bannerState').css('display','block');
+    $('#bannerState').css('background','yellow');
+    $('#bannerState').css('color','black');
+    $('#bannerState').text('Buscando ...');
 
-        $.ajax
-        (
+    var criterio = document.getElementById('criterio').value;
+
+    $.ajax
+    (
+        {
+            url: '../api/otherPerson/?criterio=' + criterio,
+            type: 'GET',
+            contentType: "application/json;charset=utf-8",
+
+            success:
+            function (data) 
             {
-                url: '../api/otherPerson/?cadena=' + criterio,
-                type: 'GET',
-                contentType: "application/json;charset=utf-8",
-
-                success:
-                function (data) 
+                console.log(data);
+                if(data.length > 0)
                 {
-                    if(data.length > 0)
+                    var chain = new StringBuilder();
+                    var card2;
+                    
+                    for(var i = 0; i < data.length; i++)
                     {
-                        startMap();
-                        var cadena = "";
-                        
-                        for(var i = 0; i < data.length; i++)
+                        if(data[i].Ciprin)
                         {
-                            if(data[i].Ciprin == 1)
-                            {
-                                cadena += "<div class='result'> <div class='avatar' id='" + i + "'></div> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].Profesion + "</p> <p class='pf2'>" + data[i].ProfesionDescription + "</p> <p class='pf3'>" + data[i].Email + "</p> <p class='pf4'>" + data[i].Phone + "</p> <p class='pf4'>" + 'Unido el ' + data[i].CreationDate + "</p> <p class='c'>Pertenece a CIPRIN</p> <button id='" + data[i].Id + "' class='moreResult' onclick='showMedia(this)'>Ver multimedia</button> </div> </div>";
-                            }
-                            else
-                            {
-                                cadena += "<div class='result'> <div class='avatar' id='" + i + "'></div> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].Profesion + "</p> <p class='pf2'>" + data[i].ProfesionDescription + "</p> <p class='pf3'>" + data[i].Email + "</p> <p class='pf4'>" + data[i].Phone + "</p> <p class='pf4'>" + 'Unido el ' + data[i].CreationDate + "</p> <button id='" + data[i].Id + "' class='moreResult' onclick='showMedia(this)'>Ver multimedia</button> </div> </div>";  
-                            }        
-                        } 
-
-                        $('#listResults').append(cadena);
-                        $('#listResults').css('display','flex'); 
-
-                        for(var i = 0; i < data.length; i++)
-                        {
-                            avatar = data[i].Avatar;
-                            document.getElementById(i).style.background = 'url("' + avatar + '")';
-                            putMarket({lat: data[i].Latitude, lng: data[i].Longitude}, avatar);
+                            card2 = "<div class='text' style='color: black !important'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].ProfesionDescription + "</p> <p class='pf2'>" + data[i].Email + "</p> <p class='pf2'>" + data[i].Phone + "</p> <p class='pf2'>Creado el " + data[i].CreationDate + ' por ' + data[i].Username +  "</p> <p class='pf4'>" + data[i].CreationHourZone +  "</p> <button id='" + data[i].Id + "' style='background:green' class='moreResult' onclick='showMedia(this)'>Multimedia</button> <p style='background:green; color:white; padding: 4px;'>Afiliado a CIPRIN</p> <p class='pf3'>" + data[i].Views +  " visitas</p> </div>";
+                            chain.append("<div class='result'> <div class='avatar' id='" + data[i].Id + "'></div> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].Profesion + "</p> <p class='pf2'>" + data[i].ProfesionDescription + "</p> <p class='pf2'>" + data[i].Email + "</p> <p class='pf2'>" + data[i].Phone + "</p> <p class='pf2'>Creado el " + data[i].CreationDate + ' por ' + data[i].Username +  "</p> <p class='pf4'>" + data[i].CreationHourZone +  "</p> <button id='" + data[i].Id + "' class='moreResult' onclick='showMedia(this)'>Multimedia</button> <p style='background:green; color:white; padding: 4px;'>Afiliado a CIPRIN</p> <p class='pf3'>" + data[i].Views +  " visitas</p> </div> </div>");
+                            putMarker({lat:data[i].Latitude,lng:data[i].Longitude}, card2, data[i].Avatar);
                         }
 
-                        $('#bannerState').css('background','green');
-                        $('#bannerState').css('color','white');
-                        $('#bannerState').text(i + ' resultados encontrados!');
+                        else
+                        {
+                            card2 = "<div style='color: black; text-align:justify !important'> <p>" + data[i].Name + "</p> <p>" + data[i].ProfesionDescription + "</p> <p>" + data[i].Email + "</p> <p class='pf2'>" + data[i].Phone + "</p> <p class='pf2'>Creado el " + data[i].CreationDate + ' por ' + data[i].Username +  "</p> <p class='pf4'>" + data[i].CreationHourZone +  "</p> <button id='" + data[i].Id + "' style='background:green' onclick='showMedia(this)'>Multimedia</button> <p class='pf3'>" + data[i].Views +  " visitas</p> </div>";
+                            chain.append("<div class='result'> <div class='avatar' id='" + data[i].Id + "'></div> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].Profesion + "</p> <p class='pf2'>" + data[i].ProfesionDescription + "</p> <p class='pf2'>" + data[i].Email + "</p> <p class='pf2'>" + data[i].Phone + "</p> <p class='pf2'>Creado el " + data[i].CreationDate + ' por ' + data[i].Username +  "</p> <p class='pf4'>" + data[i].CreationHourZone +  "</p> <button id='" + data[i].Id + "' class='moreResult' onclick='showMedia(this)'>Multimedia</button> <p class='pf3'>" + data[i].Views +  " visitas</p> </div> </div>");
+                            putMarker({lat:data[i].Latitude,lng:data[i].Longitude}, card2, data[i].Avatar);
+                        }      
+                    } 
+
+                    $('#listResults').css('display','flex'); 
+                    $('#listResults').append(chain.toString());
+                    chain.clear();
+
+                    for(var i = 0; i < data.length; i++)
+                    {
+                        document.getElementById(data[i].Id).style.background = 'url("' + data[i].Avatar + '")';
                     }
 
-                    else
-                    {
-                        $('#bannerState').css('background','red');
-                        $('#bannerState').css('color','white');
-                        $('#bannerState').text('Sin resultados!');
-                        hideMap();
-                    }
+                    $('#bannerState').css('background','green');
+                    $('#bannerState').css('color','white');
+                    $('#bannerState').text(i + ' Resultados!');
+                }
+
+                else
+                {
+                    $('#bannerState').css('background','red');
+                    $('#bannerState').css('color','white');
+                    $('#bannerState').text('Sin resultados!');
                 }
             }
-        );
-    }
-
-    else
-    {
-        $('#bannerState').css('background','red');
-        $('#bannerState').css('color','white');
-        $('#bannerState').text('Sin internet!');
-    }
+        }
+    );
 }
 
 function searchByEnter(e)
 {
-    if (e.keyCode === 13 && !e.shiftKey) 
-    {
-        search();
-    }
+    if (e.keyCode === 13 && !e.shiftKey) {search();}
 }
 
 function to(num)
@@ -123,35 +114,70 @@ function to(num)
     }
 }
 
-function startMap()
-{
-    gmaps = document.getElementById('maps');
-    gmaps.style = 'display: block';
-    navigator.geolocation.getCurrentPosition(function(position)
-    { 
-        console.log(position);
-        mapa = new google.maps.Map(gmaps, {zoom: 15, center: {lat: position.coords.latitude, lng: position.coords.longitude}});
-    });
-}
-
-function putMarket(loc, avatar)
-{
-    var image = 
-    {
-        url: avatar,
-        scaledSize: new google.maps.Size(35, 35)
-    };
-
-    marker = new google.maps.Marker({position: loc, map: mapa, icon: image});
-}
-
-function hideMap()
-{
-    gmaps.style = 'display: none';
-}
-
 function showMedia(e)
 {
     localStorage.setItem('IdOtherPerson', e.id);
-    window.open('viewMediaOtherPerson.html', '_blank');
+    open('viewMediaOtherPerson.html', 'pop-up', 'width=750,height=600');
+}
+
+function social(op)
+{
+    switch(op)
+    {
+        case 1:
+        window.open(f, '_blank');
+        break;
+        case 2:
+        window.open(t, '_blank');
+        break;
+        case 3:
+        window.open(y, '_blank');
+        break;
+        default:
+        window.open(g, '_blank');
+    }
+}
+
+function StringBuilder(value) 
+{
+    this.strings = new Array();
+    this.append(value);
+}
+
+StringBuilder.prototype.append = function (value) 
+{
+    if (value) 
+    {
+        this.strings.push(value);
+    }
+}
+
+StringBuilder.prototype.clear = function () 
+{
+    this.strings.length = 0;
+}
+
+StringBuilder.prototype.toString = function () 
+{
+    return this.strings.join("");
+}
+
+function initMap() 
+{
+    var crd;
+    var options = {enableHighAccuracy: true, timeout: 5000, maximumAge: 0};
+    function success(pos)
+    {
+       crd = pos.coords;
+       map = new google.maps.Map(document.getElementById('maps'), {zoom: 15, center: {lat: crd.latitude, lng: crd.longitude}});
+    }
+    function error(){}
+    navigator.geolocation.getCurrentPosition(success, error, options);
+}
+
+function putMarker(latLng, card, avatar)
+{
+    var infowindow = new google.maps.InfoWindow({content: card});
+    var marker= new google.maps.Marker({position: latLng, map: map, icon: {url:avatar, scaledSize: new google.maps.Size(50, 50)}});
+    marker.addListener('click', function() {infowindow.open(map, marker);});
 }

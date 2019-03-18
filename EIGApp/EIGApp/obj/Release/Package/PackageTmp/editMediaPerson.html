@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href='css/index.css'>
+        <link rel='icon' href='img/title.ico'>
+        <title>Mis casos</title>
+    </head>
+
+    <body>
+        <header>
+            <div class='headerLogo'></div>
+            <div>
+                <p id='infoName'></p>
+                <p id='infoUsername'></p>
+                <button class='close' onclick='to(1)'>Cerrar Sesión</button>
+            </div>
+        </header>
+
+        <div> 
+            <p class='searchTag'>Editar</p> 
+            <p class='categorySearch'>Aquí, puedes editar los archivos multimedia de tu perfil</p>
+
+            <div class='categories'>
+                <div id='c9' class='category' onclick="to(2)"></div>
+            </div>
+            
+            <div id='bannerState'> </div>
+
+            <div>
+                <div id='listResults'>
+                </div> 
+            </div>
+
+            <div>
+                <div>
+                    <input type='file' id='filePerson' class='fileBrowser' accept='.jpg, .png, .pdf, .doc, .docx, .xls, .xlsx, .ppt, .pptx, .txt, .mp4, .avi, .3gp'>
+                </div>
+
+                <div>
+                    <button class='register' id='loadFC' onclick='loadPersonMedia()'>Anexar</button>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <div id='social'>
+                <div class='s' id='s1' onclick='social(1)'></div>
+                <div class='s' id='s2' onclick='social(2)'></div>
+                <div class='s' id='s3' onclick='social(3)'></div>
+                <div class='s' id='s4' onclick='social(4)'></div>
+            </div>
+            <div>Desarrollado por Romesoft S.A Telefono: 305 355 28 37</div>
+        </footer>
+            
+        <script src="https://www.gstatic.com/firebasejs/5.7.3/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/5.7.3/firebase-storage.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src='js/editMediaPerson.js'></script>
+    </body>
+</html>

@@ -1,89 +1,100 @@
+var f = 'https://www.facebook.com/Elite-Intelligence-Group-260263604734008/';
+var t = 'https://twitter.com/EliteIntellige1?lang=es';
+var y = 'https://www.youtube.com/channel/UCOvdAjzfv4WlwxKc1fi5JYQ';
+var g = 'https://plus.google.com/u/0/109910140252090488175';
+
+/* Crear usuario */
 function createUser()
 {
-    if($('#campoUsername').val().length >= 8 && $('#campoName').val().length >= 8)
-    {
-        $.ajax
-        (
+    /* Verifica que no exista el Username */
+    var username = $('#cUsername').val();
+    $.ajax
+    (
+        {
+            url: '../api/user/?username=' + username,
+            type: 'GET',
+            contentType: "application/json;charset=utf-8",
+
+            success:
+            function (data) 
             {
-                url: '../api/user/?username=' + $('#campoUsername').val(),
-                type: 'GET',
-                contentType: "application/json;charset=utf-8",
-    
-                success:
-                function (data) 
+                if(data)
                 {
-                    if(data)
-                    {
-                        
-                        validate();
-                    }
-    
-                    else
-                    {
-                        $('#register').css('background','red');
-                        $('#register').css('border','2px solid red');
-                        $('#register').text('USERNAME ya existente!');
-                    }
+                    confirm();
+                }
+
+                else
+                {
+                    $('#register').css('background','red');
+                    $('#register').css('border','2px solid red');
+                    $('#register').text('USERNAME ya existente!');
                 }
             }
-        );
-    }
-
-    else
-    {
-        $('#register').css('background','red');
-        $('#register').css('border','2px solid red');
-        $('#register').text('<Username> y <Nombre Completo> deben tener por lo menos 8 caracteres!');
-    }
+        }
+    );
+    /* Verifica que no exista el Username */
 }
 
-function validate()
+/* Registra el usuario */
+function confirm()
 {
-    if($('#campoPassword').val() == $('#campoPasswordAgain').val())
+    var pass1 = $('#cPass1').val();
+    var pass2 = $('#cPass2').val();
+
+    if(pass1 == pass2)
     {
         if(navigator.onLine)
         {
             var usuario =
             {
-                username: $('#campoUsername').val(),
-                password: $('#campoPassword').val(),
-                name: $('#campoName').val(),
-                email: $('#campoEmail').val(),
-                phone: $('#campoAddress').val(),
-                address: $('#campoAddress').val()
+                username: $('#cUsername').val(),
+                password: $('#cPass1').val(),
+                name: $('#cName').val(),
+                email: $('#cEmail').val(),
+                address: $('#cAddress').val()
             };
-    
-            $('#register').css('background','yellow');
-            $('#register').css('border','2px solid yellow');
-            $('#register').css('color','black');
-            $('#register').text('Agregando usuario ...');
-    
-            $.ajax
-            (
-                {
-                    url: '../api/user',
-                    type: 'POST',
-                    data: JSON.stringify(usuario),
-                    contentType: "application/json;charset=utf-8",
+
+            if(check(usuario))
+            {
+                $('#register').css('background','yellow');
+                $('#register').css('border','2px solid yellow');
+                $('#register').css('color','black');
+                $('#register').text('Registrando ...');
         
-                    success:
-                    function (data)
+                $.ajax
+                (
                     {
-                        if (data)
+                        url: '../api/user',
+                        type: 'POST',
+                        data: JSON.stringify(usuario),
+                        contentType: "application/json;charset=utf-8",
+            
+                        success:
+                        function (data)
                         {
-                            location.href = 'managePackage.html';    
-                        }
-    
-                        else
-                        {
-                            $('#register').css('background','red');
-                            $('#register').css('border','2px solid red');
-                            $('#register').css('color','white');
-                            $('#register').text('Error en el registro!');
+                            if (data)
+                            {
+                                location.href = 'index.html';    
+                            }
+        
+                            else
+                            {
+                                $('#register').css('background','red');
+                                $('#register').css('border','2px solid red');
+                                $('#register').css('color','white');
+                                $('#register').text('Error en el registro!');
+                            }
                         }
                     }
-                }
-            );
+                );
+            }
+
+            else
+            {
+                $('#register').css('background','red');
+                $('#register').css('border','2px solid red');
+                $('#register').text('Entradas invalidas!');
+            }
         }
 
         else
@@ -98,12 +109,42 @@ function validate()
     {
         $('#register').css('background','red');
         $('#register').css('border','2px solid red');
-        $('#register').text('Las contraseñas son diferentes!');
+        $('#register').text('Contraseñas NO coincidcen!');
     }
 }
+/* Registra el usuario */
 
+function check(user)
+{
+    var c1 = user.username.length >= 8;
+    var c2 = user.password.length >= 6;
+    var c3 = user.name.length >= 8;
+    var c4 = user.email.length >= 8;
+    var c5 = user.address.length >= 5;
+
+    return c1 & c2 & c3 & c4 & c5;
+}
+/* Crear usuario */
 
 function toMenu()
 {
     location.href = 'index.html';
+}
+
+function social(op)
+{
+    switch(op)
+    {
+        case 1:
+        window.open(f, '_blank');
+        break;
+        case 2:
+        window.open(t, '_blank');
+        break;
+        case 3:
+        window.open(y, '_blank');
+        break;
+        default:
+        window.open(g, '_blank');
+    }
 }

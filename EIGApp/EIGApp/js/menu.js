@@ -146,8 +146,24 @@ function to(num)
 
 function showMedia(e)
 {
-    localStorage.setItem('IdPerson', e.id);
-    open('viewMediaPerson.html', 'pop-up', 'width=750,height=600');
+    $.ajax
+    (
+        {
+            url: '../api/countViewsPerson/?idPerson=' + e.id,
+            type: 'POST',
+            contentType: "application/json;charset=utf-8",
+
+            success:
+            function (data) 
+            {
+                if(data)
+                {
+                    localStorage.setItem('IdPerson', e.id);
+                    open('viewMediaPerson.html', 'pop-up', 'width=750,height=600');
+                }
+            }
+        }
+    );
 }
 
 function social(op)

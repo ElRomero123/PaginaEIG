@@ -1,5 +1,63 @@
 body
 {
+    footer
+    {
+        #social
+        {
+            #s4
+            {
+                background: url('../img/g.png');
+            }
+
+            #s3
+            {
+                background: url('../img/y.png');
+            }
+
+            #s2
+            {
+                background: url('../img/t.png');
+            }
+
+            #s1
+            {
+                background: url('../img/f.png');
+            }
+
+            .s:hover
+            {
+                filter: invert(50%);
+            }
+
+            .s
+            {
+                transition: 0.15s;
+                margin: 4px;
+                display: inline-block;
+                height: 50px;
+                width: 50px;
+            }
+        }
+
+        div
+        {
+            color: red;
+            font-family: acephimere;
+            font-size: 10px;
+            padding: 6px;
+            margin: 2px auto;
+        }
+
+        text-align: center;
+        padding: 5px;
+        position: fixed;
+        bottom: 0px;
+        left: 0px;
+        height: 100px;
+        width: 100%;
+        background: white;
+    }
+
     div
     {
         .costosYear
@@ -74,10 +132,8 @@ body
 
             #maps
             {
-                display: none;
-                margin: 0px auto;
                 width: 100%;
-                height: 500px;
+                height: 600px;
             }
 
             #listResults
@@ -105,6 +161,11 @@ body
                         .pf4
                         {
                             font-size: 10px;
+                        }
+
+                        .pf5
+                        {
+                            font-size: 7px;
                         }
 
                         .deleteResult:hover
@@ -143,12 +204,6 @@ body
                             margin: 2px;
                         }
 
-                        .c
-                        {
-                            background-color: orangered;
-                            font-size: 12px;
-                        }
-    
                         p
                         {
                             margin: 2px;
@@ -289,7 +344,8 @@ body
                 background: url('../img/menu/1N.png');
             }
 
-            .category:hover
+            #c1:hover, #c2:hover, #c5:hover, #c6:hover, #c8:hover, #c9:hover, #c10:hover, 
+            #c11:hover, #c12:hover, #c13:hover, #c14:hover, #c15:hover, #c16:hover
             {
                 filter: invert(100%);
             }
@@ -417,6 +473,11 @@ body
                 margin: 10px auto;
             }
 
+            #infoPhone
+            {
+                border: 1px solid gray;
+            }
+
             input:focus
             {
                 height: 20px;
@@ -470,7 +531,7 @@ body
         background-color: transparent;
         border-radius: 10px;
         padding: 10px;
-        margin: 220px auto 95px auto;
+        margin: 235px auto 150px auto;
         height: auto;
         width: 90%;
     }
@@ -479,6 +540,25 @@ body
     {
         div
         {
+            .closeR:hover
+            {
+                color: green;
+                background: white;
+            }
+
+            .closeR
+            {
+                transition: 0.2s;
+                color: white;
+                background: green;
+                outline: 0px;
+                border: 0px;
+                font-size: 12px;
+                font-family: acephimere;
+                margin: 7px;
+                padding: 10px;
+            }
+
             .close:hover
             {
                 color: black;

@@ -1,23 +1,80 @@
 window.onload = initUser;
-var FileCase;
+var FileCase,f,t,y,g,config;
+
+f = 'https://www.facebook.com/Elite-Intelligence-Group-260263604734008/';
+t = 'https://twitter.com/EliteIntellige1?lang=es';
+y = 'https://www.youtube.com/channel/UCOvdAjzfv4WlwxKc1fi5JYQ';
+g = 'https://plus.google.com/u/0/109910140252090488175';
+
+config = 
+{
+    apiKey: "AIzaSyA4F7aYKhXv5zEWabtUYABA-4lJJdAgyW4",
+    authDomain: "eliteintelligencegroup-719d3.firebaseapp.com",
+    databaseURL: "https://eliteintelligencegroup-719d3.firebaseio.com",
+    projectId: "eliteintelligencegroup-719d3",
+    storageBucket: "eliteintelligencegroup-719d3.appspot.com",
+    messagingSenderId: "567347907651"
+};
 
 function initUser()
 {
     var name     = localStorage.getItem('Name');
     var username = localStorage.getItem('Username');
-    
     if(name != null)
     {
         $('#infoName').text(name);
         $('#infoUsername').text(username);
     }
-
     else
     {
         location.href = 'index.html';
     }
-
     loadAnexos();
+}
+
+function loadAnexos()
+{
+    $('#listResults').empty();
+    $('#listResults').hide();
+    $('#bannerState').css('display','block');
+    $('#bannerState').css('background','yellow');
+    $('#bannerState').css('color','black');
+    $('#bannerState').text('Cargando ...');
+    var idCase = localStorage.getItem('Case');
+    $.ajax
+    (
+        {
+            url: '../api/mediaCase/?idCase=' + idCase,
+            type: 'GET',
+            contentType: "application/json;charset=utf-8",
+
+            success:
+            function (data) 
+            {
+                if(data.length > 0)
+                {
+                    var chain = new StringBuilder();
+                    for(var i = 0; i < data.length; i++)
+                    {
+                        chain.append("<div class='result'> <div class='text'> <p class='pf2'>" + data[i].FileName + "</p> <p class='pf2'>Anexado el " + data[i].LoadDate + "</p> <p class='pf4'>" + data[i].LoadHourZone + "</p> <button id='" + data[i].Id + "' class='deleteResult' onclick='elim(this)'>Eliminar</button> <button id='" + data[i].Id + "' class='moreResult' onclick='download(this)'>Descargar</button> <p hidden class='pf4' id='DL" + data[i].Id + "'>" + data[i].DownloadLink + "</p> </div> </div>");  
+                    }
+                    $('#bannerState').css('background','green');
+                    $('#bannerState').css('color','white');
+                    $('#bannerState').text(i + ' anexos!');
+                    $('#listResults').css('display','flex');
+                    $('#listResults').append(chain.toString());
+                    chain.clear();
+                }
+
+                else
+                {
+                    $('#bannerState').css('background','red');
+                    $('#bannerState').css('color','white');
+                    $('#bannerState').text('Sin anexos!');
+                }
+            }
+        }
+    );
 }
 
 function to(num)
@@ -33,63 +90,58 @@ function to(num)
     }
 }
 
-function loadAnexos()
+function elim(e)
 {
-    if(navigator.onLine)
-    {
-        $('#listResults').empty();
-        $('#listResults').hide();
-        $('#bannerState').css('display','block');
-        $('#bannerState').css('background','yellow');
-        $('#bannerState').css('color','black');
-        $('#bannerState').text('Cargando ...');
+    $('#bannerState').css('background','yellow');
+    $('#bannerState').css('color','black');
+    $('#bannerState').text('Eliminando ...');
 
-        var idCase = localStorage.getItem('Case');
+    $.ajax
+    (
+        {
+            url: '../api/mediaCase/?idMC=' + e.id,
+            type: 'POST',
+            contentType: "application/json;charset=utf-8",
 
-        $.ajax
-        (
+            success:
+            function (data) 
             {
-                url: '../api/multimediaCase/?idCase=' + idCase,
-                type: 'GET',
-                contentType: "application/json;charset=utf-8",
-
-                success:
-                function (data) 
+                if(data)
                 {
-                    if(data.length > 0)
-                    {
-                        var cadena = "";
-
-                        for(var i = 0; i < data.length; i++)
-                        {
-                            cadena += "<div class='result'> <div class='text'> <p class='pf2'>" + data[i].FileName + "</p> <p class='pf4'>Anexado el " + data[i].LoadDate + "</p> <button id='" + data[i].Id + "' class='deleteResult' onclick='eliminar(this)'>Eliminar</button> <button id='" + data[i].Id + "' class='moreResult' onclick='download(this)'>Descargar</button> <p hidden class='pf4' id='DL" + data[i].Id + "'>" + data[i].DownloadLink + "</p> </div> </div>";  
-                        }
-                        
-                        $('#listResults').append(cadena);
-
-                        $('#bannerState').css('background','green');
-                        $('#bannerState').css('color','white');
-                        $('#bannerState').text('El caso tiene ' + i + ' anexos!');
-                        $('#listResults').css('display','flex');
-                    }
-
-                    else
-                    {
-                        $('#bannerState').css('background','red');
-                        $('#bannerState').css('color','white');
-                        $('#bannerState').text('El caso no tiene anexos!');
-                    }
+                    deleteFile(data);
+                }
+                else
+                {
+                    $('#bannerState').css('background','red');
+                    $('#bannerState').css('border','2px solid red');
+                    $('#bannerState').text('Error!');
                 }
             }
-        );
-    }
+        }
+    );
+}
 
-    else
-    {
-        $('#bannerState').css('background','red');
-        $('#bannerState').css('color','white');
-        $('#bannerState').text('Sin internet!');
-    }
+function deleteFile(fileName)
+{
+    firebase.initializeApp(config);
+    var storageRef = firebase.storage().ref();
+    var desertRef = storageRef.child('filesCase/' + fileName);
+
+    desertRef.delete().then
+    (
+        function() 
+        {
+            $('#bannerState').css('background','darkgreen');
+            $('#bannerState').css('border','2px solid darkgreen');
+            $('#bannerState').css('color','white');
+            $('#bannerState').text('Anexo eliminado!');
+            setTimeout(recargar, 800);
+        }
+    ).catch(
+        function(error) 
+        {
+        }
+    );
 }
 
 function download(e)
@@ -101,27 +153,24 @@ function download(e)
 function loadFileCase()
 {
     FileCase =  document.getElementById('fileCase');
-
     if(validateFile())
     {
-        var multimediaCase =
+        var mediaCase =
         {
-            fileName: '',
-            downloadLink: '',
             idCase: localStorage.getItem('Case')
         };
     
         $('#loadFC').css('background','yellow');
         $('#loadFC').css('border','2px solid yellow');
         $('#loadFC').css('color','black');
-        $('#loadFC').text('Anexando archivo ...');
+        $('#loadFC').text('Anexando ...');
 
         $.ajax
         (
             {
-                url: '../api/multimediaCase',
+                url: '../api/mediaCase',
                 type: 'POST',
-                data: JSON.stringify(multimediaCase),
+                data: JSON.stringify(mediaCase),
                 contentType: "application/json;charset=utf-8",
 
                 success:
@@ -141,23 +190,17 @@ function loadFileCase()
     }
 }
 
+function validateFile()
+{
+    return FileCase.files[0] != null;
+}
+
 function loadFile(num)
 {    
-    var config = 
-    {
-        apiKey: "AIzaSyA4F7aYKhXv5zEWabtUYABA-4lJJdAgyW4",
-        authDomain: "eliteintelligencegroup-719d3.firebaseapp.com",
-        databaseURL: "https://eliteintelligencegroup-719d3.firebaseio.com",
-        projectId: "eliteintelligencegroup-719d3",
-        storageBucket: "eliteintelligencegroup-719d3.appspot.com",
-        messagingSenderId: "567347907651"
-    };
-    
     firebase.initializeApp(config);
-
     var storageRef = firebase.storage().ref();
     var fileName = num + FileCase.files[0].name;
-    var uploadTask = storageRef.child('anexosCase/' + fileName).put(FileCase.files[0]);
+    var uploadTask = storageRef.child('filesCase/' + fileName).put(FileCase.files[0]);
 
     uploadTask.on
     (   
@@ -205,7 +248,7 @@ function putFile(num, fileName, downloadURL)
                     $('#loadFC').css('background','darkgreen');
                     $('#loadFC').css('border','2px solid darkgreen');
                     $('#loadFC').css('color','white');
-                    $('#loadFC').text('Archivo anexado con éxito!');
+                    $('#loadFC').text('Anexado con éxito!');
                     setTimeout(recargar, 200);
                 }
             }
@@ -213,40 +256,49 @@ function putFile(num, fileName, downloadURL)
     );
 }
 
-function validateFile()
-{
-    return FileCase.files[0] != null;
-}
-
 function recargar()
 {
     location.reload();
 }
 
-function eliminar(e)
+function social(op)
 {
-    $.ajax
-    (
-        {
-            url: '../api/multimediaCase/?idMC=' + e.id,
-            type: 'POST',
-            contentType: "application/json;charset=utf-8",
+    switch(op)
+    {
+        case 1:
+        window.open(f, '_blank');
+        break;
+        case 2:
+        window.open(t, '_blank');
+        break;
+        case 3:
+        window.open(y, '_blank');
+        break;
+        default:
+        window.open(g, '_blank');
+    }
+}
 
-            success:
-            function (data) 
-            {
-                if(data)
-                {
-                    $('#bannerState').css('background','brown');
-                    $('#bannerState').text('El anexo ha sido eliminado!');
-                    setTimeout(recargar, 800);
-                }
+function StringBuilder(value) 
+{
+    this.strings = new Array();
+    this.append(value);
+}
 
-                else
-                {
-                    alert('NO se pudo eliminar el anexo!');
-                }
-            }
-        }
-    );
+StringBuilder.prototype.append = function (value) 
+{
+    if (value) 
+    {
+        this.strings.push(value);
+    }
+}
+
+StringBuilder.prototype.clear = function () 
+{
+    this.strings.length = 0;
+}
+
+StringBuilder.prototype.toString = function () 
+{
+    return this.strings.join("");
 }

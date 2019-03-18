@@ -3,6 +3,11 @@ var PersonAvatar;
 var longitude;
 var latitude;
 
+var f = 'https://www.facebook.com/Elite-Intelligence-Group-260263604734008/';
+var t = 'https://twitter.com/EliteIntellige1?lang=es';
+var y = 'https://www.youtube.com/channel/UCOvdAjzfv4WlwxKc1fi5JYQ';
+var g = 'https://plus.google.com/u/0/109910140252090488175';
+
 function initUser()
 {
     var name     = localStorage.getItem('Name');
@@ -29,6 +34,10 @@ function to(num)
         localStorage.clear();
         location.href = 'index.html';
         break;
+        case 2:
+        localStorage.setItem('Call', 3);
+        location.href = 'editCreatedProfiles.html';
+        break;
         default: 
         location.href = 'menu7.html';
     }
@@ -42,24 +51,27 @@ function createPerson()
     {
         if(validateAvatar())
         {
+            var IdUser = localStorage.getItem('User');
+
             var persona =
             {
-                name: $('#campoFullName').val(),
-                profesionDescription: $('#campoProfesionDescription').val(),
-                email: $('#campoEmail').val(),
-                phone: $('#campoPhone').val(),
-                latitude: latitude,
-                longitude: longitude,
-                ciprin: 1,
-                active: 0,
-                avatar: '',
-                idUser: localStorage.getItem('User')
+                name:                 $('#cName').val(),
+                profesionDescription: $('#cDescription').val(),
+                email:                $('#cEmail').val(),
+                phone:                $('#cIndex').val().substr(0,4).trim() + ' ' + $('#cPhone').val(),
+                latitude:             latitude,
+                longitude:            longitude,
+                ciprin:               true,
+                active:               false,
+                avatar:               '',
+                nameAvatar:           '',
+                idUser:               IdUser
             };
         
             $('#createPerson').css('background','yellow');
             $('#createPerson').css('border','2px solid yellow');
             $('#createPerson').css('color','black');
-            $('#createPerson').text('Agregando persona ...');
+            $('#createPerson').text('Registrando ...');
     
             $.ajax
             (
@@ -82,7 +94,7 @@ function createPerson()
         {
             $('#createPerson').css('background','red');
             $('#createPerson').css('border','2px solid red');
-            $('#createPerson').text('No has seleccionado una FOTO!');
+            $('#createPerson').text('Debe seleccionar una FOTO de Avatar!');
         }
     }
 
@@ -96,11 +108,10 @@ function createPerson()
 
 function validateText()
 {
-    var c1 = $('#campoFullName').val().length >= 8;
-    var c2 = $('#campoProfesionDescription').val().length >= 8;
-    var c3 = $('#campoEmail').val().length >= 8;
-    var c4 = $('#campoPhone').val().length >= 8;
-
+    var c1 = $('#cName').val().length >= 8;
+    var c2 = $('#cDescription').val().length >= 8;
+    var c3 = $('#cEmail').val().length >= 8;
+    var c4 = $('#cPhone').val().length >= 5;
     return c1 && c2 && c3 && c4;
 }
 
@@ -124,7 +135,8 @@ function loadAvatar(num)
     firebase.initializeApp(config);
 
     var storageRef = firebase.storage().ref();
-    var uploadTask = storageRef.child('avatar/' + 'P' + num).put(PersonAvatar.files[0]);
+    var fileName = 'P' + num;
+    var uploadTask = storageRef.child('avatarP/' + fileName).put(PersonAvatar.files[0]);
 
     uploadTask.on
     (   
@@ -141,24 +153,25 @@ function loadAvatar(num)
         {
             uploadTask.snapshot.ref.getDownloadURL().then(function(downloadURL) 
             {    
-                putAvatar(num, downloadURL);
+                putAvatar(num, fileName, downloadURL);
             });
         }
     );
 }
 
-function putAvatar(num, downloadURL)
+function putAvatar(num, fileName, downloadURL)
 {
     var parametrosPutAvatar =
     {
-        id: num,
+        id         : num,
+        fileName   : fileName,
         downloadURL: downloadURL
     };
 
     $.ajax
     (
         {
-            url: '../api/parametroPerson',
+            url: '../api/putAvatar',
             type: 'POST',
             data: JSON.stringify(parametrosPutAvatar),
             contentType: "application/json;charset=utf-8",
@@ -171,8 +184,8 @@ function putAvatar(num, downloadURL)
                     $('#createPerson').css('background','darkgreen');
                     $('#createPerson').css('border','2px solid darkgreen');
                     $('#createPerson').css('color','white');
-                    $('#createPerson').text('Persona agregada!');
-                    setTimeout(recargar, 2500);
+                    $('#createPerson').text('Registro exitoso!');
+                    setTimeout(recargar, 1800);
                 }
             }
         }
@@ -203,8 +216,10 @@ function startMap()
 {
     navigator.geolocation.getCurrentPosition(function(position)
     {
-        mapa = new google.maps.Map(document.getElementById('maps2'), {zoom: 5, center: {lat: position.coords.latitude, lng: position.coords.longitude}});
-        marker = new google.maps.Marker({draggable: true, animation: google.maps.Animation.DROP, position: {lat: position.coords.latitude, lng: position.coords.longitude}, map: mapa});
+        latitude = position.coords.latitude;
+        longitude = position.coords.longitude;
+        mapa = new google.maps.Map(document.getElementById('maps2'), {zoom: 5, center: {lat: latitude, lng: longitude}});
+        marker = new google.maps.Marker({draggable: true, animation: google.maps.Animation.DROP, position: {lat: latitude, lng: longitude}, map: mapa});
 
         marker.addListener
         (
@@ -216,4 +231,22 @@ function startMap()
             }
         );
     });
+}
+
+function social(op)
+{
+    switch(op)
+    {
+        case 1:
+        window.open(f, '_blank');
+        break;
+        case 2:
+        window.open(t, '_blank');
+        break;
+        case 3:
+        window.open(y, '_blank');
+        break;
+        default:
+        window.open(g, '_blank');
+    }
 }

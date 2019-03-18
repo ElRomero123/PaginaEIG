@@ -1,8 +1,12 @@
 window.onload = initUser;
+var f = 'https://www.facebook.com/Elite-Intelligence-Group-260263604734008/';
+var t = 'https://twitter.com/EliteIntellige1?lang=es';
+var y = 'https://www.youtube.com/channel/UCOvdAjzfv4WlwxKc1fi5JYQ';
+var g = 'https://plus.google.com/u/0/109910140252090488175';
 
 function initUser()
 {
-    var name     = localStorage.getItem('Name');
+    var name  = localStorage.getItem('Name');
     var email = localStorage.getItem('Email');
     
     if(name != null)
@@ -19,7 +23,6 @@ function initUser()
     loadProfilesUser();
 }
 
-
 function loadProfilesUser()
 {
     if(navigator.onLine)
@@ -31,12 +34,12 @@ function loadProfilesUser()
         $('#bannerState').css('color','black');
         $('#bannerState').text('Cargando ...');
 
-        var idUser = localStorage.getItem('IdUser');
+        var IdUser = localStorage.getItem('IdUser');
 
         $.ajax
         (
             {
-                url: '../api/person/?idUser=' + idUser,
+                url: '../api/person/?idUser=' + IdUser,
                 type: 'GET',
                 contentType: "application/json;charset=utf-8",
 
@@ -45,61 +48,56 @@ function loadProfilesUser()
                 {
                     if(data.length > 0)
                     {
-                        var cadena = "";
-
+                        var chain = new StringBuilder();
                         for(var i = 0; i < data.length; i++)
                         {
-                            if(data[i].Active == 1)
+                            if(data[i].Active)
                             {
                                 if(data[i].Type)
                                 {
-                                    cadena += "<div class='result'> <div class='avatar' id='" + i + "'></div> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].ProfesionDescription + "</p> <p class='pf3'>" + data[i].Email + "</p> <p class='pf4'>" + data[i].Phone + "</p> <p class='pf4'>" + 'Unido el ' + data[i].CreationDate + "</p> <button class='moreResult' id='" + data[i].Id + "' onclick='flipOP(this)'>Desactivar</button> </div> </div>";
+                                    chain.append("<div class='result'> <div class='avatar' id='OPA" + data[i].Id + "'></div> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].ProfesionDescription + "</p> <p class='pf2'>" + data[i].Email + "</p> <p class='pf2'>" + data[i].Phone + "</p> <p class='pf2'> <p class='pf2'>Ciprin: " + data[i].Ciprin + "</p> <p class='pf2'>" + 'Unido el ' + data[i].CreationDate + "</p> <p class='pf4'>" + data[i].CreationHourZone + "</p> <button style='background:green; color:white' class='moreResult' id='OP" + data[i].Id + "' onclick='changeOP(this)'>Desactivar</button> <p class='pf2' style='background:blue; padding:3px; color:white;'>Profesional Afín</p> <p class='pf2'>" + data[i].Views + " visitas</p> </div> </div>");
                                 }
 
                                 else
                                 {
-                                    cadena += "<div class='result'> <div class='avatar' id='" + i + "'></div> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].ProfesionDescription + "</p> <p class='pf3'>" + data[i].Email + "</p> <p class='pf4'>" + data[i].Phone + "</p> <p class='pf4'>" + 'Unido el ' + data[i].CreationDate + "</p> <button class='moreResult' id='" + data[i].Id + "' onclick='flip(this)'>Desactivar</button> </div> </div>";
-                                }   
+                                    chain.append("<div class='result'> <div class='avatar' id='PA" + data[i].Id + "'></div> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].ProfesionDescription + "</p> <p class='pf2'>" + data[i].Email + "</p> <p class='pf2'>" + data[i].Phone + "</p> <p class='pf2'> <p class='pf2'>Ciprin: " + data[i].Ciprin + "</p> <p class='pf2'>" + 'Unido el ' + data[i].CreationDate + "</p> <p class='pf4'>" + data[i].CreationHourZone + "</p> <button style='background:green; color:white' class='moreResult' id='P" + data[i].Id + "' onclick='changeP(this)'>Desactivar</button> <p class='pf2' style='background:green; padding:3px; color:white;'>Investigador Privado</p> <p class='pf2'>" + data[i].Views + " visitas</p> </div> </div>");
+                                }
                             }
 
                             else
                             {
                                 if(data[i].Type)
                                 {
-                                    cadena += "<div class='result'> <div class='avatar' id='" + i + "'></div> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].ProfesionDescription + "</p> <p class='pf3'>" + data[i].Email + "</p> <p class='pf4'>" + data[i].Phone + "</p> <p class='pf4'>" + 'Unido el ' + data[i].CreationDate + "</p> <button class='moreResult' id='" + data[i].Id + "' onclick='flipOP(this)'>Activar</button> </div> </div>";
+                                    chain.append("<div class='result'> <div class='avatar' id='OPA" + data[i].Id + "'></div> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].ProfesionDescription + "</p> <p class='pf2'>" + data[i].Email + "</p> <p class='pf2'>" + data[i].Phone + "</p> <p class='pf2'> <p class='pf2'>Ciprin: " + data[i].Ciprin + "</p> <p class='pf2'>" +  'Unido el ' + data[i].CreationDate + "</p> <p class='pf4'>" + data[i].CreationHourZone + "</p> <button style='background:red; color:white' class='moreResult' id='OP" + data[i].Id + "' onclick='changeOP(this)'>Activar</button> <p class='pf2' style='background:blue; padding:3px; color:white;'>Profesional Afín</p> <p class='pf2''>" + data[i].Views + " visitas</p> </div> </div>");
                                 }
 
                                 else
                                 {
-                                    cadena += "<div class='result'> <div class='avatar' id='" + i + "'></div> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].ProfesionDescription + "</p> <p class='pf3'>" + data[i].Email + "</p> <p class='pf4'>" + data[i].Phone + "</p> <p class='pf4'>" + 'Unido el ' + data[i].CreationDate + "</p> <button class='moreResult' id='" + data[i].Id + "' onclick='flip(this)'>Activar</button> </div> </div>";
-                                } 
+                                    chain.append("<div class='result'> <div class='avatar' id='PA" + data[i].Id + "'></div> <div class='text'> <p class='pf1'>" + data[i].Name + "</p> <p class='pf2'>" + data[i].ProfesionDescription + "</p> <p class='pf2'>" + data[i].Email + "</p> <p class='pf2'>" + data[i].Phone + "</p> <p class='pf2'> <p class='pf2'>Ciprin: " + data[i].Ciprin + "</p> <p class='pf2'>" +  'Unido el ' + data[i].CreationDate + "</p> <p class='pf4'>" + data[i].CreationHourZone + "</p> <button style='background:red; color:white' class='moreResult' id='P" + data[i].Id + "' onclick='changeP(this)'>Activar</button> <p class='pf2' style='background:green; padding:3px; color:white;'>Investigador Privado</p> <p class='pf2'>" + data[i].Views + " visitas</p> </div> </div>");
+                                }
                             }
                         }
 
-                        $('#listResults').append(cadena);
-
-                        for(var i = 0; i < data.length; i++)
-                        {
-                            if(data[i].Active == 1)
-                            {
-                                $('#' + data[i].Id).css('background','green');
-                                $('#' + data[i].Id).css('color','white');
-                            }
-
-                            else
-                            {
-                                $('#' + data[i].Id).css('background','red');
-                                $('#' + data[i].Id).css('color','white');
-                            }
-
-                            avatar = data[i].Avatar;
-                            document.getElementById(i).style.background = 'url("' + avatar + '")';
-                        }
                         
                         $('#bannerState').css('background','green');
                         $('#bannerState').css('color','white');
                         $('#bannerState').text('El usuario tiene ' + i + ' perfiles!');
                         $('#listResults').css('display','flex');
+                        $('#listResults').append(chain.toString());
+                        chain.clear();
+
+                        for(var i = 0; i < data.length; i++)
+                        {
+                            if(data[i].Type)
+                            {
+                                document.getElementById('OPA' + data[i].Id).style.background = 'url("' + data[i].Avatar + '")';
+                            }
+                            else
+                            {
+                                document.getElementById('PA' + data[i].Id).style.background = 'url("' + data[i].Avatar + '")';
+                            }
+                            
+                        }
                     }
 
                     else
@@ -121,9 +119,72 @@ function loadProfilesUser()
     }
 }
 
-function showMedia(e)
+function changeP(e)
 {
-    alert('Ver multimedia de ' + e.id + ' funciona');
+    $('#' + e.id).css('background','yellow');
+    $('#' + e.id).css('color','black');
+    $('#' + e.id).text('Cambiando ...');
+
+    $.ajax
+    (
+        {
+            url: '../api/person?idPerson=' + e.id.substr(1,2),
+            type: 'POST',
+            contentType: "application/json;charset=utf-8",
+
+            success:
+            function (data) 
+            {
+                if(data)
+                {
+                    $('#' + e.id).css('background','green');
+                    $('#' + e.id).css('color','white');
+                    $('#' + e.id).text('Desactivar');
+                }
+
+                else
+                {
+                    $('#' + e.id).css('background','red');
+                    $('#' + e.id).css('color','white');
+                    $('#' + e.id).text('Activar');
+                }
+            }
+        }
+    );
+}
+
+function changeOP(e)
+{
+    $('#' + e.id).css('background','yellow');
+    $('#' + e.id).css('color','black');
+    $('#' + e.id).text('Cambiando ...');
+
+    $.ajax
+    (
+        {
+            url: '../api/otherPerson?idOtherPerson=' + e.id.substr(2,3),
+            type: 'POST',
+            contentType: "application/json;charset=utf-8",
+
+            success:
+            function (data) 
+            {
+                if(data)
+                {
+                    $('#' + e.id).css('background','green');
+                    $('#' + e.id).css('color','white');
+                    $('#' + e.id).text('Desactivar');
+                }
+
+                else
+                {
+                    $('#' + e.id).css('background','red');
+                    $('#' + e.id).css('color','white');
+                    $('#' + e.id).text('Activar');
+                }
+            }
+        }
+    );
 }
 
 function to(num)
@@ -139,70 +200,46 @@ function to(num)
     }
 }
 
-function flip(e)
+
+
+function social(op)
 {
-    $('#' + e.id).css('background','yellow');
-    $('#' + e.id).css('color','black');
-    $('#' + e.id).text('Cambiando ...');
-
-    $.ajax
-    (
-        {
-            url: '../api/person?id=' + e.id,
-            type: 'POST',
-            contentType: "application/json;charset=utf-8",
-
-            success:
-            function (data) 
-            {
-                if(data == 1)
-                {
-                    $('#' + e.id).css('background','green');
-                    $('#' + e.id).css('color','white');
-                    $('#' + e.id).text('Desactivar');
-                }
-
-                else
-                {
-                    $('#' + e.id).css('background','red');
-                    $('#' + e.id).css('color','white');
-                    $('#' + e.id).text('Activar');
-                }
-            }
-        }
-    );
+    switch(op)
+    {
+        case 1:
+        window.open(f, '_blank');
+        break;
+        case 2:
+        window.open(t, '_blank');
+        break;
+        case 3:
+        window.open(y, '_blank');
+        break;
+        default:
+        window.open(g, '_blank');
+    }
 }
 
-function flipOP(e)
+function StringBuilder(value) 
 {
-    $('#' + e.id).css('background','yellow');
-    $('#' + e.id).css('color','black');
-    $('#' + e.id).text('Cambiando ...');
+    this.strings = new Array();
+    this.append(value);
+}
 
-    $.ajax
-    (
-        {
-            url: '../api/otherPerson?id=' + e.id,
-            type: 'POST',
-            contentType: "application/json;charset=utf-8",
+StringBuilder.prototype.append = function (value) 
+{
+    if (value) 
+    {
+        this.strings.push(value);
+    }
+}
 
-            success:
-            function (data) 
-            {
-                if(data == 1)
-                {
-                    $('#' + e.id).css('background','green');
-                    $('#' + e.id).css('color','white');
-                    $('#' + e.id).text('Desactivar');
-                }
+StringBuilder.prototype.clear = function () 
+{
+    this.strings.length = 0;
+}
 
-                else
-                {
-                    $('#' + e.id).css('background','red');
-                    $('#' + e.id).css('color','white');
-                    $('#' + e.id).text('Activar');
-                }
-            }
-        }
-    );
+StringBuilder.prototype.toString = function () 
+{
+    return this.strings.join("");
 }

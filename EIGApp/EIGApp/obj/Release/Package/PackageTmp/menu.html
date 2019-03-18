@@ -15,14 +15,14 @@
                 <p id='infoName'></p>
                 <p id='infoUsername'></p>
                 <button class='close' onclick='to(10)'>Cerrar Sesión</button>
-                <button class='close' onclick='to(11)'>Afiliarse GRATIS como investigador</button>
+                <button class='closeR' onclick='to(11)'>Afiliarse <b>GRATIS</b> como investigador</button>
             </div>
         </header>
 
         <div> 
             <p class='searchTag'>Búsqueda</p> 
             <p class='categorySearch'>Investigador/detective privado cerca de tí</p>
-            <input class='searchBox' id='criterio' onkeypress='searchByEnter(event)' >
+            <input class='searchBox' id='criterio' onkeypress="searchByEnter(event)" >
             <button class='search' onclick="search()"></button>
             
             <div class='categories'>
@@ -48,8 +48,21 @@
             </div>    
         </div>
 
+        <footer>
+            <div id='social'>
+                <div class='s' id='s1' onclick='social(1)'></div>
+                <div class='s' id='s2' onclick='social(2)'></div>
+                <div class='s' id='s3' onclick='social(3)'></div>
+                <div class='s' id='s4' onclick='social(4)'></div>
+            </div>
+            <div>Desarrollado por Romesoft S.A Telefono: 305 355 28 37</div>
+        </footer>
+
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDfiupNlmZYeuoj675TrruP8D0Kyuc3mqk"></script>
         <script src='js/menu.js'></script>
+        <!--
+        
+        -->
     </body>
 </html>

@@ -3,6 +3,11 @@ var BusinessAvatar;
 var longitude;
 var latitude;
 
+var f = 'https://www.facebook.com/Elite-Intelligence-Group-260263604734008/';
+var t = 'https://twitter.com/EliteIntellige1?lang=es';
+var y = 'https://www.youtube.com/channel/UCOvdAjzfv4WlwxKc1fi5JYQ';
+var g = 'https://plus.google.com/u/0/109910140252090488175';
+
 function initUser()
 {
     var name     = localStorage.getItem('Name');
@@ -29,6 +34,9 @@ function to(num)
         localStorage.clear();
         location.href = 'index.html';
         break;
+        case 2:
+        location.href = 'manageBusinessPackage.html';
+        break;
         default:
         localStorage.removeItem('IdPackage');
         location.href = 'managePackage.html';
@@ -43,25 +51,28 @@ function createBusiness()
     {
         if(validateAvatar())
         {
+            var IdPackage = localStorage.getItem('IdPackage');
+
             var negocio =
             {
-                name: $('#campoName').val(),
-                specialism: $('#campoSpecialism').val(),
-                specialismDescription: $('#campoSpecialismDescription').val(),
-                webPage: $('#campoWebPage').val(),
-                phone: $('#campoPhone').val(),
-                latitude: latitude,
-                longitude: longitude,
-                ciprin: 0,
-                active: 0,
-                avatar: '',
-                idPackage: localStorage.getItem('IdPackage')
+                name:                   $('#cName').val(),
+                specialism:             $('#cSpecialism').val(),
+                specialismDescription:  $('#cDescription').val(),
+                webPage:                $('#cWebPage').val(),
+                phone:                  $('#cIndex').val().substr(0,4).trim() + ' ' + $('#cPhone').val(),
+                latitude:               latitude,
+                longitude:              longitude,
+                ciprin:                 false,
+                active:                 false,
+                avatar:                 '',
+                nameAvatar:             '',
+                idPackage:              IdPackage
             };
         
             $('#createBusiness').css('background','yellow');
             $('#createBusiness').css('border','2px solid yellow');
             $('#createBusiness').css('color','black');
-            $('#createBusiness').text('Agregando negocio ...');
+            $('#createBusiness').text('Registrando ...');
     
             $.ajax
             (
@@ -84,7 +95,7 @@ function createBusiness()
         {
             $('#createBusiness').css('background','red');
             $('#createBusiness').css('border','2px solid red');
-            $('#createBusiness').text('No has seleccionado una FOTO!');
+            $('#createBusiness').text('Debe seleccionar una FOTO de Avatar!');
         }
     }
 
@@ -98,11 +109,11 @@ function createBusiness()
 
 function validateText()
 {
-    var c1 = $('#campoName').val().length >= 8;
-    var c2 = $('#campoSpecialism').val().length >= 8;
-    var c3 = $('#campoSpecialismDescription').val().length >= 8;
-    var c4 = $('#campoWebPage').val().length >= 8;
-    var c5 = $('#campoPhone').val().length >= 8;
+    var c1 = $('#cName').val().length >= 8;
+    var c2 = $('#cSpecialism').val().length >= 8;
+    var c3 = $('#cDescription').val().length >= 8;
+    var c4 = $('#cWebPage').val().length >= 8;
+    var c5 = $('#cPhone').val().length >= 5;
 
     return c1 && c2 && c3 && c4 && c5;
 }
@@ -126,8 +137,9 @@ function loadAvatar(num)
     
     firebase.initializeApp(config);
 
-    var storageRef     = firebase.storage().ref();
-    var uploadTask = storageRef.child('avatar/' + 'B' + num).put(BusinessAvatar.files[0]);
+    var storageRef = firebase.storage().ref();
+    var fileName   = 'B' + num;
+    var uploadTask = storageRef.child('avatarB/' + fileName).put(BusinessAvatar.files[0]);
 
     uploadTask.on
     (   
@@ -144,17 +156,18 @@ function loadAvatar(num)
         {
             uploadTask.snapshot.ref.getDownloadURL().then(function(downloadURL) 
             {    
-                putAvatar(num, downloadURL);
+                putAvatar(num, fileName, downloadURL);
             });
         }
     );
 }
 
-function putAvatar(num, downloadURL)
+function putAvatar(num, fileName, downloadURL)
 {
     var parametrosPutAvatar =
     {
-        id: num,
+        id         : num,
+        fileName   : fileName,
         downloadURL: downloadURL
     };
 
@@ -174,8 +187,8 @@ function putAvatar(num, downloadURL)
                     $('#createBusiness').css('background','darkgreen');
                     $('#createBusiness').css('border','2px solid darkgreen');
                     $('#createBusiness').css('color','white');
-                    $('#createBusiness').text('Negocio agregado!');    
-                    setTimeout(recargar, 2500);
+                    $('#createBusiness').text('Registro exitoso!');    
+                    setTimeout(recargar, 1800);
                 }
             }
         }
@@ -205,10 +218,11 @@ function recargar()
 function startMap()
 {
     navigator.geolocation.getCurrentPosition(function(position)
-    { 
-        console.log(position);
-        mapa = new google.maps.Map(document.getElementById('maps2'), {zoom: 5, center: {lat: position.coords.latitude, lng: position.coords.longitude}});
-        marker = new google.maps.Marker({draggable: true, animation: google.maps.Animation.DROP, position: {lat: position.coords.latitude, lng: position.coords.longitude}, map: mapa});
+    {
+        latitude = position.coords.latitude;
+        longitude = position.coords.longitude;
+        mapa = new google.maps.Map(document.getElementById('maps2'), {zoom: 5, center: {lat: latitude, lng: longitude}});
+        marker = new google.maps.Marker({draggable: true, animation: google.maps.Animation.DROP, position: {lat: latitude, lng: longitude}, map: mapa});
 
         marker.addListener
         (
@@ -220,4 +234,22 @@ function startMap()
             }
         );
     });
+}
+
+function social(op)
+{
+    switch(op)
+    {
+        case 1:
+        window.open(f, '_blank');
+        break;
+        case 2:
+        window.open(t, '_blank');
+        break;
+        case 3:
+        window.open(y, '_blank');
+        break;
+        default:
+        window.open(g, '_blank');
+    }
 }

@@ -15,6 +15,7 @@
                 <p id='infoName'></p>
                 <p id='infoUsername'></p>
                 <button class='close' onclick='to(1)'>Cerrar Sesión</button>
+                <button class='close' onclick='to(2)'>Mis perfiles</button>
             </div>
         </header>
 
@@ -23,30 +24,83 @@
             <p class='categorySearch'>Agregar un curso/promoción/evento para el plan seleccionado!</p>
 
             <div class='categories'>
-                <div id='c9' class='category' onclick="to(2)"></div>
+                <div id='c9' class='category' onclick="to(3)"></div>
             </div>
 
             <div>
                 <p>Nombre del producto</p>
-                <input type='text' maxlength='50' id='campoName'>
+                <input type='text' maxlength='50' id='cName'>
 
                 <p>Tipo de producto</p>
-                <input type='text' maxlength="100" id='campoType'>
+                <input list = 'typeProduct' maxlength="100" id='cType'>
+
+                <datalist id='typeProduct'>
+                    <option value='Curso'>
+                    <option value='Promoción'>
+                    <option value='Evento'>
+                </datalist>
 
                 <p>Describa el tipo del producto</p>
-                <input type='text' maxlength="80" id='campoTypeDescription'>
+                <input type='text' maxlength="80" id='cDescription'>
 
                 <p>Nombre del responsable</p>
-                <input type='text' maxlength='200' id='campoAttendantName'>
+                <input type='text' maxlength='200' id='cAttendantName'>
 
                 <p>Página web del responsable</p>
-                <input type='text' maxlength='200' id='campoAttendantWebPage'>
+                <input type='text' maxlength='200' id='cAttendantWebPage'>
 
                 <p>E-mail del responsable</p>
-                <input type='text' maxlength='100' id='campoAttendantEmail'>
+                <input type='text' maxlength='100' id='cAttendantEmail'>
 
-                <p>Número telefónico del responsable</p>
-                <input type='number' id='campoAttendantPhone'>
+                <p>Número telefónico del responsable (Mínimo 5 digitos)</p>
+                <div id='infoPhone'>
+                        <p>Indicativo</p>
+                        <input list='countries' id='cIndex'>
+        
+                        <datalist id='countries'>
+                            <option value='+93 Afganistan'>
+                            <option value='+355 Albania'>
+                            <option value='+49 Alemania'>
+                            <option value='+376 Andorra'>
+                            <option value='+244 Angola'>
+                            <option value='+1  Anguila'>
+                            <option value='+1  Antigua y Barbuda'>
+                            <option value='+966 Arabia Saudí'>
+                            <option value='+213 Argelia'>
+                            <option value='+54 Argentina'>
+                            <option value='+374 Armenia'>
+                            <option value='+297 Aruba'>
+                            <option value='+61 Australia'>
+                            <option value='+43 Austria'>
+                            <option value='+994 Azerbaiyán'>
+                            <option value='+1  Bahamas'>
+                            <option value='+880 Bangladés'>
+                            <option value='+1  Barbados'>
+                                
+                            <option value='+973 Baréin'>
+                            <option value='+32 Bélgica'>
+                            <option value='+501 Belice'>
+                            <option value='+229 Benín'>
+                            <option value='+1  Bermudas'>
+                            <option value='+375 Bielorrusia'>
+                            <option value='+591 Bolivia'>
+                            <option value='+387 Bosnia-Herzegovina'>
+                            <option value='+267 Botsuana'>
+                            <option value='+55 Brasil'>
+                            <option value='+673 Brunéi'>
+                            <option value='+359 Bulgaria'>
+                            <option value='+226 Burkina Faso'>
+                            <option value='+257 Burundi'>
+                            <option value='+975 Bután'>
+                            <option value='+238 Cabo Verde'>
+                            <option value='+855 Camboya'>
+                            <option value='+237 Camerún'>
+                        
+                        </datalist>
+        
+                        <p>Número</p>
+                        <input type='number' max='9999999999999999999999999' id='cPhone'>
+                </div>
 
                 <p>Por favor, indique en el mapa ¿Donde se encuentra ubicado?</p>
                 
@@ -54,7 +108,7 @@
                 </div>
 
                 <p>Fecha del Evento/Curso</p>
-                <input type='text' maxlength='100' id='campoDate'>
+                <input type="datetime-local" id='cDate' min="00-00-07T00:00" max="3000-330-14T00:00" >
 
                 <p>Foto representativa del Evento/Promoción/Curso</p>
                 <div>
@@ -66,10 +120,20 @@
                 <p>Los campos y la FOTO del producto serán revisados, se enviará una notificación a su E-MAIL!</p>
 
                 <div>
-                    <button id='createProduct' class='register' onclick='createProduct()'>Agregar</button>
+                    <button id='createProduct' class='register' onclick='createProduct()'>Registrar</button>
                 </div> 
             </div>
         </div>
+
+        <footer>
+            <div id='social'>
+                <div class='s' id='s1' onclick='social(1)'></div>
+                <div class='s' id='s2' onclick='social(2)'></div>
+                <div class='s' id='s3' onclick='social(3)'></div>
+                <div class='s' id='s4' onclick='social(4)'></div>
+            </div>
+            <div>Desarrollado por Romesoft S.A Telefono: 305 355 28 37</div>
+        </footer>
     
         <script src="https://www.gstatic.com/firebasejs/5.7.3/firebase-app.js"></script>
         <script src="https://www.gstatic.com/firebasejs/5.7.3/firebase-storage.js"></script>

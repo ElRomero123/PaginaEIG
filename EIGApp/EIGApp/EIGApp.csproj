@@ -351,9 +351,6 @@
     <Compile Include="ORM\Suggestion.cs">
       <DependentUpon>BD.tt</DependentUpon>
     </Compile>
-    <Compile Include="ORM\sysdiagram.cs">
-      <DependentUpon>BD.tt</DependentUpon>
-    </Compile>
     <Compile Include="ORM\User.cs">
       <DependentUpon>BD.tt</DependentUpon>
     </Compile>
@@ -374,7 +371,8 @@
     <None Include="packages.config" />
     <Content Include="sass\index.scss" />
     <None Include="Properties\PublishProfiles\eiglatam - FTP.pubxml" />
-    <None Include="Properties\PublishProfiles\eiglatam - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\eiglatino - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\eiglatino - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\eliteintelligence - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\eliteintelligence - Web Deploy.pubxml" />
     <None Include="Web.Debug.config">
