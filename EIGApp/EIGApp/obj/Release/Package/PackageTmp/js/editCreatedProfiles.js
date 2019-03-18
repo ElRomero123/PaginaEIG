@@ -317,6 +317,3 @@ class StringBuilder
         return this.strings.join("");
     }
 }
-
-
-

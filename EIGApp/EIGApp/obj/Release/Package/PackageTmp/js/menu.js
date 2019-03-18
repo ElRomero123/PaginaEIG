@@ -227,3 +227,9 @@ function putMarker(latLng, card, avatar)
     var marker= new google.maps.Marker({position: latLng, map: map, icon: {url:avatar, scaledSize: new google.maps.Size(50, 50)}});
     marker.addListener('click', function() {infowindow.open(map, marker);});
 }
+
+function showInfo()
+{
+    var popup = document.getElementById("myPopup");
+    popup.classList.toggle("show");
+}
