@@ -95,6 +95,26 @@
     <Content Include="addBusinessC.html" />
     <Content Include="addProduct.html" />
     <Content Include="addProductC.html" />
+    <Content Include="App_Start\confirm - Copia %282%29 - Copia.html" />
+    <Content Include="App_Start\editBusinessPackage - Copia %282%29 - Copia.html" />
+    <Content Include="App_Start\editBusinessPackage - Copia - Copia.html" />
+    <Content Include="App_Start\editCase - Copia %282%29.html" />
+    <Content Include="App_Start\editCase - Copia - Copia.html" />
+    <Content Include="App_Start\editCreatedProfiles - Copia %282%29.html" />
+    <Content Include="App_Start\editCreatedProfiles - Copia - Copia.html" />
+    <Content Include="App_Start\editJA - Copia.html" />
+    <Content Include="App_Start\editMediaBusinessPackage - Copia.html" />
+    <Content Include="App_Start\editMediaOtherPerson - Copia.html" />
+    <Content Include="App_Start\editMediaPerson.html" />
+    <Content Include="App_Start\editMediaProductPackage.html" />
+    <Content Include="App_Start\editProductPackage.html" />
+    <Content Include="App_Start\index.html" />
+    <Content Include="App_Start\loginAdministrator.html" />
+    <Content Include="App_Start\manageBusinessPackage.html" />
+    <Content Include="App_Start\manageCases.html" />
+    <Content Include="App_Start\manageJobApplication.html" />
+    <Content Include="App_Start\managePackage.html" />
+    <Content Include="App_Start\manageProductPackage.html" />
     <Content Include="businessPanel.html" />
     <Content Include="businessPanelC.html" />
     <Content Include="confirm.html" />
@@ -238,7 +258,6 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\CountViewsOPController.cs" />
     <Compile Include="Controllers\CountViewsPersonController.cs" />
     <Compile Include="Controllers\ManagerController.cs" />

@@ -1,0 +1,2 @@
+D:\Proyectos\PaginaEIG\EIGApp\EIGApp\obj\Debug\EIGApp.csprojAssemblyReference.cache
+D:\Proyectos\PaginaEIG\EIGApp\EIGApp\obj\Debug\EIGApp.csproj.CoreCompileInputs.cache
