@@ -1,3 +1,5 @@
+D:\Proyectos\PaginaEIG\EIGApp\EIGApp\obj\Debug\EIGApp.csprojAssemblyReference.cache
+D:\Proyectos\PaginaEIG\EIGApp\EIGApp\obj\Debug\EIGApp.csproj.CoreCompileInputs.cache
 D:\Proyectos\PaginaEIG\EIGApp\EIGApp\bin\EIGApp.dll.config
 D:\Proyectos\PaginaEIG\EIGApp\EIGApp\bin\EIGApp.dll
 D:\Proyectos\PaginaEIG\EIGApp\EIGApp\bin\EIGApp.pdb
@@ -66,7 +68,6 @@ D:\Proyectos\PaginaEIG\EIGApp\EIGApp\bin\Microsoft.CodeDom.Providers.DotNetCompi
 D:\Proyectos\PaginaEIG\EIGApp\EIGApp\bin\es\System.Net.Http.Formatting.resources.dll
 D:\Proyectos\PaginaEIG\EIGApp\EIGApp\bin\es\System.Web.Http.resources.dll
 D:\Proyectos\PaginaEIG\EIGApp\EIGApp\bin\es\System.Web.Http.WebHost.resources.dll
-D:\Proyectos\PaginaEIG\EIGApp\EIGApp\obj\Debug\EIGApp.csproj.CoreCompileInputs.cache
 D:\Proyectos\PaginaEIG\EIGApp\EIGApp\obj\Debug\EIGApp.csproj.CopyComplete
 D:\Proyectos\PaginaEIG\EIGApp\EIGApp\obj\Debug\EIGApp.dll
 D:\Proyectos\PaginaEIG\EIGApp\EIGApp\obj\Debug\EIGApp.pdb

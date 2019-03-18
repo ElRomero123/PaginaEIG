@@ -85,6 +85,33 @@ function toEditCase(e)
 
 function elim(e)
 {
+    $.ajax
+    (
+        {
+            url: '../api/mediaCase/?idCase=' + e.id,
+            type: 'GET',
+            contentType: "application/json;charset=utf-8",
+
+            success:
+            function (data) 
+            {
+                if(data.length > 0)
+                {
+                    $('#bannerState').css('background','red');
+                    $('#bannerState').css('color','white');
+                    $('#bannerState').text('Elimine Archivos primero!');
+                }
+                else
+                {
+                    deleteMedia(e.id);
+                }
+            }
+        }
+    );
+}
+
+function deleteMedia(id)
+{
     $('#bannerState').css('display','block');
     $('#bannerState').css('background','yellow');
     $('#bannerState').css('color','black');
@@ -92,7 +119,7 @@ function elim(e)
     $.ajax
     (
         {
-            url: '../api/case/?idCase=' + e.id,
+            url: '../api/case/?idCase=' + id,
             type: 'POST',
             contentType: "application/json;charset=utf-8",
 
@@ -108,7 +135,9 @@ function elim(e)
 
                 else
                 {
-                    alert('NO se pudo eliminar el caso! ');
+                    $('#bannerState').css('background','red');
+                    $('#bannerState').css('color','white');
+                    $('#bannerState').text('NO se pudo eliminar!');
                 }
             }
         }
@@ -138,26 +167,26 @@ function social(op)
     }
 }
 
-function StringBuilder(value) 
+class StringBuilder 
 {
-    this.strings = new Array();
-    this.append(value);
-}
-
-StringBuilder.prototype.append = function (value) 
-{
-    if (value) 
+    constructor(value) 
     {
-        this.strings.push(value);
+        this.strings = new Array();
+        this.append(value);
     }
-}
-
-StringBuilder.prototype.clear = function () 
-{
-    this.strings.length = 0;
-}
-
-StringBuilder.prototype.toString = function () 
-{
-    return this.strings.join("");
+    append(value) 
+    {
+        if (value) 
+        {
+            this.strings.push(value);
+        }
+    }
+    clear() 
+    {
+        this.strings.length = 0;
+    }
+    toString() 
+    {
+        return this.strings.join("");
+    }
 }

@@ -146,8 +146,24 @@ function to(num)
 
 function showMedia(e)
 {
-    localStorage.setItem('IdPerson', e.id);
-    open('viewMediaPerson.html', 'pop-up', 'width=750,height=600');
+    $.ajax
+    (
+        {
+            url: '../api/countViewsPerson/?idPerson=' + e.id,
+            type: 'POST',
+            contentType: "application/json;charset=utf-8",
+
+            success:
+            function (data) 
+            {
+                if(data)
+                {
+                    localStorage.setItem('IdPerson', e.id);
+                    open('viewMediaPerson.html', 'pop-up', 'width=750,height=600');
+                }
+            }
+        }
+    );
 }
 
 function social(op)
@@ -168,28 +184,28 @@ function social(op)
     }
 }
 
-function StringBuilder(value) 
+class StringBuilder 
 {
-    this.strings = new Array();
-    this.append(value);
-}
-
-StringBuilder.prototype.append = function (value) 
-{
-    if (value) 
+    constructor(value) 
     {
-        this.strings.push(value);
+        this.strings = new Array();
+        this.append(value);
     }
-}
-
-StringBuilder.prototype.clear = function () 
-{
-    this.strings.length = 0;
-}
-
-StringBuilder.prototype.toString = function () 
-{
-    return this.strings.join("");
+    append(value) 
+    {
+        if (value) 
+        {
+            this.strings.push(value);
+        }
+    }
+    clear() 
+    {
+        this.strings.length = 0;
+    }
+    toString() 
+    {
+        return this.strings.join("");
+    }
 }
 
 function initMap() 
