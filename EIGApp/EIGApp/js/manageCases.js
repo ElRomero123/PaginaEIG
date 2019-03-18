@@ -85,39 +85,32 @@ function toEditCase(e)
 
 function elim(e)
 {
-    $('#bannerState').css('display','block');
-    $('#bannerState').css('background','yellow');
-    $('#bannerState').css('color','black');
-    $('#bannerState').text('Eliminando ...');
     $.ajax
     (
         {
-            url: '../api/case/?idCase=' + e.id,
-            type: 'POST',
+            url: '../api/mediaCase/?idCase=' + e.id,
+            type: 'GET',
             contentType: "application/json;charset=utf-8",
 
             success:
             function (data) 
             {
-                if(data)
+                if(data.length > 0)
                 {
-                    $('#bannerState').css('background','brown');
-                    $('#bannerState').text('Eliminado con éxito!');
-                    setTimeout(recargar, 800);
+                    $('#bannerState').css('background','red');
+                    $('#bannerState').css('color','white');
+                    $('#bannerState').text('Elimine Archivos primero!');
                 }
-
                 else
                 {
-                    alert('NO se pudo eliminar el caso! ');
+                    deleteMedia(e.id);
                 }
             }
         }
     );
 }
 
-/*
-
-function deleteMedia(e)
+function deleteMedia(id)
 {
     $('#bannerState').css('display','block');
     $('#bannerState').css('background','yellow');
@@ -126,7 +119,7 @@ function deleteMedia(e)
     $.ajax
     (
         {
-            url: '../api/case/?idCase=' + e.id,
+            url: '../api/case/?idCase=' + id,
             type: 'POST',
             contentType: "application/json;charset=utf-8",
 
@@ -142,13 +135,14 @@ function deleteMedia(e)
 
                 else
                 {
-                    alert('NO se pudo eliminar el caso! ');
+                    $('#bannerState').css('background','red');
+                    $('#bannerState').css('color','white');
+                    $('#bannerState').text('NO se pudo eliminar!');
                 }
             }
         }
     );
 }
-*/
 
 function recargar()
 {

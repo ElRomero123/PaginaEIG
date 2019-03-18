@@ -87,6 +87,33 @@ function toEditJA(e)
 
 function elim(e)
 {
+    $.ajax
+    (
+        {
+            url: '../api/mediaJA/?idJA=' + e.id,
+            type: 'GET',
+            contentType: "application/json;charset=utf-8",
+
+            success:
+            function (data) 
+            {
+                if(data.length > 0)
+                {
+                    $('#bannerState').css('background','red');
+                    $('#bannerState').css('color','white');
+                    $('#bannerState').text('Elimine Archivos primero!');
+                }
+                else
+                {
+                    deleteMedia(e.id);
+                }
+            }
+        }
+    );
+}
+
+function deleteMedia(id)
+{
     $('#bannerState').css('display','block');
     $('#bannerState').css('background','yellow');
     $('#bannerState').css('color','black');
@@ -94,7 +121,7 @@ function elim(e)
     $.ajax
     (
         {
-            url: '../api/jobApplication/?idJA=' + e.id,
+            url: '../api/jobApplication/?idJA=' + id,
             type: 'POST',
             contentType: "application/json;charset=utf-8",
 
@@ -106,6 +133,13 @@ function elim(e)
                     $('#bannerState').css('background','brown');
                     $('#bannerState').text('Eliminado con éxito!');
                     setTimeout(recargar, 800);
+                }
+
+                else
+                {
+                    $('#bannerState').css('background','red');
+                    $('#bannerState').css('color','white');
+                    $('#bannerState').text('NO se pudo eliminar!');
                 }
             }
         }
