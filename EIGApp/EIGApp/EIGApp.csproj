@@ -239,6 +239,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\CountViewsOPController.cs" />
+    <Compile Include="Controllers\CountViewsPersonController.cs" />
     <Compile Include="Controllers\ManagerController.cs" />
     <Compile Include="Controllers\BusinessController.cs" />
     <Compile Include="Controllers\CaseController.cs" />
@@ -349,6 +351,9 @@
       <DependentUpon>BD.tt</DependentUpon>
     </Compile>
     <Compile Include="ORM\Suggestion.cs">
+      <DependentUpon>BD.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ORM\sysdiagram.cs">
       <DependentUpon>BD.tt</DependentUpon>
     </Compile>
     <Compile Include="ORM\User.cs">
