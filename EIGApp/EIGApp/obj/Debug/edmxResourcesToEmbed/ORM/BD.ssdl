@@ -1,0 +1,537 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BDEIGModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Administrator">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Alias" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="Clave" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="255" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Business">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="Specialism" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="SpecialismDescription" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="WebPage" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="Latitude" Type="real" Nullable="false" />
+    <Property Name="Longitude" Type="real" Nullable="false" />
+    <Property Name="Ciprin" Type="bit" Nullable="false" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+    <Property Name="CreationDate" Type="datetime" Nullable="false" />
+    <Property Name="CreationHourZone" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="Avatar" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="NameAvatar" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="IdPackage" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Case">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="DescriptionCase" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="PostedDate" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="PostedHourZone" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="IdUser" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Donation">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Amount" Type="bigint" Nullable="false" />
+    <Property Name="Date" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="HourZone" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="IdUser" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="JobApplication">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="DocumentNumber" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="DescriptionApplication" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="Age" Type="int" Nullable="false" />
+    <Property Name="PostedDate" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="PostedHourZone" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="IdUser" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MediaBusiness">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FileName" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="DownloadLink" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="LoadDate" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="LoadHourZone" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="IdBusiness" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MediaCase">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FileName" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="DownloadLink" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="LoadDate" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="LoadHourZone" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="IdCase" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MediaJobApplication">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FileName" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="DownloadLink" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="LoadDate" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="LoadHourZone" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="IdJobApplication" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MediaOtherPerson">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FileName" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="DownloadLink" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="LoadDate" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="LoadHourZone" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="IdOtherPerson" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MediaPerson">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FileName" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="DownloadLink" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="LoadDate" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="LoadHourZone" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="IdPerson" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MediaProduct">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FileName" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="DownloadLink" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="LoadDate" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="LoadHourZone" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="IdProduct" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="OtherPerson">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="Profesion" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="ProfesionDescription" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="City" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="Latitude" Type="real" Nullable="false" />
+    <Property Name="Longitude" Type="real" Nullable="false" />
+    <Property Name="Ciprin" Type="bit" Nullable="false" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+    <Property Name="CreationDate" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="CreationHourZone" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="Avatar" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="NameAvatar" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="Views" Type="bigint" Nullable="false" />
+    <Property Name="IdUser" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Package">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Linea" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="Producto" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="Cantidad" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="FechaCompra" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="TiempoCubrimiento" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="Precio" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="Kind" Type="int" Nullable="false" />
+    <Property Name="IdUser" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Person">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="ProfesionDescription" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="City" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="Latitude" Type="real" Nullable="false" />
+    <Property Name="Longitude" Type="real" Nullable="false" />
+    <Property Name="Ciprin" Type="bit" Nullable="false" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+    <Property Name="CreationDate" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="CreationHourZone" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="Avatar" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="NameAvatar" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="Views" Type="bigint" Nullable="false" />
+    <Property Name="IdUser" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="Type" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="TypeDescription" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="AttendantName" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="AttendantWebPage" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="AttendantEmail" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="AttendantPhone" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="Latitude" Type="real" Nullable="false" />
+    <Property Name="Longitude" Type="real" Nullable="false" />
+    <Property Name="Date" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+    <Property Name="CreationDate" Type="datetime" Nullable="false" />
+    <Property Name="CreationHourZone" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="Avatar" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="NameAvatar" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="IdPackage" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Suggestion">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="PostedDate" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="PostedHourZone" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="IdUser" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Username" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="Password" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="Address" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="CountProfiles" Type="bigint" Nullable="false" />
+    <Property Name="JoinDate" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="JoinHourZone" Type="nvarchar" MaxLength="255" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Business_Package">
+    <End Role="Package" Type="Self.Package" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Business" Type="Self.Business" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Package">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Business">
+        <PropertyRef Name="IdPackage" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Case_User">
+    <End Role="User" Type="Self.User" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Case" Type="Self.Case" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Case">
+        <PropertyRef Name="IdUser" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Donation_User">
+    <End Role="User" Type="Self.User" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Donation" Type="Self.Donation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Donation">
+        <PropertyRef Name="IdUser" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_JobApplication_User">
+    <End Role="User" Type="Self.User" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="JobApplication" Type="Self.JobApplication" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="JobApplication">
+        <PropertyRef Name="IdUser" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MediaBusiness_Business">
+    <End Role="Business" Type="Self.Business" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="MediaBusiness" Type="Self.MediaBusiness" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Business">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MediaBusiness">
+        <PropertyRef Name="IdBusiness" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MediaOtherPerson_OtherPerson">
+    <End Role="OtherPerson" Type="Self.OtherPerson" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="MediaOtherPerson" Type="Self.MediaOtherPerson" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OtherPerson">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MediaOtherPerson">
+        <PropertyRef Name="IdOtherPerson" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MediaPerson_Person">
+    <End Role="Person" Type="Self.Person" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="MediaPerson" Type="Self.MediaPerson" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Person">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MediaPerson">
+        <PropertyRef Name="IdPerson" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MediaProduct_Product">
+    <End Role="Product" Type="Self.Product" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="MediaProduct" Type="Self.MediaProduct" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MediaProduct">
+        <PropertyRef Name="IdProduct" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MultimediaCase_Case">
+    <End Role="Case" Type="Self.Case" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="MediaCase" Type="Self.MediaCase" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Case">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MediaCase">
+        <PropertyRef Name="IdCase" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MultimediaJobApplication_JobApplication">
+    <End Role="JobApplication" Type="Self.JobApplication" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="MediaJobApplication" Type="Self.MediaJobApplication" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="JobApplication">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MediaJobApplication">
+        <PropertyRef Name="IdJobApplication" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OtherPerson_User">
+    <End Role="User" Type="Self.User" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="OtherPerson" Type="Self.OtherPerson" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="OtherPerson">
+        <PropertyRef Name="IdUser" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Package_User">
+    <End Role="User" Type="Self.User" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Package" Type="Self.Package" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Package">
+        <PropertyRef Name="IdUser" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Person_User">
+    <End Role="User" Type="Self.User" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Person" Type="Self.Person" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Person">
+        <PropertyRef Name="IdUser" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Product_Package">
+    <End Role="Package" Type="Self.Package" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Product" Type="Self.Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Package">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Product">
+        <PropertyRef Name="IdPackage" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Suggestion_User">
+    <End Role="User" Type="Self.User" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Suggestion" Type="Self.Suggestion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Suggestion">
+        <PropertyRef Name="IdUser" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="BDEIGModelStoreContainer">
+    <EntitySet Name="Administrator" EntityType="Self.Administrator" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Business" EntityType="Self.Business" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Case" EntityType="Self.Case" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Donation" EntityType="Self.Donation" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="JobApplication" EntityType="Self.JobApplication" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MediaBusiness" EntityType="Self.MediaBusiness" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MediaCase" EntityType="Self.MediaCase" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MediaJobApplication" EntityType="Self.MediaJobApplication" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MediaOtherPerson" EntityType="Self.MediaOtherPerson" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MediaPerson" EntityType="Self.MediaPerson" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MediaProduct" EntityType="Self.MediaProduct" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OtherPerson" EntityType="Self.OtherPerson" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Package" EntityType="Self.Package" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Person" EntityType="Self.Person" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Suggestion" EntityType="Self.Suggestion" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Business_Package" Association="Self.FK_Business_Package">
+      <End Role="Package" EntitySet="Package" />
+      <End Role="Business" EntitySet="Business" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Case_User" Association="Self.FK_Case_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="Case" EntitySet="Case" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Donation_User" Association="Self.FK_Donation_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="Donation" EntitySet="Donation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_JobApplication_User" Association="Self.FK_JobApplication_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="JobApplication" EntitySet="JobApplication" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MediaBusiness_Business" Association="Self.FK_MediaBusiness_Business">
+      <End Role="Business" EntitySet="Business" />
+      <End Role="MediaBusiness" EntitySet="MediaBusiness" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MediaOtherPerson_OtherPerson" Association="Self.FK_MediaOtherPerson_OtherPerson">
+      <End Role="OtherPerson" EntitySet="OtherPerson" />
+      <End Role="MediaOtherPerson" EntitySet="MediaOtherPerson" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MediaPerson_Person" Association="Self.FK_MediaPerson_Person">
+      <End Role="Person" EntitySet="Person" />
+      <End Role="MediaPerson" EntitySet="MediaPerson" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MediaProduct_Product" Association="Self.FK_MediaProduct_Product">
+      <End Role="Product" EntitySet="Product" />
+      <End Role="MediaProduct" EntitySet="MediaProduct" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MultimediaCase_Case" Association="Self.FK_MultimediaCase_Case">
+      <End Role="Case" EntitySet="Case" />
+      <End Role="MediaCase" EntitySet="MediaCase" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MultimediaJobApplication_JobApplication" Association="Self.FK_MultimediaJobApplication_JobApplication">
+      <End Role="JobApplication" EntitySet="JobApplication" />
+      <End Role="MediaJobApplication" EntitySet="MediaJobApplication" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OtherPerson_User" Association="Self.FK_OtherPerson_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="OtherPerson" EntitySet="OtherPerson" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Package_User" Association="Self.FK_Package_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="Package" EntitySet="Package" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Person_User" Association="Self.FK_Person_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="Person" EntitySet="Person" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Product_Package" Association="Self.FK_Product_Package">
+      <End Role="Package" EntitySet="Package" />
+      <End Role="Product" EntitySet="Product" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Suggestion_User" Association="Self.FK_Suggestion_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="Suggestion" EntitySet="Suggestion" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
