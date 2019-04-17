@@ -39,7 +39,7 @@ function loadAnexos()
         $.ajax
         (
             {
-                url: '../api/multimediaJobApplication/?idJA=' + idJA,
+                url: '../api/mediaJA/?idJA=' + idJA,
                 type: 'GET',
                 contentType: "application/json;charset=utf-8",
 

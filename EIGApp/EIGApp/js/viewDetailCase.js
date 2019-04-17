@@ -39,7 +39,7 @@ function loadAnexos()
         $.ajax
         (
             {
-                url: '../api/multimediaCase/?idCase=' + idCase,
+                url: '../api/mediaCase/?idCase=' + idCase,
                 type: 'GET',
                 contentType: "application/json;charset=utf-8",
 
