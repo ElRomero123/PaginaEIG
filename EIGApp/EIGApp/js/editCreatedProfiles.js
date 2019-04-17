@@ -258,7 +258,7 @@ function deleteFile(fileName, opt)
         {
             $('#bannerState').css('background','brown');
             $('#bannerState').text('Tu perfil ha sido eliminado!');
-            setInterval(800, recargar);
+            setTimeout(800, recargar);
         }
     ).catch
     (

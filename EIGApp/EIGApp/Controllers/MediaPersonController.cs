@@ -17,7 +17,7 @@ namespace EIGApp.Controllers
                         where (MP.IdPerson.Equals(idPerson))
                         select new {MP.Id, MP.FileName, MP.DownloadLink, MP.LoadDate, MP.LoadHourZone};
            
-            M.MediaPerson[] arrayMediaPerson = new M.MediaPerson[SMP.Count()];
+            M.MediaPerson[] arrayMediaPerson = new M.MediaPerson[query.Count()];
 
             int i = 0;
             foreach(var item in query)

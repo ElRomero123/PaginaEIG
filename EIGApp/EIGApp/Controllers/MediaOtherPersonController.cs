@@ -11,27 +11,26 @@ namespace EIGApp.Controllers
 
         public M.MediaOtherPerson[] Get(long idOtherPerson)
         {
-            var query = from MOP in BD.MediaOtherPersons
+            var SMOP = BD.MediaOtherPersons;
+            var query = from MOP in SMOP
                         where (MOP.IdOtherPerson.Equals(idOtherPerson))
                         select new {MOP.Id, MOP.FileName, MOP.DownloadLink, MOP.LoadDate};
 
-            var lista = query.ToArray();
+            M.MediaOtherPerson[] arrayMediaOtherPerson = new M.MediaOtherPerson[query.Count()];
 
-            M.MediaOtherPerson[] arrayMediaOtherPerson = new M.MediaOtherPerson[lista.Length];
-
-            for (int i = 0; i < lista.Length; i++)
+            int i = 0;
+            foreach(var item in query)
             {
                 M.MediaOtherPerson temp = new M.MediaOtherPerson
                 {
-                    Id = lista[i].Id,
-                    FileName = lista[i].FileName,
-                    DownloadLink = lista[i].DownloadLink,
-                    LoadDate = lista[i].LoadDate
+                    Id           = item.Id,
+                    FileName     = item.FileName,
+                    DownloadLink = item.DownloadLink,
+                    LoadDate     = item.LoadDate
                 };
-
                 arrayMediaOtherPerson[i] = temp;
+                i++;
             }
-
             return arrayMediaOtherPerson;
         }
 
